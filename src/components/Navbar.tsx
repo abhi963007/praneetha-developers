@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { NAV_LINKS, isRouteActive } from '../types/site';
+import './navbar-menu.css';
 
 export function Navbar() {
   const { pathname } = useLocation();
@@ -24,6 +25,7 @@ export function Navbar() {
                 src="/images/pranitha-logo.png"
                 alt="Pranitha Developers"
                 className="site-logo header"
+                style={{ filter: 'none', width: '140px', height: 'auto' }}
               />
             </Link>
           </div>
@@ -67,6 +69,13 @@ export function Navbar() {
                           to={item.to}
                           aria-current={active ? 'page' : undefined}
                           className={`nav-menu-list-text-link${active ? ' w--current' : ''}`}
+                          onClick={() => {
+                            const menu = document.querySelector<HTMLElement>('.mega-menu-wrapper');
+                            const toggle = document.querySelector<HTMLElement>('.hamburger-wrap');
+                            if (menu && toggle && getComputedStyle(menu).display !== 'none') {
+                              toggle.click();
+                            }
+                          }}
                         >
                           {item.label}
                         </Link>

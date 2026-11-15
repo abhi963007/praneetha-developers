@@ -61,19 +61,21 @@ export interface NavLinkItem {
 
 export const NAV_LINKS: NavLinkItem[] = [
   { label: 'Home', to: '/', itemClass: '_1' },
-  { label: 'About', to: '/about-us', itemClass: '_2' },
-  { label: 'Properties', to: '/properties', itemClass: '_3' },
-  { label: 'Services', to: '/services', itemClass: '_4' },
-  { label: 'Insights', to: '/insights', itemClass: '_5' },
-  { label: 'Contact', to: '/contact-us', itemClass: '_6' },
+  { label: 'About Us', to: '/about-us', itemClass: '_2' },
+  { label: 'Projects', to: '/properties', itemClass: '_3' },
+  { label: 'Gallery', to: '/#gallery', itemClass: '_4' },
+  { label: 'Services', to: '/services', itemClass: '_5' },
+  { label: 'Blogs', to: '/insights', itemClass: '_6' },
+  { label: 'Contact Us', to: '/contact-us', itemClass: '_7' },
 ];
 
 export const FOOTER_LINKS: { label: string; to: string }[] = [
   { label: 'Home', to: '/' },
   { label: 'About Us', to: '/about-us' },
-  { label: 'Properties', to: '/properties' },
+  { label: 'Projects', to: '/properties' },
+  { label: 'Gallery', to: '/#gallery' },
   { label: 'Services', to: '/services' },
-  { label: 'Insights', to: '/insights' },
+  { label: 'Blogs', to: '/insights' },
   { label: 'Contact Us', to: '/contact-us' },
 ];
 

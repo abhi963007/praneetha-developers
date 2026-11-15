@@ -161,7 +161,7 @@ function GalleryTrack({ items }: { items: GalleryLightboxItem[] }) {
 
 export function HomeGallerySection() {
   return (
-    <section className="section dark">
+    <section id="gallery" className="section dark">
       <img
         sizes="100vw"
         srcSet="/images/69e9e029ef7ec186491f95f8_Group%20531-p-500.png 500w, /images/69e9e029ef7ec186491f95f8_Group%20531-p-800.avif 800w, /images/69e9e029ef7ec186491f95f8_Group%20531.avif 1920w"

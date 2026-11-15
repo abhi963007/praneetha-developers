@@ -58,6 +58,7 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
                   src="/images/pranitha-logo.png"
                   alt="Pranitha Developers"
                   className="site-logo"
+                  style={{ width: '280px', maxWidth: '100%', height: 'auto', display: 'block' }}
                 />
               </Link>
               <p className="footer-title-two">Stay Updated! Subscribe to Property Alerts</p>
