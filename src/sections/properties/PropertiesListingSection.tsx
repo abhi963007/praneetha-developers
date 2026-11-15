@@ -20,14 +20,14 @@ export interface PropertyItem {
 
 export const PROPERTIES_DATA: PropertyItem[] = [
   {
-    slug: 'downtown-penthouse',
-    categorySlug: 'penthouse',
-    badge: 'Featured',
-    rooms: '3',
-    sqft: '2,100 sqft',
-    location: 'Los Angeles, California',
-    name: 'Downtown Penthouse',
-    price: '$3,900',
+    slug: 'sovereign-villas-mokila',
+    categorySlug: 'villas-ongoing',
+    badge: 'Flagship Launch',
+    rooms: '3 & 4 BHK',
+    sqft: '2,250–2,850 sqft',
+    location: 'Mokila–Shankarpally, Hyderabad',
+    name: 'Pranitha Sovereign Villas',
+    price: '₹1.50 Cr – ₹2.00 Cr',
     slides: [
       {
         src: '/images/6ac77bccc663aaac1dd64c34_1.avif',
@@ -52,14 +52,14 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     ],
   },
   {
-    slug: 'contemporary-villa',
-    categorySlug: 'villa-resort',
-    badge: 'New',
-    rooms: '4',
-    sqft: '2,400 sqft',
-    location: 'Beverly Hills, California',
-    name: 'Contemporary Villa',
-    price: '$150,000',
+    slug: 'santorini-villas-mokila',
+    categorySlug: 'villas-ongoing',
+    badge: 'TG-RERA P02400009246',
+    rooms: '4 BHK',
+    sqft: '3,820–4,900 sqft',
+    location: 'Mokila, Hyderabad',
+    name: 'Pranitha Santorini Villas',
+    price: '₹3.82 Cr+',
     slides: [
       {
         src: '/images/6ac778f2360b88b7de3db05b_2.avif',
@@ -84,14 +84,14 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     ],
   },
   {
-    slug: 'minimalist-family-house',
-    categorySlug: 'family-house',
-    badge: 'Hot Deal',
-    rooms: '3',
-    sqft: '1,850 sqft',
-    location: 'Austin, Texas',
-    name: 'Minimalist Family House',
-    price: '$210,000',
+    slug: 'amity-villas-mokila',
+    categorySlug: 'villas-completed',
+    badge: 'Completed',
+    rooms: '4 BHK',
+    sqft: '2,960–3,399 sqft',
+    location: 'Mokila, Hyderabad',
+    name: 'Pranitha Amity Villas',
+    price: '₹2.96 Cr+',
     slides: [
       {
         src: '/images/6ac77861158caa5fa8a1b3b4_3.avif',
@@ -116,14 +116,14 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     ],
   },
   {
-    slug: 'modern-glass-front-home',
-    categorySlug: 'family-house',
-    badge: 'Hot Deal',
-    rooms: '5',
-    sqft: '3,200 sqft',
-    location: 'Miami, Florida',
-    name: 'Modern Glass Front Home',
-    price: '$450,000',
+    slug: 'the-patio-mokila',
+    categorySlug: 'villas-completed',
+    badge: 'Completed',
+    rooms: '4 BHK',
+    sqft: '4,320–4,800 sqft',
+    location: 'Mokila–Shankarpally, Hyderabad',
+    name: 'Pranitha The Patio',
+    price: '₹4.32 Cr+',
     slides: [
       {
         src: '/images/6ac75a7d2c255f89579943ac_4.avif',
@@ -148,14 +148,14 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     ],
   },
   {
-    slug: 'luxury-beachfront-villa',
-    categorySlug: 'villa-resort',
-    badge: 'Featured',
-    rooms: '4',
-    sqft: '2,900 sqft',
-    location: 'Malibu, California',
-    name: 'Luxury Beachfront Villa',
-    price: '$1,800',
+    slug: 'meridian-heights-kokapet',
+    categorySlug: 'apartments',
+    badge: 'Ongoing',
+    rooms: '2.5 & 3 BHK',
+    sqft: '1,450–2,150 sqft',
+    location: 'Kondakal–Kokapet, Hyderabad',
+    name: 'Pranitha Meridian Heights',
+    price: '₹88L – ₹1.35 Cr',
     slides: [
       {
         src: '/images/6ac77be76dc6526aa10abcf6_5.avif',
@@ -180,14 +180,14 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     ],
   },
   {
-    slug: 'elegant-urban-apartment',
-    categorySlug: 'apartment',
-    badge: 'For Rent',
-    rooms: '2',
-    sqft: '1,400 sqft',
-    location: 'New York City, USA',
-    name: 'Elegant Urban Apartment',
-    price: '$2,400',
+    slug: 'singapur-town-plots',
+    categorySlug: 'plots-coming-soon',
+    badge: 'Coming Soon',
+    rooms: 'Plots',
+    sqft: '200–500 Sq. Yds',
+    location: 'Shankarpally, Hyderabad',
+    name: 'Pranitha Singapur Town — Phase II',
+    price: 'Pre-Launch',
     slides: [
       {
         src: '/images/6ac77bde6ec3f46c2759130c_6.avif',
@@ -331,7 +331,7 @@ export function PropertyCard({
             </Link>
             <div className="property-price-box">
               <p className="property-price">{property.price}</p>
-              <p className="property-price-info">{'/\u00a0\u00a0Listed price'}</p>
+              <p className="property-price-info">{'/\u00a0\u00a0Guide price'}</p>
             </div>
           </div>
         </div>
@@ -369,12 +369,9 @@ export function PropertiesListingSection() {
   const { slug } = useParams<{ slug?: string }>();
   const isAll = !slug || pathname === '/properties';
 
-  const matching =
-    slug && slug !== 'rental-home'
-      ? PROPERTIES_DATA.filter((p) => p.categorySlug === slug)
-      : slug === 'rental-home'
-        ? PROPERTIES_DATA.filter((p) => p.badge === 'For Rent' || p.price === '$3,900' || p.price === '$1,800')
-        : PROPERTIES_DATA;
+  const matching = slug
+    ? PROPERTIES_DATA.filter((p) => p.categorySlug === slug)
+    : PROPERTIES_DATA;
   const visibleProperties = matching.length > 0 ? matching : PROPERTIES_DATA;
 
   return (

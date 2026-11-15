@@ -19,8 +19,8 @@ export function HomeVideoSection() {
         </div>
         <div className="cta-content-box">
           <div className="cta-content">
-            <h2 className="cta-title">Made for Modern Living</h2>
-            <p className="cta-text _2">Simple Home designed for comfort and everyday life.</p>
+            <h2 className="cta-title">Designed for Serene Living</h2>
+            <p className="cta-text _2">Gated Mokila villas crafted for daylight, greenery, and family life.</p>
             <div className="cta-button">
               <Link to="/properties" data-wf--primary-button--variant="base" className="primary-button w-inline-block">
                 <div className="primary-button-flex">

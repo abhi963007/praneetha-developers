@@ -14,10 +14,10 @@ export function HomePropertiesSection() {
                 className="subtitle-icon-img"
               />
             </div>
-            <p className="section-subtitle">Featured Properties</p>
+            <p className="section-subtitle">Our Projects</p>
           </div>
           <h2 className="section-title">
-            Find a Property That Fits<span className="sectitle-br"> </span>Your Life
+            Luxury Villas &amp; Homes in<span className="sectitle-br"> </span>West Hyderabad
           </h2>
         </div>
         <div className="w-dyn-list">

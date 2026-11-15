@@ -12,60 +12,60 @@ export interface ServiceItem {
 export const SERVICES: ServiceItem[] = [
   {
     count: '(01)',
-    title: 'Property Buying',
-    slug: 'property-buying',
+    title: 'Luxury Villa Communities',
+    slug: 'luxury-villa-communities',
     description:
-      'Find the right property with expert guidance from your first search through the final decision.',
+      'Master-planned gated triplex villa enclaves in Mokila–Shankarpally with resort-grade clubhouses.',
     image: '/images/6ac75f99d29b5eef5b6dbc62_1.avif',
     srcSet:
       '/images/6ac75f99d29b5eef5b6dbc62_1-p-500.avif 500w, /images/6ac75f99d29b5eef5b6dbc62_1-p-800.avif 800w, /images/6ac75f99d29b5eef5b6dbc62_1-p-1080.avif 1080w, /images/6ac75f99d29b5eef5b6dbc62_1.avif 1586w',
   },
   {
     count: '(02)',
-    title: 'Property Selling',
-    slug: 'property-selling',
+    title: 'Guided Site Visits',
+    slug: 'guided-site-visits',
     description:
-      'Position your property effectively and connect with qualified buyers through a focused sales strategy.',
+      'Walk through completed Amity & The Patio communities and inspect Sovereign Villas at Mokila first-hand.',
     image: '/images/6ac7752aff63a23a7695325e_2.avif',
     srcSet:
       '/images/6ac7752aff63a23a7695325e_2-p-500.avif 500w, /images/6ac7752aff63a23a7695325e_2-p-800.avif 800w, /images/6ac7752aff63a23a7695325e_2.avif 1022w',
   },
   {
     count: '(03)',
-    title: 'Property Leasing',
-    slug: 'property-leasing',
+    title: 'RERA & Legal Clarity',
+    slug: 'rera-legal-clarity',
     description:
-      'Find flexible rental opportunities that match your location, lifestyle, and budget.',
+      'Complete HMDA layout permits, TG-RERA compliance, and pre-approved bank APF documentation.',
     image: '/images/6ac77544203ae939c6edc4b1_3.avif',
     srcSet:
       '/images/6ac77544203ae939c6edc4b1_3-p-500.avif 500w, /images/6ac77544203ae939c6edc4b1_3-p-800.avif 800w, /images/6ac77544203ae939c6edc4b1_3-p-1080.avif 1080w, /images/6ac77544203ae939c6edc4b1_3.avif 1200w',
   },
   {
     count: '(04)',
-    title: 'Property Management',
-    slug: 'property-management',
+    title: 'Villa Personalization',
+    slug: 'villa-personalization',
     description:
-      'Keep your property running smoothly with reliable support for tenants, maintenance, and daily operations.',
+      'Thoughtful layout and interior finish customization options tailored to your family lifestyle.',
     image: '/images/6ac777306ec3f46c2755b88d_4.avif',
     srcSet:
       '/images/6ac777306ec3f46c2755b88d_4-p-500.avif 500w, /images/6ac777306ec3f46c2755b88d_4-p-800.avif 800w, /images/6ac777306ec3f46c2755b88d_4-p-1080.avif 1080w, /images/6ac777306ec3f46c2755b88d_4.avif 1500w',
   },
   {
     count: '(05)',
-    title: 'Investment Guidance',
-    slug: 'investment-guidance',
+    title: 'NRI Concierge Desk',
+    slug: 'nri-concierge-desk',
     description:
-      'Identify opportunities and build a real estate portfolio aligned with your long-term goals.',
+      'Dedicated support for global buyers with PoA guidance, NRE/NRO loans, and bi-monthly progress updates.',
     image: '/images/6ac775580b7b74424ee32bff_5.avif',
     srcSet:
       '/images/6ac775580b7b74424ee32bff_5-p-500.avif 500w, /images/6ac775580b7b74424ee32bff_5-p-800.avif 800w, /images/6ac775580b7b74424ee32bff_5-p-1080.avif 1080w, /images/6ac775580b7b74424ee32bff_5.avif 1200w',
   },
   {
     count: '(06)',
-    title: 'Market Advisory',
-    slug: 'market-advisory',
+    title: 'Channel Partner Desk',
+    slug: 'channel-partner-desk',
     description:
-      'Make informed property decisions with practical insights into market conditions and local trends.',
+      'Fast 24–48 hour empanelment for TG-RERA registered realtors with transparent milestone payouts.',
     image: '/images/6ac77046c8354aae60b3356f_6.avif',
     srcSet:
       '/images/6ac77046c8354aae60b3356f_6-p-500.png 500w, /images/6ac77046c8354aae60b3356f_6.avif 1500w',

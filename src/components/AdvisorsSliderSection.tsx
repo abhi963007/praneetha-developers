@@ -19,9 +19,9 @@ interface AdvisorItem {
 
 const ADVISORS: AdvisorItem[] = [
   {
-    name: 'Olivia Davis',
-    role: 'Residential Advisor',
-    to: '/advisers/olivia-davis',
+    name: 'Varthya Devula Nayak',
+    role: 'Managing Director & Founder',
+    to: '/advisers/varthya-devula-nayak',
     src: '/images/6ac747fc4fa22554357fa881_1.avif',
     srcSet:
       '/images/6ac747fc4fa22554357fa881_1-p-500.avif 500w, /images/6ac747fc4fa22554357fa881_1-p-800.avif 800w, /images/6ac747fc4fa22554357fa881_1-p-1080.avif 1080w, /images/6ac747fc4fa22554357fa881_1.avif 1138w',
@@ -32,9 +32,9 @@ const ADVISORS: AdvisorItem[] = [
     aboutFloatId: 'b4feb20e-4235-a603-bb33-8ac163978550',
   },
   {
-    name: 'Daniel Brooks',
-    role: 'Property Consultant',
-    to: '/advisers/daniel-brooks',
+    name: 'Kavitha Varthya',
+    role: 'Director — Design & Client Relations',
+    to: '/advisers/kavitha-varthya',
     src: '/images/6ac7480a6ec3f46c27319938_2.avif',
     srcSet:
       '/images/6ac7480a6ec3f46c27319938_2-p-500.avif 500w, /images/6ac7480a6ec3f46c27319938_2-p-800.avif 800w, /images/6ac7480a6ec3f46c27319938_2-p-1080.avif 1080w, /images/6ac7480a6ec3f46c27319938_2.avif 1138w',
@@ -45,9 +45,9 @@ const ADVISORS: AdvisorItem[] = [
     aboutFloatId: 'b4feb20e-4235-a603-bb33-8ac163978560',
   },
   {
-    name: 'Marcus Bennett',
-    role: 'Luxury Property Advisor',
-    to: '/advisers/marcus-bennett',
+    name: 'Srinivas Reddy K.',
+    role: 'Chief Structural Engineer',
+    to: '/advisers/srinivas-reddy',
     src: '/images/6ac74815ff63a23a76724796_3.avif',
     srcSet:
       '/images/6ac74815ff63a23a76724796_3-p-500.avif 500w, /images/6ac74815ff63a23a76724796_3-p-800.avif 800w, /images/6ac74815ff63a23a76724796_3.avif 920w',
@@ -58,9 +58,9 @@ const ADVISORS: AdvisorItem[] = [
     aboutFloatId: 'b4feb20e-4235-a603-bb33-8ac163978570',
   },
   {
-    name: 'Sofia Mitchell',
-    role: 'Neighborhood Specialist',
-    to: '/advisers/sofia-mitchell',
+    name: 'Ananya Deshmukh',
+    role: 'Principal Architect',
+    to: '/advisers/ananya-deshmukh',
     src: '/images/6ac7482875f59687c0774035_4.avif',
     srcSet:
       '/images/6ac7482875f59687c0774035_4-p-500.avif 500w, /images/6ac7482875f59687c0774035_4-p-800.avif 800w, /images/6ac7482875f59687c0774035_4.avif 920w',
@@ -71,9 +71,9 @@ const ADVISORS: AdvisorItem[] = [
     aboutFloatId: 'b4feb20e-4235-a603-bb33-8ac163978580',
   },
   {
-    name: 'James Anderson',
-    role: 'Investment Advisor',
-    to: '/advisers/james-anderson',
+    name: 'Mokila Site Desk',
+    role: 'Guided Villa Tours',
+    to: '/contact-us',
     src: '/images/6ac74835360b88b7de180583_5.avif',
     srcSet:
       '/images/6ac74835360b88b7de180583_5-p-500.avif 500w, /images/6ac74835360b88b7de180583_5-p-800.avif 800w, /images/6ac74835360b88b7de180583_5.avif 920w',
@@ -84,9 +84,9 @@ const ADVISORS: AdvisorItem[] = [
     aboutFloatId: 'b4feb20e-4235-a603-bb33-8ac163978590',
   },
   {
-    name: 'Noah Parker',
-    role: 'Property Consultant',
-    to: '/advisers/noah-parker',
+    name: 'RERA & Legal Desk',
+    role: 'HMDA & Bank APF Support',
+    to: '/services',
     src: '/images/6ac7485be32302908cbc1fcb_6.avif',
     srcSet:
       '/images/6ac7485be32302908cbc1fcb_6-p-500.avif 500w, /images/6ac7485be32302908cbc1fcb_6-p-800.avif 800w, /images/6ac7485be32302908cbc1fcb_6.avif 920w',
@@ -97,9 +97,9 @@ const ADVISORS: AdvisorItem[] = [
     aboutFloatId: 'b4feb20e-4235-a603-bb33-8ac1639785a0',
   },
   {
-    name: 'Liam Carter',
-    role: 'Property Consultant',
-    to: '/advisers/liam-carter',
+    name: 'NRI Concierge',
+    role: 'Global Buyer Assistance',
+    to: '/contact-us',
     src: '/images/6ac7495aef17ffc941efc77e_7.avif',
     srcSet:
       '/images/6ac7495aef17ffc941efc77e_7-p-500.avif 500w, /images/6ac7495aef17ffc941efc77e_7-p-800.avif 800w, /images/6ac7495aef17ffc941efc77e_7.avif 920w',
@@ -110,9 +110,9 @@ const ADVISORS: AdvisorItem[] = [
     aboutFloatId: 'b4feb20e-4235-a603-bb33-8ac1639785b0',
   },
   {
-    name: 'Emma Wilson',
-    role: 'Market Advisor',
-    to: '/advisers/emma-wilson',
+    name: 'Channel Partner Desk',
+    role: 'Realtor Empanelment',
+    to: '/contact-us',
     src: '/images/6ac74963ea4b76796290d00f_8.avif',
     srcSet:
       '/images/6ac74963ea4b76796290d00f_8-p-500.avif 500w, /images/6ac74963ea4b76796290d00f_8-p-800.avif 800w, /images/6ac74963ea4b76796290d00f_8.avif 920w',
@@ -148,10 +148,10 @@ export function AdvisorsSliderSection({ variant = 'home' }: AdvisorsSliderSectio
                 className="subtitle-icon-img"
               />
             </div>
-            <p className="section-subtitle">Our Advisors</p>
+            <p className="section-subtitle">Our Leadership</p>
           </div>
           <h2 className="section-title">
-            Meet the Experts Behind<span className="sectitle-br"> </span>Your Dream Home
+            Meet the Leaders Behind<span className="sectitle-br"> </span>Pranitha Developers
           </h2>
         </div>
         <div

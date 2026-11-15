@@ -21,8 +21,8 @@ export function Navbar() {
             >
               <img
                 loading="lazy"
-                src="/images/6ad5ed0fe45891f848d5e8ad_Group%20532.svg"
-                alt=""
+                src="/images/pranitha-logo.png"
+                alt="Pranitha Developers"
                 className="site-logo header"
               />
             </Link>
@@ -82,24 +82,24 @@ export function Navbar() {
               <div className="navbar-details-content">
                 <div className="navbar-details-gmail-number">
                   <a
-                    href="mailto:hello@veymont.com?subject=hello%40veymont.com"
+                    href="mailto:info@praneeta.dev"
                     className="navbar-details-gmail-text"
                   >
-                    hello@veymont.com
+                    info@praneeta.dev
                   </a>
-                  <a href="tel:(808)555-01113891" className="navbar-details-number">
-                    (808) 555-0111 3891
+                  <a href="tel:+919133637111" className="navbar-details-number">
+                    +91 91336 37111
                   </a>
                 </div>
                 <p className="menu-text">
-                  More templates from{' '}
+                  Mokila Experience Lounge —{' '}
                   <a
-                    href="https://webflow.com/templates/designers/skyeflow"
+                    href="https://www.google.com/maps?q=17.4264796,78.1912362"
                     target="_blank"
                     rel="noreferrer"
                     className="menu-text-link"
                   >
-                    “Skyeflow”
+                    Hyderabad
                   </a>
                 </p>
                 <div className="social-box">

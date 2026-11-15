@@ -11,58 +11,40 @@ export interface InsightArticle {
 
 export const INSIGHT_ARTICLES: InsightArticle[] = [
   {
-    slug: 'real-estate-investment-for-long-term-growth',
-    readTime: '8 min read',
-    date: 'October 20, 2026',
-    title: 'Real estate investment for long-term growth',
+    slug: 'why-mokila-villas-under-2cr-are-rare',
+    readTime: '6 min read',
+    date: 'February 14, 2026',
+    title: 'Why ₹1.5 Cr – ₹2.0 Cr Gated Villas in Mokila Are West Hyderabad’s Rarest Opportunity',
     image: '/images/6ad5e06cfa9c34ba91ba7938_Golden-Hour%20Real%20Estate%20Investment%20Desk.avif',
     srcSet:
       '/images/6ad5e06cfa9c34ba91ba7938_Golden-Hour%20Real%20Estate%20Investment%20Desk-p-500.avif 500w, /images/6ad5e06cfa9c34ba91ba7938_Golden-Hour%20Real%20Estate%20Investment%20Desk-p-800.avif 800w, /images/6ad5e06cfa9c34ba91ba7938_Golden-Hour%20Real%20Estate%20Investment%20Desk-p-1080.avif 1080w, /images/6ad5e06cfa9c34ba91ba7938_Golden-Hour%20Real%20Estate%20Investment%20Desk.avif 1536w',
   },
   {
-    slug: 'a-complete-checklist-for-a-stress-free-move',
-    readTime: '9 min read',
-    date: 'October 20, 2026',
-    title: 'A Complete Checklist for a Stress-Free Move',
+    slug: 'orr-exit-2-kollur-neopolis-impact',
+    readTime: '5 min read',
+    date: 'January 28, 2026',
+    title: 'How ORR Exit 2 & Neopolis Are Reshaping the Mokila – Shankarpally Villa Corridor',
     image: '/images/6ad5e08dfa9c34ba91ba8857_Stress-Free%20Move%20Checklist.avif',
     srcSet:
       '/images/6ad5e08dfa9c34ba91ba8857_Stress-Free%20Move%20Checklist-p-500.avif 500w, /images/6ad5e08dfa9c34ba91ba8857_Stress-Free%20Move%20Checklist-p-800.avif 800w, /images/6ad5e08dfa9c34ba91ba8857_Stress-Free%20Move%20Checklist-p-1080.avif 1080w, /images/6ad5e08dfa9c34ba91ba8857_Stress-Free%20Move%20Checklist.avif 1536w',
   },
   {
-    slug: 'how-to-increase-your-property-value-before-selling',
-    readTime: '5 min read',
-    date: 'October 20, 2026',
-    title: 'How to increase your property value before selling',
+    slug: 'rera-hmda-villa-buyer-checklist',
+    readTime: '7 min read',
+    date: 'January 10, 2026',
+    title: 'Before You Book a Villa in Hyderabad: 6 TG-RERA & HMDA Checks Every Family Must Verify',
     image: '/images/6ad5e0b5421632ee086c9852_Golden-Hour%20Modern%20Home%20Renovation.avif',
     srcSet:
       '/images/6ad5e0b5421632ee086c9852_Golden-Hour%20Modern%20Home%20Renovation-p-500.avif 500w, /images/6ad5e0b5421632ee086c9852_Golden-Hour%20Modern%20Home%20Renovation-p-800.avif 800w, /images/6ad5e0b5421632ee086c9852_Golden-Hour%20Modern%20Home%20Renovation-p-1080.avif 1080w, /images/6ad5e0b5421632ee086c9852_Golden-Hour%20Modern%20Home%20Renovation.avif 1536w',
   },
   {
-    slug: 'the-ultimate-guide-to-buying-your-first-home',
-    readTime: '7 min read',
-    date: 'October 20, 2026',
-    title: 'The ultimate guide to buying your first home',
+    slug: 'courtyard-ventilation-hyderabad-climate',
+    readTime: '4 min read',
+    date: 'December 19, 2025',
+    title: 'Natural Daylight, Double-Height Courtyards & Cross Ventilation in Modern Deccan Homes',
     image: '/images/6ad5e194d131b1b7d7013883_Your%20First%20Home_%20A%20New%20Beginning.avif',
     srcSet:
       '/images/6ad5e194d131b1b7d7013883_Your%20First%20Home_%20A%20New%20Beginning-p-500.avif 500w, /images/6ad5e194d131b1b7d7013883_Your%20First%20Home_%20A%20New%20Beginning-p-800.avif 800w, /images/6ad5e194d131b1b7d7013883_Your%20First%20Home_%20A%20New%20Beginning-p-1080.avif 1080w, /images/6ad5e194d131b1b7d7013883_Your%20First%20Home_%20A%20New%20Beginning.avif 1536w',
-  },
-  {
-    slug: '7-hidden-costs-of-home-ownership-for-every-buyer',
-    readTime: '9 min read',
-    date: 'October 20, 2026',
-    title: '7 hidden costs of home ownership for every buyer',
-    image: '/images/6ad5e107c34497c2eb6332b9_Home-Buying%20Costs%20at%20a%20Glance.avif',
-    srcSet:
-      '/images/6ad5e107c34497c2eb6332b9_Home-Buying%20Costs%20at%20a%20Glance-p-500.avif 500w, /images/6ad5e107c34497c2eb6332b9_Home-Buying%20Costs%20at%20a%20Glance-p-800.avif 800w, /images/6ad5e107c34497c2eb6332b9_Home-Buying%20Costs%20at%20a%20Glance-p-1080.avif 1080w, /images/6ad5e107c34497c2eb6332b9_Home-Buying%20Costs%20at%20a%20Glance.avif 1536w',
-  },
-  {
-    slug: 'top-interior-design-that-are-shaping-modern-homes',
-    readTime: '10 min read',
-    date: 'October 20, 2026',
-    title: 'Top interior design that are shaping modern homes',
-    image: '/images/6ad5e1502e57b218a8301749_Warm%20Minimalist%20Open-Plan%20Interior.avif',
-    srcSet:
-      '/images/6ad5e1502e57b218a8301749_Warm%20Minimalist%20Open-Plan%20Interior-p-500.avif 500w, /images/6ad5e1502e57b218a8301749_Warm%20Minimalist%20Open-Plan%20Interior-p-800.avif 800w, /images/6ad5e1502e57b218a8301749_Warm%20Minimalist%20Open-Plan%20Interior-p-1080.avif 1080w, /images/6ad5e1502e57b218a8301749_Warm%20Minimalist%20Open-Plan%20Interior.avif 1536w',
   },
 ];
 

@@ -13,50 +13,42 @@ interface ReviewCardItem {
 const RTL_GROUPS: ReviewCardItem[][] = [
   [
     {
-      text: 'Veymont made the entire home-search process feel simple and organized. The team understood what I was looking for and helped me find a property that genuinely fit my lifestyle.',
+      text: 'Walking into an already-occupied Pranitha community gave our family total confidence. The structural quality, peaceful Mokila greenery, and transparent legal docket were everything promised.',
       avatar: '/images/69e9ddc2ce892cd5dab31b63_Mask%20group.avif',
-      avatarAlt:
-        'Man with short blond hair wearing glasses and a dark blazer over a light blue shirt, smiling against a gray background.',
-      name: 'Daniel Brooks',
-      designation: 'Home Buyer',
+      avatarAlt: 'Homeowner portrait',
+      name: 'Raghavendra Rao M.',
+      designation: 'Owner, Amity Villas',
       sideImage: '/images/69ec75b8d60a85ff42ffc2a6_1.avif',
-      sideImageAlt:
-        'Smiling woman with long blonde hair wearing a gray blazer and light blouse against a muted background.',
+      sideImageAlt: 'Pranitha homeowner portrait',
     },
     {
-      text: 'The market insights and property guidance gave me much more confidence when evaluating investment opportunities. The process was clear, practical, and focused on long-term value.',
+      text: 'We looked at 3 BHK apartments in Kokapet costing ₹1.9 Cr, then visited Sovereign Villas. Getting an independent triplex villa on our own 215 Sq. Yd plot at ₹1.75 Cr was an easy decision.',
       avatar: '/images/69e9e6a7f57e9021ae28555e_5.avif',
-      avatarAlt:
-        'Portrait of a woman with dark hair pulled back, wearing a white top and a dark blazer, smiling slightly against a gray background.',
-      name: 'Sarah Mitchell',
-      designation: 'Property Investor',
+      avatarAlt: 'Homeowner portrait',
+      name: 'Deepika & Karthik V.',
+      designation: 'Buyers, Sovereign Villas',
       sideImage: '/images/69ec7641aabd0693926183c3_2.avif',
-      sideImageAlt:
-        'Portrait of a man with short salt-and-pepper hair wearing a gray shirt and dark blazer, standing in front of a stone wall.',
+      sideImageAlt: 'Pranitha homeowner portrait',
     },
   ],
   [
     {
-      text: 'As a first-time buyer, I had plenty of questions. The team took the time to explain each step clearly and made what initially felt overwhelming much easier to navigate.',
+      text: 'The courtyard design keeps the house remarkably cool even in May. Clear milestone updates and direct access to leadership made fit-outs effortless.',
       avatar: '/images/69e9ddc2ce892cd5dab31b63_Mask%20group.avif',
-      avatarAlt:
-        'Man with short blond hair wearing glasses and a dark blazer over a light blue shirt, smiling against a gray background.',
-      name: 'Michael Anderson',
-      designation: 'First-Time Buyer',
+      avatarAlt: 'Homeowner portrait',
+      name: 'Suresh Babu N.',
+      designation: 'Owner, The Patio',
       sideImage: '/images/69ec75b8d60a85ff42ffc2a6_1.avif',
-      sideImageAlt:
-        'Smiling woman with long wavy hair wearing a gray blazer and light blouse against a neutral background.',
+      sideImageAlt: 'Pranitha homeowner portrait',
     },
     {
-      text: 'From preparing the property to handling the final details, the Veymont team kept everything moving smoothly. I always felt informed and supported throughout the sale.',
+      text: 'Clients immediately appreciate the ₹1.5–2 Cr entry price point combined with delivered proof at Amity Villas. Pranitha’s CP support and timely payouts make them effortless to recommend.',
       avatar: '/images/69e9e6a7f57e9021ae28555e_5.avif',
-      avatarAlt:
-        'Portrait of a woman with dark hair pulled back, wearing a white top and a dark blazer, smiling slightly against a gray background.',
-      name: 'Olivia Carter',
-      designation: 'Home Seller',
+      avatarAlt: 'Channel partner portrait',
+      name: 'Lakshmi Prasanna K.',
+      designation: 'Channel Partner',
       sideImage: '/images/69ec7641aabd0693926183c3_2.avif',
-      sideImageAlt:
-        'Man with short salt-and-pepper hair wearing a grey shirt and dark blazer against a grey wall background.',
+      sideImageAlt: 'Channel partner portrait',
     },
   ],
 ];
@@ -64,52 +56,44 @@ const RTL_GROUPS: ReviewCardItem[][] = [
 const LTR_GROUPS: ReviewCardItem[][] = [
   [
     {
-      text: 'Finding a rental that matched my location and budget was surprisingly easy with Veymont. The process was straightforward, and the team was responsive whenever I needed help.',
+      text: 'Walking into an already-occupied Pranitha community gave our family total confidence. The structural quality, peaceful Mokila greenery, and transparent legal docket were everything promised.',
       avatar: '/images/69e9e6a7f57e9021ae28555e_5.avif',
-      avatarAlt:
-        'Portrait of a woman with dark hair pulled back, wearing a white top and a dark blazer, smiling slightly against a gray background.',
-      name: 'Emma Richardson',
-      designation: 'Property Renter',
+      avatarAlt: 'Homeowner portrait',
+      name: 'Raghavendra Rao M.',
+      designation: 'Owner, Amity Villas',
       sideImage: '/images/69f5e1730184d2574624b2b4_Frame%2035.avif',
-      sideImageAlt:
-        'Smiling woman with shoulder-length wavy brown hair wearing a navy blue blouse and a pendant necklace against a gray background.',
+      sideImageAlt: 'Pranitha homeowner portrait',
     },
     {
-      text: 'Veymont combines a strong understanding of the market with a very personal approach. Their advice helped me compare opportunities more carefully and make a decision I felt confident about.',
+      text: 'We looked at 3 BHK apartments in Kokapet costing ₹1.9 Cr, then visited Sovereign Villas. Getting an independent triplex villa on our own 215 Sq. Yd plot at ₹1.75 Cr was an easy decision.',
       avatar: '/images/69e9ddc2ce892cd5dab31b63_Mask%20group.avif',
-      avatarAlt:
-        'Man with short blond hair wearing glasses and a dark blazer over a light blue shirt, smiling against a gray background.',
-      name: 'James Wilson',
-      designation: 'Real Estate Investor',
+      avatarAlt: 'Homeowner portrait',
+      name: 'Deepika & Karthik V.',
+      designation: 'Buyers, Sovereign Villas',
       sideImage:
         '/images/69f5e18ba43f0976903809ac_QmaRG9f7iTt3uTnk7jYEv7JKSKY2RFNLuytqSGT21tbKse%202.avif',
-      sideImageAlt:
-        'Smiling man with light brown hair and glasses wearing a navy blazer and white shirt against gray background.',
+      sideImageAlt: 'Pranitha homeowner portrait',
     },
   ],
   [
     {
-      text: 'The Veymont team handled every stage of the sale with professionalism and clear communication. I always knew what was happening and felt confident having them guide me through the process.',
+      text: 'The courtyard design keeps the house remarkably cool even in May. Clear milestone updates and direct access to leadership made fit-outs effortless.',
       avatar: '/images/69e9e6a7f57e9021ae28555e_5.avif',
-      avatarAlt:
-        'Portrait of a woman with dark hair pulled back, wearing a white top and a dark blazer, smiling slightly against a gray background.',
-      name: 'Sophia Bennett',
-      designation: 'Home Seller',
+      avatarAlt: 'Homeowner portrait',
+      name: 'Suresh Babu N.',
+      designation: 'Owner, The Patio',
       sideImage: '/images/69f5e1730184d2574624b2b4_Frame%2035.avif',
-      sideImageAlt:
-        'Smiling woman with shoulder-length wavy light brown hair wearing a dark blouse and a pendant necklace against a plain gray background.',
+      sideImageAlt: 'Pranitha homeowner portrait',
     },
     {
-      text: 'Veymont helped me narrow down my options quickly without making the process feel rushed. Their attention to detail and understanding of the market made finding the right property much easier.',
+      text: 'Clients immediately appreciate the ₹1.5–2 Cr entry price point combined with delivered proof at Amity Villas. Pranitha’s CP support and timely payouts make them effortless to recommend.',
       avatar: '/images/69e9ddc2ce892cd5dab31b63_Mask%20group.avif',
-      avatarAlt:
-        'Man with short blond hair wearing glasses and a dark blazer over a light blue shirt, smiling against a gray background.',
-      name: 'Ryan Thompson',
-      designation: 'Property Buyer',
+      avatarAlt: 'Channel partner portrait',
+      name: 'Lakshmi Prasanna K.',
+      designation: 'Channel Partner',
       sideImage:
         '/images/69f5e18ba43f0976903809ac_QmaRG9f7iTt3uTnk7jYEv7JKSKY2RFNLuytqSGT21tbKse%202.avif',
-      sideImageAlt:
-        'Smiling man with glasses wearing a navy blazer and white shirt against a gray background.',
+      sideImageAlt: 'Channel partner portrait',
     },
   ],
 ];

@@ -2,12 +2,12 @@ import { useState, type FormEvent } from 'react';
 import { PAGE_META } from '../../types/site';
 
 const PROPERTY_INTERESTS = [
-  'Buying a Property',
-  'Selling a Property',
-  'Renting a Property',
-  'Property Investment',
-  'Property Management',
-  'General Inquiry',
+  'Pranitha Sovereign Villas (₹1.5–2.0 Cr)',
+  'Pranitha Santorini Villas',
+  'Pranitha Amity / The Patio Villas',
+  'Pranitha Meridian Heights Apartments',
+  'Pranitha Singapur Town Plots (Coming Soon)',
+  'Channel Partner Registration',
 ] as const;
 
 export function ContactFormSection() {
@@ -73,12 +73,17 @@ export function ContactFormSection() {
                 className="contact-info-icon-img"
               />
             </div>
-            <p className="contact-info-title">Phone No</p>
-            <a href="tel:+1(415)555-0123" className="contact-info-text link">
-              +1 (415) 555-0123
+            <p className="contact-info-title">Phone &amp; WhatsApp</p>
+            <a href="tel:+919133637111" className="contact-info-text link">
+              +91 91336 37111
             </a>
-            <a href="tel:+1(415)555-0123" className="contact-info-text link">
-              +1 (415) 555-0123
+            <a
+              href="https://wa.me/919133637111"
+              target="_blank"
+              rel="noreferrer"
+              className="contact-info-text link"
+            >
+              WhatsApp Site Desk
             </a>
           </div>
           <div className="contact-info-box">
@@ -91,11 +96,16 @@ export function ContactFormSection() {
               />
             </div>
             <p className="contact-info-title">Email Id</p>
-            <a href="mailto:hello@veymont.com?subject=hello%40veymont.com" className="contact-info-text link">
-              hello@veymont.com
+            <a href="mailto:info@praneeta.dev" className="contact-info-text link">
+              info@praneeta.dev
             </a>
-            <a href="mailto:info@veymont.com?subject=info%40veymont.com" className="contact-info-text link">
-              info@veymont.com
+            <a
+              href="https://www.google.com/maps?q=17.4264796,78.1912362"
+              target="_blank"
+              rel="noreferrer"
+              className="contact-info-text link"
+            >
+              Open in Google Maps
             </a>
           </div>
           <div className="contact-info-box">
@@ -107,8 +117,10 @@ export function ContactFormSection() {
                 className="contact-info-icon-img"
               />
             </div>
-            <p className="contact-info-title">Location</p>
-            <p className="contact-info-text">92 Bowery St, New York, NY 10013</p>
+            <p className="contact-info-title">Corporate Office</p>
+            <p className="contact-info-text">
+              6-109, Mokila Village, Shankarpally Mandal, Hyderabad – 501203
+            </p>
           </div>
         </div>
         <div className="w-layout-grid contact-grid">
@@ -232,7 +244,7 @@ export function ContactFormSection() {
                     onChange={(e) => setConsent(e.target.checked)}
                   />
                   <span className="checkbox-label w-form-label">
-                    I agree to let veymont securely store and use my information
+                    I agree to let Pranitha Developers securely store and use my information
                   </span>
                 </label>
                 <input

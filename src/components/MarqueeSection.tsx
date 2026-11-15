@@ -1,4 +1,4 @@
-const MARQUEE_WORDS = ['Luxury living', 'Home Find', 'Trusted agents', 'guidance'];
+const MARQUEE_WORDS = ['Building Dreams', 'Creating Homes', 'Mokila Villas', 'TG-RERA Approved'];
 
 function MarqueeStrip() {
   return (

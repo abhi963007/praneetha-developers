@@ -13,42 +13,42 @@ export const PAGE_META: Record<PageKey, PageMeta> = {
     key: 'home',
     path: '/',
     label: 'Home',
-    title: 'Veymont - Webflow HTML Website Template',
+    title: 'Pranitha Developers - Luxury Villas in Hyderabad',
     wfPage: '69e231c0aededb9fade4ee77',
   },
   about: {
     key: 'about',
     path: '/about-us',
     label: 'About Us',
-    title: 'About Us - Veymont - Webflow HTML Website Template',
+    title: 'About Us - Pranitha Developers - Luxury Villas in Hyderabad',
     wfPage: '69e9f117401297ec309073a9',
   },
   properties: {
     key: 'properties',
     path: '/properties',
     label: 'Properties',
-    title: 'Properties - Veymont - Webflow HTML Website Template',
+    title: 'Properties - Pranitha Developers - Luxury Villas in Hyderabad',
     wfPage: '69e9f808e78c220e0b094809',
   },
   services: {
     key: 'services',
     path: '/services',
     label: 'Services',
-    title: 'Services - Veymont - Webflow HTML Website Template',
+    title: 'Services - Pranitha Developers - Luxury Villas in Hyderabad',
     wfPage: '69eb130b0dc620c786c35d6f',
   },
   insights: {
     key: 'insights',
     path: '/insights',
     label: 'Insights',
-    title: 'Insights - Veymont - Webflow HTML Website Template',
+    title: 'Insights - Pranitha Developers - Luxury Villas in Hyderabad',
     wfPage: '69eb11f7835e1712deb99121',
   },
   contact: {
     key: 'contact',
     path: '/contact-us',
     label: 'Contact Us',
-    title: 'Contact Us - Veymont - Webflow HTML Website Template',
+    title: 'Contact Us - Pranitha Developers - Luxury Villas in Hyderabad',
     wfPage: '69e231c0aededb9fade4ee7e',
   },
 };
@@ -78,12 +78,10 @@ export const FOOTER_LINKS: { label: string; to: string }[] = [
 ];
 
 export const CATEGORY_LINKS: { label: string; to: string }[] = [
-  { label: 'Family House', to: '/category/family-house' },
-  { label: 'Apartment', to: '/category/apartment' },
-  { label: 'Rental Home', to: '/category/rental-home' },
-  { label: 'Villa & Resort', to: '/category/villa-resort' },
-  { label: 'Penthouse', to: '/category/penthouse' },
-  { label: ' Office & Studio', to: '/category/office-studio' },
+  { label: 'Villas - Ongoing', to: '/category/villas-ongoing' },
+  { label: 'Villas - Completed', to: '/category/villas-completed' },
+  { label: 'Apartments', to: '/category/apartments' },
+  { label: 'Plots - Coming Soon', to: '/category/plots-coming-soon' },
 ];
 
 export function isRouteActive(pathname: string, to: string): boolean {

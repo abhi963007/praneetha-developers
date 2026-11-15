@@ -17,10 +17,10 @@ export function HomeInsightsAndFooterSection() {
                   className="subtitle-icon-img"
                 />
               </div>
-              <p className="section-subtitle">Market Insights</p>
+              <p className="section-subtitle">Pranitha Journal</p>
             </div>
             <h2 className="section-title">
-              Ideas, Guide &amp; Latest Real<span className="sectitle-br"> </span>Estate Trends
+              Hyderabad Real Estate, RERA<span className="sectitle-br"> </span>&amp; Design Guides
             </h2>
           </div>
           <div className="w-dyn-list">

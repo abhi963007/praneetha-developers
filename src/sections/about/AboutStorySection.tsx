@@ -27,16 +27,16 @@ export function AboutStorySection() {
                 className="subtitle-icon-img"
               />
             </div>
-            <p className="section-subtitle">About Veymont</p>
+            <p className="section-subtitle">About Pranitha</p>
           </div>
           <h2 className="section-title">
-            Luxury, trust, and lifestyle. Whether you’re seeking a stylish apartment in Central London, a family home
+            Building Dreams, Creating Homes across West Hyderabad’s Mokila &amp; Kokapet corridors
           </h2>
         </div>
         <div className="w-layout-grid about-grid">
           <div id="w-node-_7ad14c85-c53a-cef7-ce0f-8a743883cddf-309073a9" className="about-box one">
             <p className="about-text">
-              Our mission is to provide a seamless and user- friendly experience for individuals and families searching for their dream home.
+              V Praneeta Developers Pvt. Ltd. delivers HMDA &amp; TG-RERA compliant villa communities with transparent documentation and timely quality.
             </p>
             <div className="about-image-box">
               <div data-parallax="trigger" className="parallax-wrapper">
@@ -55,12 +55,11 @@ export function AboutStorySection() {
           <div id="w-node-a29c24de-1da4-bb63-c73f-0cdb4b75dfae-309073a9" className="about-box two">
             <div className="counter-wrap two">
               <div className="count-number-wrap">
-                <CounterTrack digit="2" variant="one" />
-                <CounterTrack digit="4" variant="two" />
-                <CounterTrack digit="0" variant="one" />
+                <CounterTrack digit="1" variant="one" />
+                <CounterTrack digit="2" variant="two" />
                 <h3 className="count-number">+</h3>
               </div>
-              <p className="counter-text two">Helping People Make Smarter Property Decisions</p>
+              <p className="counter-text two">Years of Infrastructure &amp; Township Leadership</p>
             </div>
             <div className="about-image-box">
               <div data-parallax="trigger" className="parallax-wrapper">
@@ -88,13 +87,12 @@ export function AboutStorySection() {
             </div>
             <div className="counter-wrap two">
               <div className="count-number-wrap">
-                <CounterTrack digit="2" variant="one" />
-                <CounterTrack digit="8" variant="two" />
+                <CounterTrack digit="8" variant="one" />
+                <CounterTrack digit="5" variant="two" />
                 <CounterTrack digit="0" variant="one" />
-                <CounterTrack digit="0" variant="two" />
                 <h3 className="count-number">+</h3>
               </div>
-              <p className="counter-text two">Successfully completed projects in various fields.</p>
+              <p className="counter-text two">Happy Homeowner Families Across West Hyderabad</p>
             </div>
           </div>
         </div>

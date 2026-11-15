@@ -1,19 +1,19 @@
 const WORK_STEPS = [
   {
-    title: '1. Browse & Shortlist',
-    text: 'Explore curated listings and shortlist the properties that match your priorities, budget, and lifestyle.',
+    title: '1. Explore Communities',
+    text: 'Browse our Mokila and Kokapet villa, apartment, and plotted communities tailored to your family budget and timeline.',
   },
   {
-    title: '2. Schedule a Visit',
-    text: 'Choose a convenient time to tour your shortlisted properties in person or through a virtual walkthrough.',
+    title: '2. Guided Site Visit',
+    text: 'Tour our completed Amity & The Patio communities and walk the Sovereign Villas site at 6-109, Mokila Village.',
   },
   {
-    title: '3. Make an Offer',
-    text: 'Review the details, discuss your options, and move forward with a confident offer supported by our team.',
+    title: '3. RERA & Legal Review',
+    text: 'Inspect HMDA layout approvals, TG-RERA records, and bank APF dockets with full transparency and zero hidden charges.',
   },
   {
-    title: '4. Close the Deal',
-    text: "We'll help coordinate the final steps, paperwork, and communication so you can move forward with confidence.",
+    title: '4. Allotment & Handover',
+    text: 'Move through milestone-linked payments, interior personalization, and on-time key handover with our dedicated team.',
   },
 ];
 

@@ -55,8 +55,8 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
               >
                 <img
                   loading="lazy"
-                  src="/images/6ad5ed0fe45891f848d5e8ad_Group%20532.svg"
-                  alt=""
+                  src="/images/pranitha-logo.png"
+                  alt="Pranitha Developers"
                   className="site-logo"
                 />
               </Link>
@@ -98,7 +98,7 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
                   className="form-success w-form-done"
                   style={{ display: status === 'success' ? 'block' : undefined }}
                 >
-                  <div>Thanks! You're subscribed to Veymont updates.</div>
+                  <div>Thanks! You're subscribed to Pranitha Developers updates.</div>
                 </div>
                 <div
                   className="form-error w-form-fail"
@@ -109,7 +109,7 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
               </div>
               <div className="footer-info-box">
                 <p className="footer-info-text">Visit Us</p>
-                <p className="footer-info-text two">92 Bowery St, New York, NY 10013</p>
+                <p className="footer-info-text two">6-109, Mokila Village, Shankarpally Mandal, Ranga Reddy District, Hyderabad, Telangana - 501203</p>
               </div>
             </div>
             <div className="footer-links-wrap">
@@ -212,8 +212,9 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
                 aria-current={isHome ? 'page' : undefined}
                 className={`copyright-link${isHome ? ' w--current' : ''}`}
               >
-                Veymont
-              </Link>
+                Pranitha Developers
+              </Link>{' '}
+              · TG-RERA: P02400009246 | P02400006593 | P02400009069
             </p>
             <div className="footer-links-box two">
               <Link to="/licenses" className="footer-link">

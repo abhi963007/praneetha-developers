@@ -21,41 +21,41 @@ const AUTHOR_AVATARS = [
 
 const STAT_CARDS: StatCardConfig[] = [
   {
-    label: 'Properties Listed',
+    label: 'Years of Leadership',
     tracks: [
-      { start: '3', end: '3', variant: 'one' },
+      { start: '1', end: '1', variant: 'one' },
+      { start: '2', end: '2', variant: 'two' },
+    ],
+    suffix: '+',
+    description: 'Over a decade of civil infrastructure and residential township experience.',
+  },
+  {
+    label: 'Happy Families',
+    tracks: [
+      { start: '8', end: '8', variant: 'one' },
       { start: '5', end: '5', variant: 'two' },
       { start: '0', end: '0', variant: 'one' },
     ],
     suffix: '+',
-    description: 'Explore a curated selection of properties available for sale.',
+    description: 'Homeowner families across our Mokila and West Hyderabad communities.',
   },
   {
-    label: 'Clients Helped',
+    label: 'Landmark Projects',
     tracks: [
-      { start: '9', end: '1', variant: 'one' },
-      { start: '2', end: '2', variant: 'two' },
-      { start: '5', end: '5', variant: 'one' },
+      { start: '0', end: '0', variant: 'one' },
+      { start: '6', end: '6', variant: 'two' },
     ],
     suffix: '+',
-    description: 'Helping clients find the right property with confidence.',
+    description: 'Completed and ongoing gated villa, apartment, and plotted enclaves.',
   },
   {
-    label: 'Markets Covered',
+    label: 'Sovereign Villas',
     tracks: [
-      { start: '2', end: '2', variant: 'one' },
-      { start: '1', end: '1', variant: 'two' },
+      { start: '1', end: '1', variant: 'one' },
+      { start: '6', end: '6', variant: 'two' },
+      { start: '5', end: '5', variant: 'one' },
     ],
-    description: 'Serving clients across a growing range of markets.',
-  },
-  {
-    label: 'Client Satisfaction',
-    tracks: [
-      { start: '9', end: '9', variant: 'one' },
-      { start: '8', end: '8', variant: 'two' },
-    ],
-    suffix: '%',
-    description: 'Delivering trusted service and successful experiences.',
+    description: 'Exclusive 3 & 4 BHK triplex villas on 15 acres in Mokila (₹1.5–2.0 Cr).',
   },
 ];
 
@@ -102,7 +102,7 @@ export function HomeTrackRecordSection() {
                 <p className="section-subtitle">Our Track Record</p>
               </div>
               <h2 className="section-title">
-                Homes, Prices,<span className="sectitle-br"> </span>and Quality Facts
+                Communities, Families,<span className="sectitle-br"> </span>and Delivery Proof
               </h2>
             </div>
             <div className="hero-rating-wrap">
@@ -128,9 +128,9 @@ export function HomeTrackRecordSection() {
                       className="rating-star"
                     />
                   ))}
-                  <p className="rating-count">4.9/5 Rating</p>
+                  <p className="rating-count">850+ Families</p>
                 </div>
-                <p className="hero-rating-text">Trusted by Buyers and Sellers</p>
+                <p className="hero-rating-text">Trusted Across West Hyderabad</p>
               </div>
             </div>
           </div>
