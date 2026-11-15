@@ -1,8 +1,9 @@
 import { PROPERTIES_DATA, PropertyCard } from '../properties/PropertiesListingSection';
+import './home-properties.css';
 
 export function HomePropertiesSection() {
   return (
-    <section id="Properties" className="section">
+    <section id="Properties" className="section home-properties-section">
       <div className="w-layout-blockcontainer container w-container">
         <div className="section-title-box center">
           <div className="subtitle-box">

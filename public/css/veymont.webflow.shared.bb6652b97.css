@@ -4383,7 +4383,7 @@ blockquote {
 .service-cms {
   flex: none;
   width: 100%;
-  max-width: 500px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -5020,11 +5020,11 @@ blockquote {
 }
 
 .service-item:nth-child(odd) {
-  transform: rotate(-8deg);
+  transform: rotate(0);
 }
 
 .service-item:nth-child(2n) {
-  transform: rotate(8deg);
+  transform: rotate(0);
 }
 
 .service-item:last-child {

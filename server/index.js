@@ -41,23 +41,25 @@ export function createServer(options = {}) {
   app.get('/api/health', (_req, res) => {
     res.json({
       status: 'ok',
-      brand: 'Veymont',
+      brand: 'Pranitha Developers',
       framework: 'React + Node.js/Express',
-      pages: 6,
+      pages: 7,
     });
   });
 
   app.get('/api/site-data', (_req, res) => {
     res.json({
       company: {
-        name: 'Veymont',
-        email: 'hello@veymont.com',
-        supportEmail: 'info@veymont.com',
-        phone: '+1 (415) 555-0123',
-        altPhone: '(808) 555-0111 3891',
-        address: '92 Bowery St, New York, NY 10013',
+        name: 'Pranitha Developers',
+        legalName: 'V Praneeta Developers Pvt. Ltd.',
+        email: 'info@praneeta.dev',
+        supportEmail: 'sales@praneeta.dev',
+        phone: '+91 91336 37111',
+        altPhone: '+91 91336 37111',
+        address: '6-109, Mokila Village, Shankarpally Mandal, Hyderabad – 501203',
+        rera: ['P02400009246', 'P02400006593', 'P02400009069'],
       },
-      pages: ['/', '/about-us', '/properties', '/services', '/insights', '/contact-us'],
+      pages: ['/', '/about-us', '/properties', '/gallery', '/services', '/insights', '/contact-us'],
     });
   });
 
@@ -158,6 +160,6 @@ if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
   const port = Number(process.env.PORT) || 5001;
   const app = createServer();
   app.listen(port, () => {
-    console.log(`Veymont server listening on http://localhost:${port}`);
+    console.log(`Pranitha Developers server listening on http://localhost:${port}`);
   });
 }

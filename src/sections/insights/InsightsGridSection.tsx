@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import './insights-section.css';
 
 export interface InsightArticle {
   slug: string;
@@ -58,7 +59,7 @@ export function BlogCard({
   const sizes =
     variant === 'home' ? '100vw' : '(max-width: 767px) 100vw, (max-width: 991px) 727px, 939px';
   return (
-    <div role="listitem" className="w-dyn-item">
+    <div role="listitem" className="w-dyn-item blog-item-col">
       <Link
         data-animate="blog-slide-in-up"
         to={`/insights/${article.slug}`}

@@ -1,0 +1,130 @@
+/* Styling Our Projects cards on the Home Page to match the Pranitha Journal card style */
+
+.home-properties-section .property-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  align-items: stretch !important;
+  gap: 28px !important;
+}
+
+.home-properties-section .property-grid .w-dyn-item {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+/* Card Box — matches .blog-box styling */
+.home-properties-section .property-box {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  padding: 12px !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  background-color: var(--light, #ffffff) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+  transform: none !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease !important;
+  box-sizing: border-box !important;
+}
+
+.home-properties-section .property-box:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Image Container */
+.home-properties-section .property-image-box {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+/* Badge styling matches Journal pill style */
+.home-properties-section .property-badge {
+  position: absolute !important;
+  top: 14px !important;
+  left: 14px !important;
+  background: rgba(5, 59, 32, 0.88) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  color: #ffffff !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  padding: 6px 14px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  z-index: 5 !important;
+}
+
+/* Card Content Area */
+.home-properties-section .property-content {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 20px 12px 16px !important;
+}
+
+.home-properties-section .property-name-box {
+  margin-top: 10px !important;
+  flex-grow: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.home-properties-section .property-name {
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+  line-height: 1.3 !important;
+  margin-bottom: 8px !important;
+  transition: color 0.2s ease !important;
+}
+
+.home-properties-section .property-box:hover .property-name {
+  color: var(--primary-color, #053b20) !important;
+}
+
+.home-properties-section .property-price-box {
+  margin-top: 8px !important;
+}
+
+.home-properties-section .property-price {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: var(--primary-color, #053b20) !important;
+  margin-bottom: 0 !important;
+}
+
+/* Action Button matches .primary-button.blog */
+.home-properties-section .primary-button.card {
+  margin-top: auto !important;
+  width: 100% !important;
+  border-radius: 999px !important;
+  padding: 10px 20px !important;
+  background-color: var(--gray, #f5efe6) !important;
+  color: var(--dark-two, #222) !important;
+  transition: background-color 0.2s ease, color 0.2s ease !important;
+}
+
+.home-properties-section .primary-button.card:hover {
+  background-color: var(--primary-color, #053b20) !important;
+  color: #ffffff !important;
+}
+
+@media screen and (max-width: 991px) {
+  .home-properties-section .property-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .home-properties-section .property-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}

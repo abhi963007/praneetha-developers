@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
 import { SERVICES } from '../services/ServicesListSection';
+import './home-services.css';
 
 export function HomeServicesSection() {
   return (
     <section
       data-wf-target='[[["69e231c0aededb9fade4ee77","89c3349c-01c9-062e-c2f8-5fbadeb28b02"],[]]]'
-      className="section of-visible dark"
+      className="section of-visible dark home-services-section"
     >
       <div className="bg service-bg" />
-      <div className="w-layout-blockcontainer container w-container">
+      <div className="w-layout-blockcontainer container w-container home-services-wrap">
         <div className="section-title-box center">
           <div className="subtitle-box">
             <div className="subtitle-icon">
@@ -28,27 +29,32 @@ export function HomeServicesSection() {
         <div className="service-cms w-dyn-list">
           <div role="list" className="services-flex w-dyn-items">
             {SERVICES.slice(0, 4).map((service) => (
-              <div key={service.count} role="listitem" className="service-item w-dyn-item">
+              <div key={service.slug} role="listitem" className="service-item w-dyn-item">
                 <Link
                   data-animate="service-zoom-in"
                   to={`/services/${service.slug}`}
-                  className="service-box w-inline-block"
+                  className="service-box service-box--full-img w-inline-block"
                 >
-                  <div className="service-title-box">
-                    <p className="service-count">{service.count}</p>
-                    <h3 className="service-title">{service.title}</h3>
-                  </div>
-                  <div className="service-image-box two">
+                  {/* Full Cover Image Background */}
+                  <div className="service-full-bg">
                     <img
                       src={service.image}
                       loading="lazy"
-                      alt=""
-                      sizes="100vw"
+                      alt={service.title}
+                      sizes="95vw"
                       srcSet={service.srcSet}
-                      className="service-image"
+                      className="service-full-img"
                     />
+                    <div className="service-full-overlay" />
                   </div>
-                  <p className="service-text">{service.description}</p>
+
+                  {/* Clean Content With White Fonts Inside Image */}
+                  <div className="service-full-content">
+                    <div className="service-title-box">
+                      <h3 className="service-title white-text">{service.title}</h3>
+                    </div>
+                    <p className="service-text white-text">{service.description}</p>
+                  </div>
                 </Link>
               </div>
             ))}

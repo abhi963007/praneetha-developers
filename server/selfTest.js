@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { createServer } from './index.js';
 
-const tempFile = path.join(os.tmpdir(), `veymont-selftest-${process.pid}-${Date.now()}.json`);
+const tempFile = path.join(os.tmpdir(), `pranitha-selftest-${process.pid}-${Date.now()}.json`);
 const app = createServer({ dataFile: tempFile });
 
 const server = await new Promise((resolve) => {
@@ -19,14 +19,15 @@ try {
   assert.equal(healthRes.status, 200);
   const health = await healthRes.json();
   assert.equal(health.status, 'ok');
-  assert.equal(health.brand, 'Veymont');
-  assert.equal(health.pages, 6);
+  assert.equal(health.brand, 'Pranitha Developers');
+  assert.equal(health.pages, 7);
 
   const siteRes = await fetch(`${baseUrl}/api/site-data`);
   assert.equal(siteRes.status, 200);
   const siteData = await siteRes.json();
-  assert.equal(siteData.company.email, 'hello@veymont.com');
-  assert.equal(siteData.pages.length, 6);
+  assert.equal(siteData.company.name, 'Pranitha Developers');
+  assert.equal(siteData.company.email, 'info@praneeta.dev');
+  assert.equal(siteData.pages.length, 7);
 
   const badContactRes = await fetch(`${baseUrl}/api/contact`, {
     method: 'POST',
@@ -81,7 +82,7 @@ try {
   const spaHtml = await spaRes.text();
   assert.ok(spaHtml.includes('<div id="root"'), 'SPA fallback should serve root app HTML');
 
-  console.log('All Veymont API and SPA self-tests passed (7/7 checks).');
+  console.log('All Pranitha Developers API and SPA self-tests passed (7/7 checks).');
 } finally {
   await new Promise((resolve) => server.close(resolve));
   if (fs.existsSync(tempFile)) {
