@@ -1,21 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ScrollHero } from '../../components/ScrollHero';
 
-const HERO_VIDEO_JSON = JSON.stringify({
-  items: [
-    {
-      url: 'https://www.youtube.com/watch?v=u7zm19YgQBA',
-      originalUrl: 'https://www.youtube.com/watch?v=u7zm19YgQBA',
-      width: 940,
-      height: 528,
-      thumbnailUrl: 'https://i.ytimg.com/vi/u7zm19YgQBA/hqdefault.jpg',
-      html: '<iframe class="embedly-embed" src="//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2Fu7zm19YgQBA%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Du7zm19YgQBA&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fu7zm19YgQBA%2Fhqdefault.jpg&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=youtube" width="940" height="528" scrolling="no" title="YouTube embed" frameborder="0" allow="autoplay; fullscreen; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>',
-      type: 'video',
-    },
-  ],
-  group: '',
-});
-
 const PRIMARY_CATEGORIES = [
   {
     to: '/category/family-house',
@@ -111,31 +96,6 @@ export function HomeHeroAndCategoriesSection() {
                     </div>
                   </a>
                 </div>
-              </div>
-              <div
-                data-w-id="78218f17-586f-8f49-ec29-e81498b7f9a3"
-                style={{ filter: 'blur(12px)', opacity: 0 }}
-                className="hero-video-box"
-              >
-                <a
-                  href="#watch-video"
-                  onClick={(e) => e.preventDefault()}
-                  data-w-id="78218f17-586f-8f49-ec29-e81498b7f9a4"
-                  className="hero-lightbox w-inline-block w-lightbox"
-                >
-                  <img
-                    loading="lazy"
-                    src="/images/6ac742d82c255f895785ca01_svgviewer-output%20%281%29.svg"
-                    alt=""
-                    className="hero-video-btn"
-                  />
-                  <script
-                    type="application/json"
-                    className="w-json"
-                    dangerouslySetInnerHTML={{ __html: HERO_VIDEO_JSON }}
-                  />
-                </a>
-                <p className="hero-video-text">Watch Video</p>
               </div>
             </div>
           </div>
