@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
+import { GalleryPage } from './pages/GalleryPage';
 import { HomePage } from './pages/HomePage';
 import { InsightsPage } from './pages/InsightsPage';
 import { PropertiesPage } from './pages/PropertiesPage';
@@ -18,6 +19,7 @@ export function App() {
         <Route path="/properties" element={<PropertiesPage />} />
         <Route path="/category/:slug" element={<PropertiesPage />} />
         <Route path="/property/:slug" element={<PropertiesPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/services/:slug" element={<ServicesPage />} />
         <Route path="/insights" element={<InsightsPage />} />

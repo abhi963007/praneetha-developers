@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { NAV_LINKS, isRouteActive } from '../types/site';
 import './navbar-menu.css';
@@ -5,9 +6,21 @@ import './navbar-menu.css';
 export function Navbar() {
   const { pathname } = useLocation();
   const isHome = isRouteActive(pathname, '/');
+  const [isScrolled, setIsScrolled] = useState(() =>
+    typeof window !== 'undefined' ? window.scrollY > 80 : false,
+  );
+
+  useEffect(() => {
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 80);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <header className="main-header">
+    <header className={`main-header${isScrolled ? ' is-scrolled' : ''}`}>
       <div className="header-line" />
       <div className="header-wrap">
         <div className="header-main-box">
@@ -24,20 +37,49 @@ export function Navbar() {
                 loading="lazy"
                 src="/images/pranitha-logo.png"
                 alt="Pranitha Developers"
-                className="site-logo header"
-                style={{ filter: 'none', width: '140px', height: 'auto' }}
+                className="site-logo header site-logo-full"
+                style={{ filter: 'none', height: 'auto' }}
+              />
+              <img
+                loading="lazy"
+                src="/images/pranitha-favicon.png"
+                alt="Pranitha Developers"
+                className="site-logo header site-logo-mark"
+                style={{ filter: 'none', height: 'auto' }}
               />
             </Link>
           </div>
-          <div
-            id="w-node-_852defd0-ddd4-4a2b-97f2-b45445b02d4d-45b02d3b"
-            className="header-btn-box"
-          >
-            <div data-w-id="852defd0-ddd4-4a2b-97f2-b45445b02d51" className="hamburger-wrap">
-              <div data-w-id="5c3f749e-b134-36a6-4507-875f232a09be" className="burger-btn-wrapper">
-                <div data-w-id="5c3f749e-b134-36a6-4507-875f232a09bf" className="burger-line" />
-                <div data-w-id="5c3f749e-b134-36a6-4507-875f232a09c0" className="burger-line" />
-                <div data-w-id="5c3f749e-b134-36a6-4507-875f232a09c1" className="burger-line" />
+          <div className="header-right-morph">
+            <nav className="desktop-nav-links" aria-label="Main navigation">
+              {NAV_LINKS.map((item) => {
+                const active = isRouteActive(pathname, item.to);
+                return (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    aria-current={active ? 'page' : undefined}
+                    className={`desktop-nav-link${active ? ' w--current' : ''}`}
+                    onClick={() => {
+                      if (item.to === '/#gallery' && pathname === '/') {
+                        document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
+            <div
+              id="w-node-_852defd0-ddd4-4a2b-97f2-b45445b02d4d-45b02d3b"
+              className="header-btn-box"
+            >
+              <div data-w-id="852defd0-ddd4-4a2b-97f2-b45445b02d51" className="hamburger-wrap">
+                <div data-w-id="5c3f749e-b134-36a6-4507-875f232a09be" className="burger-btn-wrapper">
+                  <div data-w-id="5c3f749e-b134-36a6-4507-875f232a09bf" className="burger-line" />
+                  <div data-w-id="5c3f749e-b134-36a6-4507-875f232a09c0" className="burger-line" />
+                  <div data-w-id="5c3f749e-b134-36a6-4507-875f232a09c1" className="burger-line" />
+                </div>
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import { AdvisorsSliderSection } from '../components/AdvisorsSliderSection';
 import { FaqSection } from '../components/FaqSection';
 import { Footer } from '../components/Footer';
-import { MarqueeSection } from '../components/MarqueeSection';
+// import { MarqueeSection } from '../components/MarqueeSection';
 import { Navbar } from '../components/Navbar';
 import { PageBannerSection } from '../components/PageBannerSection';
 import { PartnerLogosSection } from '../components/PartnerLogosSection';
@@ -20,7 +20,7 @@ export function AboutPage() {
       <AboutStorySection />
       <PartnerLogosSection pZero={true} />
       <AboutProcessSection />
-      <MarqueeSection />
+      {/* <MarqueeSection /> */}
       <AdvisorsSliderSection variant="about" />
       <FaqSection variant="about" ptZero={true} />
       <Footer variant="base" wfPageId={PAGE_META.about.wfPage} />

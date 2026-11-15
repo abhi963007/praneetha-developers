@@ -54,30 +54,35 @@ export function ScrollHero({ children }: { children: ReactNode }) {
     const video = videoRef.current;
     const content = contentRef.current;
     const hint = hintRef.current;
-    const gsap = window.gsap;
-    const ST = window.ScrollTrigger;
-    if (!wrap || !video || !content || !hint || !gsap || !ST) return;
+    if (!wrap || !video || !content || !hint) return;
 
     // Reduced motion: static final image, content visible, no video work.
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       video.style.display = 'none';
       wrap.classList.add('scroll-hero--static');
-      gsap.set(content, { opacity: 1, y: 0 });
-      gsap.set(hint, { opacity: 0 });
+      content.style.opacity = '1';
+      content.style.transform = 'translate3d(0, 0, 0)';
+      hint.style.opacity = '0';
       return;
     }
 
-    gsap.registerPlugin(ST);
     video.src = window.matchMedia(MOBILE_QUERY).matches ? VIDEO_MOBILE : VIDEO_DESKTOP;
     video.muted = true;
-    video.load(); // iOS Safari needs an explicit load()
+    video.load(); // iOS Safari & hard-refresh need explicit load()
 
     let raf = 0;
     let target = 0;
     let ctx: { revert: () => void } | undefined;
+    let pollId = 0;
+    let disposed = false;
 
-    const setup = () => {
-      if (ctx || !video.duration) return;
+    const trySetup = () => {
+      if (disposed || ctx || !video.duration) return;
+      const gsap = window.gsap;
+      const ST = window.ScrollTrigger;
+      if (!gsap || !ST) return;
+
+      gsap.registerPlugin(ST);
       ctx = gsap.context(() => {
         // Smoothing: ease current video time toward the scroll target (rAF, one write per frame).
         const tick = () => {
@@ -108,11 +113,35 @@ export function ScrollHero({ children }: { children: ReactNode }) {
       ST.refresh();
     };
 
-    if (video.readyState >= 1) setup();
-    else video.addEventListener('loadedmetadata', setup, { once: true });
+    const onReady = () => trySetup();
+    if (video.readyState >= 1) trySetup();
+    else video.addEventListener('loadedmetadata', onReady, { once: true });
+
+    // On hard/force refresh, module scripts can run before /js/gsap.min.js finishes loading.
+    if (!window.gsap || !window.ScrollTrigger) {
+      let attempts = 0;
+      pollId = window.setInterval(() => {
+        attempts += 1;
+        if (window.gsap && window.ScrollTrigger) {
+          window.clearInterval(pollId);
+          trySetup();
+        } else if (attempts >= 100) {
+          window.clearInterval(pollId);
+        }
+      }, 50);
+    }
+
+    const onWinLoad = () => {
+      trySetup();
+      window.ScrollTrigger?.refresh();
+    };
+    window.addEventListener('load', onWinLoad, { once: true });
 
     return () => {
-      video.removeEventListener('loadedmetadata', setup);
+      disposed = true;
+      window.clearInterval(pollId);
+      window.removeEventListener('load', onWinLoad);
+      video.removeEventListener('loadedmetadata', onReady);
       cancelAnimationFrame(raf);
       ctx?.revert();
       video.removeAttribute('src');

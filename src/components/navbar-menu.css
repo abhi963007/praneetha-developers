@@ -1,3 +1,211 @@
+/* Desktop inline header navigation + scroll split-and-morph animation (>= 992px) */
+.site-logo.header.site-logo-full {
+  width: 138px;
+  transition:
+    width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.site-logo.header.site-logo-mark {
+  display: none;
+}
+
+.desktop-nav-links {
+  display: none;
+}
+
+@media screen and (min-width: 992px) {
+  .header-main-box {
+    width: 960px;
+    max-width: calc(100% - 48px);
+    gap: 24px;
+    padding-top: 8px;
+    padding-bottom: 14px;
+    padding-left: 26px;
+    padding-right: 26px;
+    transition:
+      width 0.68s cubic-bezier(0.22, 1, 0.36, 1),
+      max-width 0.68s cubic-bezier(0.22, 1, 0.36, 1),
+      padding 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .header-icon {
+    transition: opacity 0.25s ease;
+  }
+
+  .site-logo-box {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border-radius: 0 0 22px 22px;
+    background-color: transparent;
+    box-shadow: none;
+    transition:
+      background-color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      padding 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .header-right-morph {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+  }
+
+  .desktop-nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(14px, 1.8vw, 26px);
+    flex-wrap: nowrap;
+    max-width: 760px;
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    transform-origin: right center;
+    transition:
+      opacity 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.52s cubic-bezier(0.22, 1, 0.36, 1),
+      max-width 0.56s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .desktop-nav-link {
+    font-family: var(--_font-family---primary-font, inherit);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--dark-two, #191d19);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 4px 2px;
+    border-bottom: 1.5px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .desktop-nav-link:hover,
+  .desktop-nav-link.w--current {
+    color: #007b3e;
+    border-bottom-color: #007b3e;
+  }
+
+  /* Collapsed round hamburger at top of page */
+  .header-btn-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transform: scale(0.35) rotate(-90deg);
+    transform-origin: center;
+    transition:
+      width 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.56s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .hamburger-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    background-color: var(--gray);
+    border: 1px solid rgba(25, 29, 25, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+    transition:
+      transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .hamburger-wrap:hover {
+    transform: scale(1.06);
+    border-color: #007b3e;
+    box-shadow: 0 10px 28px rgba(0, 123, 62, 0.18);
+  }
+
+  .hamburger-wrap .burger-line {
+    width: 20px;
+    margin: 5px auto;
+  }
+
+  .site-logo-link {
+    display: flex;
+    align-items: center;
+  }
+
+  .site-logo.header.site-logo-mark {
+    display: block;
+    width: 0;
+    max-height: none;
+    opacity: 0;
+    transform: scale(0.6);
+    pointer-events: none;
+    transition:
+      width 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.52s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Scrolled state: left shows only the larger transparent icon mark, right morphs to round hamburger */
+  .main-header.is-scrolled .header-main-box {
+    width: calc(100% - 48px);
+    max-width: calc(100% - 48px);
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .main-header.is-scrolled .header-icon {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .main-header.is-scrolled .site-logo-box {
+    background-color: transparent;
+    padding: 8px 0 0;
+    box-shadow: none;
+  }
+
+  .main-header.is-scrolled .site-logo.header.site-logo-full {
+    width: 0;
+    opacity: 0;
+    transform: scale(0.75);
+    pointer-events: none;
+  }
+
+  .main-header.is-scrolled .site-logo.header.site-logo-mark {
+    width: 52px;
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+
+  .main-header.is-scrolled .desktop-nav-links {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transform: translateX(28px) scale(0.84);
+  }
+
+  .main-header.is-scrolled .header-btn-box {
+    width: 48px;
+    opacity: 1;
+    overflow: visible;
+    pointer-events: auto;
+    margin-top: 8px;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
 /* Refined spacing & hierarchy for the expanded hamburger menu (.mega-menu-wrapper) */
 .mega-menu-wrapper {
   padding-top: clamp(92px, 12vh, 120px);

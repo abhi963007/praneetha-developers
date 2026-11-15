@@ -1,4 +1,4 @@
-export type PageKey = 'home' | 'about' | 'properties' | 'services' | 'insights' | 'contact';
+export type PageKey = 'home' | 'about' | 'properties' | 'gallery' | 'services' | 'insights' | 'contact';
 
 export interface PageMeta {
   key: PageKey;
@@ -28,6 +28,13 @@ export const PAGE_META: Record<PageKey, PageMeta> = {
     path: '/properties',
     label: 'Properties',
     title: 'Properties - Pranitha Developers - Luxury Villas in Hyderabad',
+    wfPage: '69e9f808e78c220e0b094809',
+  },
+  gallery: {
+    key: 'gallery',
+    path: '/gallery',
+    label: 'Gallery',
+    title: 'Gallery - Pranitha Developers - Luxury Villas in Hyderabad',
     wfPage: '69e9f808e78c220e0b094809',
   },
   services: {
@@ -63,7 +70,7 @@ export const NAV_LINKS: NavLinkItem[] = [
   { label: 'Home', to: '/', itemClass: '_1' },
   { label: 'About Us', to: '/about-us', itemClass: '_2' },
   { label: 'Projects', to: '/properties', itemClass: '_3' },
-  { label: 'Gallery', to: '/#gallery', itemClass: '_4' },
+  { label: 'Gallery', to: '/gallery', itemClass: '_4' },
   { label: 'Services', to: '/services', itemClass: '_5' },
   { label: 'Blogs', to: '/insights', itemClass: '_6' },
   { label: 'Contact Us', to: '/contact-us', itemClass: '_7' },
@@ -73,7 +80,7 @@ export const FOOTER_LINKS: { label: string; to: string }[] = [
   { label: 'Home', to: '/' },
   { label: 'About Us', to: '/about-us' },
   { label: 'Projects', to: '/properties' },
-  { label: 'Gallery', to: '/#gallery' },
+  { label: 'Gallery', to: '/gallery' },
   { label: 'Services', to: '/services' },
   { label: 'Blogs', to: '/insights' },
   { label: 'Contact Us', to: '/contact-us' },
