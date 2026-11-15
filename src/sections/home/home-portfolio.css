@@ -1,0 +1,195 @@
+/* Our Portfolio (Categories) 4-Card Grid — Luxury UI/UX Enhancement */
+
+.section.cat {
+  padding-top: 80px !important;
+  padding-bottom: 90px !important;
+  background-color: var(--gray, #f5efe6) !important;
+}
+
+.portfolio-cat-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 24px !important;
+  align-items: stretch !important;
+  width: 100% !important;
+  margin-top: 40px !important;
+}
+
+.portfolio-card-item {
+  height: 100% !important;
+  display: flex !important;
+}
+
+/* Premium Card Container */
+.portfolio-cat-card {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: #ffffff !important;
+  border-radius: 22px !important;
+  padding: 14px !important;
+  border: 1px solid rgba(28, 28, 26, 0.08) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02) !important;
+  text-decoration: none !important;
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.portfolio-cat-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 22px 42px rgba(5, 59, 32, 0.12), 0 6px 14px rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(5, 59, 32, 0.24) !important;
+}
+
+/* Image Container */
+.portfolio-cat-img-box {
+  position: relative !important;
+  width: 100% !important;
+  height: 230px !important;
+  min-height: 230px !important;
+  max-height: 230px !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  background-color: #ebe7e0 !important;
+}
+
+.portfolio-cat-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.portfolio-cat-card:hover .portfolio-cat-img {
+  transform: scale(1.08) !important;
+}
+
+/* Status Badge Floating on Image */
+.portfolio-cat-badge {
+  position: absolute !important;
+  top: 14px !important;
+  left: 14px !important;
+  z-index: 3 !important;
+  background: rgba(5, 59, 32, 0.88) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  color: #ffffff !important;
+  font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  padding: 5px 12px !important;
+  border-radius: 20px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Subtle Overlay on Image for Polish */
+.portfolio-cat-img-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.15) 100%) !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+/* Card Content Area */
+.portfolio-cat-content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 18px 8px 6px 8px !important;
+  flex: 1 !important;
+  gap: 12px !important;
+}
+
+.portfolio-cat-info {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  min-width: 0 !important;
+}
+
+.portfolio-cat-subtitle {
+  font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #71717a !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.portfolio-cat-title {
+  font-family: var(--_font-family---primary-font, Rubik, sans-serif) !important;
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
+  color: #1c1c1a !important;
+  margin: 0 !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.02rem !important;
+  transition: color 0.3s ease !important;
+}
+
+.portfolio-cat-card:hover .portfolio-cat-title {
+  color: #053b20 !important;
+}
+
+/* Explore Arrow Button */
+.portfolio-cat-action {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  border-radius: 50% !important;
+  background: #f5efe6 !important;
+  color: #1c1c1a !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  flex-shrink: 0 !important;
+}
+
+.portfolio-cat-card:hover .portfolio-cat-action {
+  background: #053b20 !important;
+  color: #ffffff !important;
+  transform: translate(2px, -2px) !important;
+}
+
+.portfolio-cat-arrow-svg {
+  width: 14px !important;
+  height: 14px !important;
+  transition: transform 0.35s ease !important;
+}
+
+/* Responsive Breakpoints */
+@media screen and (max-width: 1024px) {
+  .portfolio-cat-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+  .portfolio-cat-img-box {
+    height: 210px !important;
+    min-height: 210px !important;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .portfolio-cat-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .portfolio-cat-img-box {
+    height: 220px !important;
+    min-height: 220px !important;
+  }
+}
