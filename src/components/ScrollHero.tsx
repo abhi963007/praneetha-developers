@@ -84,18 +84,20 @@ export function ScrollHero({ children }: { children: ReactNode }) {
 
       gsap.registerPlugin(ST);
       ctx = gsap.context(() => {
-        // Smoothing: ease current video time toward the scroll target (rAF, one write per frame).
+        // Smoothing: ease current video time toward the scroll target without aborting in-flight seeks.
         const tick = () => {
-          const diff = target - video.currentTime;
-          if (Math.abs(diff) > 0.01) {
-            // ~60fps ease: larger SCRUB_SMOOTHING = slower catch-up
-            video.currentTime += diff * Math.min(1, 0.12 / Math.max(SCRUB_SMOOTHING, 0.05));
+          if (!video.seeking && video.readyState >= 2) {
+            const diff = target - video.currentTime;
+            if (Math.abs(diff) > 0.01) {
+              // ~60fps ease: larger SCRUB_SMOOTHING = slower catch-up
+              video.currentTime += diff * Math.min(1, 0.12 / Math.max(SCRUB_SMOOTHING, 0.05));
+            }
           }
           raf = requestAnimationFrame(tick);
         };
         raf = requestAnimationFrame(tick);
 
-        ST.create({
+        const st = ST.create({
           trigger: wrap,
           start: 'top top',
           end: 'bottom bottom',
@@ -108,7 +110,10 @@ export function ScrollHero({ children }: { children: ReactNode }) {
             content.style.pointerEvents = c > 0.5 ? 'auto' : 'none';
             hint.style.opacity = String(Math.max(1 - p * 12, 0));
           },
-        });
+        }) as { progress?: number } | undefined;
+        if (st && typeof st.progress === 'number') {
+          target = st.progress * video.duration;
+        }
       }, wrap);
       ST.refresh();
     };

@@ -1,5 +1,5 @@
 import { Footer } from '../components/Footer';
-import { MarqueeSection } from '../components/MarqueeSection';
+// import { MarqueeSection } from '../components/MarqueeSection';
 import { Navbar } from '../components/Navbar';
 import { PageBannerSection } from '../components/PageBannerSection';
 // import { TestimonialsSection } from '../components/TestimonialsSection';
@@ -15,7 +15,7 @@ export function PropertiesPage() {
       <Navbar />
       <PageBannerSection title="Properties" />
       <PropertiesListingSection />
-      <MarqueeSection />
+      {/* <MarqueeSection /> */}
       {/* <TestimonialsSection variant="properties" /> */}
       <Footer variant="base" wfPageId={PAGE_META.properties.wfPage} />
     </>

@@ -62,9 +62,11 @@ export function PageBannerSection({ title, subtitle }: PageBannerSectionProps) {
 
       ctx = gsap.context(() => {
         const tick = () => {
-          const diff = targetTime - video.currentTime;
-          if (Math.abs(diff) > 0.01) {
-            video.currentTime += diff * 0.14;
+          if (!video.seeking && video.readyState >= 2) {
+            const diff = targetTime - video.currentTime;
+            if (Math.abs(diff) > 0.01) {
+              video.currentTime += diff * 0.14;
+            }
           }
           raf = requestAnimationFrame(tick);
         };

@@ -5,8 +5,13 @@ interface LenisLike {
   scrollTo?: (target: number, opts?: { immediate?: boolean; force?: boolean }) => void;
 }
 
+type WindowWithWebflow = Window & {
+  __veymontLenis?: LenisLike;
+  ScrollTrigger?: { refresh?: () => void };
+};
+
 function scrollToTopImmediate() {
-  const win = window as Window & { __veymontLenis?: LenisLike };
+  const win = window as WindowWithWebflow;
   if (win.__veymontLenis && typeof win.__veymontLenis.scrollTo === 'function') {
     win.__veymontLenis.scrollTo(0, { immediate: true, force: true });
   }
@@ -17,7 +22,7 @@ function scrollToTopImmediate() {
 
 /**
  * Synchronizes document title, Webflow `data-wf-page` ID, scroll position,
- * and re-initializes Webflow IX2/IX3 + Sliders/Lightboxes + GSAP Parallax on route changes.
+ * and initializes Webflow IX2/IX3 + GSAP ScrollTrigger once per route change.
  */
 export function useWebflowPage(wfPageId: string, title: string) {
   const location = useLocation();
@@ -43,6 +48,17 @@ export function useWebflowPage(wfPageId: string, title: string) {
       }
     });
 
+    const onWindowLoad = () => {
+      (window as WindowWithWebflow).ScrollTrigger?.refresh?.();
+    };
+    window.addEventListener('load', onWindowLoad, { once: true });
+
+    if (document.fonts && typeof document.fonts.ready?.then === 'function') {
+      void document.fonts.ready.then(() => {
+        (window as WindowWithWebflow).ScrollTrigger?.refresh?.();
+      });
+    }
+
     timerRef.current = window.setTimeout(() => {
       if (!document.documentElement.classList.contains('w-mod-ix3')) {
         if (window.__reinitWebflowIx3) {
@@ -51,10 +67,12 @@ export function useWebflowPage(wfPageId: string, title: string) {
           document.documentElement.classList.add('w-mod-ix3');
         }
       }
+      (window as WindowWithWebflow).ScrollTrigger?.refresh?.();
     }, 1200);
 
     return () => {
       window.cancelAnimationFrame(rafId);
+      window.removeEventListener('load', onWindowLoad);
       if (timerRef.current !== null) {
         window.clearTimeout(timerRef.current);
       }

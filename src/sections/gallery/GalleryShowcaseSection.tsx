@@ -188,7 +188,7 @@ export function GalleryShowcaseSection() {
 
       {lightboxIndex !== null && filtered[lightboxIndex] && (
         <div
-          className="gallery-lightbox"
+          className="gallery-modal"
           role="dialog"
           aria-modal="true"
           aria-label={filtered[lightboxIndex].title}
@@ -196,7 +196,7 @@ export function GalleryShowcaseSection() {
         >
           <button
             type="button"
-            className="gallery-lightbox__btn"
+            className="gallery-modal__btn"
             aria-label="Close gallery viewer"
             onClick={() => setLightboxIndex(null)}
           >
@@ -204,7 +204,7 @@ export function GalleryShowcaseSection() {
           </button>
           <button
             type="button"
-            className="gallery-lightbox__nav prev"
+            className="gallery-modal__nav prev"
             aria-label="Previous image"
             onClick={(e) => {
               e.stopPropagation();
@@ -213,19 +213,19 @@ export function GalleryShowcaseSection() {
           >
             &#8249;
           </button>
-          <div className="gallery-lightbox__inner" onClick={(e) => e.stopPropagation()}>
+          <div className="gallery-modal__inner" onClick={(e) => e.stopPropagation()}>
             <img
               src={filtered[lightboxIndex].src}
               alt={filtered[lightboxIndex].title}
-              className="gallery-lightbox__img"
+              className="gallery-modal__img"
             />
-            <div className="gallery-lightbox__caption">
+            <div className="gallery-modal__caption">
               {filtered[lightboxIndex].category} — {filtered[lightboxIndex].title}
             </div>
           </div>
           <button
             type="button"
-            className="gallery-lightbox__nav next"
+            className="gallery-modal__nav next"
             aria-label="Next image"
             onClick={(e) => {
               e.stopPropagation();

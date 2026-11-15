@@ -142,8 +142,8 @@
   font-size: 16px;
 }
 
-/* Lightbox Modal */
-.gallery-lightbox {
+/* Lightbox Modal (scoped as .gallery-modal to avoid Webflow .gallery-lightbox collision) */
+.gallery-modal {
   position: fixed;
   inset: 0;
   z-index: 999;
@@ -155,7 +155,7 @@
   padding: 24px;
 }
 
-.gallery-lightbox__inner {
+.gallery-modal__inner {
   position: relative;
   max-width: 1100px;
   width: 100%;
@@ -165,20 +165,20 @@
   gap: 16px;
 }
 
-.gallery-lightbox__img {
+.gallery-modal__img {
   max-width: 100%;
   max-height: 78vh;
   border-radius: 16px;
   object-fit: contain;
 }
 
-.gallery-lightbox__caption {
+.gallery-modal__caption {
   color: #f4f2ec;
   font-size: 16px;
   text-align: center;
 }
 
-.gallery-lightbox__btn {
+.gallery-modal__btn {
   position: fixed;
   top: 24px;
   right: 24px;
@@ -195,7 +195,7 @@
   justify-content: center;
 }
 
-.gallery-lightbox__nav {
+.gallery-modal__nav {
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
@@ -212,11 +212,11 @@
   justify-content: center;
 }
 
-.gallery-lightbox__nav.prev {
+.gallery-modal__nav.prev {
   left: 20px;
 }
 
-.gallery-lightbox__nav.next {
+.gallery-modal__nav.next {
   right: 20px;
 }
 
