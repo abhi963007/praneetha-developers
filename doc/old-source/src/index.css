@@ -1,0 +1,251 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #ffffff;
+    color: #111814;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+/* Custom architectural scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f7f8f5;
+}
+::-webkit-scrollbar-thumb {
+  background: #007b3e;
+  border-radius: 2px;
+}
+
+/* Full Edge-to-Edge Container Grid */
+.edge-container {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .edge-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .edge-container {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .edge-container {
+    padding-left: 4.5rem;
+    padding-right: 4.5rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .edge-container {
+    padding-left: 5.5rem;
+    padding-right: 5.5rem;
+  }
+}
+
+/* Editorial hairlines & sharp 2px card geometry */
+.architectural-card {
+  background: #ffffff;
+  border: 1px solid rgba(5, 59, 32, 0.12);
+  border-radius: 2px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.architectural-card:hover {
+  border-color: rgba(0, 123, 62, 0.45);
+  box-shadow: 0 14px 32px -16px rgba(5, 59, 32, 0.14);
+}
+
+.hero-headline-responsive {
+  font-size: clamp(2.25rem, 4.4vw, 4.75rem);
+  line-height: 1.02;
+}
+
+/* ============================================================================
+   AWWWARDS EDITORIAL CHOREOGRAPHY & SPATIAL UTILITIES
+   ============================================================================ */
+
+[data-reveal] {
+  will-change: opacity, transform, clip-path;
+}
+
+[data-reveal='up'] {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal='up'].is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+[data-reveal='clip'] {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal='clip'].is-revealed {
+  clip-path: inset(0 0 0% 0);
+}
+
+[data-reveal='scale'] {
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal='scale'].is-revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+[data-reveal-delay='1'] {
+  transition-delay: 100ms;
+}
+
+[data-reveal-delay='2'] {
+  transition-delay: 200ms;
+}
+
+[data-reveal-delay='3'] {
+  transition-delay: 300ms;
+}
+
+.awwwards-image-frame {
+  overflow: hidden;
+  position: relative;
+}
+
+.awwwards-image-frame img {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.awwwards-image-frame:hover img,
+.group:hover .awwwards-image-frame img {
+  transform: scale(1.04);
+}
+
+.awwwards-link-line {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.awwwards-link-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.awwwards-link-line:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ============================================================================
+   RESPONSIVE MEDIA QUERIES: MOBILE (<768px), IPAD (768px-1024px), DESKTOP (>=1025px)
+   ============================================================================ */
+
+/* Mobile Portrait & Landscape (<= 767px) */
+@media only screen and (max-width: 767px) {
+  .hero-scroll-track {
+    height: 210vh !important;
+  }
+
+  .hero-headline-responsive {
+    font-size: clamp(2.1rem, 8.5vw, 2.75rem) !important;
+    line-height: 1.04 !important;
+  }
+
+  .section-pad {
+    padding-top: 2.75rem !important;
+    padding-bottom: 2.75rem !important;
+  }
+
+  .mobile-bottom-spacer {
+    padding-bottom: 4.75rem;
+  }
+
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+
+/* iPad & Tablet Viewports (768px to 1024px) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .hero-scroll-track {
+    height: 235vh !important;
+  }
+
+  .hero-headline-responsive {
+    font-size: clamp(2.75rem, 5vw, 3.65rem) !important;
+    line-height: 1.03 !important;
+  }
+
+  .tablet-two-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .section-pad {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+}
+
+/* Desktop & Large Widescreen (>= 1025px) */
+@media only screen and (min-width: 1025px) {
+  .hero-scroll-track {
+    height: 260vh;
+  }
+
+  .hero-headline-responsive {
+    font-size: clamp(3.15rem, 4.4vw, 4.75rem);
+    line-height: 1.02;
+  }
+
+  .section-pad {
+    padding-top: 4.25rem;
+    padding-bottom: 4.25rem;
+  }
+}
+
+/* Horizontal scrollbar hide for mobile category tab strips */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
