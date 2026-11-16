@@ -4,7 +4,6 @@ import { Footer } from '../components/Footer';
 // import { MarqueeSection } from '../components/MarqueeSection';
 import { Navbar } from '../components/Navbar';
 import { PageBannerSection } from '../components/PageBannerSection';
-import { PartnerLogosSection } from '../components/PartnerLogosSection';
 import { useWebflowPage } from '../hooks/useWebflowPage';
 import { AboutProcessSection } from '../sections/about/AboutProcessSection';
 import { AboutStorySection } from '../sections/about/AboutStorySection';
@@ -20,7 +19,6 @@ export function AboutPage() {
       <PageBannerSection title="About Us" />
       <AdvisorsSliderSection variant="about" />
       <AboutStorySection />
-      <PartnerLogosSection pZero={false} />
       <AboutProcessSection />
       {/* <MarqueeSection /> */}
       {/* <FaqSection variant="about" ptZero={true} /> */}

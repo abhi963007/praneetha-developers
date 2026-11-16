@@ -284,36 +284,28 @@ export function Navbar() {
             </ul>
           </nav>
 
-          {/* Bottom Zone: Praneeta Developers Contact Card */}
+          {/* Bottom Zone: Praneeta Developers Contact Card — Compact & 100% Viewport Fit */}
           <div className="drawer-contact-block">
             <div className="drawer-contact-card">
-              <div className="drawer-contact-header">
-                <span className="drawer-contact-eyebrow">Praneeta Developers</span>
-                <p className="drawer-contact-tagline">
-                  Luxury Gated-Community Villas &amp; Apartments in Mokila–Shankarpally, Hyderabad.
-                </p>
-              </div>
-
-              <div className="drawer-contact-details">
-                <div className="drawer-contact-comm">
-                  <a href="mailto:info@praneeta.dev" className="drawer-contact-email">
-                    info@praneeta.dev
-                  </a>
+              <div className="drawer-contact-top-row">
+                <div className="drawer-contact-brand">
+                  <span className="drawer-contact-eyebrow">Praneeta Developers</span>
                   <a href="tel:+919133637111" className="drawer-contact-phone">
                     +91 91336 37111
                   </a>
+                  <a href="mailto:info@praneeta.dev" className="drawer-contact-email">
+                    info@praneeta.dev
+                  </a>
                 </div>
 
-                <div className="drawer-location-row">
-                  <span className="drawer-location-name">Mokila Experience Lounge</span>
-                  <span className="drawer-location-sep">—</span>
+                <div className="drawer-contact-meta">
                   <a
                     href="https://www.google.com/maps?q=17.4264796,78.1912362"
                     target="_blank"
                     rel="noreferrer"
                     className="drawer-maps-link"
                   >
-                    <span>Open in Maps</span>
+                    <span>Mokila Lounge — Maps</span>
                     <svg
                       width="12"
                       height="12"
@@ -327,67 +319,67 @@ export function Navbar() {
                       <path d="M1 7h12M8 2l5 5-5 5" />
                     </svg>
                   </a>
-                </div>
 
-                <div className="drawer-social-row">
-                  <a
-                    href="#social-facebook"
-                    className="drawer-social-btn"
-                    aria-label="Facebook"
-                  >
-                    <img
-                      src="/images/69e9c2dd6c30ecf541ac4e73_1.svg"
-                      loading="lazy"
-                      alt=""
-                      className="drawer-social-icon"
-                    />
-                  </a>
-                  <a
-                    href="#social-linkedin"
-                    className="drawer-social-btn"
-                    aria-label="LinkedIn"
-                  >
-                    <img
-                      src="/images/69e9c2ddcc1e0dae195ecb03_2.svg"
-                      loading="lazy"
-                      alt=""
-                      className="drawer-social-icon"
-                    />
-                  </a>
-                  <a
-                    href="#social-twitter"
-                    className="drawer-social-btn"
-                    aria-label="Twitter / X"
-                  >
-                    <img
-                      src="/images/69e9c2dd29fa8e3712f37cf5_3.svg"
-                      loading="lazy"
-                      alt=""
-                      className="drawer-social-icon"
-                    />
-                  </a>
-                  <a
-                    href="#social-instagram"
-                    className="drawer-social-btn"
-                    aria-label="Instagram"
-                  >
-                    <img
-                      src="/images/69e9c2dde049fa499ad9b3f2_4.svg"
-                      loading="lazy"
-                      alt=""
-                      className="drawer-social-icon"
-                    />
-                  </a>
+                  <div className="drawer-social-row">
+                    <a
+                      href="#social-facebook"
+                      className="drawer-social-btn"
+                      aria-label="Facebook"
+                    >
+                      <img
+                        src="/images/69e9c2dd6c30ecf541ac4e73_1.svg"
+                        loading="lazy"
+                        alt=""
+                        className="drawer-social-icon"
+                      />
+                    </a>
+                    <a
+                      href="#social-linkedin"
+                      className="drawer-social-btn"
+                      aria-label="LinkedIn"
+                    >
+                      <img
+                        src="/images/69e9c2ddcc1e0dae195ecb03_2.svg"
+                        loading="lazy"
+                        alt=""
+                        className="drawer-social-icon"
+                      />
+                    </a>
+                    <a
+                      href="#social-twitter"
+                      className="drawer-social-btn"
+                      aria-label="Twitter / X"
+                    >
+                      <img
+                        src="/images/69e9c2dd29fa8e3712f37cf5_3.svg"
+                        loading="lazy"
+                        alt=""
+                        className="drawer-social-icon"
+                      />
+                    </a>
+                    <a
+                      href="#social-instagram"
+                      className="drawer-social-btn"
+                      aria-label="Instagram"
+                    >
+                      <img
+                        src="/images/69e9c2dde049fa499ad9b3f2_4.svg"
+                        loading="lazy"
+                        alt=""
+                        className="drawer-social-icon"
+                      />
+                    </a>
+                  </div>
                 </div>
-
-                <Link
-                  to="/contact-us"
-                  className="drawer-cta-btn"
-                  onClick={closeMenu}
-                >
-                  Schedule a Site Visit
-                </Link>
               </div>
+
+              <Link
+                to="/contact-us"
+                className="drawer-cta-btn"
+                onClick={closeMenu}
+              >
+                Schedule a Site Visit
+              </Link>
             </div>
           </div>
         </div>

@@ -20,22 +20,16 @@
   padding: 0 clamp(16px, 2.5vw, 40px) !important;
 }
 
-/* ── Split Header ── */
+/* ── Centered Header ── */
 .abt-process__header {
   display: flex !important;
-  align-items: flex-end !important;
-  justify-content: space-between !important;
-  gap: 36px !important;
-  margin-bottom: 44px !important;
-  flex-wrap: wrap !important;
-}
-
-.abt-process__header-left {
-  display: flex !important;
   flex-direction: column !important;
-  align-items: flex-start !important;
+  align-items: center !important;
+  text-align: center !important;
+  justify-content: center !important;
   gap: 14px !important;
-  max-width: 680px !important;
+  margin: 0 auto 52px auto !important;
+  max-width: 820px !important;
 }
 
 .abt-process__pill {
@@ -47,6 +41,7 @@
   background: rgba(44, 58, 46, 0.08) !important;
   border: 1px solid rgba(44, 58, 46, 0.14) !important;
   width: fit-content !important;
+  margin: 0 auto !important;
 }
 
 .abt-process__pill-dot {
@@ -82,60 +77,19 @@
   line-height: 1.15 !important;
   letter-spacing: -0.03em !important;
   color: #1c1c1a !important;
+  text-align: center !important;
   margin: 0 !important;
 }
 
-/* Header Right Highlight Card for "Three Transparent Steps..." */
-.abt-process__header-right {
-  flex-shrink: 0 !important;
-  max-width: 480px !important;
-}
-
-.abt-process__highlight-card {
-  display: flex !important;
-  align-items: flex-start !important;
-  gap: 16px !important;
-  background: #ffffff !important;
-  border: 1px solid rgba(44, 58, 46, 0.12) !important;
-  border-radius: 16px !important;
-  padding: 16px 20px !important;
-  box-shadow: 0 4px 16px rgba(44, 58, 46, 0.05) !important;
-}
-
-.abt-process__highlight-icon {
-  width: 38px !important;
-  height: 38px !important;
-  border-radius: 10px !important;
-  background: rgba(44, 58, 46, 0.08) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-shrink: 0 !important;
-  color: #2c3a2e !important;
-}
-
-.abt-process__highlight-content {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 4px !important;
-}
-
-.abt-process__highlight-tag {
+.abt-process__sub {
   font-family: "Inter Tight", sans-serif !important;
-  font-size: 0.72rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase !important;
-  color: #2c3a2e !important;
-}
-
-.abt-process__highlight-text {
-  font-family: "Inter Tight", sans-serif !important;
-  font-size: 0.88rem !important;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem) !important;
   font-weight: 400 !important;
-  line-height: 1.5 !important;
-  color: #4b5563 !important;
-  margin: 0 !important;
+  line-height: 1.6 !important;
+  color: #52525b !important;
+  text-align: center !important;
+  max-width: 620px !important;
+  margin: 0 auto !important;
 }
 
 /* ── Step Journey Track ── */

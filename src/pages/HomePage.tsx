@@ -9,7 +9,7 @@ import { PartnerLogosSection } from '../components/PartnerLogosSection';
 import { useWebflowPage } from '../hooks/useWebflowPage';
 import { HomeGallerySection } from '../sections/home/HomeGallerySection';
 import { HomeHeroAndCategoriesSection } from '../sections/home/HomeHeroAndCategoriesSection';
-import { HomeHowWeWorkSection } from '../sections/home/HomeHowWeWorkSection';
+// import { HomeHowWeWorkSection } from '../sections/home/HomeHowWeWorkSection';
 import { HomeInsightsAndFooterSection } from '../sections/home/HomeInsightsAndFooterSection';
 import { HomePropertiesSection } from '../sections/home/HomePropertiesSection';
 import { HomeServicesSection } from '../sections/home/HomeServicesSection';
@@ -34,13 +34,13 @@ export function HomePage() {
     <>
       <Navbar />
       <HomeHeroAndCategoriesSection />
+      <PartnerLogosSection pZero={false} />
       <HomeServicesSection />
       <HomePropertiesSection />
-      <HomeHowWeWorkSection />
+      {/* <HomeHowWeWorkSection /> */}
       {/* <AdvisorsSliderSection variant="home" /> */}
       {/* <MarqueeSection /> */}
       {/* <HomeTrackRecordSection /> */}
-      <PartnerLogosSection pZero={false} />
       <HomeVideoSection />
       {/* <TestimonialsSection variant="home" /> */}
       {/* <FaqSection variant="home" ptZero={true} /> */}
