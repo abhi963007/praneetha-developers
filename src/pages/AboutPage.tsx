@@ -9,21 +9,22 @@ import { useWebflowPage } from '../hooks/useWebflowPage';
 import { AboutProcessSection } from '../sections/about/AboutProcessSection';
 import { AboutStorySection } from '../sections/about/AboutStorySection';
 import { PAGE_META } from '../types/site';
+import './about-page.css';
 
 export function AboutPage() {
   useWebflowPage(PAGE_META.about.wfPage, PAGE_META.about.title);
 
   return (
-    <>
+    <div className="about-page-wrapper">
       <Navbar />
       <PageBannerSection title="About Us" />
       <AdvisorsSliderSection variant="about" />
       <AboutStorySection />
-      <PartnerLogosSection pZero={true} />
+      <PartnerLogosSection pZero={false} />
       <AboutProcessSection />
       {/* <MarqueeSection /> */}
       {/* <FaqSection variant="about" ptZero={true} /> */}
       <Footer variant="base" wfPageId={PAGE_META.about.wfPage} />
-    </>
+    </div>
   );
 }

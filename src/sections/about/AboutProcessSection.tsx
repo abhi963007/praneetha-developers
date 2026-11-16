@@ -1,88 +1,92 @@
-import { Fragment } from 'react';
-import './about-cards.css';
+import './about-process-redesign.css';
 
-interface ProcessStep {
-  icon: string;
-  title: string;
-  text: string;
-  count: string;
-  countNodeId: string;
-  boxNodeId?: string;
-  boxClassName?: string;
-}
-
-const PROCESS_STEPS: ProcessStep[] = [
+const PROCESS_STEPS = [
   {
-    icon: '/images/69e9f304f7c176e0d4ccbe2b_Mask%20group.svg',
-    title: 'Explore Communities',
-    text: 'Compare our Mokila–Shankarpally villas, Kokapet apartments, and upcoming plots by configuration and budget.',
-    count: '02',
-    countNodeId: 'w-node-fe9fe890-b9ff-09eb-1caf-83be152cc4e2-309073a9',
-    boxClassName: 'process-box',
-  },
-  {
-    icon: '/images/69e9f450af4f2776d4ef791d_2.svg',
+    num: '01',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+        <circle cx="12" cy="10" r="3" />
+      </svg>
+    ),
     title: 'Visit Mokila Site',
     text: 'Walk through our completed Amity & The Patio communities and review Sovereign Villas blueprints on site.',
-    count: '01',
-    countNodeId: 'w-node-_4f4928c3-4b50-61dc-69b8-309b49988929-309073a9',
-    boxClassName: 'process-box',
   },
   {
-    icon: '/images/69e9f450ecc7379b4e0c909a_3.svg',
+    num: '02',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
+      </svg>
+    ),
+    title: 'Explore Communities',
+    text: 'Compare our Mokila–Shankarpally villas, Kokapet apartments, and upcoming plots by configuration and budget.',
+  },
+  {
+    num: '03',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 2l-2 2m-1.5 1.5L16 7l-1.5-1.5M19 4l-4 4" />
+        <circle cx="8" cy="16" r="5" />
+        <path d="M11.5 12.5L19 5" />
+        <circle cx="8" cy="16" r="2" fill="currentColor" />
+      </svg>
+    ),
     title: 'Clear Handover',
     text: 'Verify HMDA & TG-RERA records, complete bank financing, and receive timely key handover with zero surprises.',
-    count: '03',
-    countNodeId: 'w-node-_1354456d-5f04-0ea8-512c-d3c101fa3700-309073a9',
-    boxNodeId: 'w-node-_8209186e-8c29-3bba-f88a-3b09ef0cd7a6-309073a9',
-    boxClassName: 'process-box last',
   },
 ];
 
 export function AboutProcessSection() {
   return (
-    <section className="section about-process-section">
-      <img
-        src="/images/69e9f420baf74743fc1102db_Union.avif"
-        loading="lazy"
-        alt="Black and white floor plan of a multi-room apartment with labeled areas including dining room, kitchen, living room, bedrooms, and bathrooms."
-        className="process-shape"
-      />
-      <div className="w-layout-blockcontainer container w-container">
-        <div className="section-title-box">
-          <div className="subtitle-box">
-            <div className="subtitle-icon">
-              <img
-                src="/images/6ac4a1873c3838069f5e8736_icon.svg"
-                loading="lazy"
-                alt=""
-                className="subtitle-icon-img"
-              />
+    <section className="section abt-process">
+      <div className="abt-process__inner">
+
+        {/* ── Header ── */}
+        <div className="abt-process__header">
+          <div className="abt-process__pill">
+            <div className="abt-process__pill-dot">
+              <img src="/images/6ac4a1873c3838069f5e8736_icon.svg" alt="" />
             </div>
-            <p className="section-subtitle">Our Process</p>
+            <p className="abt-process__pill-text">Our Process</p>
           </div>
-          <h2 className="section-title">
-            A Simpler Way to<span className="sectitle-br"> </span>Move Forward
+          <h2 className="abt-process__heading">
+            A Simpler Way to Move Forward.
           </h2>
+          <p className="abt-process__sub">
+            Three transparent steps from first visit to final key — no hidden charges, no surprises.
+          </p>
         </div>
-        <div className="w-layout-grid process-grid">
+
+        {/* ── Step Cards ── */}
+        <div className="abt-process__steps">
           {PROCESS_STEPS.map((step) => (
-            <Fragment key={step.countNodeId}>
-              <div id={step.boxNodeId} className={step.boxClassName}>
-                <div className="process-icon-box">
-                  <img src={step.icon} loading="lazy" alt="" className="process-icon" />
-                </div>
-                <div className="process-content">
-                  <h3 className="process-title">{step.title}</h3>
-                  <p className="process-text">{step.text}</p>
+            <div key={step.num} className="abt-process__card">
+              <div className="abt-process__card-top">
+                <span className="abt-process__step-badge">Step {step.num}</span>
+                <div className="abt-process__icon-ring">
+                  {step.icon}
                 </div>
               </div>
-              <div id={step.countNodeId} className="process-count-box">
-                <p className="process-count">{step.count}</p>
+
+              <div className="abt-process__card-body">
+                <h3 className="abt-process__card-title">{step.title}</h3>
+                <p className="abt-process__card-text">{step.text}</p>
               </div>
-            </Fragment>
+
+              <div className="abt-process__card-footer">
+                <span className="abt-process__card-link">Explore Step</span>
+                <div className="abt-process__arrow-circle">
+                  <svg viewBox="0 0 14 14" aria-hidden="true">
+                    <path d="M1 7h12M8 2l5 5-5 5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
+
       </div>
     </section>
   );

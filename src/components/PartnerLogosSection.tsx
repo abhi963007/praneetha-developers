@@ -47,7 +47,7 @@ const PARTNER_LOGOS = [
 
 export function PartnerLogosSection({ pZero = true }: PartnerLogosSectionProps) {
   return (
-    <section className={pZero ? 'section p-zero' : 'section'}>
+    <section className={pZero ? 'section p-zero partner-logos-section' : 'section partner-logos-section'}>
       <div className="w-layout-blockcontainer container w-container">
         <div
           data-w-id="65c9f529-2a6c-90f5-c5ce-f58584cb349d"

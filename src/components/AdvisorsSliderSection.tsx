@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './advisors-section.css';
 
@@ -135,6 +136,34 @@ const FLOAT_STYLE = {
 
 export function AdvisorsSliderSection({ variant = 'home' }: AdvisorsSliderSectionProps) {
   const isHome = variant === 'home';
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [itemsPerView, setItemsPerView] = useState(3);
+
+  useEffect(() => {
+    const updateItemsPerView = () => {
+      if (typeof window === 'undefined') return;
+      if (window.innerWidth < 640) {
+        setItemsPerView(1);
+      } else if (window.innerWidth < 1024) {
+        setItemsPerView(2);
+      } else {
+        setItemsPerView(3);
+      }
+    };
+    updateItemsPerView();
+    window.addEventListener('resize', updateItemsPerView);
+    return () => window.removeEventListener('resize', updateItemsPerView);
+  }, []);
+
+  const maxIndex = Math.max(0, ADVISORS.length - itemsPerView);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  };
 
   return (
     <section className="section advisors-section">
@@ -155,83 +184,104 @@ export function AdvisorsSliderSection({ variant = 'home' }: AdvisorsSliderSectio
             Meet the Leaders Behind<span className="sectitle-br"> </span>Pranitha Developers
           </h2>
         </div>
-        <div
-          data-delay="4000"
-          data-animation="slide"
-          className="team-slider w-slider"
-          data-autoplay="false"
-          data-easing="ease"
-          data-hide-arrows="false"
-          data-disable-swipe="false"
-          data-autoplay-limit="0"
-          data-nav-spacing="3"
-          data-duration="1000"
-          data-infinite="true"
-        >
-          <div className="team-mask w-slider-mask">
-            {ADVISORS.map((advisor) => (
-              <div key={advisor.name} className="team-slide w-slide">
-                <div className="w-dyn-list">
-                  <div role="list" className="w-dyn-items">
-                    <div role="listitem" className="w-dyn-item">
-                      <Link to={advisor.to} className="team-box w-inline-block">
-                        <div
-                          data-w-id={isHome ? advisor.homeBoxId : advisor.aboutBoxId}
-                          className="team-image-box"
-                        >
-                          <img
-                            src={advisor.src}
-                            loading="lazy"
-                            alt=""
-                            sizes={isHome ? advisor.homeSizes : '100vw'}
-                            srcSet={advisor.srcSet}
-                            className="team-image"
-                          />
-                          <div
-                            data-w-id={isHome ? advisor.homeFloatId : advisor.aboutFloatId}
-                            className="team-float-text-box"
-                          >
-                            <p style={FLOAT_STYLE} className="team-float-text">
-                              Meet Our Real Estate Expert
-                            </p>
-                          </div>
-                        </div>
-                        <div className="team-content">
-                          <h3 className="team-title">{advisor.name}</h3>
-                          <p className="team-des">{advisor.role}</p>
-                        </div>
-                      </Link>
+
+        <div className="team-carousel-container">
+          {/* Left Arrow Button */}
+          <button
+            type="button"
+            onClick={handlePrev}
+            className="team-nav-arrow team-nav-arrow--prev"
+            aria-label="Previous team members"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+
+          {/* Carousel Viewport */}
+          <div className="team-carousel-viewport">
+            <div
+              className="team-carousel-track"
+              style={{
+                transform: `translateX(calc(-${currentIndex} * ((100% - ${(itemsPerView - 1) * 24}px) / ${itemsPerView} + 24px)))`,
+              }}
+            >
+              {ADVISORS.map((advisor) => (
+                <div key={advisor.name} className="team-carousel-item">
+                  <Link to={advisor.to} className="team-box w-inline-block">
+                    <div
+                      data-w-id={isHome ? advisor.homeBoxId : advisor.aboutBoxId}
+                      className="team-image-box"
+                    >
+                      <img
+                        src={advisor.src}
+                        loading="lazy"
+                        alt={advisor.name}
+                        sizes={isHome ? advisor.homeSizes : '100vw'}
+                        srcSet={advisor.srcSet}
+                        className="team-image"
+                      />
+                      <div
+                        data-w-id={isHome ? advisor.homeFloatId : advisor.aboutFloatId}
+                        className="team-float-text-box"
+                      >
+                        <p style={FLOAT_STYLE} className="team-float-text">
+                          Meet Our Real Estate Expert
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                    <div className="team-content">
+                      <h3 className="team-title">{advisor.name}</h3>
+                      <p className="team-des">{advisor.role}</p>
+                    </div>
+                  </Link>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-          <div className="team-arrow w-slider-arrow-left">
-            <div className="w-icon-slider-left" />
-          </div>
-          <div className="team-arrow w-slider-arrow-right">
-            <div className="w-icon-slider-right" />
-          </div>
-          <div className="team-dots w-slider-nav w-round" />
-          <div className="w-embed">
-            <style>{`
-              .w-slider-dot {
-                width: 12px;
-                height: 12px;
-                border: 1px solid black;
-                border-radius: 50%;
-                background: transparent;
-                transition: all 0.3s ease;
-                cursor: pointer;
-              }
-              .w-slider-dot.w-active {
-                background: black;
-                border-radius: 10px !important;
-                width: 24px;
-              }
-            `}</style>
-          </div>
+
+          {/* Right Arrow Button */}
+          <button
+            type="button"
+            onClick={handleNext}
+            className="team-nav-arrow team-nav-arrow--next"
+            aria-label="Next team members"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Dots Indicator */}
+        <div className="team-dots-container">
+          {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setCurrentIndex(i)}
+              className={`team-dot ${currentIndex === i ? 'team-dot--active' : ''}`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>

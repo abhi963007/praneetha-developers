@@ -1,0 +1,113 @@
+/* ═══════════════════════════════════════════════════════════
+   ABOUT PAGE — Expansive Edge-to-Edge Layout & Spacing
+   Eliminates narrow 940px containers and dead vertical space.
+   ═══════════════════════════════════════════════════════════ */
+
+.about-page-wrapper {
+  overflow-x: hidden;
+  background-color: #f5efe6;
+  width: 100%;
+}
+
+/* ── Global Container Expansion for About Page (Edge-to-Edge) ── */
+.about-page-wrapper .container,
+.about-page-wrapper .w-container,
+.about-page-wrapper .w-layout-blockcontainer {
+  max-width: 1480px !important;
+  width: 100% !important;
+  padding-left: clamp(24px, 4vw, 56px) !important;
+  padding-right: clamp(24px, 4vw, 56px) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* 1. Our Leadership (Advisors) Slider */
+.about-page-wrapper .advisors-section {
+  padding-top: 68px !important;
+  padding-bottom: 52px !important;
+  background-color: #f5efe6 !important;
+  width: 100% !important;
+}
+
+.about-page-wrapper .advisors-section .team-slider {
+  width: 100% !important;
+}
+
+.about-page-wrapper .advisors-section .team-mask {
+  width: 100% !important;
+}
+
+/* 2. About Pranitha Story Section */
+.about-page-wrapper .abt-story {
+  padding-top: 52px !important;
+  padding-bottom: 48px !important;
+  background-color: #f5efe6 !important;
+  width: 100% !important;
+}
+
+/* 3. Partner Logos Strip */
+.about-page-wrapper .partner-logos-section {
+  padding-top: 36px !important;
+  padding-bottom: 44px !important;
+  background-color: #f5efe6 !important;
+  width: 100% !important;
+}
+
+.about-page-wrapper .partner-grid {
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: clamp(14px, 1.8vw, 24px) !important;
+  width: 100% !important;
+}
+
+/* 4. Our Process Section */
+.about-page-wrapper .abt-process {
+  padding-top: 52px !important;
+  padding-bottom: 84px !important;
+  background-color: #f5efe6 !important;
+  width: 100% !important;
+}
+
+/* ── Responsive adjustments ── */
+@media screen and (max-width: 991px) {
+  .about-page-wrapper .advisors-section {
+    padding-top: 52px !important;
+    padding-bottom: 40px !important;
+  }
+  .about-page-wrapper .abt-story {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+  .about-page-wrapper .partner-logos-section {
+    padding-top: 28px !important;
+    padding-bottom: 32px !important;
+  }
+  .about-page-wrapper .partner-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .about-page-wrapper .abt-process {
+    padding-top: 40px !important;
+    padding-bottom: 64px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about-page-wrapper .advisors-section {
+    padding-top: 44px !important;
+    padding-bottom: 32px !important;
+  }
+  .about-page-wrapper .abt-story {
+    padding-top: 32px !important;
+    padding-bottom: 32px !important;
+  }
+  .about-page-wrapper .partner-logos-section {
+    padding-top: 24px !important;
+    padding-bottom: 28px !important;
+  }
+  .about-page-wrapper .partner-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .about-page-wrapper .abt-process {
+    padding-top: 36px !important;
+    padding-bottom: 56px !important;
+  }
+}

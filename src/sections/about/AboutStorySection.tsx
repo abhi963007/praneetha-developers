@@ -1,102 +1,88 @@
-import './about-cards.css';
+import './about-story-redesign.css';
 
-function CounterTrack({ digit, variant }: { digit: string; variant: 'one' | 'two' }) {
-  const digits = [digit, '1', '2', '3', '4', '5', '6', '7', '8', digit];
-  return (
-    <div className="counter-inner">
-      <div className={`counter ${variant}`}>
-        {digits.map((num, idx) => (
-          <h3 key={idx} className="count-number">
-            {num}
-          </h3>
-        ))}
-      </div>
-    </div>
-  );
-}
+const STATS = [
+  {
+    num: '12',
+    suffix: '+',
+    label: 'Years of Infrastructure & Township Leadership',
+  },
+  {
+    num: '850',
+    suffix: '+',
+    label: 'Happy Homeowner Families Across West Hyderabad',
+  },
+];
+
+const IMAGES = [
+  {
+    src: '/images/portfolio-villas-completed.jpg',
+    alt: 'Completed luxury villa community in West Hyderabad',
+    tall: true,
+  },
+  {
+    src: '/images/service-villa-communities.jpg',
+    alt: 'Gated villa community avenue in Mokila',
+    tall: false,
+  },
+  {
+    src: '/images/service-guided-visits.jpg',
+    alt: 'Sunlit luxury villa entrance in Mokila',
+    tall: false,
+  },
+];
 
 export function AboutStorySection() {
   return (
-    <section className="section about-story-section">
-      <div className="w-layout-blockcontainer container w-container">
-        <div className="section-title-box about">
-          <div className="subtitle-box">
-            <div className="subtitle-icon">
-              <img
-                src="/images/6ac4a1873c3838069f5e8736_icon.svg"
-                loading="lazy"
-                alt=""
-                className="subtitle-icon-img"
-              />
+    <section className="section abt-story">
+      <div className="abt-story__inner">
+
+        {/* ── LEFT COLUMN ── */}
+        <div className="abt-story__left">
+          {/* pill */}
+          <div className="abt-story__pill">
+            <div className="abt-story__pill-dot">
+              <img src="/images/6ac4a1873c3838069f5e8736_icon.svg" alt="" />
             </div>
-            <p className="section-subtitle">About Pranitha</p>
+            <p className="abt-story__pill-text">About Pranitha</p>
           </div>
-          <h2 className="section-title">
-            Building Dreams, Creating Homes across West Hyderabad’s Mokila &amp; Kokapet corridors
+
+          {/* headline */}
+          <h2 className="abt-story__heading">
+            Building Dreams, Creating Homes across West&nbsp;Hyderabad's Mokila &amp; Kokapet corridors
           </h2>
-        </div>
-        <div className="w-layout-grid about-grid">
-          <div id="w-node-_7ad14c85-c53a-cef7-ce0f-8a743883cddf-309073a9" className="about-box one">
-            <p className="about-text">
-              V Praneeta Developers Pvt. Ltd. delivers HMDA &amp; TG-RERA compliant villa communities with transparent documentation and timely quality.
-            </p>
-            <div className="about-image-box">
-              <div data-parallax="trigger" className="parallax-wrapper">
-                <img
-                  className="parallax-image"
-                  src="/images/service-villa-communities.jpg"
-                  alt="Gated luxury villa community avenue in Mokila, Hyderabad"
-                  sizes="(max-width: 479px) 48vw, (max-width: 767px) 49vw, (max-width: 991px) 356px, 462px"
-                  data-parallax="target"
-                  loading="lazy"
-                />
+
+          {/* body */}
+          <p className="abt-story__body">
+            V Praneeta Developers Pvt. Ltd. delivers HMDA &amp; TG-RERA compliant villa communities
+            with transparent documentation and timely quality. Every home we build is backed by over
+            a decade of township expertise and a commitment to zero hidden charges.
+          </p>
+
+          {/* stat row */}
+          <div className="abt-story__stats">
+            {STATS.map((s) => (
+              <div key={s.num} className="abt-story__stat">
+                <p className="abt-story__stat-num">
+                  {s.num}<span>{s.suffix}</span>
+                </p>
+                <p className="abt-story__stat-label">{s.label}</p>
               </div>
-            </div>
-          </div>
-          <div id="w-node-a29c24de-1da4-bb63-c73f-0cdb4b75dfae-309073a9" className="about-box two">
-            <div className="counter-wrap two">
-              <div className="count-number-wrap">
-                <CounterTrack digit="1" variant="one" />
-                <CounterTrack digit="2" variant="two" />
-                <h3 className="count-number">+</h3>
-              </div>
-              <p className="counter-text two">Years of Infrastructure &amp; Township Leadership</p>
-            </div>
-            <div className="about-image-box">
-              <div data-parallax="trigger" className="parallax-wrapper">
-                <img
-                  src="/images/service-guided-visits.jpg"
-                  loading="lazy"
-                  data-parallax="target"
-                  alt="Sunlit luxury model villa entrance in Mokila, Hyderabad"
-                  className="parallax-image"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="about-box three">
-            <div className="about-image-box">
-              <div data-parallax="trigger" className="parallax-wrapper">
-                <img
-                  src="/images/portfolio-villas-completed.jpg"
-                  loading="lazy"
-                  data-parallax="target"
-                  alt="Completed luxury villa community street in West Hyderabad"
-                  className="parallax-image"
-                />
-              </div>
-            </div>
-            <div className="counter-wrap two">
-              <div className="count-number-wrap">
-                <CounterTrack digit="8" variant="one" />
-                <CounterTrack digit="5" variant="two" />
-                <CounterTrack digit="0" variant="one" />
-                <h3 className="count-number">+</h3>
-              </div>
-              <p className="counter-text two">Happy Homeowner Families Across West Hyderabad</p>
-            </div>
+            ))}
           </div>
         </div>
+
+        {/* ── RIGHT COLUMN — image collage ── */}
+        <div className="abt-story__right">
+          {IMAGES.map((img) => (
+            <div
+              key={img.src}
+              className={`abt-story__img-wrap${img.tall ? ' abt-story__img-wrap--tall' : ''}`}
+            >
+              <img src={img.src} alt={img.alt} loading="lazy" />
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );
