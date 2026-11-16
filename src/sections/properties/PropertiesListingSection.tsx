@@ -159,24 +159,21 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     price: '₹88L – ₹1.35 Cr',
     slides: [
       {
-        src: '/images/6ac77be76dc6526aa10abcf6_5.avif',
-        srcSet:
-          '/images/6ac77be76dc6526aa10abcf6_5-p-500.avif 500w, /images/6ac77be76dc6526aa10abcf6_5-p-800.avif 800w, /images/6ac77be76dc6526aa10abcf6_5-p-1080.avif 1080w, /images/6ac77be76dc6526aa10abcf6_5-p-1600.avif 1600w, /images/6ac77be76dc6526aa10abcf6_5.avif 1797w',
+        src: '/images/portfolio-apartments.jpg',
+        srcSet: '/images/portfolio-apartments.jpg 1200w',
       },
       {
-        src: '/images/6ad5cc79421632ee085e8e04_Sunlit%20Coastal%20Living%20Retreat.avif',
-        srcSet:
-          '/images/6ad5cc79421632ee085e8e04_Sunlit%20Coastal%20Living%20Retreat-p-500.avif 500w, /images/6ad5cc79421632ee085e8e04_Sunlit%20Coastal%20Living%20Retreat-p-800.avif 800w, /images/6ad5cc79421632ee085e8e04_Sunlit%20Coastal%20Living%20Retreat-p-1080.avif 1080w, /images/6ad5cc79421632ee085e8e04_Sunlit%20Coastal%20Living%20Retreat.avif 1536w',
+        src: '/images/service-villa-personalization.jpg',
+        srcSet: '/images/service-villa-personalization.jpg 1536w',
       },
       {
-        src: '/images/6ad5cc7d67f0703957e21174_Serene%20Beachfront%20Retreat%20with%20Ocean%20View.avif',
+        src: '/images/6ad5c9cece283b927f0c5395_Warm%20Minimalist%20Open-Plan%20Retreat.avif',
         srcSet:
-          '/images/6ad5cc7d67f0703957e21174_Serene%20Beachfront%20Retreat%20with%20Ocean%20View-p-500.avif 500w, /images/6ad5cc7d67f0703957e21174_Serene%20Beachfront%20Retreat%20with%20Ocean%20View-p-800.avif 800w, /images/6ad5cc7d67f0703957e21174_Serene%20Beachfront%20Retreat%20with%20Ocean%20View-p-1080.avif 1080w, /images/6ad5cc7d67f0703957e21174_Serene%20Beachfront%20Retreat%20with%20Ocean%20View.avif 1536w',
+          '/images/6ad5c9cece283b927f0c5395_Warm%20Minimalist%20Open-Plan%20Retreat-p-500.avif 500w, /images/6ad5c9cece283b927f0c5395_Warm%20Minimalist%20Open-Plan%20Retreat-p-800.avif 800w, /images/6ad5c9cece283b927f0c5395_Warm%20Minimalist%20Open-Plan%20Retreat-p-1080.avif 1080w, /images/6ad5c9cece283b927f0c5395_Warm%20Minimalist%20Open-Plan%20Retreat.avif 1518w',
       },
       {
-        src: '/images/6ad5ccac1dbb5402511c6d7d_Sunset%20Serenity%20at%20a%20Coastal%20Villa.avif',
-        srcSet:
-          '/images/6ad5ccac1dbb5402511c6d7d_Sunset%20Serenity%20at%20a%20Coastal%20Villa-p-500.avif 500w, /images/6ad5ccac1dbb5402511c6d7d_Sunset%20Serenity%20at%20a%20Coastal%20Villa-p-800.avif 800w, /images/6ad5ccac1dbb5402511c6d7d_Sunset%20Serenity%20at%20a%20Coastal%20Villa-p-1080.avif 1080w, /images/6ad5ccac1dbb5402511c6d7d_Sunset%20Serenity%20at%20a%20Coastal%20Villa.avif 1536w',
+        src: '/images/service-nri-concierge.jpg',
+        srcSet: '/images/service-nri-concierge.jpg 1536w',
       },
     ],
   },
@@ -191,24 +188,20 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     price: 'Pre-Launch',
     slides: [
       {
-        src: '/images/6ac77bde6ec3f46c2759130c_6.avif',
-        srcSet:
-          '/images/6ac77bde6ec3f46c2759130c_6-p-500.avif 500w, /images/6ac77bde6ec3f46c2759130c_6-p-800.avif 800w, /images/6ac77bde6ec3f46c2759130c_6-p-1080.avif 1080w, /images/6ac77bde6ec3f46c2759130c_6-p-1600.avif 1600w, /images/6ac77bde6ec3f46c2759130c_6.avif 1797w',
+        src: '/images/portfolio-plots.jpg',
+        srcSet: '/images/portfolio-plots.jpg 1152w',
       },
       {
-        src: '/images/6ad5cd6eb1504db30186d54a_Sunlit%20Mediterranean%20Living%20by%20the%20Sea.avif',
-        srcSet:
-          '/images/6ad5cd6eb1504db30186d54a_Sunlit%20Mediterranean%20Living%20by%20the%20Sea-p-500.avif 500w, /images/6ad5cd6eb1504db30186d54a_Sunlit%20Mediterranean%20Living%20by%20the%20Sea-p-800.avif 800w, /images/6ad5cd6eb1504db30186d54a_Sunlit%20Mediterranean%20Living%20by%20the%20Sea-p-1080.avif 1080w, /images/6ad5cd6eb1504db30186d54a_Sunlit%20Mediterranean%20Living%20by%20the%20Sea.avif 1536w',
+        src: '/images/hero-about.png',
+        srcSet: '/images/hero-about.png 1536w',
       },
       {
-        src: '/images/6ad5cd7cc677397c9b4926d6_Sunlit%20Mediterranean%20Minimalist%20Entryway.avif',
-        srcSet:
-          '/images/6ad5cd7cc677397c9b4926d6_Sunlit%20Mediterranean%20Minimalist%20Entryway-p-500.avif 500w, /images/6ad5cd7cc677397c9b4926d6_Sunlit%20Mediterranean%20Minimalist%20Entryway-p-800.avif 800w, /images/6ad5cd7cc677397c9b4926d6_Sunlit%20Mediterranean%20Minimalist%20Entryway-p-1080.avif 1080w, /images/6ad5cd7cc677397c9b4926d6_Sunlit%20Mediterranean%20Minimalist%20Entryway.avif 1536w',
+        src: '/images/service-rera-legal.jpg',
+        srcSet: '/images/service-rera-legal.jpg 1536w',
       },
       {
-        src: '/images/6ad5cd8cc677397c9b492c9e_Sunset%20Serenity%20by%20the%20Sea.avif',
-        srcSet:
-          '/images/6ad5cd8cc677397c9b492c9e_Sunset%20Serenity%20by%20the%20Sea-p-500.avif 500w, /images/6ad5cd8cc677397c9b492c9e_Sunset%20Serenity%20by%20the%20Sea-p-800.avif 800w, /images/6ad5cd8cc677397c9b492c9e_Sunset%20Serenity%20by%20the%20Sea-p-1080.avif 1080w, /images/6ad5cd8cc677397c9b492c9e_Sunset%20Serenity%20by%20the%20Sea.avif 1536w',
+        src: '/images/hero-properties.png',
+        srcSet: '/images/hero-properties.png 1536w',
       },
     ],
   },

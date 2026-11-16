@@ -17,9 +17,8 @@ export const SERVICES: ServiceItem[] = [
     slug: 'luxury-villa-communities',
     description:
       'Master-planned gated triplex villa enclaves in Mokila–Shankarpally with resort-grade clubhouses.',
-    image: '/images/6ac75f99d29b5eef5b6dbc62_1.avif',
-    srcSet:
-      '/images/6ac75f99d29b5eef5b6dbc62_1-p-500.avif 500w, /images/6ac75f99d29b5eef5b6dbc62_1-p-800.avif 800w, /images/6ac75f99d29b5eef5b6dbc62_1-p-1080.avif 1080w, /images/6ac75f99d29b5eef5b6dbc62_1.avif 1586w',
+    image: '/images/service-villa-communities.jpg',
+    srcSet: '/images/service-villa-communities.jpg 1536w',
   },
   {
     count: '(02)',
@@ -27,9 +26,8 @@ export const SERVICES: ServiceItem[] = [
     slug: 'guided-site-visits',
     description:
       'Walk through completed Amity & The Patio communities and inspect Sovereign Villas at Mokila first-hand.',
-    image: '/images/6ac7752aff63a23a7695325e_2.avif',
-    srcSet:
-      '/images/6ac7752aff63a23a7695325e_2-p-500.avif 500w, /images/6ac7752aff63a23a7695325e_2-p-800.avif 800w, /images/6ac7752aff63a23a7695325e_2.avif 1022w',
+    image: '/images/service-guided-visits.jpg',
+    srcSet: '/images/service-guided-visits.jpg 1536w',
   },
   {
     count: '(03)',
@@ -37,9 +35,8 @@ export const SERVICES: ServiceItem[] = [
     slug: 'rera-legal-clarity',
     description:
       'Complete HMDA layout permits, TG-RERA compliance, and pre-approved bank APF documentation.',
-    image: '/images/6ac77544203ae939c6edc4b1_3.avif',
-    srcSet:
-      '/images/6ac77544203ae939c6edc4b1_3-p-500.avif 500w, /images/6ac77544203ae939c6edc4b1_3-p-800.avif 800w, /images/6ac77544203ae939c6edc4b1_3-p-1080.avif 1080w, /images/6ac77544203ae939c6edc4b1_3.avif 1200w',
+    image: '/images/service-rera-legal.jpg',
+    srcSet: '/images/service-rera-legal.jpg 1536w',
   },
   {
     count: '(04)',
@@ -47,9 +44,8 @@ export const SERVICES: ServiceItem[] = [
     slug: 'villa-personalization',
     description:
       'Thoughtful layout and interior finish customization options tailored to your family lifestyle.',
-    image: '/images/6ac777306ec3f46c2755b88d_4.avif',
-    srcSet:
-      '/images/6ac777306ec3f46c2755b88d_4-p-500.avif 500w, /images/6ac777306ec3f46c2755b88d_4-p-800.avif 800w, /images/6ac777306ec3f46c2755b88d_4-p-1080.avif 1080w, /images/6ac777306ec3f46c2755b88d_4.avif 1500w',
+    image: '/images/service-villa-personalization.jpg',
+    srcSet: '/images/service-villa-personalization.jpg 1536w',
   },
   {
     count: '(05)',
@@ -57,9 +53,8 @@ export const SERVICES: ServiceItem[] = [
     slug: 'nri-concierge-desk',
     description:
       'Dedicated support for global buyers with PoA guidance, NRE/NRO loans, and bi-monthly progress updates.',
-    image: '/images/6ac775580b7b74424ee32bff_5.avif',
-    srcSet:
-      '/images/6ac775580b7b74424ee32bff_5-p-500.avif 500w, /images/6ac775580b7b74424ee32bff_5-p-800.avif 800w, /images/6ac775580b7b74424ee32bff_5-p-1080.avif 1080w, /images/6ac775580b7b74424ee32bff_5.avif 1200w',
+    image: '/images/service-nri-concierge.jpg',
+    srcSet: '/images/service-nri-concierge.jpg 1536w',
   },
   {
     count: '(06)',
@@ -67,9 +62,8 @@ export const SERVICES: ServiceItem[] = [
     slug: 'channel-partner-desk',
     description:
       'Fast 24–48 hour empanelment for TG-RERA registered realtors with transparent milestone payouts.',
-    image: '/images/6ac77046c8354aae60b3356f_6.avif',
-    srcSet:
-      '/images/6ac77046c8354aae60b3356f_6-p-500.png 500w, /images/6ac77046c8354aae60b3356f_6.avif 1500w',
+    image: '/images/service-channel-partner.jpg',
+    srcSet: '/images/service-channel-partner.jpg 1536w',
   },
 ];
 

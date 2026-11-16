@@ -44,12 +44,11 @@ export function AboutStorySection() {
               <div data-parallax="trigger" className="parallax-wrapper">
                 <img
                   className="parallax-image"
-                  src="/images/6ac76985b8424f37ecdd00ab_0.avif"
-                  alt="Two-story wooden house with large glass windows surrounded by dense green trees and shrubs, and a woman walking on a grass path nearby."
+                  src="/images/service-villa-communities.jpg"
+                  alt="Gated luxury villa community avenue in Mokila, Hyderabad"
                   sizes="(max-width: 479px) 48vw, (max-width: 767px) 49vw, (max-width: 991px) 356px, 462px"
                   data-parallax="target"
                   loading="lazy"
-                  srcSet="/images/6ac76985b8424f37ecdd00ab_0-p-500.avif 500w, /images/6ac76985b8424f37ecdd00ab_0.avif 640w"
                 />
               </div>
             </div>
@@ -66,10 +65,10 @@ export function AboutStorySection() {
             <div className="about-image-box">
               <div data-parallax="trigger" className="parallax-wrapper">
                 <img
-                  src="/images/69e9f536ffdeacfa4ede29fb_2.avif"
+                  src="/images/service-guided-visits.jpg"
                   loading="lazy"
                   data-parallax="target"
-                  alt="Modern two-story house with large glass windows and balconies overlooking a foggy landscape."
+                  alt="Sunlit luxury model villa entrance in Mokila, Hyderabad"
                   className="parallax-image"
                 />
               </div>
@@ -79,10 +78,10 @@ export function AboutStorySection() {
             <div className="about-image-box">
               <div data-parallax="trigger" className="parallax-wrapper">
                 <img
-                  src="/images/69e9f537f2739fb2173b9649_3.avif"
+                  src="/images/portfolio-villas-completed.jpg"
                   loading="lazy"
                   data-parallax="target"
-                  alt="Two modern wooden cabin-style houses with large glass windows set in a natural, wooded area with a gray sky."
+                  alt="Completed luxury villa community street in West Hyderabad"
                   className="parallax-image"
                 />
               </div>

@@ -43,9 +43,9 @@ export const INSIGHT_ARTICLES: InsightArticle[] = [
     readTime: '4 min read',
     date: 'December 19, 2025',
     title: 'Natural Daylight, Double-Height Courtyards & Cross Ventilation in Modern Deccan Homes',
-    image: '/images/6ad5e194d131b1b7d7013883_Your%20First%20Home_%20A%20New%20Beginning.avif',
+    image: '/images/6ad5cb5bd747f3fbbe658b02_Airy%20Modern%20Tropical%20Home%20Interior.avif',
     srcSet:
-      '/images/6ad5e194d131b1b7d7013883_Your%20First%20Home_%20A%20New%20Beginning-p-500.avif 500w, /images/6ad5e194d131b1b7d7013883_Your%20First%20Home_%20A%20New%20Beginning-p-800.avif 800w, /images/6ad5e194d131b1b7d7013883_Your%20First%20Home_%20A%20New%20Beginning-p-1080.avif 1080w, /images/6ad5e194d131b1b7d7013883_Your%20First%20Home_%20A%20New%20Beginning.avif 1536w',
+      '/images/6ad5cb5bd747f3fbbe658b02_Airy%20Modern%20Tropical%20Home%20Interior-p-500.avif 500w, /images/6ad5cb5bd747f3fbbe658b02_Airy%20Modern%20Tropical%20Home%20Interior-p-800.avif 800w, /images/6ad5cb5bd747f3fbbe658b02_Airy%20Modern%20Tropical%20Home%20Interior-p-1080.avif 1080w, /images/6ad5cb5bd747f3fbbe658b02_Airy%20Modern%20Tropical%20Home%20Interior.avif 1585w',
   },
 ];
 
