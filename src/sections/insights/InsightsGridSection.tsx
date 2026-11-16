@@ -126,7 +126,7 @@ export function BlogCard({
 
 export function InsightsGridSection() {
   return (
-    <section className="section">
+    <section className="section insight">
       <div className="w-layout-blockcontainer container w-container">
         <div className="w-dyn-list">
           <div role="list" className="blog-cms w-dyn-items">

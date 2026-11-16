@@ -1,5 +1,6 @@
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { CATEGORY_LINKS } from '../../types/site';
+import '../home/home-properties.css';
 
 export interface PropertySlide {
   src: string;
@@ -375,7 +376,7 @@ export function PropertiesListingSection() {
   const visibleProperties = matching.length > 0 ? matching : PROPERTIES_DATA;
 
   return (
-    <section className="section">
+    <section className="section home-properties-section">
       <div className="w-layout-blockcontainer container w-container">
         <div className="categories-wrap">
           <div className="catergories-filter two">

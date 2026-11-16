@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import './advisors-section.css';
 
 interface AdvisorsSliderSectionProps {
   variant?: 'home' | 'about';
@@ -136,7 +137,7 @@ export function AdvisorsSliderSection({ variant = 'home' }: AdvisorsSliderSectio
   const isHome = variant === 'home';
 
   return (
-    <section className="section">
+    <section className="section advisors-section">
       <div className="w-layout-blockcontainer container w-container">
         <div className="section-title-box center">
           <div className="subtitle-box">

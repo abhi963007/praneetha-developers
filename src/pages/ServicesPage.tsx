@@ -1,4 +1,4 @@
-import { FaqSection } from '../components/FaqSection';
+// import { FaqSection } from '../components/FaqSection';
 import { Footer } from '../components/Footer';
 import { Navbar } from '../components/Navbar';
 import { PageBannerSection } from '../components/PageBannerSection';
@@ -16,7 +16,7 @@ export function ServicesPage() {
       <PageBannerSection title="Services" />
       <ServicesListSection />
       <PartnerLogosSection pZero={true} />
-      <FaqSection variant="services" ptZero={false} />
+      {/* <FaqSection variant="services" ptZero={false} /> */}
       <Footer variant="base" wfPageId={PAGE_META.services.wfPage} />
     </>
   );

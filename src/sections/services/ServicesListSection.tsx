@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import './services-section.css';
 
 export interface ServiceItem {
   count: string;
@@ -74,32 +75,52 @@ export const SERVICES: ServiceItem[] = [
 
 export function ServicesListSection() {
   return (
-    <section className="section">
+    <section className="section services-page-section">
       <div className="w-layout-blockcontainer container w-container">
         <div className="services-row">
           <div className="w-dyn-list">
             <div role="list" className="service-cms-two w-dyn-items">
               {SERVICES.map((service) => (
                 <div key={service.count} role="listitem" className="w-dyn-item">
-                  <Link to={`/services/${service.slug}`} className="service-box-two w-inline-block">
-                    <div className="service-title-box">
-                      <p className="service-count">{service.count}</p>
-                      <h2 className="service-title two">{service.title}</h2>
+                  <Link to={`/services/${service.slug}`} className="service-card w-inline-block">
+                    <div className="service-card-img-box">
+                      <img
+                        src={service.image}
+                        loading="lazy"
+                        alt={service.title}
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 33vw"
+                        srcSet={service.srcSet}
+                        className="service-card-img"
+                      />
                     </div>
-                    <div className="service-image-box">
-                      <div data-parallax="trigger" className="parallax-wrapper">
-                        <img
-                          src={service.image}
-                          loading="lazy"
-                          data-parallax="target"
-                          alt=""
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 727px, 939px"
-                          srcSet={service.srcSet}
-                          className="parallax-image"
-                        />
+                    <div className="service-card-content">
+                      <h2 className="service-card-title">{service.title}</h2>
+                      <p className="service-card-desc">{service.description}</p>
+                    </div>
+                    <div className="primary-button card">
+                      <div className="primary-button-flex property">
+                        <div className="primary-button-text-wrap">
+                          <div className="primary-button-text">Explore Service</div>
+                          <div className="primary-button-text-hover">Explore Service</div>
+                        </div>
+                        <div className="primary-button-arrow-wrapper">
+                          <div className="primary-button-arrow-wrap">
+                            <img
+                              loading="lazy"
+                              src="/images/69e723100025a4ae58731b6a_0.svg"
+                              alt=""
+                              className="primary-button-arrow"
+                            />
+                            <img
+                              loading="lazy"
+                              src="/images/69e723100025a4ae58731b6a_0.svg"
+                              alt=""
+                              className="primary-button-arrow-hover"
+                            />
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <p className="service-text">{service.description}</p>
                   </Link>
                 </div>
               ))}

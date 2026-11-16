@@ -1,5 +1,5 @@
 import { AdvisorsSliderSection } from '../components/AdvisorsSliderSection';
-import { FaqSection } from '../components/FaqSection';
+// import { FaqSection } from '../components/FaqSection';
 import { Footer } from '../components/Footer';
 // import { MarqueeSection } from '../components/MarqueeSection';
 import { Navbar } from '../components/Navbar';
@@ -22,7 +22,7 @@ export function AboutPage() {
       <AboutProcessSection />
       {/* <MarqueeSection /> */}
       <AdvisorsSliderSection variant="about" />
-      <FaqSection variant="about" ptZero={true} />
+      {/* <FaqSection variant="about" ptZero={true} /> */}
       <Footer variant="base" wfPageId={PAGE_META.about.wfPage} />
     </>
   );
