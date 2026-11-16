@@ -17,11 +17,11 @@ export function AboutPage() {
     <>
       <Navbar />
       <PageBannerSection title="About Us" />
+      <AdvisorsSliderSection variant="about" />
       <AboutStorySection />
       <PartnerLogosSection pZero={true} />
       <AboutProcessSection />
       {/* <MarqueeSection /> */}
-      <AdvisorsSliderSection variant="about" />
       {/* <FaqSection variant="about" ptZero={true} /> */}
       <Footer variant="base" wfPageId={PAGE_META.about.wfPage} />
     </>

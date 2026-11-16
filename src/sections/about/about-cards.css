@@ -1,32 +1,223 @@
-/* About Us Story & Process Cards — Clean Minimal Luxury Card Styling */
+/* ═══════════════════════════════════════════════════════════════
+   About Story Section — Premium Bento Grid Card Styling
+   ═══════════════════════════════════════════════════════════════ */
 
+/* ── Grid Layout ── */
+.about-story-section .about-grid {
+  gap: 20px !important;
+}
+
+/* ── Base card style ── */
 .about-story-section .about-box {
+  border-radius: 24px !important;
+  border: 1px solid rgba(28, 28, 26, 0.09) !important;
+  background: #ffffff !important;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.05) !important;
+  overflow: hidden !important;
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease !important;
+  padding: 28px !important;
+}
+
+.about-story-section .about-box:hover {
+  transform: translateY(-6px) !important;
+  box-shadow:
+    0 20px 48px rgba(5, 59, 32, 0.12),
+    0 6px 16px rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(5, 59, 32, 0.22) !important;
+}
+
+/* ── Box ONE — text top, image bottom ── */
+.about-story-section .about-box.one {
+  gap: 24px !important;
+  justify-content: space-between !important;
+}
+
+/* ── Box TWO — stat top, image bottom ── */
+.about-story-section .about-box.two {
+  justify-content: space-between !important;
+  gap: 24px !important;
+}
+
+/* ── Box THREE — image top, stat bottom ── */
+.about-story-section .about-box.three {
+  justify-content: space-between !important;
+  gap: 24px !important;
+}
+
+/* ── Image Boxes — rounded corners, smooth zoom on hover ── */
+.about-story-section .about-image-box {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  flex: 1 !important;
+  min-height: 200px !important;
+}
+
+.about-story-section .about-image-box .parallax-wrapper {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+.about-story-section .about-image-box .parallax-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border-radius: 0 !important;
+}
+
+.about-story-section .about-box:hover .parallax-image {
+  transform: scale(1.05) !important;
+}
+
+/* ── About Text (box one description) ── */
+.about-story-section .about-text {
+  font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif) !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.65 !important;
+  color: #52525b !important;
+  letter-spacing: normal !important;
+  margin: 0 !important;
+}
+
+/* ── Stat / Counter Wrap ── */
+.about-story-section .counter-wrap.two {
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+/* ── Counter number row ── */
+.about-story-section .count-number-wrap {
+  align-items: baseline !important;
+  gap: 2px !important;
+}
+
+/* ── The big stat numbers ── */
+.about-story-section .count-number {
+  font-family: var(--_font-family---primary-font, Rubik, sans-serif) !important;
+  font-weight: 700 !important;
+  color: #0d1f12 !important;
+  letter-spacing: -0.04em !important;
+  line-height: 1 !important;
+}
+
+/* + suffix */
+.about-story-section .count-number-wrap > h3.count-number:last-child {
+  font-size: 2.4rem !important;
+  color: #053b20 !important;
+  opacity: 0.6 !important;
+  font-weight: 500 !important;
+  align-self: flex-end !important;
+  padding-bottom: 4px !important;
+}
+
+/* ── Counter label text ── */
+.about-story-section .counter-text.two {
+  font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif) !important;
+  font-size: 0.925rem !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+  color: #6b7280 !important;
+  letter-spacing: 0.01em !important;
+  margin: 0 !important;
+  max-width: 220px !important;
+}
+
+/* ── Thin accent line above stats ── */
+.about-story-section .counter-wrap.two::before {
+  content: '' !important;
+  display: block !important;
+  width: 36px !important;
+  height: 3px !important;
+  border-radius: 999px !important;
+  background: #053b20 !important;
+  opacity: 0.35 !important;
+  margin-bottom: 4px !important;
+}
+
+.about-process-section .process-box {
   border-radius: 20px !important;
   border: 1px solid rgba(28, 28, 26, 0.08) !important;
+  background-color: var(--light, #ffffff) !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.35s ease,
               border-color 0.35s ease !important;
 }
 
-.about-story-section .about-box:hover {
+.about-process-section .process-box:hover {
   transform: translateY(-4px) !important;
   box-shadow: 0 16px 32px rgba(5, 59, 32, 0.1), 0 4px 12px rgba(0, 0, 0, 0.04) !important;
-  border-color: rgba(5, 59, 32, 0.2) !important;
+  border-color: rgba(5, 59, 32, 0.22) !important;
 }
 
-.about-story-section .about-image-box {
-  border-radius: 16px !important;
-  overflow: hidden !important;
+.about-process-section .process-title {
+  font-family: var(--_font-family---primary-font, Rubik, sans-serif) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.015em !important;
+  line-height: 1.35 !important;
+  color: #111827 !important;
+  transition: color 0.25s ease !important;
 }
 
-.about-story-section .about-text,
-.about-story-section .counter-text.two {
+.about-process-section .process-box:hover .process-title {
+  color: var(--primary-color, #053b20) !important;
+}
+
+.about-process-section .process-text {
   font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif) !important;
-  line-height: 1.5 !important;
-  letter-spacing: normal !important;
+  line-height: 1.55 !important;
+  color: #52525b !important;
 }
 
+
+/* ═══════════════════════════════════════════════════════════════
+   Responsive overrides
+   ═══════════════════════════════════════════════════════════════ */
+@media screen and (max-width: 991px) {
+  .about-story-section .about-box {
+    border-radius: 20px !important;
+    padding: 22px !important;
+  }
+  .about-story-section .about-image-box {
+    border-radius: 14px !important;
+    min-height: 160px !important;
+  }
+  .about-story-section .about-image-box .parallax-wrapper {
+    border-radius: 14px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about-story-section .about-box {
+    border-radius: 16px !important;
+    padding: 18px !important;
+  }
+  .about-story-section .about-image-box {
+    border-radius: 12px !important;
+    min-height: 180px !important;
+  }
+  .about-story-section .about-image-box .parallax-wrapper {
+    border-radius: 12px !important;
+  }
+  .about-story-section .counter-text.two {
+    max-width: 100% !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   About Process Section Cards
+   ═══════════════════════════════════════════════════════════════ */
 .about-process-section .process-box {
   border-radius: 20px !important;
   border: 1px solid rgba(28, 28, 26, 0.08) !important;
