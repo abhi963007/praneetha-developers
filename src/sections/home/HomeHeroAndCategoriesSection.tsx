@@ -8,36 +8,32 @@ const PRIMARY_CATEGORIES = [
     title: 'Villas — Ongoing',
     subtitle: 'Sovereign & Santorini',
     tag: 'Ongoing',
-    image: '/images/6ad5b06701dc21185b176929_Modern%20House%20at%20Twilight.avif',
-    srcSet:
-      '/images/6ad5b06701dc21185b176929_Modern%20House%20at%20Twilight-p-500.avif 500w, /images/6ad5b06701dc21185b176929_Modern%20House%20at%20Twilight.avif 640w',
+    image: '/images/portfolio-villas-ongoing.jpg',
+    srcSet: '/images/portfolio-villas-ongoing.jpg 1200w',
   },
   {
     to: '/category/villas-completed',
     title: 'Villas — Completed',
     subtitle: 'Amity & The Patio',
     tag: 'Delivered',
-    image: '/images/6ad5b19fe45891f848b20f5e_Mediterranean%20Villa%20Exterior.avif',
-    srcSet:
-      '/images/6ad5b19fe45891f848b20f5e_Mediterranean%20Villa%20Exterior-p-500.avif 500w, /images/6ad5b19fe45891f848b20f5e_Mediterranean%20Villa%20Exterior.avif 640w',
+    image: '/images/portfolio-villas-completed.jpg',
+    srcSet: '/images/portfolio-villas-completed.jpg 1200w',
   },
   {
     to: '/category/apartments',
     title: 'Apartments',
     subtitle: 'Meridian Heights',
     tag: 'Residential',
-    image: '/images/6ad5ced58991dbd28755868b_Modern%20Apartment%20Living%20in%20Golden%20Light.avif',
-    srcSet:
-      '/images/6ad5ced58991dbd28755868b_Modern%20Apartment%20Living%20in%20Golden%20Light-p-500.avif 500w, /images/6ad5ced58991dbd28755868b_Modern%20Apartment%20Living%20in%20Golden%20Light-p-800.avif 800w, /images/6ad5ced58991dbd28755868b_Modern%20Apartment%20Living%20in%20Golden%20Light-p-1080.avif 1080w, /images/6ad5ced58991dbd28755868b_Modern%20Apartment%20Living%20in%20Golden%20Light.avif 1205w',
+    image: '/images/portfolio-apartments.jpg',
+    srcSet: '/images/portfolio-apartments.jpg 1200w',
   },
   {
     to: '/category/plots-coming-soon',
     title: 'Plots — Coming Soon',
     subtitle: 'Singapur Town Phase II',
     tag: 'Upcoming',
-    image: '/images/6ad5b13d0ecb3dd59b993e4b_Serene%20Two-Story%20House%20in%20Forest%20Setting%20at%20Dusk.avif',
-    srcSet:
-      '/images/6ad5b13d0ecb3dd59b993e4b_Serene%20Two-Story%20House%20in%20Forest%20Setting%20at%20Dusk-p-500.avif 500w, /images/6ad5b13d0ecb3dd59b993e4b_Serene%20Two-Story%20House%20in%20Forest%20Setting%20at%20Dusk.avif 640w',
+    image: '/images/portfolio-plots.jpg',
+    srcSet: '/images/portfolio-plots.jpg 1152w',
   },
 ];
 
