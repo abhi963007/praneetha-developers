@@ -15,7 +15,7 @@ export function ServicesPage() {
       <Navbar />
       <PageBannerSection title="Services" />
       <ServicesListSection />
-      <PartnerLogosSection pZero={true} />
+      <PartnerLogosSection pZero={false} />
       {/* <FaqSection variant="services" ptZero={false} /> */}
       <Footer variant="base" wfPageId={PAGE_META.services.wfPage} />
     </>

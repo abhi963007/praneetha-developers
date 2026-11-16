@@ -70,9 +70,10 @@
 .services-page-section .service-card-title {
   font-family: var(--_font-family---primary-font, Rubik, sans-serif) !important;
   font-size: 1.35rem !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
   color: #111827 !important;
-  line-height: 1.3 !important;
+  line-height: 1.35 !important;
+  letter-spacing: -0.015em !important;
   margin-top: 0 !important;
   margin-bottom: 10px !important;
   transition: color 0.25s ease !important;

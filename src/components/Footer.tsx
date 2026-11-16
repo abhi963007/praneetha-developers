@@ -204,8 +204,11 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
       </div>
       <div className="footer-bottom">
         <div className="w-layout-blockcontainer container w-container">
-          <div className="copyright-box" style={{ justifyContent: 'center' }}>
-            <p className="copyright-text" style={{ textAlign: 'center' }}>
+          <div
+            className="copyright-box"
+            style={{ flexDirection: 'column', alignItems: 'center', gap: '4px' }}
+          >
+            <p className="copyright-text" style={{ textAlign: 'center', marginBottom: 0 }}>
               © Copyright -{' '}
               <Link
                 to="/"
@@ -214,8 +217,10 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
                 className={`copyright-link${isHome ? ' w--current' : ''}`}
               >
                 Pranitha Developers
-              </Link>{' '}
-              · TG-RERA: P02400009246 | P02400006593 | P02400009069
+              </Link>
+            </p>
+            <p className="copyright-text" style={{ textAlign: 'center', marginBottom: 0 }}>
+              TG-RERA: P02400009246 | P02400006593 | P02400009069
             </p>
           </div>
         </div>

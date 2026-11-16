@@ -86,10 +86,8 @@ export function ServicesListSection() {
                     <div className="service-card-img-box">
                       <img
                         src={service.image}
-                        loading="lazy"
+                        loading="eager"
                         alt={service.title}
-                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 33vw"
-                        srcSet={service.srcSet}
                         className="service-card-img"
                       />
                     </div>
@@ -109,13 +107,13 @@ export function ServicesListSection() {
                               loading="lazy"
                               src="/images/69e723100025a4ae58731b6a_0.svg"
                               alt=""
-                              className="primary-button-arrow"
+                              className="primary-button-arrow dark"
                             />
                             <img
                               loading="lazy"
                               src="/images/69e723100025a4ae58731b6a_0.svg"
                               alt=""
-                              className="primary-button-arrow-hover"
+                              className="primary-button-arrow-hover dark"
                             />
                           </div>
                         </div>
