@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { CATEGORY_LINKS } from '../../types/site';
 import '../home/home-properties.css';
@@ -357,12 +358,30 @@ export function PropertyCard({
 export function PropertiesListingSection() {
   const { pathname } = useLocation();
   const { slug } = useParams<{ slug?: string }>();
-  const isAll = !slug || pathname === '/properties';
 
-  const matching = slug
-    ? PROPERTIES_DATA.filter((p) => p.categorySlug === slug)
-    : PROPERTIES_DATA;
-  const visibleProperties = matching.length > 0 ? matching : PROPERTIES_DATA;
+  // Determine initial category from URL slug or path without triggering a scroll reset on filter clicks
+  const initialCat = slug || (pathname.startsWith('/category/') ? pathname.replace('/category/', '') : 'all');
+  const [activeCategory, setActiveCategory] = useState<string>(initialCat);
+
+  // Sync if slug changes from an external navigation
+  useEffect(() => {
+    if (slug) {
+      setActiveCategory(slug);
+    } else if (pathname === '/properties') {
+      setActiveCategory('all');
+    }
+  }, [slug, pathname]);
+
+  const handleFilterClick = (categorySlug: string) => {
+    setActiveCategory(categorySlug);
+    const newPath = categorySlug === 'all' ? '/properties' : `/category/${categorySlug}`;
+    window.history.replaceState(null, '', newPath);
+  };
+
+  const isAll = activeCategory === 'all';
+  const visibleProperties = isAll
+    ? PROPERTIES_DATA
+    : PROPERTIES_DATA.filter((p) => p.categorySlug === activeCategory);
 
   return (
     <section className="section home-properties-section">
@@ -376,9 +395,13 @@ export function PropertiesListingSection() {
                     to="/properties"
                     aria-current={isAll ? 'page' : undefined}
                     className={`cat-box two w-inline-block${isAll ? ' w--current' : ''}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleFilterClick('all');
+                    }}
                   >
                     <div className="cat-content two">
-                      <p className="cat-title two">Explore Properties</p>
+                      <p className="cat-title two">All Projects</p>
                     </div>
                   </Link>
                 </div>
@@ -387,13 +410,18 @@ export function PropertiesListingSection() {
             <div className="w-dyn-list">
               <div role="list" className="cat-cms two w-dyn-items">
                 {CATEGORY_LINKS.map((cat) => {
-                  const active = pathname === cat.to;
+                  const catSlug = cat.to.replace('/category/', '');
+                  const active = activeCategory === catSlug;
                   return (
                     <div key={cat.to} role="listitem" className="w-dyn-item">
                       <Link
                         to={cat.to}
                         aria-current={active ? 'page' : undefined}
                         className={`cat-filter-list w-inline-block${active ? ' w--current' : ''}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleFilterClick(catSlug);
+                        }}
                       >
                         <div className="cat-content two">
                           <p className="cat-title two">{cat.label}</p>

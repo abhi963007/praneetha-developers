@@ -1,0 +1,139 @@
+/* ═══════════════════════════════════════════════════════════
+   PARTNER LOGOS — Infinite Smooth Right-to-Left Marquee Ticker
+   Replaces the static 4x2 grid with a continuous luxury ticker.
+   ═══════════════════════════════════════════════════════════ */
+
+.partner-logos-section {
+  width: 100% !important;
+  background-color: #f5efe6 !important;
+  padding: 36px 0 !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.partner-logos-marquee {
+  width: 100% !important;
+  overflow: hidden !important;
+  position: relative !important;
+  padding: 8px 0 12px !important;
+  /* Smooth edge fade on both sides */
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%) !important;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%) !important;
+}
+
+.partner-marquee-track {
+  display: flex !important;
+  width: max-content !important;
+  user-select: none !important;
+}
+
+.partner-marquee-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 24px !important;
+  padding-right: 24px !important;
+  animation: partnerMarqueeRtl 38s linear infinite !important;
+  will-change: transform !important;
+}
+
+/* Pause animation smoothly on hover */
+.partner-logos-marquee:hover .partner-marquee-group {
+  animation-play-state: paused !important;
+}
+
+/* Individual Partner Logo Card — White Luxury Card */
+.partner-marquee-card {
+  width: 250px !important;
+  min-width: 250px !important;
+  height: 104px !important;
+  background: #ffffff !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(44, 58, 46, 0.09) !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 28px !important;
+  box-sizing: border-box !important;
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease,
+    border-color 0.3s ease !important;
+  cursor: default !important;
+}
+
+.partner-marquee-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 14px 30px rgba(44, 58, 46, 0.1) !important;
+  border-color: rgba(44, 58, 46, 0.22) !important;
+}
+
+.partner-marquee-img {
+  max-width: 160px !important;
+  max-height: 42px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  opacity: 0.78 !important;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+  filter: grayscale(0.2) !important;
+}
+
+.partner-marquee-card:hover .partner-marquee-img {
+  opacity: 1 !important;
+  transform: scale(1.05) !important;
+  filter: grayscale(0) !important;
+}
+
+/* Continuous Right-to-Left Keyframe */
+@keyframes partnerMarqueeRtl {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 991px) {
+  .partner-logos-section {
+    padding: 24px 0 !important;
+  }
+  .partner-marquee-card {
+    width: 210px !important;
+    min-width: 210px !important;
+    height: 92px !important;
+    padding: 0 20px !important;
+    border-radius: 16px !important;
+  }
+  .partner-marquee-group {
+    gap: 18px !important;
+    padding-right: 18px !important;
+    animation-duration: 30s !important;
+  }
+  .partner-marquee-img {
+    max-height: 36px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .partner-logos-section {
+    padding: 18px 0 !important;
+  }
+  .partner-marquee-card {
+    width: 180px !important;
+    min-width: 180px !important;
+    height: 82px !important;
+    padding: 0 16px !important;
+    border-radius: 14px !important;
+  }
+  .partner-marquee-group {
+    gap: 14px !important;
+    padding-right: 14px !important;
+    animation-duration: 24s !important;
+  }
+  .partner-marquee-img {
+    max-height: 30px !important;
+  }
+}

@@ -1,10 +1,22 @@
 /* Styling Our Projects cards on the Home Page to match the Praneeta Journal card style */
 
+/* Active highlight for category filter list tabs */
+.catergories-filter.two .cat-filter-list.w--current {
+  background-color: var(--accent-color, #2c3a2e) !important;
+  color: #ffffff !important;
+}
+
+.catergories-filter.two .cat-filter-list.w--current .cat-title.two {
+  color: #ffffff !important;
+}
+
+/* Property Grid smooth transition when filtering */
 .home-properties-section .property-grid {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
   align-items: stretch !important;
   gap: 28px !important;
+  transition: opacity 0.25s ease !important;
 }
 
 .home-properties-section .property-grid .w-dyn-item {
