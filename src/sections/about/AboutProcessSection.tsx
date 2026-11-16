@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import './about-cards.css';
 
 interface ProcessStep {
   icon: string;
@@ -40,7 +41,7 @@ const PROCESS_STEPS: ProcessStep[] = [
 
 export function AboutProcessSection() {
   return (
-    <section className="section">
+    <section className="section about-process-section">
       <img
         src="/images/69e9f420baf74743fc1102db_Union.avif"
         loading="lazy"

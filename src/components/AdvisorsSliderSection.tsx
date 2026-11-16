@@ -170,7 +170,7 @@ export function AdvisorsSliderSection({ variant = 'home' }: AdvisorsSliderSectio
         >
           <div className="team-mask w-slider-mask">
             {ADVISORS.map((advisor) => (
-              <div key={advisor.to} className="team-slide w-slide">
+              <div key={advisor.name} className="team-slide w-slide">
                 <div className="w-dyn-list">
                   <div role="list" className="w-dyn-items">
                     <div role="listitem" className="w-dyn-item">

@@ -63,7 +63,7 @@ const GALLERY_ENTRIES: GalleryEntry[] = [
     id: 'g7',
     title: 'Avenue Plantation & Pedestrian Boulevards',
     category: 'Landscapes',
-    src: '/images/6ad70f71155418fc235fcc8e_7.png',
+    src: '/images/6ad70f71155418fc235fcc8e_7.avif',
   },
   {
     id: 'g8',
@@ -168,13 +168,13 @@ export function GalleryShowcaseSection() {
               <div className="primary-button-arrow-wrap">
                 <div className="primary-button-arrow-wrapper">
                   <img
-                    src="/images/6ac639321b55f082ee276fa5_Arrow.svg"
+                    src="/images/69e723100025a4ae58731b6a_0.svg"
                     loading="lazy"
                     alt=""
                     className="primary-button-arrow"
                   />
                   <img
-                    src="/images/6ac639321b55f082ee276fa5_Arrow.svg"
+                    src="/images/69e723100025a4ae58731b6a_0.svg"
                     loading="lazy"
                     alt=""
                     className="primary-button-arrow-hover"

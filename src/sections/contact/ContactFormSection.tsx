@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { PAGE_META } from '../../types/site';
+import './contact-cards.css';
 
 const PROPERTY_INTERESTS = [
   'Pranitha Sovereign Villas (₹1.5–2.0 Cr)',
@@ -61,7 +62,7 @@ export function ContactFormSection() {
   };
 
   return (
-    <section className="section">
+    <section className="section contact-page-section">
       <div className="w-layout-blockcontainer container w-container">
         <div className="contact-info-wrapper">
           <div className="contact-info-box">

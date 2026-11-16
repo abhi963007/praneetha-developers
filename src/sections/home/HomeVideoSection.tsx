@@ -6,14 +6,16 @@ export function HomeVideoSection() {
       <div className="cta-wrap">
         <div className="cta-image-box">
           <div data-parallax="trigger" className="parallax-wrapper">
-            <img
+            <video
               className="parallax-image"
-              src="/images/6ad5e7d57c024b24c5f257fb_Moody%20Green-Gray%20Sunset%20Villa.avif"
-              alt="Moody Green Gray Sunset Villa"
-              sizes="100vw"
-              data-parallax="target"
-              loading="lazy"
-              srcSet="/images/6ad5e7d57c024b24c5f257fb_Moody%20Green-Gray%20Sunset%20Villa-p-500.avif 500w, /images/6ad5e7d57c024b24c5f257fb_Moody%20Green-Gray%20Sunset%20Villa-p-800.avif 800w, /images/6ad5e7d57c024b24c5f257fb_Moody%20Green-Gray%20Sunset%20Villa-p-1080.avif 1080w, /images/6ad5e7d57c024b24c5f257fb_Moody%20Green-Gray%20Sunset%20Villa-p-1600.avif 1600w, /images/6ad5e7d57c024b24c5f257fb_Moody%20Green-Gray%20Sunset%20Villa.avif 1659w"
+              src="/video/serene-living.mp4"
+              poster="/images/6ad5e7d57c024b24c5f257fb_Moody%20Green-Gray%20Sunset%20Villa.avif"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             />
           </div>
         </div>

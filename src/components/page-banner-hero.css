@@ -14,7 +14,7 @@
   height: 100%;
   overflow: hidden;
   border-radius: var(--_border-radius---radius-l, 24px);
-  background: #191d19 url('/video/hero-final.jpg') center center / cover no-repeat;
+  background: #191d19;
 }
 
 .page-hero__video {

@@ -1,3 +1,5 @@
+import './about-cards.css';
+
 function CounterTrack({ digit, variant }: { digit: string; variant: 'one' | 'two' }) {
   const digits = [digit, '1', '2', '3', '4', '5', '6', '7', '8', digit];
   return (
@@ -15,7 +17,7 @@ function CounterTrack({ digit, variant }: { digit: string; variant: 'one' | 'two
 
 export function AboutStorySection() {
   return (
-    <section className="section">
+    <section className="section about-story-section">
       <div className="w-layout-blockcontainer container w-container">
         <div className="section-title-box about">
           <div className="subtitle-box">

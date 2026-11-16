@@ -14,33 +14,38 @@ const DEFAULT_SUBTITLES: Record<string, string> = {
   'Contact Us': 'Visit our Mokila Experience Lounge or connect directly with our leadership team.',
 };
 
-const VIDEO_DESKTOP = '/video/hero-scrub.mp4';
-const VIDEO_MOBILE = '/video/hero-scrub-mobile.mp4';
-const POSTER = '/video/hero-final.jpg';
+const PAGE_HERO_MEDIA: Record<string, { image: string; videoDesktop?: string; videoMobile?: string }> = {
+  'About Us': { image: '/images/hero-about.png' },
+  Properties: { image: '/images/hero-properties.png' },
+  Gallery: { image: '/images/hero-gallery.png' },
+  Services: { image: '/images/hero-services.png' },
+  Insights: { image: '/images/hero-insights.png' },
+  'Contact Us': { image: '/images/hero-contact.png' },
+};
+
+const FALLBACK_POSTER = '/images/hero-about.png';
 const MOBILE_QUERY = '(max-width: 767px)';
 
 export function PageBannerSection({ title, subtitle }: PageBannerSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const mediaRef = useRef<HTMLVideoElement | HTMLImageElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const hintRef = useRef<HTMLDivElement>(null);
 
   const resolvedSubtitle = subtitle ?? DEFAULT_SUBTITLES[title] ?? '';
+  const heroMedia = PAGE_HERO_MEDIA[title] ?? { image: FALLBACK_POSTER };
+  const hasVideo = Boolean(heroMedia.videoDesktop);
 
   useEffect(() => {
     const section = sectionRef.current;
-    const video = videoRef.current;
+    const media = mediaRef.current;
     const content = contentRef.current;
     const hint = hintRef.current;
-    if (!section || !video || !content || !hint) return;
+    if (!section || !media || !content || !hint) return;
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;
     }
-
-    video.src = window.matchMedia(MOBILE_QUERY).matches ? VIDEO_MOBILE : VIDEO_DESKTOP;
-    video.muted = true;
-    video.load();
 
     let raf = 0;
     let targetTime = 0;
@@ -48,41 +53,54 @@ export function PageBannerSection({ title, subtitle }: PageBannerSectionProps) {
     let pollId = 0;
     let disposed = false;
 
+    const videoEl = hasVideo ? (media as HTMLVideoElement) : null;
+    if (videoEl) {
+      videoEl.src =
+        window.matchMedia(MOBILE_QUERY).matches && heroMedia.videoMobile
+          ? heroMedia.videoMobile
+          : heroMedia.videoDesktop!;
+      videoEl.muted = true;
+      videoEl.load();
+    }
+
     const trySetup = () => {
-      if (disposed || ctx || !video.duration) return;
+      if (disposed || ctx) return;
+      if (videoEl && !videoEl.duration) return;
       const gsap = window.gsap;
       const ST = window.ScrollTrigger;
       if (!gsap || !ST) return;
 
       gsap.registerPlugin(ST);
-      const startTime = video.duration * 0.55;
-      const endTime = video.duration * 0.98;
-      video.currentTime = startTime;
-      targetTime = startTime;
-
       ctx = gsap.context(() => {
-        const tick = () => {
-          if (!video.seeking && video.readyState >= 2) {
-            const diff = targetTime - video.currentTime;
-            if (Math.abs(diff) > 0.01) {
-              video.currentTime += diff * 0.14;
+        if (videoEl) {
+          const startTime = videoEl.duration * 0.55;
+          const endTime = videoEl.duration * 0.98;
+          videoEl.currentTime = startTime;
+          targetTime = startTime;
+
+          const tick = () => {
+            if (!videoEl.seeking && videoEl.readyState >= 2) {
+              const diff = targetTime - videoEl.currentTime;
+              if (Math.abs(diff) > 0.01) {
+                videoEl.currentTime += diff * 0.14;
+              }
             }
-          }
+            raf = requestAnimationFrame(tick);
+          };
           raf = requestAnimationFrame(tick);
-        };
-        raf = requestAnimationFrame(tick);
 
-        ST.create({
-          trigger: section,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-          onUpdate: (self: { progress: number }) => {
-            targetTime = startTime + (endTime - startTime) * self.progress;
-          },
-        });
+          ST.create({
+            trigger: section,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+            onUpdate: (self: { progress: number }) => {
+              targetTime = startTime + (endTime - startTime) * self.progress;
+            },
+          });
+        }
 
-        gsap.to(video, {
+        gsap.to(media, {
           scale: 1.12,
           ease: 'none',
           scrollTrigger: { trigger: section, start: 'top top', end: 'bottom top', scrub: true },
@@ -105,8 +123,8 @@ export function PageBannerSection({ title, subtitle }: PageBannerSectionProps) {
     };
 
     const onReady = () => trySetup();
-    if (video.readyState >= 1) trySetup();
-    else video.addEventListener('loadedmetadata', onReady, { once: true });
+    if (!videoEl || videoEl.readyState >= 1) trySetup();
+    else videoEl.addEventListener('loadedmetadata', onReady, { once: true });
 
     if (!window.gsap || !window.ScrollTrigger) {
       let attempts = 0;
@@ -128,7 +146,7 @@ export function PageBannerSection({ title, subtitle }: PageBannerSectionProps) {
     window.addEventListener('load', onWinLoad, { once: true });
 
     const unlock = () => {
-      video.play().then(() => video.pause()).catch(() => {});
+      videoEl?.play().then(() => videoEl.pause()).catch(() => {});
     };
     window.addEventListener('touchstart', unlock, { once: true, passive: true });
 
@@ -137,25 +155,35 @@ export function PageBannerSection({ title, subtitle }: PageBannerSectionProps) {
       window.clearInterval(pollId);
       window.removeEventListener('load', onWinLoad);
       cancelAnimationFrame(raf);
-      video.removeEventListener('loadedmetadata', onReady);
+      videoEl?.removeEventListener('loadedmetadata', onReady);
       window.removeEventListener('touchstart', unlock);
       ctx?.revert();
     };
-  }, [title]);
+  }, [title, hasVideo, heroMedia.videoDesktop, heroMedia.videoMobile]);
 
   return (
     <section ref={sectionRef} className="page-hero">
       <div className="page-hero__box">
-        <video
-          ref={videoRef}
-          className="page-hero__video"
-          poster={POSTER}
-          muted
-          playsInline
-          preload="auto"
-        />
+        {hasVideo ? (
+          <video
+            ref={mediaRef as React.RefObject<HTMLVideoElement>}
+            className="page-hero__video"
+            poster={heroMedia.image}
+            muted
+            playsInline
+            preload="auto"
+          />
+        ) : (
+          <img
+            ref={mediaRef as React.RefObject<HTMLImageElement>}
+            className="page-hero__video"
+            src={heroMedia.image}
+            alt={title}
+            loading="eager"
+          />
+        )}
         <div className="page-hero__shade" />
-        <div ref={contentRef} className="page-hero__content">
+        <div ref={contentRef} className="page-hero__content" style={{ display: 'none' }}>
           <span className="page-hero__eyebrow">Pranitha Developers</span>
           <h1 className="page-hero__title">{title}</h1>
           {resolvedSubtitle && <p className="page-hero__subtitle">{resolvedSubtitle}</p>}

@@ -39,6 +39,17 @@
   border-radius: 16px !important;
   overflow: hidden !important;
   position: relative !important;
+  height: 230px !important;
+  min-height: 230px !important;
+  max-height: 230px !important;
+}
+
+.blog-box .blog-image-box .parallax-wrapper,
+.blog-box .blog-image-box img.parallax-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
 }
 
 .blog-box .blog-image-box img.parallax-image {
@@ -70,14 +81,25 @@
   flex: 1 1 auto !important;
   display: flex !important;
   flex-direction: column !important;
-  padding: 20px 12px 16px !important;
+  padding: 18px 12px 16px !important;
+}
+
+.blog-box .blog-date {
+  font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif) !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  color: #71717a !important;
+  margin-bottom: 8px !important;
+  opacity: 1 !important;
 }
 
 .blog-box .blog-title {
   font-family: var(--_font-family---primary-font, Rubik, sans-serif) !important;
+  font-size: 1.2rem !important;
   font-weight: 500 !important;
   letter-spacing: -0.015em !important;
-  line-height: 1.35 !important;
+  line-height: 1.4 !important;
+  color: #111827 !important;
   margin-bottom: 0 !important;
   flex-grow: 1 !important;
   transition: color 0.25s ease !important;
