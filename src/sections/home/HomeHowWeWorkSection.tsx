@@ -1,3 +1,5 @@
+import './home-howwework.css';
+
 const WORK_STEPS = [
   {
     title: '1. Explore Communities',
