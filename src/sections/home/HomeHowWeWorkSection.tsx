@@ -70,10 +70,10 @@ export function HomeHowWeWorkSection() {
         <div className="work-image-box">
           <div data-parallax="trigger" className="parallax-wrapper">
             <img
-              src="/images/6ad5d62409c44abef30fded5_Mediterranean%20Mansion.avif"
+              src="/images/how-we-work-villa.jpg"
               loading="lazy"
               data-parallax="target"
-              alt="Mediterranean Mansion"
+              alt="Pranitha Luxury Villa in Mokila"
               className="parallax-image"
             />
           </div>

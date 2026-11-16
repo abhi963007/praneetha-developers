@@ -31,9 +31,8 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     price: '₹1.50 Cr – ₹2.00 Cr',
     slides: [
       {
-        src: '/images/6ac77bccc663aaac1dd64c34_1.avif',
-        srcSet:
-          '/images/6ac77bccc663aaac1dd64c34_1-p-500.avif 500w, /images/6ac77bccc663aaac1dd64c34_1.avif 599w',
+        src: '/images/project-sovereign-villas.jpg',
+        srcSet: '/images/project-sovereign-villas.jpg 1200w',
       },
       {
         src: '/images/6ad5c70c369770e5b7b22486_2.avif',
@@ -63,9 +62,8 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     price: '₹3.82 Cr+',
     slides: [
       {
-        src: '/images/6ac778f2360b88b7de3db05b_2.avif',
-        srcSet:
-          '/images/6ac778f2360b88b7de3db05b_2-p-500.avif 500w, /images/6ac778f2360b88b7de3db05b_2-p-800.avif 800w, /images/6ac778f2360b88b7de3db05b_2-p-1080.avif 1080w, /images/6ac778f2360b88b7de3db05b_2.avif 1600w',
+        src: '/images/project-santorini-villas.jpg',
+        srcSet: '/images/project-santorini-villas.jpg 1200w',
       },
       {
         src: '/images/6ad5c9cece283b927f0c5395_Warm%20Minimalist%20Open-Plan%20Retreat.avif',
@@ -95,9 +93,8 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     price: '₹2.96 Cr+',
     slides: [
       {
-        src: '/images/6ac77861158caa5fa8a1b3b4_3.avif',
-        srcSet:
-          '/images/6ac77861158caa5fa8a1b3b4_3-p-500.avif 500w, /images/6ac77861158caa5fa8a1b3b4_3-p-800.avif 800w, /images/6ac77861158caa5fa8a1b3b4_3-p-1080.avif 1080w, /images/6ac77861158caa5fa8a1b3b4_3.avif 1500w',
+        src: '/images/project-amity-villas.jpg',
+        srcSet: '/images/project-amity-villas.jpg 1200w',
       },
       {
         src: '/images/6ad5ca9e2e57b218a8207223_Sunlit%20Modern%20Living%20Space.avif',
@@ -127,9 +124,8 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     price: '₹4.32 Cr+',
     slides: [
       {
-        src: '/images/6ac75a7d2c255f89579943ac_4.avif',
-        srcSet:
-          '/images/6ac75a7d2c255f89579943ac_4-p-500.avif 500w, /images/6ac75a7d2c255f89579943ac_4-p-800.avif 800w, /images/6ac75a7d2c255f89579943ac_4-p-1080.avif 1080w, /images/6ac75a7d2c255f89579943ac_4.avif 1586w',
+        src: '/images/project-the-patio.jpg',
+        srcSet: '/images/project-the-patio.jpg 1200w',
       },
       {
         src: '/images/6ad5cb5bd747f3fbbe658b02_Airy%20Modern%20Tropical%20Home%20Interior.avif',
@@ -159,8 +155,8 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     price: '₹88L – ₹1.35 Cr',
     slides: [
       {
-        src: '/images/portfolio-apartments.jpg',
-        srcSet: '/images/portfolio-apartments.jpg 1200w',
+        src: '/images/project-meridian-heights.jpg',
+        srcSet: '/images/project-meridian-heights.jpg 1200w',
       },
       {
         src: '/images/service-villa-personalization.jpg',
@@ -188,8 +184,8 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     price: 'Pre-Launch',
     slides: [
       {
-        src: '/images/portfolio-plots.jpg',
-        srcSet: '/images/portfolio-plots.jpg 1152w',
+        src: '/images/project-singapur-town.jpg',
+        srcSet: '/images/project-singapur-town.jpg 1200w',
       },
       {
         src: '/images/hero-about.png',
