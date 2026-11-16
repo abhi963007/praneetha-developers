@@ -55,8 +55,8 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
               >
                 <img
                   loading="lazy"
-                  src="/images/pranitha-logo.png"
-                  alt="Pranitha Developers"
+                  src="/images/praneeta-logo.png"
+                  alt="Praneeta Developers"
                   className="site-logo"
                   style={{ width: '280px', maxWidth: '100%', height: 'auto', display: 'block' }}
                 />
@@ -99,7 +99,7 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
                   className="form-success w-form-done"
                   style={{ display: status === 'success' ? 'block' : undefined }}
                 >
-                  <div>Thanks! You're subscribed to Pranitha Developers updates.</div>
+                  <div>Thanks! You're subscribed to Praneeta Developers updates.</div>
                 </div>
                 <div
                   className="form-error w-form-fail"
@@ -216,7 +216,7 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
                 aria-current={isHome ? 'page' : undefined}
                 className={`copyright-link${isHome ? ' w--current' : ''}`}
               >
-                Pranitha Developers
+                Praneeta Developers
               </Link>
             </p>
             <p className="copyright-text" style={{ textAlign: 'center', marginBottom: 0 }}>

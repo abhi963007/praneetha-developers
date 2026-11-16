@@ -43,7 +43,7 @@ export function AboutStorySection() {
             <div className="abt-story__pill-dot">
               <img src="/images/6ac4a1873c3838069f5e8736_icon.svg" alt="" />
             </div>
-            <p className="abt-story__pill-text">About Pranitha</p>
+            <p className="abt-story__pill-text">About Praneeta</p>
           </div>
 
           {/* headline */}

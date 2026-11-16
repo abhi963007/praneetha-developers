@@ -17,7 +17,7 @@ export function HomeInsightsAndFooterSection() {
                   className="subtitle-icon-img"
                 />
               </div>
-              <p className="section-subtitle">Pranitha Journal</p>
+              <p className="section-subtitle">Praneeta Journal</p>
             </div>
             <h2 className="section-title">
               Hyderabad Real Estate, RERA<span className="sectitle-br"> </span>&amp; Design Guides

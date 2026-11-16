@@ -1,4 +1,4 @@
-/* Styling Our Projects cards on the Home Page to match the Pranitha Journal card style */
+/* Styling Our Projects cards on the Home Page to match the Praneeta Journal card style */
 
 .home-properties-section .property-grid {
   display: grid !important;
@@ -65,7 +65,77 @@
   flex: 1 1 auto !important;
   display: flex !important;
   flex-direction: column !important;
-  padding: 20px 12px 16px !important;
+  padding: 18px 12px 14px !important;
+}
+
+/* Specs Block: Clean 2-Row Split Layout */
+.property-room-wrap {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  margin-bottom: 12px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid rgba(28, 28, 26, 0.08) !important;
+}
+
+.property-specs-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  gap: 12px !important;
+}
+
+.property-spec-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+}
+
+.property-spec-item .property-icon {
+  width: 15px !important;
+  height: 15px !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+  opacity: 0.8 !important;
+}
+
+.property-room-count {
+  font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif) !important;
+  font-size: 0.84rem !important;
+  font-weight: 500 !important;
+  color: #374151 !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+}
+
+.property-location-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  width: 100% !important;
+}
+
+.property-location-row .property-icon--loc {
+  width: 13px !important;
+  height: 13px !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+  opacity: 0.75 !important;
+}
+
+.property-loc {
+  font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif) !important;
+  font-size: 0.82rem !important;
+  font-weight: 400 !important;
+  color: #6b7280 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  margin: 0 !important;
+  line-height: 1 !important;
 }
 
 .home-properties-section .property-name-box {

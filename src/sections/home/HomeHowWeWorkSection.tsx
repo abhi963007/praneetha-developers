@@ -75,7 +75,7 @@ export function HomeHowWeWorkSection() {
               src="/images/how-we-work-villa.jpg"
               loading="lazy"
               data-parallax="target"
-              alt="Pranitha Luxury Villa in Mokila"
+              alt="Praneeta Luxury Villa in Mokila"
               className="parallax-image"
             />
           </div>

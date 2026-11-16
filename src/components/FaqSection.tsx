@@ -7,11 +7,11 @@ interface FaqSectionProps {
 
 const FAQ_ITEMS = [
   {
-    q: 'What makes Pranitha Sovereign Villas priced at ₹1.5 Cr – ₹2.0 Cr unique in Mokila?',
-    a: 'Most gated-community triplex villas along the Mokila–Kokapet belt now start upwards of ₹3 Cr. Pranitha Sovereign Villas offers independent 180–260 Sq. Yd plots with 2,250–2,850 Sq. Ft. triplex architecture, HMDA planning standards, and a 20,000+ Sq. Ft. clubhouse between ₹1.50 Cr and ₹2.00 Cr.',
+    q: 'What makes Praneeta Sovereign Villas priced at ₹1.5 Cr – ₹2.0 Cr unique in Mokila?',
+    a: 'Most gated-community triplex villas along the Mokila–Kokapet belt now start upwards of ₹3 Cr. Praneeta Sovereign Villas offers independent 180–260 Sq. Yd plots with 2,250–2,850 Sq. Ft. triplex architecture, HMDA planning standards, and a 20,000+ Sq. Ft. clubhouse between ₹1.50 Cr and ₹2.00 Cr.',
   },
   {
-    q: 'Are Pranitha Developers projects TG-RERA registered and bank loan approved?',
+    q: 'Are Praneeta Developers projects TG-RERA registered and bank loan approved?',
     a: 'Yes. Our ongoing and completed communities carry official TG-RERA registrations (including Santorini Villas P02400009246, Amity Villas P02400006593, and The Patio P02400009069) with HMDA-approved layouts and home loan tie-ups across SBI, HDFC, ICICI Bank, and Axis Bank.',
   },
   {
@@ -19,11 +19,11 @@ const FAQ_ITEMS = [
     a: 'Our corporate hub and flagship villa communities in Mokila sit roughly 12 minutes from ORR Exit 2 (Kollur), 18 minutes from Kokapet Neopolis SEZ, 25 minutes from Financial District / Wipro Circle, and within 8 minutes of premier international schools.',
   },
   {
-    q: 'Can buyers see completed Pranitha villas before booking an ongoing unit?',
-    a: 'Yes. We actively encourage prospective homeowners to walk through our completed, occupied communities—Pranitha Amity Villas and Pranitha The Patio—during your guided site visit so you can inspect construction finish, road widths, and clubhouse maintenance first-hand.',
+    q: 'Can buyers see completed Praneeta villas before booking an ongoing unit?',
+    a: 'Yes. We actively encourage prospective homeowners to walk through our completed, occupied communities—Praneeta Amity Villas and Praneeta The Patio—during your guided site visit so you can inspect construction finish, road widths, and clubhouse maintenance first-hand.',
   },
   {
-    q: 'How do Channel Partners and Real Estate Consultants register with Pranitha Developers?',
+    q: 'How do Channel Partners and Real Estate Consultants register with Praneeta Developers?',
     a: 'Consultants and TG-RERA registered realtors can submit their agency credentials directly via our Contact / Channel Partner desk. Our dedicated CP Desk completes empanelment within 24–48 hours with transparent brokerage slabs and milestone payouts.',
   },
 ];

@@ -1,280 +1,441 @@
 /* ═══════════════════════════════════════════════════════════
-   ABOUT PROCESS — Luxury Redesign
-   Matching the site-wide luxury design system:
-   Crisp white cards, 20px radius, soft shadow, refined badges
+   ABOUT PROCESS — Luxury Edge-to-Edge Architectural Design
+   Matches Praneeta Developers' brand aesthetic:
+   Warm cream backdrop, crisp white cards, deep forest green accents,
+   high-contrast iconography, and balanced typography.
    ═══════════════════════════════════════════════════════════ */
 
 .abt-process {
-  padding: 100px 0 !important;
+  padding: 60px 0 80px !important;
   background: #f5efe6 !important;
   position: relative !important;
   overflow: hidden !important;
+  width: 100% !important;
 }
 
 .abt-process__inner {
-  max-width: 1480px;
-  margin: 0 auto;
-  padding: 0 clamp(24px, 4vw, 56px);
+  max-width: 1540px !important;
+  width: 95% !important;
+  margin: 0 auto !important;
+  padding: 0 clamp(16px, 2.5vw, 40px) !important;
 }
 
-/* ── Header ── */
+/* ── Split Header ── */
 .abt-process__header {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 56px;
-  max-width: 780px;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: space-between !important;
+  gap: 36px !important;
+  margin-bottom: 44px !important;
+  flex-wrap: wrap !important;
+}
+
+.abt-process__header-left {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 14px !important;
+  max-width: 680px !important;
 }
 
 .abt-process__pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px 6px 8px;
-  border-radius: 999px;
-  background: rgba(44, 58, 46, 0.08);
-  border: 1px solid rgba(44, 58, 46, 0.14);
-  width: fit-content;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 6px 14px 6px 8px !important;
+  border-radius: 999px !important;
+  background: rgba(44, 58, 46, 0.08) !important;
+  border: 1px solid rgba(44, 58, 46, 0.14) !important;
+  width: fit-content !important;
 }
 
 .abt-process__pill-dot {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #2c3a2e;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 50% !important;
+  background: #2c3a2e !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .abt-process__pill-dot img {
-  width: 11px;
-  height: 11px;
-  filter: invert(1) brightness(2);
+  width: 11px !important;
+  height: 11px !important;
+  filter: invert(1) brightness(2) !important;
 }
 
 .abt-process__pill-text {
-  font-family: "Inter Tight", sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #2c3a2e;
-  margin: 0;
+  font-family: "Inter Tight", sans-serif !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #2c3a2e !important;
+  margin: 0 !important;
 }
 
 .abt-process__heading {
-  font-family: Rubik, sans-serif;
-  font-size: clamp(2.1rem, 3.4vw, 2.9rem);
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.035em;
-  color: #1c1c1a;
-  margin: 0;
+  font-family: Rubik, sans-serif !important;
+  font-size: clamp(2.1rem, 3.2vw, 2.9rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.03em !important;
+  color: #1c1c1a !important;
+  margin: 0 !important;
 }
 
-.abt-process__sub {
-  font-family: "Inter Tight", sans-serif;
-  font-size: 1.05rem;
-  font-weight: 400;
-  line-height: 1.68;
-  color: #52525b;
-  margin: 0;
-  max-width: 580px;
+/* Header Right Highlight Card for "Three Transparent Steps..." */
+.abt-process__header-right {
+  flex-shrink: 0 !important;
+  max-width: 480px !important;
+}
+
+.abt-process__highlight-card {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 16px !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(44, 58, 46, 0.12) !important;
+  border-radius: 16px !important;
+  padding: 16px 20px !important;
+  box-shadow: 0 4px 16px rgba(44, 58, 46, 0.05) !important;
+}
+
+.abt-process__highlight-icon {
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 10px !important;
+  background: rgba(44, 58, 46, 0.08) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  color: #2c3a2e !important;
+}
+
+.abt-process__highlight-content {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+
+.abt-process__highlight-tag {
+  font-family: "Inter Tight", sans-serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #2c3a2e !important;
+}
+
+.abt-process__highlight-text {
+  font-family: "Inter Tight", sans-serif !important;
+  font-size: 0.88rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  color: #4b5563 !important;
+  margin: 0 !important;
+}
+
+/* ── Step Journey Track ── */
+.abt-process__progress-line {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 28px !important;
+  padding: 0 12px !important;
+}
+
+.abt-process__progress-node {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-family: "Inter Tight", sans-serif !important;
+}
+
+.abt-process__node-num {
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  background: #2c3a2e !important;
+  padding: 2px 8px !important;
+  border-radius: 6px !important;
+}
+
+.abt-process__node-label {
+  font-size: 0.84rem !important;
+  font-weight: 500 !important;
+  color: #2c3a2e !important;
+  letter-spacing: 0.02em !important;
+}
+
+.abt-process__progress-bar {
+  flex: 1 !important;
+  height: 2px !important;
+  background: rgba(44, 58, 46, 0.12) !important;
+  margin: 0 16px !important;
+  position: relative !important;
+}
+
+.abt-process__progress-bar::after {
+  content: "" !important;
+  position: absolute !important;
+  top: -3px !important;
+  right: 0 !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: rgba(44, 58, 46, 0.25) !important;
 }
 
 /* ── Step Cards Grid ── */
 .abt-process__steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: clamp(20px, 2.5vw, 28px) !important;
 }
 
 /* ── Individual Step Card ── */
 .abt-process__card {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 36px 32px 32px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 320px;
-  border: 1px solid rgba(44, 58, 46, 0.08);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  background: #ffffff !important;
+  border-radius: 22px !important;
+  padding: 34px 30px 28px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  min-height: 340px !important;
+  border: 1px solid rgba(44, 58, 46, 0.1) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
   transition:
     transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.3s ease;
-  cursor: default;
+    border-color 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
 }
 
 .abt-process__card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-6px) !important;
   box-shadow:
-    0 20px 48px rgba(44, 58, 46, 0.1),
-    0 4px 12px rgba(0, 0, 0, 0.04);
-  border-color: rgba(44, 58, 46, 0.2);
+    0 22px 48px rgba(44, 58, 46, 0.12),
+    0 6px 16px rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(44, 58, 46, 0.25) !important;
 }
 
-/* Card Top: Step Badge + Icon */
+/* Card Top: Step Badge + Solid High-Contrast Icon Ring */
 .abt-process__card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 24px !important;
+}
+
+.abt-process__step-badge-wrap {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
 }
 
 .abt-process__step-badge {
-  font-family: "Inter Tight", sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #2c3a2e;
-  background: rgba(44, 58, 46, 0.07);
-  border: 1px solid rgba(44, 58, 46, 0.12);
-  padding: 5px 14px;
-  border-radius: 999px;
-  line-height: 1;
+  font-family: "Inter Tight", sans-serif !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #2c3a2e !important;
+  background: rgba(44, 58, 46, 0.07) !important;
+  border: 1px solid rgba(44, 58, 46, 0.14) !important;
+  padding: 6px 14px !important;
+  border-radius: 999px !important;
+  line-height: 1 !important;
 }
 
+.abt-process__step-watermark {
+  font-family: Rubik, sans-serif !important;
+  font-size: 1.6rem !important;
+  font-weight: 300 !important;
+  color: rgba(44, 58, 46, 0.18) !important;
+  letter-spacing: -0.04em !important;
+}
+
+/* 100% Crisp, High-Contrast Solid Icon Ring */
 .abt-process__icon-ring {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: rgba(44, 58, 46, 0.06);
-  border: 1px solid rgba(44, 58, 46, 0.12);
-  color: #2c3a2e;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50% !important;
+  background: #2c3a2e !important;
+  border: 1px solid #2c3a2e !important;
+  color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  box-shadow: 0 6px 16px rgba(44, 58, 46, 0.22) !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease !important;
 }
 
-.abt-process__icon-ring svg {
-  width: 24px;
-  height: 24px;
-  stroke: currentColor;
-  transition: stroke 0.3s ease;
+.abt-process__icon-ring .abt-process__svg {
+  width: 22px !important;
+  height: 22px !important;
+  stroke: #ffffff !important;
+  stroke-width: 2.2 !important;
+  fill: none !important;
+  opacity: 1 !important;
+  display: block !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.18)) !important;
 }
 
 .abt-process__card:hover .abt-process__icon-ring {
-  background: #2c3a2e;
-  border-color: #2c3a2e;
-  color: #ffffff;
-  transform: scale(1.05);
-}
-
-.abt-process__card:hover .abt-process__icon-ring img {
-  filter: invert(1) brightness(2);
+  transform: scale(1.08) !important;
+  background: #1e2920 !important;
+  box-shadow: 0 8px 22px rgba(44, 58, 46, 0.32) !important;
 }
 
 /* Card Body */
 .abt-process__card-body {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 1;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  flex: 1 !important;
 }
 
 .abt-process__card-title {
-  font-family: Rubik, sans-serif;
-  font-size: 1.3rem;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: #1c1c1a;
-  margin: 0;
-  line-height: 1.3;
+  font-family: Rubik, sans-serif !important;
+  font-size: 1.32rem !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.02em !important;
+  color: #1c1c1a !important;
+  margin: 0 !important;
+  line-height: 1.25 !important;
 }
 
 .abt-process__card-text {
-  font-family: "Inter Tight", sans-serif;
-  font-size: 0.95rem;
-  font-weight: 400;
-  line-height: 1.68;
-  color: #52525b;
-  margin: 0;
+  font-family: "Inter Tight", sans-serif !important;
+  font-size: 0.93rem !important;
+  font-weight: 400 !important;
+  line-height: 1.62 !important;
+  color: #52525b !important;
+  margin: 0 !important;
+}
+
+.abt-process__feature-chip {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin-top: 6px !important;
+  padding: 5px 12px !important;
+  border-radius: 8px !important;
+  background: rgba(44, 58, 46, 0.05) !important;
+  border: 1px solid rgba(44, 58, 46, 0.08) !important;
+  width: fit-content !important;
+  font-family: "Inter Tight", sans-serif !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  color: #2c3a2e !important;
 }
 
 /* Card Footer: Interactive Link & Arrow Circle */
 .abt-process__card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 28px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(28, 28, 26, 0.06);
+  margin-top: 26px !important;
+  padding-top: 18px !important;
+  border-top: 1px solid rgba(28, 28, 26, 0.07) !important;
+}
+
+.abt-process__card-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  text-decoration: none !important;
+  width: 100% !important;
 }
 
 .abt-process__card-link {
-  font-family: "Inter Tight", sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #2c3a2e;
-  letter-spacing: 0.02em;
+  font-family: "Inter Tight", sans-serif !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  color: #2c3a2e !important;
+  letter-spacing: 0.02em !important;
+  transition: color 0.25s ease !important;
 }
 
 .abt-process__arrow-circle {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #f5efe6;
-  border: 1px solid rgba(44, 58, 46, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.25s ease, transform 0.25s ease;
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 50% !important;
+  background: #f5efe6 !important;
+  border: 1px solid rgba(44, 58, 46, 0.14) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease !important;
 }
 
 .abt-process__arrow-circle svg {
-  width: 14px;
-  height: 14px;
-  stroke: #2c3a2e;
-  stroke-width: 2;
-  fill: none;
-  transition: transform 0.25s ease, stroke 0.25s ease;
+  width: 14px !important;
+  height: 14px !important;
+  stroke: #2c3a2e !important;
+  stroke-width: 2 !important;
+  fill: none !important;
+  transition: transform 0.25s ease, stroke 0.25s ease !important;
+}
+
+.abt-process__card:hover .abt-process__card-link {
+  color: #053b20 !important;
 }
 
 .abt-process__card:hover .abt-process__arrow-circle {
-  background: #2c3a2e;
-  transform: translateX(3px);
+  background: #2c3a2e !important;
+  border-color: #2c3a2e !important;
+  transform: translateX(4px) !important;
 }
 
 .abt-process__card:hover .abt-process__arrow-circle svg {
-  stroke: #ffffff;
+  stroke: #ffffff !important;
 }
 
 /* ── Responsive ── */
+@media screen and (max-width: 1080px) {
+  .abt-process__header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 24px !important;
+  }
+  .abt-process__header-right {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
 @media screen and (max-width: 991px) {
   .abt-process {
-    padding: 72px 0 !important;
+    padding: 48px 0 60px !important;
+  }
+  .abt-process__progress-line {
+    display: none !important;
   }
   .abt-process__steps {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .abt-process__header {
-    margin-bottom: 40px;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
   }
   .abt-process__card {
-    min-height: auto;
+    min-height: auto !important;
   }
 }
 
 @media screen and (max-width: 767px) {
   .abt-process {
-    padding: 60px 0 !important;
+    padding: 36px 0 48px !important;
   }
   .abt-process__inner {
-    padding: 0 20px;
+    padding: 0 16px !important;
+    width: 100% !important;
   }
   .abt-process__card {
-    padding: 28px 24px;
-    border-radius: 18px;
+    padding: 24px 20px !important;
+    border-radius: 18px !important;
   }
   .abt-process__heading {
-    font-size: 1.95rem;
+    font-size: 1.85rem !important;
   }
 }

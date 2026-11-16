@@ -23,7 +23,7 @@ const CATEGORIES: GalleryCategory[] = [
 const GALLERY_ENTRIES: GalleryEntry[] = [
   {
     id: 'g1',
-    title: 'Pranitha Sovereign Villas — Dusk Elevation, Mokila',
+    title: 'Praneeta Sovereign Villas — Dusk Elevation, Mokila',
     category: 'Villa Exteriors',
     src: '/images/6ad70f6cbf6c8f380548ade8_1.avif',
     wide: true,

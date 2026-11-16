@@ -184,7 +184,7 @@ export function PageBannerSection({ title, subtitle }: PageBannerSectionProps) {
         )}
         <div className="page-hero__shade" />
         <div ref={contentRef} className="page-hero__content" style={{ display: 'none' }}>
-          <span className="page-hero__eyebrow">Pranitha Developers</span>
+          <span className="page-hero__eyebrow">Praneeta Developers</span>
           <h1 className="page-hero__title">{title}</h1>
           {resolvedSubtitle && <p className="page-hero__subtitle">{resolvedSubtitle}</p>}
         </div>

@@ -51,9 +51,9 @@
 
 .advisors-section .team-title {
   font-family: var(--_font-family---primary-font, Rubik, sans-serif) !important;
-  font-size: 1.15rem !important;
-  font-weight: 500 !important;
-  letter-spacing: -0.015em !important;
+  font-size: 1.12rem !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em !important;
   color: #1c1c1a !important;
   line-height: 1.35 !important;
   margin: 0 !important;
@@ -66,8 +66,8 @@
 
 .advisors-section .team-des {
   font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif) !important;
-  font-size: 0.88rem !important;
-  font-weight: 400 !important;
+  font-size: 0.85rem !important;
+  font-weight: 350 !important;
   color: #6b7280 !important;
   line-height: 1.4 !important;
   margin: 0 !important;

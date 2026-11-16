@@ -25,9 +25,9 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     categorySlug: 'villas-ongoing',
     badge: 'Flagship Launch',
     rooms: '3 & 4 BHK',
-    sqft: '2,250–2,850 sqft',
+    sqft: '2500, 2750, 2850 sqft',
     location: 'Mokila–Shankarpally, Hyderabad',
-    name: 'Pranitha Sovereign Villas',
+    name: 'Praneeta Sovereign Villas',
     price: '₹1.50 Cr – ₹2.00 Cr',
     slides: [
       {
@@ -58,7 +58,7 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     rooms: '4 BHK',
     sqft: '3,820–4,900 sqft',
     location: 'Mokila, Hyderabad',
-    name: 'Pranitha Santorini Villas',
+    name: 'Praneeta Santorini Villas',
     price: '₹3.82 Cr+',
     slides: [
       {
@@ -89,7 +89,7 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     rooms: '4 BHK',
     sqft: '2,960–3,399 sqft',
     location: 'Mokila, Hyderabad',
-    name: 'Pranitha Amity Villas',
+    name: 'Praneeta Amity Villas',
     price: '₹2.96 Cr+',
     slides: [
       {
@@ -120,7 +120,7 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     rooms: '4 BHK',
     sqft: '4,320–4,800 sqft',
     location: 'Mokila–Shankarpally, Hyderabad',
-    name: 'Pranitha The Patio',
+    name: 'Praneeta The Patio',
     price: '₹4.32 Cr+',
     slides: [
       {
@@ -151,7 +151,7 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     rooms: '2.5 & 3 BHK',
     sqft: '1,450–2,150 sqft',
     location: 'Kondakal–Kokapet, Hyderabad',
-    name: 'Pranitha Meridian Heights',
+    name: 'Praneeta Meridian Heights',
     price: '₹88L – ₹1.35 Cr',
     slides: [
       {
@@ -180,7 +180,7 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     rooms: 'Plots',
     sqft: '200–500 Sq. Yds',
     location: 'Shankarpally, Hyderabad',
-    name: 'Pranitha Singapur Town — Phase II',
+    name: 'Praneeta Singapur Town — Phase II',
     price: 'Pre-Launch',
     slides: [
       {
@@ -281,8 +281,8 @@ export function PropertyCard({
         </div>
         <div className="property-content">
           <div className="property-room-wrap">
-            <div className="property-room-info">
-              <div className="property-room">
+            <div className="property-specs-row">
+              <div className="property-spec-item property-spec-item--rooms">
                 <img
                   loading="lazy"
                   src="/images/6849015224030513cdc67ac9_Property%20Icon-3.svg"
@@ -291,7 +291,7 @@ export function PropertyCard({
                 />
                 <p className="property-room-count">{property.rooms}</p>
               </div>
-              <div className="property-room">
+              <div className="property-spec-item property-spec-item--sqft">
                 <img
                   loading="lazy"
                   src="/images/6849015224030513cdc67ac5_Property%20Icon-1.svg"
@@ -301,12 +301,12 @@ export function PropertyCard({
                 <p className="property-room-count">{property.sqft}</p>
               </div>
             </div>
-            <div className="property-room">
+            <div className="property-location-row">
               <img
                 loading="lazy"
                 src="/images/6ad5f0689b764b5bab687967_maps-and-flags.png"
                 alt=""
-                className="property-icon"
+                className="property-icon property-icon--loc"
               />
               <p className="property-loc">{property.location}</p>
             </div>

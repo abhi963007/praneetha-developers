@@ -46,7 +46,7 @@ export function HomeHeroAndCategoriesSection() {
               <div className="hero-content-inner" style={{ display: 'none' }}>
                 <h1 className="hero-title">Building Dreams, Creating Homes.</h1>
                 <p className="hero-text">
-                  Pranitha Sovereign Villas in Mokila–Shankarpally — 3 &amp; 4 BHK luxury triplex villas from ₹1.5 Cr to ₹2.0 Cr.
+                  Praneeta Sovereign Villas in Mokila–Shankarpally — 3 &amp; 4 BHK luxury triplex villas from ₹1.5 Cr to ₹2.0 Cr.
                 </p>
                 <div className="hero-btn">
                   <a

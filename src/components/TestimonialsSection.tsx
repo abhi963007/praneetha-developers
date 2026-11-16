@@ -13,13 +13,13 @@ interface ReviewCardItem {
 const RTL_GROUPS: ReviewCardItem[][] = [
   [
     {
-      text: 'Walking into an already-occupied Pranitha community gave our family total confidence. The structural quality, peaceful Mokila greenery, and transparent legal docket were everything promised.',
+      text: 'Walking into an already-occupied Praneeta community gave our family total confidence. The structural quality, peaceful Mokila greenery, and transparent legal docket were everything promised.',
       avatar: '/images/69e9ddc2ce892cd5dab31b63_Mask%20group.avif',
       avatarAlt: 'Homeowner portrait',
       name: 'Raghavendra Rao M.',
       designation: 'Owner, Amity Villas',
       sideImage: '/images/69ec75b8d60a85ff42ffc2a6_1.avif',
-      sideImageAlt: 'Pranitha homeowner portrait',
+      sideImageAlt: 'Praneeta homeowner portrait',
     },
     {
       text: 'We looked at 3 BHK apartments in Kokapet costing ₹1.9 Cr, then visited Sovereign Villas. Getting an independent triplex villa on our own 215 Sq. Yd plot at ₹1.75 Cr was an easy decision.',
@@ -28,7 +28,7 @@ const RTL_GROUPS: ReviewCardItem[][] = [
       name: 'Deepika & Karthik V.',
       designation: 'Buyers, Sovereign Villas',
       sideImage: '/images/69ec7641aabd0693926183c3_2.avif',
-      sideImageAlt: 'Pranitha homeowner portrait',
+      sideImageAlt: 'Praneeta homeowner portrait',
     },
   ],
   [
@@ -39,10 +39,10 @@ const RTL_GROUPS: ReviewCardItem[][] = [
       name: 'Suresh Babu N.',
       designation: 'Owner, The Patio',
       sideImage: '/images/69ec75b8d60a85ff42ffc2a6_1.avif',
-      sideImageAlt: 'Pranitha homeowner portrait',
+      sideImageAlt: 'Praneeta homeowner portrait',
     },
     {
-      text: 'Clients immediately appreciate the ₹1.5–2 Cr entry price point combined with delivered proof at Amity Villas. Pranitha’s CP support and timely payouts make them effortless to recommend.',
+      text: 'Clients immediately appreciate the ₹1.5–2 Cr entry price point combined with delivered proof at Amity Villas. Praneeta’s CP support and timely payouts make them effortless to recommend.',
       avatar: '/images/69e9e6a7f57e9021ae28555e_5.avif',
       avatarAlt: 'Channel partner portrait',
       name: 'Lakshmi Prasanna K.',
@@ -56,13 +56,13 @@ const RTL_GROUPS: ReviewCardItem[][] = [
 const LTR_GROUPS: ReviewCardItem[][] = [
   [
     {
-      text: 'Walking into an already-occupied Pranitha community gave our family total confidence. The structural quality, peaceful Mokila greenery, and transparent legal docket were everything promised.',
+      text: 'Walking into an already-occupied Praneeta community gave our family total confidence. The structural quality, peaceful Mokila greenery, and transparent legal docket were everything promised.',
       avatar: '/images/69e9e6a7f57e9021ae28555e_5.avif',
       avatarAlt: 'Homeowner portrait',
       name: 'Raghavendra Rao M.',
       designation: 'Owner, Amity Villas',
       sideImage: '/images/69f5e1730184d2574624b2b4_Frame%2035.avif',
-      sideImageAlt: 'Pranitha homeowner portrait',
+      sideImageAlt: 'Praneeta homeowner portrait',
     },
     {
       text: 'We looked at 3 BHK apartments in Kokapet costing ₹1.9 Cr, then visited Sovereign Villas. Getting an independent triplex villa on our own 215 Sq. Yd plot at ₹1.75 Cr was an easy decision.',
@@ -72,7 +72,7 @@ const LTR_GROUPS: ReviewCardItem[][] = [
       designation: 'Buyers, Sovereign Villas',
       sideImage:
         '/images/69f5e18ba43f0976903809ac_QmaRG9f7iTt3uTnk7jYEv7JKSKY2RFNLuytqSGT21tbKse%202.avif',
-      sideImageAlt: 'Pranitha homeowner portrait',
+      sideImageAlt: 'Praneeta homeowner portrait',
     },
   ],
   [
@@ -83,10 +83,10 @@ const LTR_GROUPS: ReviewCardItem[][] = [
       name: 'Suresh Babu N.',
       designation: 'Owner, The Patio',
       sideImage: '/images/69f5e1730184d2574624b2b4_Frame%2035.avif',
-      sideImageAlt: 'Pranitha homeowner portrait',
+      sideImageAlt: 'Praneeta homeowner portrait',
     },
     {
-      text: 'Clients immediately appreciate the ₹1.5–2 Cr entry price point combined with delivered proof at Amity Villas. Pranitha’s CP support and timely payouts make them effortless to recommend.',
+      text: 'Clients immediately appreciate the ₹1.5–2 Cr entry price point combined with delivered proof at Amity Villas. Praneeta’s CP support and timely payouts make them effortless to recommend.',
       avatar: '/images/69e9ddc2ce892cd5dab31b63_Mask%20group.avif',
       avatarAlt: 'Channel partner portrait',
       name: 'Lakshmi Prasanna K.',

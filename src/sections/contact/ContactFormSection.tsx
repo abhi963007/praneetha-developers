@@ -3,11 +3,11 @@ import { PAGE_META } from '../../types/site';
 import './contact-cards.css';
 
 const PROPERTY_INTERESTS = [
-  'Pranitha Sovereign Villas (₹1.5–2.0 Cr)',
-  'Pranitha Santorini Villas',
-  'Pranitha Amity / The Patio Villas',
-  'Pranitha Meridian Heights Apartments',
-  'Pranitha Singapur Town Plots (Coming Soon)',
+  'Praneeta Sovereign Villas (₹1.5–2.0 Cr)',
+  'Praneeta Santorini Villas',
+  'Praneeta Amity / The Patio Villas',
+  'Praneeta Meridian Heights Apartments',
+  'Praneeta Singapur Town Plots (Coming Soon)',
   'Channel Partner Registration',
 ] as const;
 
@@ -245,7 +245,7 @@ export function ContactFormSection() {
                     onChange={(e) => setConsent(e.target.checked)}
                   />
                   <span className="checkbox-label w-form-label">
-                    I agree to let Pranitha Developers securely store and use my information
+                    I agree to let Praneeta Developers securely store and use my information
                   </span>
                 </label>
                 <input

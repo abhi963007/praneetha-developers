@@ -181,7 +181,7 @@ export function AdvisorsSliderSection({ variant = 'home' }: AdvisorsSliderSectio
             <p className="section-subtitle">Our Leadership</p>
           </div>
           <h2 className="section-title">
-            Meet the Leaders Behind<span className="sectitle-br"> </span>Pranitha Developers
+            Meet the Leaders Behind<span className="sectitle-br"> </span>Praneeta Developers
           </h2>
         </div>
 

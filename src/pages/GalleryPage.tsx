@@ -13,7 +13,7 @@ export function GalleryPage() {
       <Navbar />
       <PageBannerSection
         title="Gallery"
-        subtitle="A visual journey through Pranitha’s completed and ongoing villa communities in Mokila."
+        subtitle="A visual journey through Praneeta’s completed and ongoing villa communities in Mokila."
       />
       <GalleryShowcaseSection />
       <Footer variant="base" wfPageId={PAGE_META.gallery.wfPage} />

@@ -41,7 +41,7 @@ export function createServer(options = {}) {
   app.get('/api/health', (_req, res) => {
     res.json({
       status: 'ok',
-      brand: 'Pranitha Developers',
+      brand: 'Praneeta Developers',
       framework: 'React + Node.js/Express',
       pages: 7,
     });
@@ -50,7 +50,7 @@ export function createServer(options = {}) {
   app.get('/api/site-data', (_req, res) => {
     res.json({
       company: {
-        name: 'Pranitha Developers',
+        name: 'Praneeta Developers',
         legalName: 'V Praneeta Developers Pvt. Ltd.',
         email: 'info@praneeta.dev',
         supportEmail: 'sales@praneeta.dev',
@@ -160,6 +160,6 @@ if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
   const port = Number(process.env.PORT) || 5001;
   const app = createServer();
   app.listen(port, () => {
-    console.log(`Pranitha Developers server listening on http://localhost:${port}`);
+    console.log(`Praneeta Developers server listening on http://localhost:${port}`);
   });
 }
