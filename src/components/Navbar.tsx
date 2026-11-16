@@ -102,24 +102,27 @@ export function Navbar() {
           <div className="menu-wrapper">
             <div className="nav-container">
               <div className="menu-list-wrapper">
+                <p className="menu-eyebrow">Navigation</p>
                 <ul role="list" className="nav-menu-list">
-                  {NAV_LINKS.map((item) => {
+                  {NAV_LINKS.map((item, idx) => {
                     const active = isRouteActive(pathname, item.to);
+                    const closeMenu = () => {
+                      const menu = document.querySelector<HTMLElement>('.mega-menu-wrapper');
+                      const toggle = document.querySelector<HTMLElement>('.hamburger-wrap');
+                      if (menu && toggle && getComputedStyle(menu).display !== 'none') {
+                        toggle.click();
+                      }
+                    };
                     return (
                       <li key={item.to} className={`nav-menu-list-item ${item.itemClass}`}>
                         <Link
                           to={item.to}
                           aria-current={active ? 'page' : undefined}
                           className={`nav-menu-list-text-link${active ? ' w--current' : ''}`}
-                          onClick={() => {
-                            const menu = document.querySelector<HTMLElement>('.mega-menu-wrapper');
-                            const toggle = document.querySelector<HTMLElement>('.hamburger-wrap');
-                            if (menu && toggle && getComputedStyle(menu).display !== 'none') {
-                              toggle.click();
-                            }
-                          }}
+                          onClick={closeMenu}
                         >
-                          {item.label}
+                          <span className="nav-menu-index">{String(idx + 1).padStart(2, '0')}</span>
+                          <span className="nav-menu-label">{item.label}</span>
                         </Link>
                       </li>
                     );
@@ -131,61 +134,80 @@ export function Navbar() {
           <div className="navbar-details-wrapper">
             <div className="nav-container">
               <div className="navbar-details-content">
-                <div className="navbar-details-gmail-number">
-                  <a
-                    href="mailto:info@praneeta.dev"
-                    className="navbar-details-gmail-text"
+                <div className="navbar-details-card">
+                  <p className="menu-eyebrow">Pranitha Developers</p>
+                  <p className="menu-card-tagline">
+                    Luxury Gated-Community Villas &amp; Apartments in Mokila–Shankarpally, Hyderabad.
+                  </p>
+                  <div className="navbar-details-gmail-number">
+                    <a
+                      href="mailto:info@praneeta.dev"
+                      className="navbar-details-gmail-text"
+                    >
+                      info@praneeta.dev
+                    </a>
+                    <a href="tel:+919133637111" className="navbar-details-number">
+                      +91 91336 37111
+                    </a>
+                  </div>
+                  <p className="menu-text">
+                    Mokila Experience Lounge —{' '}
+                    <a
+                      href="https://www.google.com/maps?q=17.4264796,78.1912362"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="menu-text-link"
+                    >
+                      Open in Maps
+                    </a>
+                  </p>
+                  <div className="social-box">
+                    <a href="#social-facebook" className="social-link w-inline-block" aria-label="Facebook">
+                      <img
+                        src="/images/69e9c2dd6c30ecf541ac4e73_1.svg"
+                        loading="lazy"
+                        alt=""
+                        className="social-icon"
+                      />
+                    </a>
+                    <a href="#social-linkedin" className="social-link w-inline-block" aria-label="LinkedIn">
+                      <img
+                        src="/images/69e9c2ddcc1e0dae195ecb03_2.svg"
+                        loading="lazy"
+                        alt=""
+                        className="social-icon"
+                      />
+                    </a>
+                    <a href="#social-twitter" className="social-link w-inline-block" aria-label="Twitter">
+                      <img
+                        src="/images/69e9c2dd29fa8e3712f37cf5_3.svg"
+                        loading="lazy"
+                        alt=""
+                        className="social-icon"
+                      />
+                    </a>
+                    <a href="#social-instagram" className="social-link w-inline-block" aria-label="Instagram">
+                      <img
+                        src="/images/69e9c2dde049fa499ad9b3f2_4.svg"
+                        loading="lazy"
+                        alt=""
+                        className="social-icon"
+                      />
+                    </a>
+                  </div>
+                  <Link
+                    to="/contact-us"
+                    className="menu-cta-btn"
+                    onClick={() => {
+                      const menu = document.querySelector<HTMLElement>('.mega-menu-wrapper');
+                      const toggle = document.querySelector<HTMLElement>('.hamburger-wrap');
+                      if (menu && toggle && getComputedStyle(menu).display !== 'none') {
+                        toggle.click();
+                      }
+                    }}
                   >
-                    info@praneeta.dev
-                  </a>
-                  <a href="tel:+919133637111" className="navbar-details-number">
-                    +91 91336 37111
-                  </a>
-                </div>
-                <p className="menu-text">
-                  Mokila Experience Lounge —{' '}
-                  <a
-                    href="https://www.google.com/maps?q=17.4264796,78.1912362"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="menu-text-link"
-                  >
-                    Hyderabad
-                  </a>
-                </p>
-                <div className="social-box">
-                  <a href="#social-facebook" className="social-link w-inline-block">
-                    <img
-                      src="/images/69e9c2dd6c30ecf541ac4e73_1.svg"
-                      loading="lazy"
-                      alt=""
-                      className="social-icon"
-                    />
-                  </a>
-                  <a href="#social-linkedin" className="social-link w-inline-block">
-                    <img
-                      src="/images/69e9c2ddcc1e0dae195ecb03_2.svg"
-                      loading="lazy"
-                      alt=""
-                      className="social-icon"
-                    />
-                  </a>
-                  <a href="#social-twitter" className="social-link w-inline-block">
-                    <img
-                      src="/images/69e9c2dd29fa8e3712f37cf5_3.svg"
-                      loading="lazy"
-                      alt=""
-                      className="social-icon"
-                    />
-                  </a>
-                  <a href="#social-instagram" className="social-link w-inline-block">
-                    <img
-                      src="/images/69e9c2dde049fa499ad9b3f2_4.svg"
-                      loading="lazy"
-                      alt=""
-                      className="social-icon"
-                    />
-                  </a>
+                    Schedule a Site Visit
+                  </Link>
                 </div>
               </div>
             </div>

@@ -204,8 +204,8 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
       </div>
       <div className="footer-bottom">
         <div className="w-layout-blockcontainer container w-container">
-          <div className="copyright-box">
-            <p className="copyright-text">
+          <div className="copyright-box" style={{ justifyContent: 'center' }}>
+            <p className="copyright-text" style={{ textAlign: 'center' }}>
               © Copyright -{' '}
               <Link
                 to="/"
@@ -217,20 +217,6 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
               </Link>{' '}
               · TG-RERA: P02400009246 | P02400006593 | P02400009069
             </p>
-            <div className="footer-links-box two">
-              <Link to="/licenses" className="footer-link">
-                License
-              </Link>
-              <Link to="/changelog" className="footer-link">
-                Changelog
-              </Link>
-              <Link to="/style-guide" className="footer-link">
-                Style Guide
-              </Link>
-              <Link to="/instructions" className="footer-link">
-                Instructions
-              </Link>
-            </div>
           </div>
         </div>
       </div>
