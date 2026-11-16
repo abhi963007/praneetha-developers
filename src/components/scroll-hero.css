@@ -15,6 +15,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+  container-type: size;
   border-radius: var(--_border-radius---radius-l, 24px);
   background: #e8e3db url('/video/hero-first.jpg') center top / cover no-repeat;
 }
@@ -23,12 +24,115 @@
   inset: 0;
   width: 100%;
   height: 100%;
+  z-index: 0;
   object-fit: cover;
   object-position: center top; /* keep sky on top so the headline stays readable */
 }
+
+/* Soft atmospheric dusk contrast behind sky typography, fades away before cloud fly-through */
+.scroll-hero__sky-tint {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(28, 36, 29, 0.42) 0%,
+    rgba(28, 36, 29, 0.24) 36%,
+    rgba(28, 36, 29, 0) 58%
+  );
+  will-change: opacity;
+}
+
+/* Hero Brand Title nestled behind the foreground clouds (LA-skyline depth aesthetic) */
+.scroll-hero__intro {
+  --hero-scene-h: max(100cqh, 56.25cqw);
+  position: absolute;
+  top: calc(0.182 * var(--hero-scene-h));
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  width: 94%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+.scroll-hero__eyebrow {
+  display: block;
+  margin-bottom: clamp(6px, calc(0.012 * var(--hero-scene-h)), 16px);
+  font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif);
+  font-size: clamp(10px, calc(0.013 * var(--hero-scene-h)), 16px);
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: rgba(255, 253, 248, 0.92);
+  text-shadow: 0 2px 12px rgba(18, 24, 19, 0.45);
+  animation: scroll-hero-kicker-in 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.scroll-hero__brand-title {
+  margin: 0;
+  font-family: "Big Shoulders Display", "Rubik", sans-serif;
+  font-size: min(14.8cqw, calc(0.24 * var(--hero-scene-h)));
+  font-weight: 800;
+  line-height: 0.84;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #ffffff;
+  text-shadow: 0 8px 36px rgba(24, 32, 25, 0.28);
+  transform: scale(0.73, 1.22);
+  transform-origin: center top;
+  animation: scroll-hero-brand-in 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.scroll-hero__brand-word {
+  display: inline;
+}
+
+@keyframes scroll-hero-kicker-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes scroll-hero-brand-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 38px, 0) scale(0.73, 1.22);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(0.73, 1.22);
+  }
+}
+
+/* Foreground clouds cutout anchored identically to Frame 0, masking the lower half of the brand title */
+.scroll-hero__clouds-fg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  object-fit: cover;
+  object-position: center top;
+  pointer-events: none;
+  will-change: opacity;
+}
+
 .scroll-hero__shade {
   position: absolute;
   inset: 0;
+  z-index: 4;
   pointer-events: none;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0) 55%),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0) 25%);
@@ -36,6 +140,7 @@
 .scroll-hero__content {
   position: absolute;
   inset: 0;
+  z-index: 5;
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
@@ -45,6 +150,7 @@
   position: absolute;
   left: 50%;
   bottom: 28px;
+  z-index: 6;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
@@ -69,16 +175,54 @@
   100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
+/* Responsive adjustments for portrait / mobile screens */
+@media screen and (max-width: 767px) {
+  .scroll-hero__intro {
+    top: calc(0.245 * var(--hero-scene-h));
+    width: 92%;
+  }
+  .scroll-hero__eyebrow {
+    font-size: clamp(9px, 2.7cqw, 13px);
+    letter-spacing: 0.28em;
+    margin-bottom: 8px;
+  }
+  .scroll-hero__brand-title {
+    white-space: normal;
+    font-size: clamp(54px, 17cqw, 92px);
+    line-height: 0.88;
+    transform: none;
+    animation: scroll-hero-brand-mobile-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .scroll-hero__brand-word {
+    display: block;
+  }
+}
+
+@keyframes scroll-hero-brand-mobile-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 /* prefers-reduced-motion: plain one-screen hero with the final image */
 .scroll-hero--static {
   height: auto !important;
 }
 .scroll-hero--static .scroll-hero__content {
-  position: relative;
+  position: absolute;
+  inset: 0;
   opacity: 1 !important;
   transform: none !important;
   pointer-events: auto !important;
 }
+.scroll-hero--static .scroll-hero__sky-tint,
+.scroll-hero--static .scroll-hero__intro,
+.scroll-hero--static .scroll-hero__clouds-fg,
 .scroll-hero--static .scroll-hero__hint {
   display: none;
 }
@@ -89,8 +233,5 @@
 }
 .scroll-hero--static .scroll-hero__box {
   min-height: calc(100vh - 24px);
-}
-
-.scroll-hero--static .scroll-hero__box {
   background-image: url('/video/hero-final.jpg');
 }

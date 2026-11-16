@@ -41,46 +41,44 @@ export function HomeHeroAndCategoriesSection() {
   return (
     <div className="section-wrap">
       <ScrollHero>
-          <div className="w-layout-blockcontainer container w-container">
-            <div className="hero-content">
-              <div className="hero-content-inner" style={{ display: 'none' }}>
-                <h1 className="hero-title">Building Dreams, Creating Homes.</h1>
-                <p className="hero-text">
-                  Praneeta Sovereign Villas in Mokila–Shankarpally — 3 &amp; 4 BHK luxury triplex villas from ₹1.5 Cr to ₹2.0 Cr.
-                </p>
-                <div className="hero-btn">
-                  <a
-                    href="#Properties"
-                    data-wf--primary-button--variant="base"
-                    className="primary-button w-inline-block"
-                  >
-                    <div className="primary-button-flex">
-                      <div className="primary-button-text-wrap">
-                        <div className="primary-button-text">Explore Properties</div>
-                        <div className="primary-button-text-hover">Explore Properties</div>
-                      </div>
-                      <div className="primary-button-arrow-wrapper">
-                        <div className="primary-button-arrow-wrap">
-                          <img
-                            loading="lazy"
-                            src="/images/69e723100025a4ae58731b6a_0.svg"
-                            alt=""
-                            className="primary-button-arrow"
-                          />
-                          <img
-                            loading="lazy"
-                            src="/images/69e723100025a4ae58731b6a_0.svg"
-                            alt=""
-                            className="primary-button-arrow-hover"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
+        <div className="hero-end-wrap">
+          <div className="hero-end-card">
+            <div className="hero-end-eyebrow">
+              <span className="hero-end-dot" aria-hidden="true" />
+              <span>Mokila – Shankarpally · Hyderabad</span>
+            </div>
+            <h1 className="hero-end-title">Building Dreams, Creating Homes.</h1>
+            <p className="hero-end-desc">
+              Praneeta Sovereign Villas — 3 &amp; 4 BHK luxury triplex villas from ₹1.5 Cr to ₹2.0 Cr.
+            </p>
+            <div className="hero-end-actions">
+              <a
+                href="#Properties"
+                className="hero-end-btn"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('Properties')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                <span>Explore Now</span>
+                <span className="hero-end-btn-circle" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path
+                      d="M2.5 7H11.5M11.5 7L7.5 3M11.5 7L7.5 11"
+                      stroke="currentColor"
+                      strokeWidth="1.7"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+              </a>
+              <Link to="/contact-us" className="hero-end-secondary">
+                Schedule Visit
+              </Link>
             </div>
           </div>
+        </div>
       </ScrollHero>
       <section className="section cat">
         <div className="hero-icon-box">
