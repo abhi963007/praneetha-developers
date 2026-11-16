@@ -6,9 +6,19 @@ interface PageBannerSectionProps {
   subtitle?: string;
 }
 
+const DEFAULT_EYEBROWS: Record<string, string> = {
+  'About Us': 'Our Story',
+  Properties: 'Our Portfolio',
+  Gallery: 'Visual Archive',
+  Services: 'What We Do',
+  Insights: 'Journal & Guides',
+  'Contact Us': 'Get In Touch',
+};
+
 const DEFAULT_SUBTITLES: Record<string, string> = {
   'About Us': 'Crafting enduring gated communities across West Hyderabad since 2014.',
   Properties: 'Explore TG-RERA approved luxury villas, apartments, and plotted enclaves in Mokila.',
+  Gallery: 'A visual journey through Praneeta’s completed and ongoing villa communities in Mokila.',
   Services: 'End-to-end residential development, architecture, and turnkey home delivery.',
   Insights: 'Perspectives on luxury living, RERA transparency, and Hyderabad real estate.',
   'Contact Us': 'Visit our Mokila Experience Lounge or connect directly with our leadership team.',
@@ -32,6 +42,7 @@ export function PageBannerSection({ title, subtitle }: PageBannerSectionProps) {
   const contentRef = useRef<HTMLDivElement>(null);
   const hintRef = useRef<HTMLDivElement>(null);
 
+  const resolvedEyebrow = DEFAULT_EYEBROWS[title] ?? 'Praneeta Developers';
   const resolvedSubtitle = subtitle ?? DEFAULT_SUBTITLES[title] ?? '';
   const heroMedia = PAGE_HERO_MEDIA[title] ?? { image: FALLBACK_POSTER };
   const hasVideo = Boolean(heroMedia.videoDesktop);
@@ -183,10 +194,15 @@ export function PageBannerSection({ title, subtitle }: PageBannerSectionProps) {
           />
         )}
         <div className="page-hero__shade" />
-        <div ref={contentRef} className="page-hero__content" style={{ display: 'none' }}>
-          <span className="page-hero__eyebrow">Praneeta Developers</span>
-          <h1 className="page-hero__title">{title}</h1>
-          {resolvedSubtitle && <p className="page-hero__subtitle">{resolvedSubtitle}</p>}
+        <div ref={contentRef} className="page-hero__content">
+          <div className="page-hero__text-wrap">
+            <span className="page-hero__eyebrow">
+              <span className="page-hero__eyebrow-dot" aria-hidden="true" />
+              <span>{resolvedEyebrow}</span>
+            </span>
+            <h1 className="page-hero__title">{title}</h1>
+            {resolvedSubtitle && <p className="page-hero__subtitle">{resolvedSubtitle}</p>}
+          </div>
         </div>
         <div ref={hintRef} className="page-hero__hint" aria-hidden="true">
           <span>Scroll</span>
