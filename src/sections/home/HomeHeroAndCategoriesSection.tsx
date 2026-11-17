@@ -49,7 +49,7 @@ export function HomeHeroAndCategoriesSection() {
             </div>
             <h1 className="hero-end-title">Building Dreams, Creating Homes.</h1>
             <p className="hero-end-desc">
-              Praneeta Sovereign Villas — 3 &amp; 4 BHK luxury triplex villas from ₹1.5 Cr to ₹2.0 Cr.
+              4 &amp; 5 BHK Gated Villa &amp; Luxury Apartment Communities across Mokila–Shankarpally.
             </p>
             <div className="hero-end-actions">
               <a

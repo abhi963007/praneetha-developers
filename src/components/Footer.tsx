@@ -59,7 +59,6 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
                   src="/images/praneeta-logo.png"
                   alt="Praneeta Developers"
                   className="site-logo"
-                  style={{ width: '240px', maxWidth: '100%', height: 'auto', display: 'block' }}
                 />
               </Link>
               <p className="footer-tagline">

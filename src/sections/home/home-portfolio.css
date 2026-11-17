@@ -195,7 +195,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════
-   HERO END-STATE EDITORIAL CTA CARD (Top-Right Sky Zone)
+   HERO END-STATE EDITORIAL CTA CARD (Lower-Right Zone)
    Appears smoothly as the scroll-scrubbed villa reveal completes.
    ═══════════════════════════════════════════════════════════ */
 .hero-end-wrap {
@@ -206,7 +206,8 @@
 
 .hero-end-card {
   position: absolute;
-  top: clamp(82px, 9.5vh, 100px);
+  top: auto;
+  bottom: clamp(22px, 4.5vh, 48px);
   right: clamp(20px, 2.8vw, 44px);
   width: min(370px, 28vw);
   min-width: 310px;
@@ -334,7 +335,8 @@
 
 @media screen and (max-width: 767px) {
   .hero-end-card {
-    top: 88px;
+    top: auto;
+    bottom: 18px;
     left: 16px;
     right: 16px;
     width: auto;

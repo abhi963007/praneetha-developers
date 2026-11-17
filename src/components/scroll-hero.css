@@ -44,11 +44,11 @@
   will-change: opacity;
 }
 
-/* Hero Brand Title nestled behind the foreground clouds (LA-skyline depth aesthetic) */
+/* Stage 1: "Building Dreams in Hyderabad" behind clouds, rises as user starts scrolling */
 .scroll-hero__intro {
   --hero-scene-h: max(100cqh, 56.25cqw);
   position: absolute;
-  top: calc(0.182 * var(--hero-scene-h));
+  top: calc(0.212 * var(--hero-scene-h));
   left: 50%;
   transform: translate3d(-50%, 0, 0);
   width: 94%;
@@ -61,32 +61,17 @@
   will-change: opacity, transform;
 }
 
-.scroll-hero__eyebrow {
-  display: block;
-  margin-bottom: clamp(6px, calc(0.012 * var(--hero-scene-h)), 16px);
-  font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif);
-  font-size: clamp(10px, calc(0.013 * var(--hero-scene-h)), 16px);
-  font-weight: 500;
-  letter-spacing: 0.42em;
-  text-transform: uppercase;
-  color: rgba(255, 253, 248, 0.92);
-  text-shadow: 0 2px 12px rgba(18, 24, 19, 0.45);
-  animation: scroll-hero-kicker-in 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
 .scroll-hero__brand-title {
   margin: 0;
-  font-family: "Big Shoulders Display", "Rubik", sans-serif;
-  font-size: min(14.8cqw, calc(0.24 * var(--hero-scene-h)));
-  font-weight: 800;
-  line-height: 0.84;
+  font-family: "Limelight", "Rubik", serif;
+  font-size: min(4.15cqw, calc(0.078 * var(--hero-scene-h)));
+  font-weight: 400;
+  line-height: 0.96;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   white-space: nowrap;
   color: #ffffff;
-  text-shadow: 0 8px 36px rgba(24, 32, 25, 0.28);
-  transform: scale(0.73, 1.22);
-  transform-origin: center top;
+  text-shadow: 0 8px 36px rgba(24, 32, 25, 0.3);
   animation: scroll-hero-brand-in 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -94,10 +79,10 @@
   display: inline;
 }
 
-@keyframes scroll-hero-kicker-in {
+@keyframes scroll-hero-brand-in {
   from {
     opacity: 0;
-    transform: translate3d(0, 12px, 0);
+    transform: translate3d(0, 32px, 0);
   }
   to {
     opacity: 1;
@@ -105,15 +90,50 @@
   }
 }
 
-@keyframes scroll-hero-brand-in {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 38px, 0) scale(0.73, 1.22);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) scale(0.73, 1.22);
-  }
+/* Stage 2: "Praneeta Developers" clipped along the villa roof & mountain ridge horizon */
+.scroll-hero__finale-mask {
+  --hero-scene-h: max(100cqh, 56.25cqw);
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  /* Matches sunlit villa roofline, tree & right mountain ridge in hero-final.jpg */
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 45%,
+    71% 52%,
+    61% 39%,
+    52% 31.5%,
+    33% 30.5%,
+    24% 33%,
+    15% 40%,
+    0% 62%
+  );
+}
+
+.scroll-hero__finale {
+  position: absolute;
+  top: clamp(92px, 13.5vh, 132px);
+  left: 50%;
+  width: 94%;
+  text-align: center;
+  opacity: 0;
+  transform: translate3d(-50%, 160px, 0);
+  will-change: opacity, transform;
+}
+
+.scroll-hero__finale-title {
+  margin: 0;
+  font-family: "Limelight", "Rubik", serif;
+  font-size: min(5.4cqw, calc(0.10 * var(--hero-scene-h)));
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #ffffff;
+  text-shadow: 0 8px 36px rgba(24, 32, 25, 0.38), 0 2px 14px rgba(18, 24, 19, 0.24);
 }
 
 /* Foreground clouds cutout anchored identically to Frame 0, masking the lower half of the brand title */
@@ -181,20 +201,27 @@
     top: calc(0.245 * var(--hero-scene-h));
     width: 92%;
   }
-  .scroll-hero__eyebrow {
-    font-size: clamp(9px, 2.7cqw, 13px);
-    letter-spacing: 0.28em;
-    margin-bottom: 8px;
-  }
   .scroll-hero__brand-title {
     white-space: normal;
-    font-size: clamp(54px, 17cqw, 92px);
-    line-height: 0.88;
+    font-size: clamp(26px, 8.2cqw, 44px);
+    line-height: 1.05;
     transform: none;
     animation: scroll-hero-brand-mobile-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
   .scroll-hero__brand-word {
     display: block;
+  }
+  .scroll-hero__finale-mask {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 42%, 55% 36%, 22% 40%, 0% 50%);
+  }
+  .scroll-hero__finale {
+    top: 96px;
+    width: 92%;
+  }
+  .scroll-hero__finale-title {
+    white-space: normal;
+    font-size: clamp(32px, 10cqw, 52px);
+    line-height: 1.02;
   }
 }
 

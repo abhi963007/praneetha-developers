@@ -15,11 +15,19 @@ const CLOUDS_FG = '/video/hero-clouds-fg.webp';
 const SCROLL_LENGTH_VH = 350;
 /** Scrub smoothing in seconds (0 = instant, 0.5-1 = smooth). */
 const SCRUB_SMOOTHING = 0.8;
-/** Opening progress slice where the behind-clouds title fades out before the fly-through starts. */
-const INTRO_END = 0.045;
-/** Text fades in between these scroll progress values (0-1). */
-const CONTENT_START = 0.78;
-const CONTENT_END = 0.94;
+/** First-scroll window where foreground clouds fade as fly-through begins. */
+const VIDEO_START = 0.04;
+const CLOUDS_FADE_START = 0.05;
+const CLOUDS_FADE_END = 0.12;
+/** Opening progress slice where "Building Dreams in Hyderabad" rises from clouds, then fades. */
+const INTRO_RISE_END = 0.15;
+const INTRO_FADE_END = 0.28;
+/** Sky brand ("Praneeta Developers") rises from behind the villa & hills once clouds clear. */
+const FINALE_START = 0.62;
+const FINALE_END = 0.88;
+/** Editorial CTA card fades in at the bottom-right at the end of the reveal. */
+const CONTENT_START = 0.80;
+const CONTENT_END = 0.95;
 const MOBILE_QUERY = '(max-width: 767px)';
 
 type GsapLike = {
@@ -52,6 +60,7 @@ export function ScrollHero({ children }: { children: ReactNode }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const skyTintRef = useRef<HTMLDivElement>(null);
   const introRef = useRef<HTMLDivElement>(null);
+  const finaleRef = useRef<HTMLDivElement>(null);
   const cloudsFgRef = useRef<HTMLImageElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const hintRef = useRef<HTMLDivElement>(null);
@@ -61,17 +70,20 @@ export function ScrollHero({ children }: { children: ReactNode }) {
     const video = videoRef.current;
     const skyTint = skyTintRef.current;
     const intro = introRef.current;
+    const finale = finaleRef.current;
     const cloudsFg = cloudsFgRef.current;
     const content = contentRef.current;
     const hint = hintRef.current;
-    if (!wrap || !video || !skyTint || !intro || !cloudsFg || !content || !hint) return;
+    if (!wrap || !video || !skyTint || !intro || !finale || !cloudsFg || !content || !hint) return;
 
-    // Reduced motion: static final image, content visible, no video work.
+    // Reduced motion: static final image, finale brand & CTA visible, no video work.
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       video.style.display = 'none';
       wrap.classList.add('scroll-hero--static');
       content.style.opacity = '1';
       content.style.transform = 'translate3d(0, 0, 0)';
+      finale.style.opacity = '1';
+      finale.style.transform = 'translate3d(-50%, 0, 0)';
       skyTint.style.opacity = '0';
       intro.style.opacity = '0';
       cloudsFg.style.opacity = '0';
@@ -90,21 +102,32 @@ export function ScrollHero({ children }: { children: ReactNode }) {
     let pollId = 0;
     let disposed = false;
 
-    const syncIntroLayers = (p: number) => {
-      const t = Math.min(Math.max(p / INTRO_END, 0), 1);
-      const introActive = p < INTRO_END && video.currentTime <= 0.08;
+    const clamp01 = (v: number) => Math.min(Math.max(v, 0), 1);
 
-      if (introActive) {
-        const fade = Math.pow(1 - t, 1.3);
-        cloudsFg.style.opacity = '1';
-        skyTint.style.opacity = String(fade);
-        intro.style.opacity = String(fade);
-        intro.style.transform = `translate3d(-50%, ${t * 24}px, 0)`;
+    const syncTimelineLayers = (p: number) => {
+      // 1) Foreground cloud cutout clears quickly as the camera flies forward into clouds
+      const cloudFade = 1 - clamp01((p - CLOUDS_FADE_START) / (CLOUDS_FADE_END - CLOUDS_FADE_START));
+      cloudsFg.style.opacity = video.currentTime <= 0.14 ? String(cloudFade) : '0';
+
+      // 2) Stage 1 ("Building Dreams in Hyderabad"): rises from between the clouds, then fades
+      if (p < INTRO_FADE_END) {
+        const riseT = clamp01(p / INTRO_RISE_END);
+        const fadeT = clamp01((p - INTRO_RISE_END) / (INTRO_FADE_END - INTRO_RISE_END));
+        const easeRise = 1 - Math.pow(1 - riseT, 2.2);
+        const opacity = Math.pow(1 - fadeT, 1.3);
+        skyTint.style.opacity = String(opacity);
+        intro.style.opacity = String(opacity);
+        intro.style.transform = `translate3d(-50%, ${-(easeRise * 44 + fadeT * 28)}px, 0)`;
       } else {
-        cloudsFg.style.opacity = '0';
         skyTint.style.opacity = '0';
         intro.style.opacity = '0';
       }
+
+      // 3) Stage 2 ("Praneeta Developers"): emerges up from behind villa roof & hills into sky
+      const finT = clamp01((p - FINALE_START) / (FINALE_END - FINALE_START));
+      const finEase = 1 - Math.pow(1 - finT, 3);
+      finale.style.opacity = String(clamp01(finT * 1.45));
+      finale.style.transform = `translate3d(-50%, ${(1 - finEase) * 160}px, 0)`;
     };
 
     const trySetup = () => {
@@ -124,23 +147,23 @@ export function ScrollHero({ children }: { children: ReactNode }) {
               video.currentTime += diff * Math.min(1, 0.12 / Math.max(SCRUB_SMOOTHING, 0.05));
             }
           }
-          syncIntroLayers(latestP);
+          syncTimelineLayers(latestP);
           raf = requestAnimationFrame(tick);
         };
         raf = requestAnimationFrame(tick);
 
         const applyProgress = (p: number) => {
           latestP = p;
-          const videoProgress = Math.min(Math.max((p - INTRO_END) / (1 - INTRO_END), 0), 1);
+          const videoProgress = clamp01((p - VIDEO_START) / (1 - VIDEO_START));
           const safeMaxTime = Math.max(0, video.duration - 0.02);
           target = Math.min(videoProgress * safeMaxTime, safeMaxTime);
 
-          const c = Math.min(Math.max((p - CONTENT_START) / (CONTENT_END - CONTENT_START), 0), 1);
+          const c = clamp01((p - CONTENT_START) / (CONTENT_END - CONTENT_START));
           content.style.opacity = String(c);
-          content.style.transform = `translate3d(0, ${(1 - c) * 40}px, 0)`;
+          content.style.transform = `translate3d(0, ${(1 - c) * 36}px, 0)`;
           content.style.pointerEvents = c > 0.5 ? 'auto' : 'none';
           hint.style.opacity = String(Math.max(1 - p * 12, 0));
-          syncIntroLayers(p);
+          syncTimelineLayers(p);
         };
 
         const st = ST.create({
@@ -210,11 +233,18 @@ export function ScrollHero({ children }: { children: ReactNode }) {
           />
           <div ref={skyTintRef} className="scroll-hero__sky-tint" aria-hidden="true" />
           <div ref={introRef} className="scroll-hero__intro">
-            <span className="scroll-hero__eyebrow">Building Dreams · Hyderabad</span>
-            <p className="scroll-hero__brand-title">
-              <span className="scroll-hero__brand-word">Praneeta</span>{' '}
-              <span className="scroll-hero__brand-word">Developers</span>
+            <p className="scroll-hero__brand-title scroll-hero__intro-title">
+              <span className="scroll-hero__brand-word">Building Dreams</span>{' '}
+              <span className="scroll-hero__brand-word">in Hyderabad</span>
             </p>
+          </div>
+          <div className="scroll-hero__finale-mask" aria-hidden="true">
+            <div ref={finaleRef} className="scroll-hero__finale">
+              <p className="scroll-hero__finale-title">
+                <span className="scroll-hero__brand-word">Praneeta</span>{' '}
+                <span className="scroll-hero__brand-word">Developers</span>
+              </p>
+            </div>
           </div>
           <img
             ref={cloudsFgRef}
