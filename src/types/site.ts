@@ -88,9 +88,8 @@ export const FOOTER_LINKS: { label: string; to: string }[] = [
 
 export const CATEGORY_LINKS: { label: string; to: string }[] = [
   { label: 'Villas - Ongoing', to: '/category/villas-ongoing' },
-  { label: 'Villas - Completed', to: '/category/villas-completed' },
   { label: 'Apartments', to: '/category/apartments' },
-  { label: 'Plots - Coming Soon', to: '/category/plots-coming-soon' },
+  { label: 'Villas - Completed', to: '/category/villas-completed' },
 ];
 
 export function isRouteActive(pathname: string, to: string): boolean {
