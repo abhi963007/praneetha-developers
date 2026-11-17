@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { CATEGORY_LINKS, FOOTER_LINKS, isRouteActive } from '../types/site';
+import './footer-custom.css';
 
 interface FooterProps {
   variant?: 'base' | 'sticky';
@@ -58,10 +59,13 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
                   src="/images/praneeta-logo.png"
                   alt="Praneeta Developers"
                   className="site-logo"
-                  style={{ width: '280px', maxWidth: '100%', height: 'auto', display: 'block' }}
+                  style={{ width: '240px', maxWidth: '100%', height: 'auto', display: 'block' }}
                 />
               </Link>
-              <p className="footer-title-two">Stay Updated! Subscribe to Property Alerts</p>
+              <p className="footer-tagline">
+                Gated Villa &amp; Apartment Communities across West Hyderabad.
+              </p>
+              <p className="footer-title-two">Property Alerts</p>
               <div className="newsletter-form-block w-form">
                 <form
                   id="wf-form-Newsletters-Form"
@@ -108,15 +112,11 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
                   <div>Something went wrong. Please try again.</div>
                 </div>
               </div>
-              <div className="footer-info-box">
-                <p className="footer-info-text">Visit Us</p>
-                <p className="footer-info-text two">6-109, Mokila Village, Shankarpally Mandal, Ranga Reddy District, Hyderabad, Telangana - 501203</p>
-              </div>
             </div>
-            <div className="footer-links-wrap">
-              <div className="footer-box-two">
-                <p className="footer-title">Pages</p>
-                <div className="footer-links-box">
+            <div className="footer-links-wrap footer-links-cols">
+              <div className="footer-col-group">
+                <p className="footer-title footer-col-label">Pages</p>
+                <div className="footer-col-items">
                   {FOOTER_LINKS.map((item) => {
                     const active = isRouteActive(pathname, item.to);
                     return (
@@ -132,25 +132,19 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
                   })}
                 </div>
               </div>
-              <div className="footer-box-two">
-                <p className="footer-title">Categories</p>
-                <div>
-                  <div className="w-dyn-list">
-                    <div role="list" className="footer-links-box w-dyn-items">
-                      {CATEGORY_LINKS.map((cat) => (
-                        <div key={cat.to} role="listitem" className="w-dyn-item">
-                          <Link to={cat.to} className="footer-link">
-                            {cat.label}
-                          </Link>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+              <div className="footer-col-group">
+                <p className="footer-title footer-col-label">Categories</p>
+                <div className="footer-col-items">
+                  {CATEGORY_LINKS.map((cat) => (
+                    <Link key={cat.to} to={cat.to} className="footer-link">
+                      {cat.label}
+                    </Link>
+                  ))}
                 </div>
               </div>
-              <div className="footer-box-two">
-                <p className="footer-title">Follow us</p>
-                <div className="footer-links-box">
+              <div className="footer-col-group">
+                <p className="footer-title footer-col-label">Follow us</p>
+                <div className="footer-col-items footer-col-items--social">
                   <a href="#social-facebook" className="social-box-two w-inline-block">
                     <img
                       loading="lazy"
@@ -204,12 +198,9 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
       </div>
       <div className="footer-bottom">
         <div className="w-layout-blockcontainer container w-container">
-          <div
-            className="copyright-box"
-            style={{ flexDirection: 'column', alignItems: 'center', gap: '4px' }}
-          >
-            <p className="copyright-text" style={{ textAlign: 'center', marginBottom: 0 }}>
-              © Copyright -{' '}
+          <div className="copyright-box">
+            <p className="copyright-text">
+              © 2026{' '}
               <Link
                 to="/"
                 target="_self"
@@ -218,9 +209,10 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
               >
                 Praneeta Developers
               </Link>
+              . All rights reserved.
             </p>
-            <p className="copyright-text" style={{ textAlign: 'center', marginBottom: 0 }}>
-              TG-RERA: P02400009246 | P02400006593 | P02400009069
+            <p className="copyright-text">
+              TG-RERA: P02400009246 · P02400006593 · P02400009069 · P02400009800
             </p>
           </div>
         </div>
