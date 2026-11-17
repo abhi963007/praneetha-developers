@@ -9,8 +9,8 @@ interface PageBannerSectionProps {
 const DEFAULT_SUBTITLES: Record<string, string> = {
   'About Us': 'Crafting enduring gated communities across Mokila & Shankarpally since 2005.',
   Properties: 'Explore HMDA & TS-RERA registered luxury villas and apartments across Mokila, Kondakal & Shankarpally.',
-  Gallery: 'A visual journey through Praneeta’s completed and ongoing villa communities in Mokila.',
-  Services: 'End-to-end residential development, architecture, and turnkey home delivery.',
+  Gallery: 'Explore architectural renders, active site progress, and global expo highlights across Mokila & Shankarpally.',
+  Services: 'End-to-end gated community development, guided site visits, HMDA/TS-RERA clarity, and NRI advisory.',
   Insights: 'Perspectives on luxury living, RERA transparency, and Hyderabad real estate.',
   'Contact Us': 'Visit our Mokila Experience Lounge or connect directly with our leadership team.',
 };

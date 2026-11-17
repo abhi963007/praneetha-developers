@@ -109,12 +109,16 @@
 }
 
 .prop-detail__thumbs {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
 }
 
 .prop-detail__thumb {
+  flex: 0 1 calc(25% - 8px);
+  max-width: 140px;
+  min-width: 82px;
   aspect-ratio: 16 / 10;
   border-radius: 12px;
   overflow: hidden;
@@ -271,11 +275,11 @@
 
 .prop-detail__plans-header {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px 16px;
-  margin-bottom: 18px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  margin-bottom: 22px;
 }
 
 .prop-detail__plans-title {
@@ -297,6 +301,20 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 16px;
+}
+
+.prop-detail__plans-grid--single {
+  grid-template-columns: minmax(260px, 420px);
+  justify-content: center;
+}
+
+.prop-detail__plans-grid--single .prop-detail__plan-img-box {
+  height: 280px;
+}
+
+.prop-detail__plans-grid--double {
+  grid-template-columns: repeat(2, minmax(260px, 440px));
+  justify-content: center;
 }
 
 .prop-detail__plan-card {
@@ -617,8 +635,8 @@
     grid-template-columns: 1fr;
   }
 
-  .prop-detail__thumbs {
-    grid-template-columns: repeat(3, 1fr);
+  .prop-detail__thumb {
+    flex: 0 1 calc(33.333% - 7px);
   }
 
   .prop-carousel__slide {

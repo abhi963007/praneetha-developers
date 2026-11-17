@@ -530,7 +530,15 @@ export function PropertiesListingSection() {
                   <h3 className="prop-detail__plans-title">Floor Plans &amp; Master Layout</h3>
                   <span className="prop-detail__plans-hint">Click any plan to view full size</span>
                 </div>
-                <div className="prop-detail__plans-grid">
+                <div
+                  className={`prop-detail__plans-grid${
+                    selectedProperty.floorPlans.length === 1
+                      ? ' prop-detail__plans-grid--single'
+                      : selectedProperty.floorPlans.length === 2
+                        ? ' prop-detail__plans-grid--double'
+                        : ''
+                  }`}
+                >
                   {selectedProperty.floorPlans.map((plan, idx) => (
                     <button
                       key={plan.src}

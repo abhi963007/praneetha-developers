@@ -2,76 +2,161 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './gallery-page.css';
 
-type GalleryCategory = 'All' | 'Villa Exteriors' | 'Interiors & Courtyards' | 'Clubhouse & Amenities' | 'Landscapes';
+type GalleryCategory = 'All' | 'Elevations & Interiors' | 'Site Progress' | 'Events & Expos';
 
 interface GalleryEntry {
   id: string;
   title: string;
+  subtitle: string;
   category: Exclude<GalleryCategory, 'All'>;
   src: string;
-  wide?: boolean;
 }
 
 const CATEGORIES: GalleryCategory[] = [
   'All',
-  'Villa Exteriors',
-  'Interiors & Courtyards',
-  'Clubhouse & Amenities',
-  'Landscapes',
+  'Elevations & Interiors',
+  'Site Progress',
+  'Events & Expos',
 ];
 
 const GALLERY_ENTRIES: GalleryEntry[] = [
   {
     id: 'g1',
-    title: 'Praneeta Sovereign Villas — Dusk Elevation, Mokila',
-    category: 'Villa Exteriors',
-    src: '/images/6ad70f6cbf6c8f380548ade8_1.avif',
-    wide: true,
+    title: 'The Santorini Villas — Mokila Township Aerial View',
+    subtitle: '23 Acres · 231 Greek-Inspired 5 BHK Villas',
+    category: 'Elevations & Interiors',
+    src: '/images/projects/santorini/hero-slide-1.webp',
   },
   {
     id: 'g2',
-    title: 'The Patio — Sunlit Central Courtyard',
-    category: 'Interiors & Courtyards',
-    src: '/images/6ad70f6d2110973c436530e7_2.avif',
+    title: 'Amity Villas — Dusk Triplex Elevation',
+    subtitle: '6.5 Acres · 76 G+2 Triplex Villas, Mokila',
+    category: 'Elevations & Interiors',
+    src: '/images/projects/amity/night-exterior.webp',
   },
   {
     id: 'g3',
-    title: 'Contemporary Triplex Facade & Stone Cladding',
-    category: 'Villa Exteriors',
-    src: '/images/6ad70f6c7b0fe08ed373b688_3.avif',
+    title: 'The Patio Villas — Landscaped Courtyard Avenue',
+    subtitle: '20.2 Acres · 175 Courtyard Villas, Mokila',
+    category: 'Elevations & Interiors',
+    src: '/images/projects/patio/hero-slide-1.webp',
   },
   {
     id: 'g4',
-    title: 'Private Garden & Timber-Louvered Living Deck',
-    category: 'Landscapes',
-    src: '/images/6ad70f6d57aa3fae32906ffe_4.avif',
+    title: 'Praneeta Meridian — Kondakal High-Rise Tower',
+    subtitle: '11 Floors · 88 Spacious 3 BHK Residences',
+    category: 'Elevations & Interiors',
+    src: '/images/projects/meridian/showcase-card.webp',
   },
   {
     id: 'g5',
-    title: 'Double-Height Foyer & Natural Ventilation Lounge',
-    category: 'Interiors & Courtyards',
-    src: '/images/6ad70f6d3591600dcf626ac6_5.avif',
+    title: 'Praneeta Singapur Town Phase-2 — Street Elevation',
+    subtitle: 'Shankarpally · 35 Premium 4 BHK Villas',
+    category: 'Elevations & Interiors',
+    src: '/images/projects/pst2/street-view.png',
   },
   {
     id: 'g6',
-    title: 'Clubhouse Poolside Pavilion & Evening Deck',
-    category: 'Clubhouse & Amenities',
-    src: '/images/6ad70f6f491f17f6faf2b8e4_6.avif',
-    wide: true,
+    title: 'Praneeta Meridian — Contemporary Living Room',
+    subtitle: 'Kondakal Extension · Interior Render',
+    category: 'Elevations & Interiors',
+    src: '/images/projects/meridian/living-room.jpeg',
   },
   {
     id: 'g7',
-    title: 'Avenue Plantation & Pedestrian Boulevards',
-    category: 'Landscapes',
-    src: '/images/6ad70f71155418fc235fcc8e_7.avif',
+    title: 'Amity Villas — Site Construction Update',
+    subtitle: 'Mokila · October 2026 Progress',
+    category: 'Site Progress',
+    src: '/images/gallery/site-amity-oct-2026.webp',
   },
   {
     id: 'g8',
-    title: 'Mokila Enclave Aerial Masterplan View',
-    category: 'Clubhouse & Amenities',
-    src: '/video/hero-final.jpg',
+    title: 'Amity Villas — Villa Structure & Road Works',
+    subtitle: 'Mokila · October 2026 Progress',
+    category: 'Site Progress',
+    src: '/images/gallery/site-amity-oct-2026-2.webp',
+  },
+  {
+    id: 'g9',
+    title: 'The Patio Villas — Site Progress Update',
+    subtitle: 'Mokila · October 2026 Progress',
+    category: 'Site Progress',
+    src: '/images/gallery/site-patio-oct-2026.jpeg',
+  },
+  {
+    id: 'g10',
+    title: 'The Patio Villas — Courtyard Construction',
+    subtitle: 'Mokila · October 2026 Progress',
+    category: 'Site Progress',
+    src: '/images/gallery/site-patio-oct-2026-2.jpeg',
+  },
+  {
+    id: 'g11',
+    title: 'The Santorini Villas — Site Progress Update',
+    subtitle: 'Mokila · October 2026 Progress',
+    category: 'Site Progress',
+    src: '/images/gallery/site-santorini-oct-2026.jpeg',
+  },
+  {
+    id: 'g12',
+    title: 'The Santorini Villas — Facade & Infrastructure',
+    subtitle: 'Mokila · October 2026 Progress',
+    category: 'Site Progress',
+    src: '/images/gallery/site-santorini-oct-2026-2.jpeg',
+  },
+  {
+    id: 'g13',
+    title: 'NAREDCO Property Expo — Hyderabad 2026',
+    subtitle: 'Flagship Villa Showcase · Hyderabad',
+    category: 'Events & Expos',
+    src: '/images/gallery/expo-naredco-2026-1.jpeg',
+  },
+  {
+    id: 'g14',
+    title: 'NAREDCO Property Expo — Hyderabad 2025',
+    subtitle: 'Homebuyer & Investor Pavilion',
+    category: 'Events & Expos',
+    src: '/images/gallery/expo-naredco-2025-1.jpg',
+  },
+  {
+    id: 'g15',
+    title: 'NRI ONE EXPO — USA Showcase',
+    subtitle: 'Connecting Global Telugu & NRI Buyers',
+    category: 'Events & Expos',
+    src: '/images/gallery/expo-nri-usa-1.jpeg',
+  },
+  {
+    id: 'g16',
+    title: 'NRI ONE EXPO — Dubai Showcase',
+    subtitle: 'International Real Estate Exhibition',
+    category: 'Events & Expos',
+    src: '/images/gallery/expo-nri-dubai-1.jpeg',
+  },
+  {
+    id: 'g17',
+    title: 'NRI ONE EXPO — Singapore 2026',
+    subtitle: 'West Hyderabad Investment Opportunities',
+    category: 'Events & Expos',
+    src: '/images/gallery/expo-nri-singapore-2026-1.jpeg',
+  },
+  {
+    id: 'g18',
+    title: 'NRI ONE EXPO — Singapore 2023',
+    subtitle: 'Praneeta Developers Global Outreach',
+    category: 'Events & Expos',
+    src: '/images/gallery/expo-nri-singapore-2023-1.jpeg',
   },
 ];
+
+// 6-card editorial bento pattern: [7,5], [4,8], [6,6] — zero orphan gaps
+const BENTO_CLASSES = [
+  'gal-card--span7',
+  'gal-card--span5',
+  'gal-card--span4',
+  'gal-card--span8',
+  'gal-card--span6',
+  'gal-card--span6',
+] as const;
 
 export function GalleryShowcaseSection() {
   const [activeCategory, setActiveCategory] = useState<GalleryCategory>('All');
@@ -82,6 +167,11 @@ export function GalleryShowcaseSection() {
       ? GALLERY_ENTRIES
       : GALLERY_ENTRIES.filter((item) => item.category === activeCategory);
 
+  const getCount = (cat: GalleryCategory) =>
+    cat === 'All'
+      ? GALLERY_ENTRIES.length
+      : GALLERY_ENTRIES.filter((i) => i.category === cat).length;
+
   useEffect(() => {
     if (lightboxIndex === null) return;
     const onKeyDown = (e: KeyboardEvent) => {
@@ -90,7 +180,9 @@ export function GalleryShowcaseSection() {
         setLightboxIndex((prev) => (prev === null ? null : (prev + 1) % filtered.length));
       }
       if (e.key === 'ArrowLeft') {
-        setLightboxIndex((prev) => (prev === null ? null : (prev - 1 + filtered.length) % filtered.length));
+        setLightboxIndex((prev) =>
+          prev === null ? null : (prev - 1 + filtered.length) % filtered.length
+        );
       }
     };
     window.addEventListener('keydown', onKeyDown);
@@ -98,142 +190,173 @@ export function GalleryShowcaseSection() {
   }, [lightboxIndex, filtered.length]);
 
   return (
-    <section className="gallery-page-section">
-      <div className="w-layout-blockcontainer container w-container">
-        <div className="gallery-page-header">
-          <div className="section-title-box">
-            <div className="subtitle-box">
-              <div className="subtitle-icon-box">
-                <img
-                  src="/images/6ac73b9bf7b64a6c276227a3_Home%20Icon.svg"
-                  loading="lazy"
-                  alt=""
-                  className="subtitle-icon"
-                />
-              </div>
-              <div className="section-subtitle">Visual Archive</div>
+    <section className="gal-section">
+      <div className="gal-container">
+        {/* ── Editorial Header & Filter Pills ── */}
+        <div className="gal-header">
+          <div className="gal-header__left">
+            <div className="gal-pill">
+              <span className="gal-pill__dot">
+                <img src="/images/6ac4a1873c3838069f5e8736_icon.svg" alt="" />
+              </span>
+              <span className="gal-pill__text">Visual Archive</span>
             </div>
-            <h2 className="section-title">Spaces Built Around Light &amp; Nature</h2>
-          </div>
-
-          <div className="gallery-filter-bar" role="tablist" aria-label="Filter gallery">
-            {CATEGORIES.map((category) => (
-              <button
-                key={category}
-                type="button"
-                role="tab"
-                aria-selected={activeCategory === category}
-                className={`gallery-filter-btn${activeCategory === category ? ' is-active' : ''}`}
-                onClick={() => {
-                  setActiveCategory(category);
-                  setLightboxIndex(null);
-                }}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="gallery-masonry-grid">
-          {filtered.map((item, idx) => (
-            <button
-              key={item.id}
-              type="button"
-              className={`gallery-card${item.wide && activeCategory === 'All' ? ' is-wide' : ''}`}
-              onClick={() => setLightboxIndex(idx)}
-            >
-              <img src={item.src} alt={item.title} loading="lazy" className="gallery-card__img" />
-              <div className="gallery-card__overlay">
-                <span className="gallery-card__tag">{item.category}</span>
-                <h3 className="gallery-card__title">{item.title}</h3>
-              </div>
-            </button>
-          ))}
-        </div>
-
-        <div className="gallery-cta-band">
-          <div>
-            <h3 className="gallery-cta-band__title">Experience Mokila in Person</h3>
-            <p className="gallery-cta-band__text">
-              Walk through our ready-to-experience model villas, courtyard layouts, and landscaped avenues with our team.
+            <h2 className="gal-title">Spaces Built Around Light &amp; Nature</h2>
+            <p className="gal-subtitle">
+              Architectural elevations, live site construction milestones, and international NRI expos across Mokila, Kondakal &amp; Shankarpally.
             </p>
           </div>
-          <Link to="/contact-us" className="primary-button w-inline-block">
-            <div className="primary-button-flex">
-              <div className="primary-button-text-wrap">
-                <div className="primary-button-text">Book a Site Visit</div>
-                <div className="primary-button-text-hover">Book a Site Visit</div>
-              </div>
-              <div className="primary-button-arrow-wrap">
-                <div className="primary-button-arrow-wrapper">
-                  <img
-                    src="/images/69e723100025a4ae58731b6a_0.svg"
-                    loading="lazy"
-                    alt=""
-                    className="primary-button-arrow"
-                  />
-                  <img
-                    src="/images/69e723100025a4ae58731b6a_0.svg"
-                    loading="lazy"
-                    alt=""
-                    className="primary-button-arrow-hover"
-                  />
+
+          <div className="gal-filters" role="tablist" aria-label="Filter gallery">
+            {CATEGORIES.map((category) => {
+              const active = activeCategory === category;
+              return (
+                <button
+                  key={category}
+                  type="button"
+                  role="tab"
+                  aria-selected={active}
+                  className={`gal-filter-btn${active ? ' is-active' : ''}`}
+                  onClick={() => {
+                    setActiveCategory(category);
+                    setLightboxIndex(null);
+                  }}
+                >
+                  <span>{category}</span>
+                  <span className="gal-filter-count">{getCount(category)}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ── 12-Column Architectural Bento Grid ── */}
+        <div className="gal-bento">
+          {filtered.map((item, idx) => {
+            const spanClass = BENTO_CLASSES[idx % BENTO_CLASSES.length];
+            return (
+              <button
+                key={item.id}
+                type="button"
+                className={`gal-card ${spanClass}`}
+                onClick={() => setLightboxIndex(idx)}
+              >
+                <img src={item.src} alt={item.title} loading="lazy" className="gal-card__img" />
+                <div className="gal-card__scrim" />
+                <div className="gal-card__top">
+                  <span className="gal-card__tag">{item.category}</span>
+                  <span className="gal-card__zoom" aria-hidden="true">
+                    <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M10 2H14V6M6 14H2V10M14 2L9.5 6.5M2 14L6.5 9.5"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
                 </div>
-              </div>
-            </div>
+                <div className="gal-card__bottom">
+                  <h3 className="gal-card__title">{item.title}</h3>
+                  <p className="gal-card__sub">{item.subtitle}</p>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* ── Dark-Forest CTA Band ── */}
+        <div className="gal-cta">
+          <div className="gal-cta__copy">
+            <span className="gal-cta__kicker">Guided Site Tours</span>
+            <h3 className="gal-cta__title">Experience Mokila &amp; Shankarpally in Person</h3>
+            <p className="gal-cta__text">
+              Walk through our active gated villa &amp; apartment sites—Amity, The Patio, The Santorini, Meridian, and PST-2—with our engineering team.
+            </p>
+          </div>
+          <Link to="/contact-us" className="gal-cta__btn">
+            <span>Book a Site Visit</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path
+                d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </Link>
         </div>
       </div>
 
+      {/* ── Lightbox Modal ── */}
       {lightboxIndex !== null && filtered[lightboxIndex] && (
         <div
-          className="gallery-modal"
+          className="gal-lightbox"
           role="dialog"
           aria-modal="true"
           aria-label={filtered[lightboxIndex].title}
           onClick={() => setLightboxIndex(null)}
         >
-          <button
-            type="button"
-            className="gallery-modal__btn"
-            aria-label="Close gallery viewer"
-            onClick={() => setLightboxIndex(null)}
-          >
-            &times;
-          </button>
-          <button
-            type="button"
-            className="gallery-modal__nav prev"
-            aria-label="Previous image"
-            onClick={(e) => {
-              e.stopPropagation();
-              setLightboxIndex((lightboxIndex - 1 + filtered.length) % filtered.length);
-            }}
-          >
-            &#8249;
-          </button>
-          <div className="gallery-modal__inner" onClick={(e) => e.stopPropagation()}>
-            <img
-              src={filtered[lightboxIndex].src}
-              alt={filtered[lightboxIndex].title}
-              className="gallery-modal__img"
-            />
-            <div className="gallery-modal__caption">
-              {filtered[lightboxIndex].category} — {filtered[lightboxIndex].title}
+          <div className="gal-lightbox__dialog" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="gal-lightbox__close"
+              aria-label="Close gallery viewer"
+              onClick={() => setLightboxIndex(null)}
+            >
+              ×
+            </button>
+
+            <div className="gal-lightbox__stage">
+              {filtered.length > 1 && (
+                <button
+                  type="button"
+                  className="gal-lightbox__nav gal-lightbox__nav--prev"
+                  aria-label="Previous image"
+                  onClick={() =>
+                    setLightboxIndex((prev) =>
+                      prev === null ? null : (prev - 1 + filtered.length) % filtered.length
+                    )
+                  }
+                >
+                  ‹
+                </button>
+              )}
+
+              <img
+                src={filtered[lightboxIndex].src}
+                alt={filtered[lightboxIndex].title}
+                className="gal-lightbox__img"
+              />
+
+              {filtered.length > 1 && (
+                <button
+                  type="button"
+                  className="gal-lightbox__nav gal-lightbox__nav--next"
+                  aria-label="Next image"
+                  onClick={() =>
+                    setLightboxIndex((prev) =>
+                      prev === null ? null : (prev + 1) % filtered.length
+                    )
+                  }
+                >
+                  ›
+                </button>
+              )}
+            </div>
+
+            <div className="gal-lightbox__caption">
+              <div>
+                <p className="gal-lightbox__title">{filtered[lightboxIndex].title}</p>
+                <p className="gal-lightbox__sub">{filtered[lightboxIndex].subtitle}</p>
+              </div>
+              <span className="gal-lightbox__counter">
+                {lightboxIndex + 1} / {filtered.length}
+              </span>
             </div>
           </div>
-          <button
-            type="button"
-            className="gallery-modal__nav next"
-            aria-label="Next image"
-            onClick={(e) => {
-              e.stopPropagation();
-              setLightboxIndex((lightboxIndex + 1) % filtered.length);
-            }}
-          >
-            &#8250;
-          </button>
         </div>
       )}
     </section>
