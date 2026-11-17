@@ -31,8 +31,8 @@
 
 .blog-box:hover {
   transform: translateY(-6px) !important;
-  box-shadow: 0 18px 36px rgba(5, 59, 32, 0.12), 0 4px 12px rgba(0, 0, 0, 0.05) !important;
-  border-color: rgba(5, 59, 32, 0.22) !important;
+  box-shadow: 0 18px 36px rgba(44, 58, 46, 0.12), 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(44, 58, 46, 0.24) !important;
 }
 
 .blog-box .blog-image-box {
@@ -61,7 +61,7 @@
 }
 
 .blog-box .blog-read-box {
-  background: rgba(5, 59, 32, 0.88) !important;
+  background: rgba(44, 58, 46, 0.88) !important;
   backdrop-filter: blur(8px) !important;
   -webkit-backdrop-filter: blur(8px) !important;
   border: 1px solid rgba(255, 255, 255, 0.25) !important;
@@ -96,17 +96,17 @@
 .blog-box .blog-title {
   font-family: var(--_font-family---primary-font, Rubik, sans-serif) !important;
   font-size: 1.2rem !important;
-  font-weight: 500 !important;
-  letter-spacing: -0.015em !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em !important;
   line-height: 1.4 !important;
-  color: #111827 !important;
+  color: #1c1c1a !important;
   margin-bottom: 0 !important;
   flex-grow: 1 !important;
   transition: color 0.25s ease !important;
 }
 
 .blog-box:hover .blog-title {
-  color: var(--primary-color, #053b20) !important;
+  color: #2c3a2e !important;
 }
 
 /* Buttons pinned to exact bottom baseline across all cards */
@@ -122,4 +122,135 @@
     grid-template-columns: 1fr !important;
     gap: 24px !important;
   }
+}
+
+/* ── Article Reader Panel (/insights/:slug) ── */
+.ins-reader {
+  width: 100%;
+  margin: 0 0 56px;
+  padding: clamp(24px, 3.5vw, 48px);
+  background: #ffffff;
+  border: 1px solid rgba(44, 58, 46, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 16px 42px rgba(28, 28, 26, 0.05);
+}
+
+.ins-reader__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #777b67;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.ins-reader__title {
+  font-family: var(--_font-family---primary-font, Rubik, sans-serif) !important;
+  font-size: clamp(1.65rem, 2.8vw, 2.35rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.2 !important;
+  color: #1c1c1a !important;
+  margin: 0 0 12px !important;
+}
+
+.ins-reader__summary {
+  font-family: "Inter Tight", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #52525b;
+  margin: 0 0 24px;
+}
+
+.ins-reader__img-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 520px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f5efe6;
+  margin-bottom: 26px;
+}
+
+.ins-reader__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ins-reader__body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ins-reader__body p {
+  font-family: "Inter Tight", sans-serif;
+  font-size: 15.5px;
+  line-height: 1.72;
+  color: #3f3f46;
+  margin: 0;
+}
+
+.ins-reader__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(44, 58, 46, 0.1);
+}
+
+.ins-reader__btn-primary,
+.ins-reader__btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 48px;
+  border-radius: 999px;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 14.5px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
+}
+
+.ins-reader__btn-primary {
+  padding: 0 10px 0 24px;
+  background: #2c3a2e;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(44, 58, 46, 0.18);
+}
+
+.ins-reader__btn-primary:hover {
+  background: #1f2921;
+  transform: translateY(-2px);
+}
+
+.ins-reader__btn-arrow {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ins-reader__btn-secondary {
+  padding: 0 24px;
+  background: #ffffff;
+  color: #2c3a2e;
+  border: 1px solid rgba(44, 58, 46, 0.24);
+}
+
+.ins-reader__btn-secondary:hover {
+  background: #f5efe6;
+  transform: translateY(-2px);
 }

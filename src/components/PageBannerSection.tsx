@@ -11,7 +11,7 @@ const DEFAULT_SUBTITLES: Record<string, string> = {
   Properties: 'Explore HMDA & TS-RERA registered luxury villas and apartments across Mokila, Kondakal & Shankarpally.',
   Gallery: 'Explore architectural renders, active site progress, and global expo highlights across Mokila & Shankarpally.',
   Services: 'End-to-end gated community development, guided site visits, HMDA/TS-RERA clarity, and NRI advisory.',
-  Insights: 'Perspectives on luxury living, RERA transparency, and Hyderabad real estate.',
+  Insights: 'Market perspectives, HMDA & TS-RERA checklists, and architectural notes across Mokila, Kondakal & Shankarpally.',
   'Contact Us': 'Visit our Mokila Experience Lounge or connect directly with our leadership team.',
 };
 
