@@ -92,9 +92,9 @@
 .contact-page-section .contact-aside-title {
   font-family: var(--_font-family---primary-font, Rubik, sans-serif) !important;
   font-size: clamp(26px, 2.5vw, 34px) !important;
-  font-weight: 500 !important;
-  line-height: 1.15 !important;
-  letter-spacing: -0.025em !important;
+  font-weight: 400 !important;
+  line-height: 1.18 !important;
+  letter-spacing: -0.02em !important;
   color: #ffffff !important;
   margin: 0 0 14px 0 !important;
 }
@@ -404,8 +404,8 @@
 .contact-page-section .contact-map-title {
   font-family: var(--_font-family---primary-font, Rubik, sans-serif) !important;
   font-size: 22px !important;
-  font-weight: 500 !important;
-  letter-spacing: -0.02em !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.015em !important;
   color: var(--dark-two, #1c1c1a) !important;
   margin: 0 !important;
 }
@@ -521,7 +521,8 @@
 .contact-page-section .contact-directory-primary {
   font-family: var(--_font-family---primary-font, Rubik, sans-serif) !important;
   font-size: 19px !important;
-  font-weight: 500 !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em !important;
   color: var(--dark-two, #1c1c1a) !important;
   text-decoration: none !important;
   transition: color 180ms ease !important;
