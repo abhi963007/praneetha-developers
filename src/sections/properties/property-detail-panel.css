@@ -3,6 +3,64 @@
    Matches site tokens: #f5efe6, #ffffff, #2c3a2e, Rubik (400)
    ═══════════════════════════════════════════════════════════ */
 
+/* ── Curved Pill Filters (matching Gallery style) ── */
+.prop-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 42px;
+}
+
+.prop-filter-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(44, 58, 46, 0.18);
+  background: #ffffff;
+  color: #1c1c1a;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, transform 200ms ease;
+}
+
+.prop-filter-btn:hover {
+  border-color: #2c3a2e;
+  color: #2c3a2e;
+  transform: translateY(-1px);
+}
+
+.prop-filter-btn.is-active {
+  background: #2c3a2e;
+  border-color: #2c3a2e;
+  color: #ffffff;
+}
+
+.prop-filter-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: rgba(44, 58, 46, 0.08);
+  color: #2c3a2e;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.prop-filter-btn.is-active .prop-filter-count {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
 .prop-detail {
   margin-bottom: 64px;
   padding: clamp(24px, 3.5vw, 44px);

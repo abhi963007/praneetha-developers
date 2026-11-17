@@ -624,53 +624,39 @@ export function PropertiesListingSection() {
           </div>
         ) : (
           <>
-            <div className="categories-wrap">
-              <div className="catergories-filter two">
-                <div className="view-all-button w-dyn-list">
-                  <div role="list" className="w-dyn-items">
-                    <div role="listitem" className="w-dyn-item">
-                      <Link
-                        to="/properties"
-                        aria-current={isAll ? 'page' : undefined}
-                        className={`cat-box two w-inline-block${isAll ? ' w--current' : ''}`}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleFilterClick('all');
-                        }}
-                      >
-                        <div className="cat-content two">
-                          <p className="cat-title two">All Projects</p>
-                        </div>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-                <div className="w-dyn-list">
-                  <div role="list" className="cat-cms two w-dyn-items">
-                    {CATEGORY_LINKS.map((cat) => {
-                      const catSlug = cat.to.replace('/category/', '');
-                      const active = activeCategory === catSlug;
-                      return (
-                        <div key={cat.to} role="listitem" className="w-dyn-item">
-                          <Link
-                            to={cat.to}
-                            aria-current={active ? 'page' : undefined}
-                            className={`cat-filter-list w-inline-block${active ? ' w--current' : ''}`}
-                            onClick={(e) => {
-                              e.preventDefault();
-                              handleFilterClick(catSlug);
-                            }}
-                          >
-                            <div className="cat-content two">
-                              <p className="cat-title two">{cat.label}</p>
-                            </div>
-                          </Link>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
+            <div className="prop-filters" role="navigation" aria-label="Filter projects by category">
+              <Link
+                to="/properties"
+                aria-current={isAll ? 'page' : undefined}
+                className={`prop-filter-btn${isAll ? ' is-active' : ''}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleFilterClick('all');
+                }}
+              >
+                <span>All Projects</span>
+                <span className="prop-filter-count">{PROPERTIES_DATA.length}</span>
+              </Link>
+              {CATEGORY_LINKS.map((cat) => {
+                const catSlug = cat.to.replace('/category/', '');
+                const active = activeCategory === catSlug;
+                const count = PROPERTIES_DATA.filter((p) => p.categorySlug === catSlug).length;
+                return (
+                  <Link
+                    key={cat.to}
+                    to={cat.to}
+                    aria-current={active ? 'page' : undefined}
+                    className={`prop-filter-btn${active ? ' is-active' : ''}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleFilterClick(catSlug);
+                    }}
+                  >
+                    <span>{cat.label}</span>
+                    <span className="prop-filter-count">{count}</span>
+                  </Link>
+                );
+              })}
             </div>
             <div className="w-dyn-list">
               <div role="list" className="property-grid w-dyn-items">
