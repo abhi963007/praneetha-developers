@@ -2,31 +2,31 @@ import './about-story-redesign.css';
 
 const STATS = [
   {
-    num: '12',
-    suffix: '+',
-    label: 'Years of Infrastructure & Township Leadership',
+    num: '20',
+    suffix: '+ Yrs',
+    label: 'Shaping Hyderabad Luxury Living Since 2005',
   },
   {
-    num: '850',
-    suffix: '+',
-    label: 'Happy Homeowner Families Across West Hyderabad',
+    num: '2.5',
+    suffix: 'M+ Sft',
+    label: 'Active & Delivered Developments in Mokila & Shankarpally',
   },
 ];
 
 const IMAGES = [
   {
-    src: '/images/portfolio-villas-completed.jpg',
-    alt: 'Completed luxury villa community in West Hyderabad',
+    src: '/images/about/santorini-villas-exterior.webp',
+    alt: 'The Santorini Villas in Mokila by Praneeta Developers',
     tall: true,
   },
   {
-    src: '/images/service-villa-communities.jpg',
-    alt: 'Gated villa community avenue in Mokila',
+    src: '/images/about/amity-villas-hero.webp',
+    alt: 'Amity Villas luxury triplex elevation in Mokila',
     tall: false,
   },
   {
-    src: '/images/service-guided-visits.jpg',
-    alt: 'Sunlit luxury villa entrance in Mokila',
+    src: '/images/about/patio-villas-exterior.webp',
+    alt: 'The Patio Villas courtyard community in Mokila',
     tall: false,
   },
 ];
@@ -38,7 +38,6 @@ export function AboutStorySection() {
 
         {/* ── LEFT COLUMN ── */}
         <div className="abt-story__left">
-          {/* pill */}
           <div className="abt-story__pill">
             <div className="abt-story__pill-dot">
               <img src="/images/6ac4a1873c3838069f5e8736_icon.svg" alt="" />
@@ -46,19 +45,14 @@ export function AboutStorySection() {
             <p className="abt-story__pill-text">About Praneeta</p>
           </div>
 
-          {/* headline */}
           <h2 className="abt-story__heading">
-            Building Dreams, Creating Homes across West&nbsp;Hyderabad's Mokila &amp; Kokapet corridors
+            Building Dreams, Creating Homes across Mokila, Kondakal &amp; Shankarpally
           </h2>
 
-          {/* body */}
           <p className="abt-story__body">
-            V Praneeta Developers Pvt. Ltd. delivers HMDA &amp; TG-RERA compliant villa communities
-            with transparent documentation and timely quality. Every home we build is backed by over
-            a decade of township expertise and a commitment to zero hidden charges.
+            Backed by three decades of construction visionaries—formerly delivering prestigious townships under Hareeni Developers—Praneeta Developers brings HMDA &amp; TS-RERA registered gated villa and high-rise apartment communities across West Hyderabad with transparent documentation and committed timelines.
           </p>
 
-          {/* stat row */}
           <div className="abt-story__stats">
             {STATS.map((s) => (
               <div key={s.num} className="abt-story__stat">

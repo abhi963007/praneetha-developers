@@ -1,12 +1,10 @@
-import { AdvisorsSliderSection } from '../components/AdvisorsSliderSection';
-// import { FaqSection } from '../components/FaqSection';
 import { Footer } from '../components/Footer';
-// import { MarqueeSection } from '../components/MarqueeSection';
 import { Navbar } from '../components/Navbar';
 import { PageBannerSection } from '../components/PageBannerSection';
 import { useWebflowPage } from '../hooks/useWebflowPage';
 import { AboutProcessSection } from '../sections/about/AboutProcessSection';
 import { AboutStorySection } from '../sections/about/AboutStorySection';
+import { FounderSpotlightSection } from '../sections/about/FounderSpotlightSection';
 import { PAGE_META } from '../types/site';
 import './about-page.css';
 
@@ -17,11 +15,9 @@ export function AboutPage() {
     <div className="about-page-wrapper">
       <Navbar />
       <PageBannerSection title="About Us" />
-      <AdvisorsSliderSection variant="about" />
       <AboutStorySection />
+      <FounderSpotlightSection />
       <AboutProcessSection />
-      {/* <MarqueeSection /> */}
-      {/* <FaqSection variant="about" ptZero={true} /> */}
       <Footer variant="base" wfPageId={PAGE_META.about.wfPage} />
     </div>
   );

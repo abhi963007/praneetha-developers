@@ -16,9 +16,9 @@ const PROCESS_STEPS: ProcessStep[] = [
   {
     num: '01',
     badge: 'Step 01',
-    title: 'Visit Mokila Site',
-    text: 'Walk through our completed Amity & The Patio communities and review Sovereign Villas blueprints in person at our Mokila lounge.',
-    feature: 'Guided Villa Tour & Masterplan',
+    title: 'Visit Mokila & Shankarpally',
+    text: 'Tour our under-construction villa & apartment sites across Mokila (Amity, The Patio, The Santorini) and Shankarpally (PST-2) with our on-site engineering team.',
+    feature: 'Guided Site Tour & Masterplans',
     actionText: 'Book Site Visit',
     actionLink: '/contact-us',
     icon: (
@@ -41,9 +41,9 @@ const PROCESS_STEPS: ProcessStep[] = [
   {
     num: '02',
     badge: 'Step 02',
-    title: 'Explore Communities',
-    text: 'Compare our Mokila–Shankarpally villas, Kokapet luxury residences, and upcoming plotted developments by configuration and budget.',
-    feature: 'Transparent Pricing & Options',
+    title: 'Compare Active Communities',
+    text: 'Evaluate 5 BHK gated villas in Mokila, 3 BHK apartments at Meridian Kondakal, and 4 BHK G+2 villas at PST-2 Shankarpally by size and handover timeline.',
+    feature: 'May 2027 – Dec 2028 Handovers',
     actionText: 'Explore Projects',
     actionLink: '/properties',
     icon: (
@@ -69,10 +69,10 @@ const PROCESS_STEPS: ProcessStep[] = [
   {
     num: '03',
     badge: 'Step 03',
-    title: 'Clear Handover',
-    text: 'Verify HMDA & TG-RERA records, finalize bank financing with preferred lenders, and receive timely key handover with zero surprises.',
-    feature: 'HMDA & TG-RERA Approved',
-    actionText: 'Handover Process',
+    title: 'RERA & Timely Handover',
+    text: 'Review HMDA & TS-RERA approvals (P02400006593, P02400009800), complete documentation with leading banks, and track milestones toward key handover.',
+    feature: 'HMDA & TS-RERA Registered',
+    actionText: 'Schedule Consultation',
     actionLink: '/contact-us',
     icon: (
       <svg
