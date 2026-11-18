@@ -8,8 +8,7 @@ export function HomeVideoSection() {
           <div data-parallax="trigger" className="parallax-wrapper">
             <video
               className="parallax-image"
-              src="/video/serene-living.mp4"
-              poster="/images/6ad5e7d57c024b24c5f257fb_Moody%20Green-Gray%20Sunset%20Villa.avif"
+              src="/video/timeless-architecture.mp4"
               autoPlay
               loop
               muted
