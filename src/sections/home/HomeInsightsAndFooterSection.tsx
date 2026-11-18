@@ -20,7 +20,7 @@ export function HomeInsightsAndFooterSection({ showFooter = true }: { showFooter
               <p className="section-subtitle">News &amp; Updates</p>
             </div>
             <h2 className="section-title">
-              West Hyderabad Insights<span className="sectitle-br"> </span>&amp; Buyer Guides
+              Latest Blogs &amp;<span className="sectitle-br"> </span>Real Estate Articles
             </h2>
           </div>
           <div className="w-dyn-list">
