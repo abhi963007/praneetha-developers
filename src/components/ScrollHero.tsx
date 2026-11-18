@@ -50,6 +50,7 @@ declare global {
 export function ScrollHero({ children }: { children: ReactNode }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const introBgRef = useRef<HTMLDivElement>(null);
   const introRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const hintRef = useRef<HTMLDivElement>(null);
@@ -57,15 +58,17 @@ export function ScrollHero({ children }: { children: ReactNode }) {
   useEffect(() => {
     const wrap = wrapRef.current;
     const video = videoRef.current;
+    const introBg = introBgRef.current;
     const intro = introRef.current;
     const content = contentRef.current;
     const hint = hintRef.current;
-    if (!wrap || !video || !intro || !content || !hint) return;
+    if (!wrap || !video || !introBg || !intro || !content || !hint) return;
 
     // Reduced motion: static final image, CTA visible, no video work.
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       video.style.display = 'none';
       wrap.classList.add('scroll-hero--static');
+      introBg.style.opacity = '0';
       intro.style.opacity = '0';
       content.style.opacity = '1';
       content.style.transform = 'translate3d(0, 0, 0)';
@@ -114,10 +117,14 @@ export function ScrollHero({ children }: { children: ReactNode }) {
           if (p < INTRO_FADE_END) {
             const riseT = clamp01(p / INTRO_RISE_END);
             const fadeT = clamp01((p - INTRO_RISE_END) / (INTRO_FADE_END - INTRO_RISE_END));
+            const fadeBgT = clamp01((p - VIDEO_START) / (INTRO_FADE_END - VIDEO_START));
             const easeRise = 1 - Math.pow(1 - riseT, 2.2);
+            introBg.style.opacity = String(1 - fadeBgT);
+            introBg.style.transform = `scale(${(1 + fadeBgT * 0.06).toFixed(4)})`;
             intro.style.opacity = String(Math.pow(1 - fadeT, 1.3));
             intro.style.transform = `translate3d(-50%, ${-(easeRise * 36 + fadeT * 24)}px, 0)`;
           } else {
+            introBg.style.opacity = '0';
             intro.style.opacity = '0';
           }
 
@@ -193,6 +200,7 @@ export function ScrollHero({ children }: { children: ReactNode }) {
             disablePictureInPicture
             aria-hidden="true"
           />
+          <div ref={introBgRef} className="scroll-hero__intro-bg" aria-hidden="true" />
           <div className="scroll-hero__shade" />
           <div ref={introRef} className="scroll-hero__intro">
             <div className="scroll-hero__intro-eyebrow">

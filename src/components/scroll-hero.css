@@ -29,6 +29,15 @@
   object-position: center top; /* keep sky on top so the headline stays readable */
 }
 
+.scroll-hero__intro-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: url('/video/hero-intro-clouds.jpg') center center / cover no-repeat;
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
 .scroll-hero__shade {
   position: absolute;
   inset: 0;
@@ -289,6 +298,7 @@
   pointer-events: auto !important;
 }
 .scroll-hero--static .scroll-hero__intro,
+.scroll-hero--static .scroll-hero__intro-bg,
 .scroll-hero--static .scroll-hero__hint {
   display: none;
 }
