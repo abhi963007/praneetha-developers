@@ -12,21 +12,28 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(() =>
     typeof window !== 'undefined' ? window.scrollY > 80 : false,
   );
+  const [isPastHero, setIsPastHero] = useState(false);
 
   const toggleBtnRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
   const projectsWrapRef = useRef<HTMLDivElement>(null);
   const closeDropdownTimerRef = useRef<number | null>(null);
 
-  // Scroll detection for subtle elevated shadow while keeping fixed navbar visible
+  // Track scroll for subtle shadow and switch header cream -> white once past the hero section
   useEffect(() => {
     const onScroll = () => {
       setIsScrolled(window.scrollY > 80);
+      const heroEl = document.querySelector('.scroll-hero, .page-hero');
+      setIsPastHero(heroEl ? heroEl.getBoundingClientRect().bottom <= 84 : window.scrollY > 120);
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+    window.addEventListener('resize', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, [pathname]);
 
   // Close drawer and dropdowns on route change
   useEffect(() => {
@@ -179,7 +186,9 @@ export function Navbar() {
 
   return (
     <>
-      <header className={`main-header${isScrolled ? ' is-scrolled' : ''}${isOpen ? ' is-menu-open' : ''}`}>
+      <header
+        className={`main-header${isScrolled ? ' is-scrolled' : ''}${isPastHero ? ' is-past-hero' : ''}${isOpen ? ' is-menu-open' : ''}`}
+      >
         <div className="header-line" />
         <div className="header-wrap">
           <div className="header-main-box">
@@ -349,18 +358,26 @@ export function Navbar() {
               </div>
             </div>
 
-            <img
-              src="/images/6ac627443e8b494eb0c9b93b_svgviewer-output.svg"
-              loading="lazy"
-              alt=""
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
               className="header-icon"
-            />
-            <img
-              src="/images/6ac627a047901d062b32216d_svgviewer-output%20%281%29.svg"
-              loading="lazy"
-              alt=""
+            >
+              <path d="M24 24C24 10.7452 13.2548 0 0 0H24V24Z" fill="currentColor" />
+            </svg>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
               className="header-icon right"
-            />
+            >
+              <path d="M0 24C0 10.7452 10.7452 0 24 0H0V24Z" fill="currentColor" />
+            </svg>
           </div>
         </div>
       </header>
