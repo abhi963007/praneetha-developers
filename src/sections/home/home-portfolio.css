@@ -571,3 +571,9 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Status links under each portfolio card */
+.portfolio-cat-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.portfolio-cat-link { font-size: 12px; font-weight: 500; padding: 4px 11px; border-radius: 20px; background: #f5efe6; color: #1c1c1a; text-decoration: none; transition: background-color .25s ease, color .25s ease; }
+.portfolio-cat-link:hover { background: #053b20; color: #fff; }
+.portfolio-cat-subtitle { white-space: normal !important; }

@@ -1,105 +1,35 @@
+import { Link } from 'react-router-dom';
 import './partner-logos.css';
 
 interface PartnerLogosSectionProps {
   pZero?: boolean;
 }
 
-const PARTNER_LOGOS = [
-  {
-    id: 'logo-1',
-    src: '/images/6ad5db1c111d86c9f493d1cf_logoipsum-354.svg',
-    alt: 'Partner Brand 1',
-  },
-  {
-    id: 'logo-2',
-    src: '/images/6ad5db1c111d86c9f493d1cb_logoipsum-289.svg',
-    alt: 'Partner Brand 2',
-  },
-  {
-    id: 'logo-3',
-    src: '/images/6ad5db1c111d86c9f493d1ca_logoipsum-233.svg',
-    alt: 'Partner Brand 3',
-  },
-  {
-    id: 'logo-4',
-    src: '/images/6ad5db1d111d86c9f493d1d9_logoipsum-358.svg',
-    alt: 'Partner Brand 4',
-  },
-  {
-    id: 'logo-5',
-    src: '/images/6ad5db1d111d86c9f493d1da_logoipsum-228.svg',
-    alt: 'Partner Brand 5',
-  },
-  {
-    id: 'logo-6',
-    src: '/images/6ad5db1c111d86c9f493d1c9_logoipsum-378.svg',
-    alt: 'Partner Brand 6',
-  },
-  {
-    id: 'logo-7',
-    src: '/images/6ad5db1d111d86c9f493d1d5_logoipsum-232.svg',
-    alt: 'Partner Brand 7',
-  },
-  {
-    id: 'logo-8',
-    src: '/images/6ad5db1c111d86c9f493d1cd_logoipsum-323.svg',
-    alt: 'Partner Brand 8',
-  },
-  {
-    id: 'logo-9',
-    src: '/images/6ad5db1d111d86c9f493d1d7_logoipsum-229.svg',
-    alt: 'Partner Brand 9',
-  },
-  {
-    id: 'logo-10',
-    src: '/images/6ad5db1d111d86c9f493d1d4_logoipsum-290.svg',
-    alt: 'Partner Brand 10',
-  },
-  {
-    id: 'logo-11',
-    src: '/images/6ad5db1d111d86c9f493d1d6_logoipsum-234.svg',
-    alt: 'Partner Brand 11',
-  },
-  {
-    id: 'logo-12',
-    src: '/images/6ad5db1d111d86c9f493d1d8_logoipsum-338.svg',
-    alt: 'Partner Brand 12',
-  },
+// shortcut: text wordmarks, no official logo files in repo yet; swap `name` for <img> when assets arrive
+const PROJECT_LOGOS = [
+  { id: 'amity', name: 'Praneeta Amity Villas', to: '/property/amity-villas-mokila' },
+  { id: 'patio', name: 'The Patio Villas', to: '/property/the-patio-mokila' },
+  { id: 'santorini', name: 'Santorini Villas', to: '/property/santorini-villas-mokila' },
+  { id: 'meridian', name: 'Praneeta Meridian', to: '/property/meridian-kondakal' },
+  { id: 'singapore', name: 'Singapore Town', to: '/property/singapur-town-phase-2' },
+  { id: 'tag', name: 'TAG Projects', to: 'https://tagprojects.in/', external: true },
 ];
 
 export function PartnerLogosSection({ pZero = true }: PartnerLogosSectionProps) {
   return (
     <section className={pZero ? 'section p-zero partner-logos-section' : 'section partner-logos-section'}>
-      <div className="partner-logos-marquee" aria-label="Our Trusted Partners & Brands">
-        <div className="partner-marquee-track">
-          {/* Main Loop Group */}
-          <div className="partner-marquee-group">
-            {PARTNER_LOGOS.map((item) => (
-              <div key={item.id} className="partner-marquee-card">
-                <img
-                  loading="lazy"
-                  src={item.src}
-                  alt={item.alt}
-                  className="partner-marquee-img"
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Duplicate Group for Seamless Infinite Scrolling */}
-          <div className="partner-marquee-group" aria-hidden="true">
-            {PARTNER_LOGOS.map((item) => (
-              <div key={`dup-${item.id}`} className="partner-marquee-card">
-                <img
-                  loading="lazy"
-                  src={item.src}
-                  alt=""
-                  className="partner-marquee-img"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+      <div className="partner-logos-strip" aria-label="Our Projects & Partners">
+        {PROJECT_LOGOS.map((item) =>
+          item.external ? (
+            <a key={item.id} href={item.to} target="_blank" rel="noopener noreferrer" className="partner-marquee-card">
+              <span className="partner-logo-name">{item.name}</span>
+            </a>
+          ) : (
+            <Link key={item.id} to={item.to} className="partner-marquee-card">
+              <span className="partner-logo-name">{item.name}</span>
+            </Link>
+          ),
+        )}
       </div>
     </section>
   );

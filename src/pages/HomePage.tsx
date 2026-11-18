@@ -12,7 +12,6 @@ import { HomeHeroAndCategoriesSection } from '../sections/home/HomeHeroAndCatego
 // import { HomeHowWeWorkSection } from '../sections/home/HomeHowWeWorkSection';
 import { HomeInsightsAndFooterSection } from '../sections/home/HomeInsightsAndFooterSection';
 import { HomePropertiesSection } from '../sections/home/HomePropertiesSection';
-import { HomeServicesSection } from '../sections/home/HomeServicesSection';
 // import { HomeTrackRecordSection } from '../sections/home/HomeTrackRecordSection';
 import { HomeVideoSection } from '../sections/home/HomeVideoSection';
 import { PAGE_META } from '../types/site';
@@ -35,7 +34,6 @@ export function HomePage() {
       <Navbar />
       <HomeHeroAndCategoriesSection />
       <PartnerLogosSection pZero={false} />
-      <HomeServicesSection />
       <HomePropertiesSection />
       {/* <HomeHowWeWorkSection /> */}
       {/* <AdvisorsSliderSection variant="home" /> */}

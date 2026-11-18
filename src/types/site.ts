@@ -3,7 +3,6 @@ export type PageKey =
   | 'about'
   | 'properties'
   | 'gallery'
-  | 'services'
   | 'partner'
   | 'insights'
   | 'contact'
@@ -46,13 +45,6 @@ export const PAGE_META: Record<PageKey, PageMeta> = {
     label: 'Gallery',
     title: 'Gallery - Praneeta Developers - Luxury Villas in Hyderabad',
     wfPage: '69e9f808e78c220e0b094809',
-  },
-  services: {
-    key: 'services',
-    path: '/services',
-    label: 'Services',
-    title: 'Services - Praneeta Developers - Luxury Villas in Hyderabad',
-    wfPage: '69eb130b0dc620c786c35d6f',
   },
   partner: {
     key: 'partner',
@@ -180,9 +172,6 @@ export function isRouteActive(pathname: string, to: string): boolean {
   }
   if (to === '/properties') {
     return norm === '/properties' || norm.startsWith('/category/') || norm.startsWith('/property/');
-  }
-  if (to === '/services') {
-    return norm === '/services' || norm.startsWith('/services/');
   }
   if (to === '/insights' || to === '/blogs') {
     return (

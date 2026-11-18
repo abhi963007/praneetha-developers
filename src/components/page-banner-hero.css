@@ -1,9 +1,8 @@
-/* Full-viewport framed scroll hero for inner pages (About, Properties, Gallery, Services, Insights, Contact) */
+/* Compact half-screen curved banner hero for inner pages (About, Properties, Gallery, Blogs, Contact, Legal) */
 .page-hero {
   position: relative;
-  height: 100vh;
-  height: 100svh;
-  padding: var(--_layout---spacing--12, 12px);
+  height: auto;
+  padding: var(--_layout---spacing--12, 12px) var(--_layout---spacing--12, 12px) 0;
   box-sizing: border-box;
   background-color: var(--gray, #f5efe6);
 }
@@ -11,10 +10,12 @@
 .page-hero__box {
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: clamp(350px, 47vh, 470px);
   overflow: hidden;
-  border-radius: var(--_border-radius---radius-l, 24px);
-  background: #191d19;
+  border-radius: 22px 22px clamp(28px, 3.2vw, 44px) clamp(28px, 3.2vw, 44px);
+  background: var(--primary-color, #2c3a2e);
+  display: flex;
+  align-items: flex-end;
 }
 
 .page-hero__video {
@@ -24,60 +25,53 @@
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  transform: scale(1.04);
-  will-change: transform;
+  opacity: 0.34;
 }
 
-/* Directional bottom-left architectural scrim ensures WCAG contrast on bright & dark photography alike */
+/* Balanced dark-green scrim preserving the minimal curved banner feel and centered contrast */
 .page-hero__shade {
   position: absolute;
   inset: 0;
   pointer-events: none;
   background:
     linear-gradient(
-      105deg,
-      rgba(16, 22, 18, 0.78) 0%,
-      rgba(16, 22, 18, 0.48) 38%,
-      rgba(16, 22, 18, 0.08) 74%
-    ),
-    linear-gradient(
-      to top,
-      rgba(16, 22, 18, 0.68) 0%,
-      rgba(16, 22, 18, 0.16) 44%,
-      rgba(16, 22, 18, 0) 70%
-    ),
-    linear-gradient(
       to bottom,
-      rgba(16, 22, 18, 0.34) 0%,
-      rgba(16, 22, 18, 0) 24%
+      rgba(22, 34, 25, 0.56) 0%,
+      rgba(28, 42, 31, 0.64) 52%,
+      rgba(18, 28, 20, 0.84) 100%
+    ),
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(22, 34, 25, 0.16) 0%,
+      rgba(22, 34, 25, 0.52) 100%
     );
 }
 
-/* Left-aligned editorial block matching the website's Rubik + Inter Tight visual grammar */
+/* Centered compact editorial block sitting lower inside the curved banner */
 .page-hero__content {
   position: relative;
   z-index: 2;
   width: 100%;
-  height: 100%;
-  padding: 120px clamp(24px, 5vw, 72px) clamp(72px, 9vh, 100px);
+  padding: clamp(150px, 16.5vh, 190px) clamp(24px, 4vw, 56px) clamp(48px, 6.5vh, 68px);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-start;
-  will-change: transform, opacity;
+  align-items: center;
 }
 
 .page-hero__text-wrap {
-  max-width: 760px;
+  width: 100%;
+  max-width: min(1240px, 100%);
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
 }
 
 .page-hero__text-wrap--wide {
-  max-width: 960px;
+  max-width: min(1280px, 100%);
 }
 
 .page-hero__text-wrap--single {
@@ -109,47 +103,47 @@
 }
 
 .page-hero__title {
-  margin: 0 0 16px;
+  margin: 0 0 14px;
   color: #ffffff;
   font-family: var(--_font-family---primary-font, Rubik, sans-serif);
-  font-size: clamp(56px, 7.2vw, 104px);
+  font-size: clamp(46px, 5.8vw, 82px);
   font-weight: 500;
-  line-height: 1.02;
-  letter-spacing: -0.03em;
+  line-height: 1.04;
+  letter-spacing: -0.028em;
   text-shadow: 0 4px 24px rgba(12, 16, 13, 0.35);
   animation: page-hero-fade-up 0.72s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .page-hero__title--project {
-  font-size: clamp(38px, 5vw, 68px);
+  font-size: clamp(34px, 4.4vw, 60px);
   line-height: 1.08;
 }
 
 .page-hero__title--article {
-  font-size: clamp(30px, 3.8vw, 52px);
+  font-size: clamp(28px, 3.4vw, 46px);
   line-height: 1.12;
   letter-spacing: -0.02em;
 }
 
 .page-hero__title--single {
   font-size: clamp(
-    32px,
-    min(7.2vw, calc((min(100vw, 1440px) - 128px) / var(--hero-title-chars, 18) * 1.78)),
-    104px
+    30px,
+    min(5.4vw, calc((min(100vw, 1440px) - 128px) / var(--hero-title-chars, 18) * 1.78)),
+    76px
   );
-  line-height: 1.02;
-  letter-spacing: -0.03em;
+  line-height: 1.04;
+  letter-spacing: -0.028em;
   white-space: nowrap;
 }
 
 .page-hero__subtitle {
   margin: 0;
-  max-width: 640px;
-  color: rgba(245, 239, 230, 0.94);
+  max-width: 100%;
+  color: rgba(245, 239, 230, 0.92);
   font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif);
-  font-size: clamp(17px, 1.35vw, 21px);
+  font-size: clamp(14px, 1.02vw, 17px);
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.45;
   text-shadow: 0 2px 14px rgba(12, 16, 13, 0.4);
   animation: page-hero-fade-up 0.78s cubic-bezier(0.16, 1, 0.3, 1) 140ms both;
 }
@@ -170,55 +164,35 @@
   }
 }
 
-.page-hero__hint {
-  position: absolute;
-  left: 50%;
-  bottom: 24px;
-  z-index: 2;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  color: rgba(255, 255, 255, 0.86);
-  font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif);
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  pointer-events: none;
-}
-
-.page-hero__hint i {
-  width: 1px;
-  height: 22px;
-  background: rgba(255, 255, 255, 0.72);
-  display: block;
-}
-
 @media (max-width: 767px) {
+  .page-hero__box {
+    min-height: 300px;
+    border-radius: 18px 18px 28px 28px;
+  }
+
   .page-hero__content {
-    padding: 100px 20px 88px;
+    padding: 118px 20px 40px;
   }
 
   .page-hero__title {
-    font-size: clamp(44px, 12vw, 64px);
+    font-size: clamp(38px, 10.5vw, 56px);
   }
 
   .page-hero__title--project {
-    font-size: clamp(32px, 8.5vw, 48px);
+    font-size: clamp(28px, 7.5vw, 40px);
   }
 
   .page-hero__title--article {
-    font-size: clamp(26px, 7vw, 38px);
+    font-size: clamp(24px, 6.5vw, 34px);
   }
 
   .page-hero__title--single {
-    font-size: clamp(34px, 9vw, 56px);
+    font-size: clamp(28px, 8vw, 44px);
     white-space: normal;
   }
 
   .page-hero__subtitle {
-    font-size: clamp(15.5px, 4.2vw, 18px);
+    font-size: clamp(14.5px, 3.8vw, 17px);
   }
 
   .page-hero__eyebrow--single,
@@ -234,10 +208,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .page-hero__video {
-    transform: none;
-  }
-
   .page-hero__eyebrow,
   .page-hero__title,
   .page-hero__subtitle {

@@ -7,35 +7,31 @@ import './home-portfolio.css';
 const PRIMARY_CATEGORIES = [
   {
     to: '/category/villas-ongoing',
-    title: 'Villas â€” Ongoing',
-    subtitle: 'Sovereign & Santorini',
-    tag: 'Ongoing',
+    title: 'Villas',
+    subtitle: 'Amity · The Patio · Santorini · Singapur Town',
+    tag: 'Ongoing · Completed · Upcoming',
     image: '/images/portfolio-villas-ongoing.jpg',
-    srcSet: '/images/portfolio-villas-ongoing.jpg 1200w',
-  },
-  {
-    to: '/category/villas-completed',
-    title: 'Villas â€” Completed',
-    subtitle: 'Amity & The Patio',
-    tag: 'Delivered',
-    image: '/images/portfolio-villas-completed.jpg',
-    srcSet: '/images/portfolio-villas-completed.jpg 1200w',
+    links: [
+      { label: 'Ongoing', to: '/category/villas-ongoing' },
+      { label: 'Completed', to: '/category/villas-completed' },
+      { label: 'Upcoming', to: '/category/villas-upcoming' },
+    ],
   },
   {
     to: '/category/apartments',
     title: 'Apartments',
-    subtitle: 'Meridian Heights',
-    tag: 'Residential',
+    subtitle: 'Praneeta Meridian',
+    tag: 'Ongoing',
     image: '/images/portfolio-apartments.jpg',
-    srcSet: '/images/portfolio-apartments.jpg 1200w',
+    links: [{ label: 'Ongoing', to: '/category/apartments' }],
   },
   {
     to: '/category/plots-coming-soon',
-    title: 'Plots â€” Coming Soon',
-    subtitle: 'Singapur Town Phase II',
-    tag: 'Upcoming',
+    title: 'Residential Plots',
+    subtitle: 'Plotted communities',
+    tag: 'Coming Soon',
     image: '/images/portfolio-plots.jpg',
-    srcSet: '/images/portfolio-plots.jpg 1152w',
+    links: [{ label: 'Coming Soon', to: '/category/plots-coming-soon' }],
   },
 ];
 
@@ -328,43 +324,37 @@ export function HomeHeroAndCategoriesSection() {
           <div className="w-dyn-list">
             <div role="list" className="portfolio-cat-grid w-dyn-items">
               {PRIMARY_CATEGORIES.map((cat) => (
-                <div key={cat.to} role="listitem" className="portfolio-card-item w-dyn-item">
-                  <Link to={cat.to} className="portfolio-cat-card w-inline-block">
-                    <div className="portfolio-cat-img-box">
+                <div key={cat.title} role="listitem" className="portfolio-card-item w-dyn-item">
+                  <div className="portfolio-cat-card">
+                    <Link to={cat.to} className="portfolio-cat-img-box">
                       <span className="portfolio-cat-badge">{cat.tag}</span>
                       <img
                         src={cat.image}
                         loading="lazy"
                         alt={cat.title}
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                        srcSet={cat.srcSet}
                         className="portfolio-cat-img"
                       />
                       <div className="portfolio-cat-img-overlay" />
-                    </div>
+                    </Link>
                     <div className="portfolio-cat-content">
                       <div className="portfolio-cat-info">
                         <span className="portfolio-cat-subtitle">{cat.subtitle}</span>
                         <h3 className="portfolio-cat-title">{cat.title}</h3>
+                        <div className="portfolio-cat-links">
+                          {cat.links.map((l) => (
+                            <Link key={l.to} to={l.to} className="portfolio-cat-link">
+                              {l.label}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
-                      <div className="portfolio-cat-action" aria-label="Explore">
-                        <svg
-                          className="portfolio-cat-arrow-svg"
-                          viewBox="0 0 14 14"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M2.5 11.5L11.5 2.5M11.5 2.5H4.5M11.5 2.5V9.5"
-                            stroke="currentColor"
-                            strokeWidth="1.8"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
+                      <Link to={cat.to} className="portfolio-cat-action" aria-label={`Explore ${cat.title}`}>
+                        <svg className="portfolio-cat-arrow-svg" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M2.5 11.5L11.5 2.5M11.5 2.5H4.5M11.5 2.5V9.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                      </div>
+                      </Link>
                     </div>
-                  </Link>
+                  </div>
                 </div>
               ))}
             </div>

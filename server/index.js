@@ -59,7 +59,7 @@ export function createServer(options = {}) {
         address: '6-109, Mokila Village, Shankarpally Mandal, Hyderabad – 501203',
         rera: ['P02400009246', 'P02400006593', 'P02400009069'],
       },
-      pages: ['/', '/about-us', '/properties', '/gallery', '/services', '/insights', '/contact-us'],
+      pages: ['/', '/about-us', '/properties', '/gallery', '/become-a-partner', '/insights', '/contact-us'],
     });
   });
 

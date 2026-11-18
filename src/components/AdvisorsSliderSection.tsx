@@ -88,7 +88,7 @@ const ADVISORS: AdvisorItem[] = [
   {
     name: 'RERA & Legal Desk',
     role: 'HMDA & Bank APF Support',
-    to: '/services',
+    to: '/contact-us',
     src: '/images/6ac7485be32302908cbc1fcb_6.avif',
     srcSet:
       '/images/6ac7485be32302908cbc1fcb_6-p-500.avif 500w, /images/6ac7485be32302908cbc1fcb_6-p-800.avif 800w, /images/6ac7485be32302908cbc1fcb_6.avif 920w',

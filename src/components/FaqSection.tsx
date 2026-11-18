@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 interface FaqSectionProps {
-  variant?: 'home' | 'about' | 'services';
+  variant?: 'home' | 'about';
   ptZero?: boolean;
 }
 
@@ -36,10 +36,6 @@ const FAQ_WIDS = {
   about: {
     content: '3deea4eb-b70a-f7ae-f25b-75f5ff2a5809',
     wrapper: '3deea4eb-b70a-f7ae-f25b-75f5ff2a5812',
-  },
-  services: {
-    content: 'ba8c5179-4eb1-eafc-1ec0-72d8a8cb6903',
-    wrapper: 'ba8c5179-4eb1-eafc-1ec0-72d8a8cb690c',
   },
 };
 
