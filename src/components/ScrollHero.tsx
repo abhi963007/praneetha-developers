@@ -53,7 +53,7 @@ export function ScrollHero({ children }: { children: ReactNode }) {
   const introBgRef = useRef<HTMLDivElement>(null);
   const introRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const hintRef = useRef<HTMLDivElement>(null);
+  const hintRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const wrap = wrapRef.current;
@@ -132,7 +132,9 @@ export function ScrollHero({ children }: { children: ReactNode }) {
           content.style.opacity = String(c);
           content.style.transform = `translate3d(0, ${(1 - c) * 36}px, 0)`;
           content.style.pointerEvents = c > 0.5 ? 'auto' : 'none';
-          hint.style.opacity = String(Math.max(1 - p * 12, 0));
+          const hintOpacity = Math.max(1 - p * 12, 0);
+          hint.style.opacity = String(hintOpacity);
+          hint.style.pointerEvents = hintOpacity > 0.1 ? 'auto' : 'none';
         };
 
         const st = ST.create({
@@ -222,10 +224,38 @@ export function ScrollHero({ children }: { children: ReactNode }) {
           <div ref={contentRef} className="scroll-hero__content">
             {children}
           </div>
-          <div ref={hintRef} className="scroll-hero__hint" aria-hidden="true">
-            <span>Scroll</span>
-            <i />
-          </div>
+          <button
+            ref={hintRef}
+            type="button"
+            className="scroll-hero__hint"
+            aria-label="Scroll down to explore"
+            onClick={() => window.scrollBy({ top: window.innerHeight * 0.9, behavior: 'smooth' })}
+          >
+            <span className="scroll-hero__hint-mouse" aria-hidden="true">
+              <span className="scroll-hero__hint-wheel" />
+            </span>
+            <span className="scroll-hero__hint-label">Scroll Down</span>
+            <span className="scroll-hero__hint-chevrons" aria-hidden="true">
+              <svg width="13" height="15" viewBox="0 0 14 16" fill="none">
+                <path
+                  className="scroll-hero__hint-chev scroll-hero__hint-chev--1"
+                  d="M2.5 3.5L7 8L11.5 3.5"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  className="scroll-hero__hint-chev scroll-hero__hint-chev--2"
+                  d="M2.5 8.5L7 13L11.5 8.5"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
+          </button>
         </div>
       </div>
     </div>
