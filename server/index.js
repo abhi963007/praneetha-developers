@@ -14,21 +14,24 @@ const EMAIL_RE = /^\S+@\S+\.\S+$/;
 function readStore(dataFile) {
   try {
     if (!fs.existsSync(dataFile)) {
-      return { contacts: [], newsletter: [] };
+      return { contacts: [], newsletter: [], channelPartners: [] };
     }
     const parsed = JSON.parse(fs.readFileSync(dataFile, 'utf8'));
     return {
       contacts: Array.isArray(parsed.contacts) ? parsed.contacts : [],
       newsletter: Array.isArray(parsed.newsletter) ? parsed.newsletter : [],
+      channelPartners: Array.isArray(parsed.channelPartners) ? parsed.channelPartners : [],
     };
   } catch {
-    return { contacts: [], newsletter: [] };
+    return { contacts: [], newsletter: [], channelPartners: [] };
   }
 }
 
 function writeStore(dataFile, store) {
   fs.mkdirSync(path.dirname(dataFile), { recursive: true });
-  fs.writeFileSync(dataFile, JSON.stringify(store, null, 2) + '\n', 'utf8');
+  const tmpFile = `${dataFile}.${process.pid}.${Date.now()}.tmp`;
+  fs.writeFileSync(tmpFile, JSON.stringify(store, null, 2) + '\n', 'utf8');
+  fs.renameSync(tmpFile, dataFile);
 }
 
 export function createServer(options = {}) {
@@ -59,7 +62,7 @@ export function createServer(options = {}) {
         address: '6-109, Mokila Village, Shankarpally Mandal, Hyderabad – 501203',
         rera: ['P02400009246', 'P02400006593', 'P02400009069'],
       },
-      pages: ['/', '/about-us', '/properties', '/gallery', '/become-a-partner', '/insights', '/contact-us'],
+      pages: ['/', '/about-us', '/properties', '/gallery', '/become-a-partner', '/blogs', '/contact-us'],
     });
   });
 
@@ -122,6 +125,54 @@ export function createServer(options = {}) {
 
     const store = readStore(dataFile);
     store.newsletter.push(entry);
+    writeStore(dataFile, store);
+
+    return res.status(201).json({
+      ok: true,
+      id: entry.id,
+      createdAt: entry.createdAt,
+    });
+  });
+
+  app.post('/api/channel-partners', (req, res) => {
+    const body = req.body && typeof req.body === 'object' ? req.body : {};
+    const fullName = String(body.fullName || '').trim();
+    const phone = String(body.phone || '').trim();
+    const email = String(body.email || '').trim();
+    const partnerType = String(body.partnerType || '').trim();
+    const preferredProject = String(body.preferredProject || '').trim();
+    const notes = String(body.notes || '').trim();
+    const consent = body.consent === true;
+
+    if (
+      !fullName ||
+      !phone ||
+      phone.replace(/\D/g, '').length < 7 ||
+      !EMAIL_RE.test(email) ||
+      !partnerType ||
+      !preferredProject ||
+      !consent
+    ) {
+      return res.status(400).json({
+        ok: false,
+        error: 'Full name, valid phone, valid email, partner type, preferred project, and consent are required.',
+      });
+    }
+
+    const entry = {
+      id: crypto.randomUUID(),
+      fullName,
+      phone,
+      email,
+      partnerType,
+      preferredProject,
+      notes,
+      consent: true,
+      createdAt: new Date().toISOString(),
+    };
+
+    const store = readStore(dataFile);
+    store.channelPartners.push(entry);
     writeStore(dataFile, store);
 
     return res.status(201).json({

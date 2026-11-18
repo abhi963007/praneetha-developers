@@ -221,24 +221,17 @@ export function BecomePartnerSection() {
     setSubmitting(true);
     setStatus('idle');
 
-    const nameParts = fullName.trim().split(/\s+/);
-    const firstName = nameParts[0];
-    const lastName = nameParts.slice(1).join(' ') || partnerType;
-    const summaryMessage = notes.trim()
-      ? `[${partnerType}] ${notes.trim()}`
-      : `Channel Partner registration (${partnerType}) for ${preferredProject}.`;
-
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/channel-partners', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          firstName,
-          lastName,
-          email: email.trim(),
+          fullName: fullName.trim(),
           phone: phone.trim(),
-          interest: `Channel Partner (${partnerType}) — ${preferredProject}`,
-          message: summaryMessage,
+          email: email.trim(),
+          partnerType,
+          preferredProject,
+          notes: notes.trim(),
           consent: true,
         }),
       });

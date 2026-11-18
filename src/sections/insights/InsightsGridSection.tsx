@@ -1,11 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import './insights-section.css';
+
+export type BlogCategory = 'All' | 'Market Trends' | 'Buyer Guide' | 'Architecture & Specs' | 'Events & Expos';
 
 export interface InsightArticle {
   slug: string;
   readTime: string;
   date: string;
+  category: Exclude<BlogCategory, 'All'>;
   title: string;
   summary: string;
   body: string[];
@@ -13,11 +16,22 @@ export interface InsightArticle {
   srcSet: string;
 }
 
+const BLOG_CATEGORIES: BlogCategory[] = [
+  'All',
+  'Market Trends',
+  'Buyer Guide',
+  'Architecture & Specs',
+  'Events & Expos',
+];
+
+const ARTICLES_PER_PAGE = 3;
+
 export const INSIGHT_ARTICLES: InsightArticle[] = [
   {
     slug: 'mokila-shankarpally-premier-villa-destination',
     readTime: '5 min read',
     date: 'October 2026',
+    category: 'Market Trends',
     title: 'Why Mokila–Shankarpally is West Hyderabad’s Premier Villa Destination',
     summary:
       'From clean low-density greens and 40 ft master roads to 20–30 minute drives to Neopolis and the Financial District, explore why families are moving to the Mokila–Kardanur belt.',
@@ -33,6 +47,7 @@ export const INSIGHT_ARTICLES: InsightArticle[] = [
     slug: 'definitive-homebuyer-checklist-tg-rera-communities',
     readTime: '6 min read',
     date: 'September 2026',
+    category: 'Buyer Guide',
     title: 'The Definitive Homebuyer Checklist for TG-RERA Approved Gated Communities',
     summary:
       'Every statutory verification step—from TG-RERA registration numbers and HMDA layout sanctions to bank APF approvals across HDFC, ICICI, SBI, and Axis Bank.',
@@ -48,6 +63,7 @@ export const INSIGHT_ARTICLES: InsightArticle[] = [
     slug: 'apartments-vs-independent-villas-appreciation-2026',
     readTime: '5 min read',
     date: 'October 2026',
+    category: 'Market Trends',
     title: 'Comparing Real Estate Appreciation: Apartments vs. Independent Villas in 2026',
     summary:
       'How undivided land share, G+2 expandability, and low-density clubhouse living compare between luxury apartments and independent gated villas in West Hyderabad.',
@@ -63,6 +79,7 @@ export const INSIGHT_ARTICLES: InsightArticle[] = [
     slug: 'courtyard-villas-clubhouses-deccan-living',
     readTime: '4 min read',
     date: 'August 2026',
+    category: 'Architecture & Specs',
     title: 'Why Families Choose Courtyard Villas & Resort Clubhouses in Mokila',
     summary:
       'From 40,000 sq.ft central clubhouses to dedicated in-villa home theatres, modern gated communities are designed around multi-generational living.',
@@ -78,6 +95,7 @@ export const INSIGHT_ARTICLES: InsightArticle[] = [
     slug: 'specifications-materials-praneeta-home',
     readTime: '5 min read',
     date: 'July 2026',
+    category: 'Architecture & Specs',
     title: 'Inside the Build: Structural & Interior Specifications of a Praneeta Home',
     summary:
       'A transparent breakdown of RCC structures, red brick masonry, Teak wood doors, Hindware, Legrand, Finolex, and RAK Ceramics finishes.',
@@ -93,6 +111,7 @@ export const INSIGHT_ARTICLES: InsightArticle[] = [
     slug: 'naredco-nri-one-expos-global-outreach',
     readTime: '4 min read',
     date: 'June 2026',
+    category: 'Events & Expos',
     title: 'Praneeta Developers at NAREDCO & NRI ONE EXPOS: Connecting Worldwide',
     summary:
       'Highlights from our 2023–2026 exhibitions across Hyderabad, the USA, Dubai, and Singapore serving local families and NRI investors.',
@@ -119,7 +138,7 @@ export function BlogCard({
     <div role="listitem" className="w-dyn-item blog-item-col">
       <Link
         data-animate="blog-slide-in-up"
-        to={`/insights/${article.slug}`}
+        to={`/blogs/${article.slug}`}
         className="blog-box w-inline-block"
       >
         <div className="blog-image-box">
@@ -144,7 +163,9 @@ export function BlogCard({
           </div>
         </div>
         <div className="blog-content">
-          <p className="blog-date">{article.date}</p>
+          <p className="blog-date">
+            {article.category} · {article.date}
+          </p>
           {variant === 'home' ? (
             <h3 className="blog-title">{article.title}</h3>
           ) : (
@@ -183,15 +204,42 @@ export function BlogCard({
 export function InsightsGridSection() {
   const { pathname } = useLocation();
   const { slug } = useParams<{ slug?: string }>();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeCategory, setActiveCategory] = useState<BlogCategory>('All');
+  const [currentPage, setCurrentPage] = useState(1);
 
   const selectedArticle =
     (pathname.startsWith('/insights/') || pathname.startsWith('/blogs/')) && slug
       ? INSIGHT_ARTICLES.find((a) => a.slug === slug)
       : undefined;
 
-  const gridArticles = selectedArticle
+  const baseArticles = selectedArticle
     ? INSIGHT_ARTICLES.filter((a) => a.slug !== selectedArticle.slug)
     : INSIGHT_ARTICLES;
+
+  const trimmedQuery = searchQuery.trim().toLowerCase();
+  const filteredArticles = selectedArticle
+    ? baseArticles
+    : baseArticles.filter((article) => {
+        const catMatch = activeCategory === 'All' || article.category === activeCategory;
+        if (!catMatch) return false;
+        if (!trimmedQuery) return true;
+        return (
+          article.title.toLowerCase().includes(trimmedQuery) ||
+          article.summary.toLowerCase().includes(trimmedQuery) ||
+          article.category.toLowerCase().includes(trimmedQuery)
+        );
+      });
+
+  const totalPages = Math.max(1, Math.ceil(filteredArticles.length / ARTICLES_PER_PAGE));
+  const safePage = Math.min(currentPage, totalPages);
+  const gridArticles = selectedArticle
+    ? filteredArticles
+    : filteredArticles.slice((safePage - 1) * ARTICLES_PER_PAGE, safePage * ARTICLES_PER_PAGE);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, activeCategory, slug]);
 
   useEffect(() => {
     if (selectedArticle) {
@@ -205,11 +253,11 @@ export function InsightsGridSection() {
         {selectedArticle && (
           <article className="ins-reader">
             <div className="ins-reader__top">
-              <Link to="/insights" className="ins-reader__back">
+              <Link to="/blogs" className="ins-reader__back">
                 ← All Blogs
               </Link>
               <span className="ins-reader__pill">
-                {selectedArticle.date} · {selectedArticle.readTime}
+                {selectedArticle.category} · {selectedArticle.date} · {selectedArticle.readTime}
               </span>
             </div>
 
@@ -247,17 +295,116 @@ export function InsightsGridSection() {
           </article>
         )}
 
-        {selectedArticle && (
+        {selectedArticle ? (
           <h2 className="ins-more-heading">More Articles &amp; Market Guides</h2>
+        ) : (
+          <div className="ins-toolbar" aria-label="Filter and search blogs">
+            <div className="ins-categories" role="tablist" aria-label="Blog categories">
+              {BLOG_CATEGORIES.map((category) => {
+                const active = activeCategory === category;
+                const count =
+                  category === 'All'
+                    ? INSIGHT_ARTICLES.length
+                    : INSIGHT_ARTICLES.filter((a) => a.category === category).length;
+                return (
+                  <button
+                    key={category}
+                    type="button"
+                    role="tab"
+                    aria-selected={active}
+                    className={`ins-cat-btn${active ? ' is-active' : ''}`}
+                    onClick={() => setActiveCategory(category)}
+                  >
+                    <span>{category}</span>
+                    <span className="ins-cat-count">{count}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="ins-search-wrap">
+              <svg
+                className="ins-search-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <line x1="20" y1="20" x2="16.2" y2="16.2" />
+              </svg>
+              <input
+                type="search"
+                className="ins-search-input"
+                aria-label="Search blogs"
+                placeholder="Search blogs (Mokila, RERA, villas...)"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
+          </div>
         )}
 
-        <div className="w-dyn-list">
-          <div role="list" className="blog-cms w-dyn-items">
-            {gridArticles.map((article) => (
-              <BlogCard key={article.slug} article={article} />
-            ))}
+        {gridArticles.length > 0 ? (
+          <div className="w-dyn-list">
+            <div role="list" className="blog-cms w-dyn-items">
+              {gridArticles.map((article) => (
+                <BlogCard key={article.slug} article={article} />
+              ))}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="ins-empty" role="status">
+            <p className="ins-empty__text">No articles matched your search or category filter.</p>
+            <button
+              type="button"
+              className="ins-cat-btn is-active"
+              onClick={() => {
+                setSearchQuery('');
+                setActiveCategory('All');
+              }}
+            >
+              Reset Filters
+            </button>
+          </div>
+        )}
+
+        {!selectedArticle && totalPages > 1 && (
+          <nav className="ins-pagination" aria-label="Blog pagination">
+            <button
+              type="button"
+              className="ins-page-btn"
+              disabled={safePage === 1}
+              onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+            >
+              Previous
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
+              <button
+                key={pageNum}
+                type="button"
+                aria-current={pageNum === safePage ? 'page' : undefined}
+                className={`ins-page-btn ins-page-btn--num${pageNum === safePage ? ' is-active' : ''}`}
+                onClick={() => setCurrentPage(pageNum)}
+              >
+                {pageNum}
+              </button>
+            ))}
+            <button
+              type="button"
+              className="ins-page-btn"
+              disabled={safePage === totalPages}
+              onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+            >
+              Next
+            </button>
+          </nav>
+        )}
       </div>
     </section>
   );

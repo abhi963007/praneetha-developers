@@ -71,18 +71,45 @@ try {
   assert.equal(newsJson.ok, true);
   assert.ok(newsJson.id);
 
+  const badPartnerRes = await fetch(`${baseUrl}/api/channel-partners`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ fullName: 'Partner X', consent: false }),
+  });
+  assert.equal(badPartnerRes.status, 400);
+
+  const goodPartnerRes = await fetch(`${baseUrl}/api/channel-partners`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      fullName: 'Ramesh Realtors',
+      phone: '+91 98490 12345',
+      email: 'partner@example.com',
+      partnerType: 'Firm',
+      preferredProject: 'Upcoming Mokila Project (Kardanur / Mokila Belt)',
+      notes: 'West Hyderabad NRI channel desk',
+      consent: true,
+    }),
+  });
+  assert.equal(goodPartnerRes.status, 201);
+  const partnerJson = await goodPartnerRes.json();
+  assert.equal(partnerJson.ok, true);
+  assert.ok(partnerJson.id);
+
   const persisted = JSON.parse(fs.readFileSync(tempFile, 'utf8'));
   assert.equal(persisted.contacts.length, 1);
   assert.equal(persisted.contacts[0].email, 'arjun@example.com');
   assert.equal(persisted.newsletter.length, 1);
   assert.equal(persisted.newsletter[0].email, 'reader@example.com');
+  assert.equal(persisted.channelPartners.length, 1);
+  assert.equal(persisted.channelPartners[0].email, 'partner@example.com');
 
-  const spaRes = await fetch(`${baseUrl}/about-us`);
+  const spaRes = await fetch(`${baseUrl}/blogs`);
   assert.equal(spaRes.status, 200);
   const spaHtml = await spaRes.text();
   assert.ok(spaHtml.includes('<div id="root"'), 'SPA fallback should serve root app HTML');
 
-  console.log('All Praneeta Developers API and SPA self-tests passed (7/7 checks).');
+  console.log('All Praneeta Developers API and SPA self-tests passed (9/9 checks).');
 } finally {
   await new Promise((resolve) => server.close(resolve));
   if (fs.existsSync(tempFile)) {
