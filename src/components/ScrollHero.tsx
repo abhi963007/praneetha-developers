@@ -228,33 +228,11 @@ export function ScrollHero({ children }: { children: ReactNode }) {
             ref={hintRef}
             type="button"
             className="scroll-hero__hint"
-            aria-label="Scroll down to explore"
+            aria-label="Scroll down"
             onClick={() => window.scrollBy({ top: window.innerHeight * 0.9, behavior: 'smooth' })}
           >
-            <span className="scroll-hero__hint-mouse" aria-hidden="true">
-              <span className="scroll-hero__hint-wheel" />
-            </span>
-            <span className="scroll-hero__hint-label">Scroll Down</span>
-            <span className="scroll-hero__hint-chevrons" aria-hidden="true">
-              <svg width="13" height="15" viewBox="0 0 14 16" fill="none">
-                <path
-                  className="scroll-hero__hint-chev scroll-hero__hint-chev--1"
-                  d="M2.5 3.5L7 8L11.5 3.5"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  className="scroll-hero__hint-chev scroll-hero__hint-chev--2"
-                  d="M2.5 8.5L7 13L11.5 8.5"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
+            <span>Scroll</span>
+            <i />
           </button>
         </div>
       </div>
