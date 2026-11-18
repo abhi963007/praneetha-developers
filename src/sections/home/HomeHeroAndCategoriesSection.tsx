@@ -8,8 +8,8 @@ const PRIMARY_CATEGORIES = [
   {
     to: '/category/villas-ongoing',
     title: 'Villas',
-    subtitle: 'Amity · The Patio · Santorini · Singapur Town',
-    tag: 'Ongoing · Completed · Upcoming',
+    subtitle: 'Amity Â· The Patio Â· Santorini Â· Singapur Town',
+    tag: 'Ongoing Â· Completed Â· Upcoming',
     image: '/images/portfolio-villas-ongoing.jpg',
     links: [
       { label: 'Ongoing', to: '/category/villas-ongoing' },
@@ -126,6 +126,42 @@ export function HomeHeroAndCategoriesSection() {
     <div className="section-wrap">
       <ScrollHero>
         <div className="hero-end-wrap">
+          <div className="hero-luxury-overlay" aria-label="Luxury Living Coming Soon">
+            <div className="hero-luxury-eyebrow">
+              <span className="hero-luxury-rule hero-luxury-rule--left" aria-hidden="true" />
+              <span>LUXURY LIVING</span>
+              <span className="hero-luxury-rule hero-luxury-rule--right" aria-hidden="true" />
+            </div>
+            <p className="hero-luxury-headline">COMING SOON</p>
+            <div className="hero-luxury-divider" aria-hidden="true">
+              <span className="hero-luxury-div-line hero-luxury-div-line--left" />
+              <svg className="hero-luxury-diamond" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <rect
+                  x="2.9"
+                  y="2.9"
+                  width="8.2"
+                  height="8.2"
+                  transform="rotate(45 7 7)"
+                  stroke="#8d682a"
+                  strokeWidth="1.2"
+                />
+                <rect
+                  x="5.1"
+                  y="5.1"
+                  width="3.8"
+                  height="3.8"
+                  transform="rotate(45 7 7)"
+                  fill="#a67c33"
+                />
+              </svg>
+              <span className="hero-luxury-div-line hero-luxury-div-line--right" />
+            </div>
+            <p className="hero-luxury-subtitle">
+              A premium lifestyle, crafted for
+              <br />
+              the extraordinary.
+            </p>
+          </div>
           <div className="hero-end-card">
             <div className="hero-end-info">
               <div className="hero-end-eyebrow">
