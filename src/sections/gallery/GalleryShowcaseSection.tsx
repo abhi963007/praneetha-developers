@@ -3,12 +3,20 @@ import { Link } from 'react-router-dom';
 import './gallery-page.css';
 
 type GalleryCategory = 'All' | 'Elevations & Interiors' | 'Site Progress' | 'Events & Expos';
+type GalleryProject =
+  | 'All Projects'
+  | 'Amity Villas'
+  | 'The Patio Villas'
+  | 'Santorini Villas'
+  | 'Praneeta Meridian'
+  | 'Singapur Town';
 
 interface GalleryEntry {
   id: string;
   title: string;
   subtitle: string;
   category: Exclude<GalleryCategory, 'All'>;
+  project?: Exclude<GalleryProject, 'All Projects'>;
   src: string;
 }
 
@@ -19,12 +27,22 @@ const CATEGORIES: GalleryCategory[] = [
   'Events & Expos',
 ];
 
+const PROJECTS: GalleryProject[] = [
+  'All Projects',
+  'Amity Villas',
+  'The Patio Villas',
+  'Santorini Villas',
+  'Praneeta Meridian',
+  'Singapur Town',
+];
+
 const GALLERY_ENTRIES: GalleryEntry[] = [
   {
     id: 'g1',
     title: 'The Santorini Villas — Mokila Township Aerial View',
     subtitle: '23 Acres · 231 Greek-Inspired 5 BHK Villas',
     category: 'Elevations & Interiors',
+    project: 'Santorini Villas',
     src: '/images/projects/santorini/hero-slide-1.webp',
   },
   {
@@ -32,6 +50,7 @@ const GALLERY_ENTRIES: GalleryEntry[] = [
     title: 'Amity Villas — Dusk Triplex Elevation',
     subtitle: '6.5 Acres · 76 G+2 Triplex Villas, Mokila',
     category: 'Elevations & Interiors',
+    project: 'Amity Villas',
     src: '/images/projects/amity/night-exterior.webp',
   },
   {
@@ -39,6 +58,7 @@ const GALLERY_ENTRIES: GalleryEntry[] = [
     title: 'The Patio Villas — Landscaped Courtyard Avenue',
     subtitle: '20.2 Acres · 175 Courtyard Villas, Mokila',
     category: 'Elevations & Interiors',
+    project: 'The Patio Villas',
     src: '/images/projects/patio/hero-slide-1.webp',
   },
   {
@@ -46,6 +66,7 @@ const GALLERY_ENTRIES: GalleryEntry[] = [
     title: 'Praneeta Meridian — Kondakal High-Rise Tower',
     subtitle: '11 Floors · 88 Spacious 3 BHK Residences',
     category: 'Elevations & Interiors',
+    project: 'Praneeta Meridian',
     src: '/images/projects/meridian/showcase-card.webp',
   },
   {
@@ -53,6 +74,7 @@ const GALLERY_ENTRIES: GalleryEntry[] = [
     title: 'Praneeta Singapur Town Phase-2 — Street Elevation',
     subtitle: 'Shankarpally · 35 Premium 4 BHK Villas',
     category: 'Elevations & Interiors',
+    project: 'Singapur Town',
     src: '/images/projects/pst2/street-view.png',
   },
   {
@@ -60,6 +82,7 @@ const GALLERY_ENTRIES: GalleryEntry[] = [
     title: 'Praneeta Meridian — Contemporary Living Room',
     subtitle: 'Kondakal Extension · Interior Render',
     category: 'Elevations & Interiors',
+    project: 'Praneeta Meridian',
     src: '/images/projects/meridian/living-room.jpeg',
   },
   {
@@ -67,6 +90,7 @@ const GALLERY_ENTRIES: GalleryEntry[] = [
     title: 'Amity Villas — Site Construction Update',
     subtitle: 'Mokila · October 2026 Progress',
     category: 'Site Progress',
+    project: 'Amity Villas',
     src: '/images/gallery/site-amity-oct-2026.webp',
   },
   {
@@ -74,6 +98,7 @@ const GALLERY_ENTRIES: GalleryEntry[] = [
     title: 'Amity Villas — Villa Structure & Road Works',
     subtitle: 'Mokila · October 2026 Progress',
     category: 'Site Progress',
+    project: 'Amity Villas',
     src: '/images/gallery/site-amity-oct-2026-2.webp',
   },
   {
@@ -81,6 +106,7 @@ const GALLERY_ENTRIES: GalleryEntry[] = [
     title: 'The Patio Villas — Site Progress Update',
     subtitle: 'Mokila · October 2026 Progress',
     category: 'Site Progress',
+    project: 'The Patio Villas',
     src: '/images/gallery/site-patio-oct-2026.jpeg',
   },
   {
@@ -88,6 +114,7 @@ const GALLERY_ENTRIES: GalleryEntry[] = [
     title: 'The Patio Villas — Courtyard Construction',
     subtitle: 'Mokila · October 2026 Progress',
     category: 'Site Progress',
+    project: 'The Patio Villas',
     src: '/images/gallery/site-patio-oct-2026-2.jpeg',
   },
   {
@@ -95,6 +122,7 @@ const GALLERY_ENTRIES: GalleryEntry[] = [
     title: 'The Santorini Villas — Site Progress Update',
     subtitle: 'Mokila · October 2026 Progress',
     category: 'Site Progress',
+    project: 'Santorini Villas',
     src: '/images/gallery/site-santorini-oct-2026.jpeg',
   },
   {
@@ -102,6 +130,7 @@ const GALLERY_ENTRIES: GalleryEntry[] = [
     title: 'The Santorini Villas — Facade & Infrastructure',
     subtitle: 'Mokila · October 2026 Progress',
     category: 'Site Progress',
+    project: 'Santorini Villas',
     src: '/images/gallery/site-santorini-oct-2026-2.jpeg',
   },
   {
@@ -160,17 +189,28 @@ const BENTO_CLASSES = [
 
 export function GalleryShowcaseSection() {
   const [activeCategory, setActiveCategory] = useState<GalleryCategory>('All');
+  const [activeProject, setActiveProject] = useState<GalleryProject>('All Projects');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const filtered =
-    activeCategory === 'All'
-      ? GALLERY_ENTRIES
-      : GALLERY_ENTRIES.filter((item) => item.category === activeCategory);
+  const filtered = GALLERY_ENTRIES.filter((item) => {
+    const catMatch = activeCategory === 'All' || item.category === activeCategory;
+    const projMatch = activeProject === 'All Projects' || item.project === activeProject;
+    return catMatch && projMatch;
+  });
 
   const getCount = (cat: GalleryCategory) =>
-    cat === 'All'
-      ? GALLERY_ENTRIES.length
-      : GALLERY_ENTRIES.filter((i) => i.category === cat).length;
+    GALLERY_ENTRIES.filter((i) => {
+      const catMatch = cat === 'All' || i.category === cat;
+      const projMatch = activeProject === 'All Projects' || i.project === activeProject;
+      return catMatch && projMatch;
+    }).length;
+
+  const getProjectCount = (proj: GalleryProject) =>
+    GALLERY_ENTRIES.filter((i) => {
+      const catMatch = activeCategory === 'All' || i.category === activeCategory;
+      const projMatch = proj === 'All Projects' || i.project === proj;
+      return catMatch && projMatch;
+    }).length;
 
   useEffect(() => {
     if (lightboxIndex === null) return;
@@ -207,7 +247,7 @@ export function GalleryShowcaseSection() {
             </p>
           </div>
 
-          <div className="gal-filters" role="tablist" aria-label="Filter gallery">
+          <div className="gal-filters" role="tablist" aria-label="Filter gallery by category">
             {CATEGORIES.map((category) => {
               const active = activeCategory === category;
               return (
@@ -228,43 +268,85 @@ export function GalleryShowcaseSection() {
               );
             })}
           </div>
+
+          <div className="gal-filters gal-filters--projects" role="tablist" aria-label="Filter gallery by project">
+            {PROJECTS.map((project) => {
+              const active = activeProject === project;
+              return (
+                <button
+                  key={project}
+                  type="button"
+                  role="tab"
+                  aria-selected={active}
+                  className={`gal-filter-btn gal-filter-btn--sub${active ? ' is-active' : ''}`}
+                  onClick={() => {
+                    setActiveProject(project);
+                    setLightboxIndex(null);
+                  }}
+                >
+                  <span>{project}</span>
+                  <span className="gal-filter-count">{getProjectCount(project)}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* ── 12-Column Architectural Bento Grid ── */}
-        <div className="gal-bento">
-          {filtered.map((item, idx) => {
-            const spanClass = BENTO_CLASSES[idx % BENTO_CLASSES.length];
-            return (
-              <button
-                key={item.id}
-                type="button"
-                className={`gal-card ${spanClass}`}
-                onClick={() => setLightboxIndex(idx)}
-              >
-                <img src={item.src} alt={item.title} loading="lazy" className="gal-card__img" />
-                <div className="gal-card__scrim" />
-                <div className="gal-card__top">
-                  <span className="gal-card__tag">{item.category}</span>
-                  <span className="gal-card__zoom" aria-hidden="true">
-                    <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
-                      <path
-                        d="M10 2H14V6M6 14H2V10M14 2L9.5 6.5M2 14L6.5 9.5"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </div>
-                <div className="gal-card__bottom">
-                  <h3 className="gal-card__title">{item.title}</h3>
-                  <p className="gal-card__sub">{item.subtitle}</p>
-                </div>
-              </button>
-            );
-          })}
-        </div>
+        {filtered.length > 0 ? (
+          <div className="gal-bento">
+            {filtered.map((item, idx) => {
+              const spanClass = BENTO_CLASSES[idx % BENTO_CLASSES.length];
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={`gal-card ${spanClass}`}
+                  onClick={() => setLightboxIndex(idx)}
+                >
+                  <img src={item.src} alt={item.title} loading="lazy" className="gal-card__img" />
+                  <div className="gal-card__scrim" />
+                  <div className="gal-card__top">
+                    <span className="gal-card__tag">
+                      {item.project ? `${item.project} · ${item.category}` : item.category}
+                    </span>
+                    <span className="gal-card__zoom" aria-hidden="true">
+                      <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+                        <path
+                          d="M10 2H14V6M6 14H2V10M14 2L9.5 6.5M2 14L6.5 9.5"
+                          stroke="currentColor"
+                          strokeWidth="1.6"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div className="gal-card__bottom">
+                    <h3 className="gal-card__title">{item.title}</h3>
+                    <p className="gal-card__sub">{item.subtitle}</p>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="gal-empty" role="status">
+            <p className="gal-empty__text">
+              No media items match <strong>{activeProject}</strong> under <strong>{activeCategory}</strong>.
+            </p>
+            <button
+              type="button"
+              className="gal-filter-btn is-active"
+              onClick={() => {
+                setActiveCategory('All');
+                setActiveProject('All Projects');
+              }}
+            >
+              Show All Media
+            </button>
+          </div>
+        )}
 
         {/* ── Dark-Forest CTA Band ── */}
         <div className="gal-cta">

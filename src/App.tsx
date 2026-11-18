@@ -24,6 +24,8 @@ export function App() {
         <Route path="/become-a-partner" element={<BecomePartnerPage />} />
         <Route path="/partner" element={<BecomePartnerPage />} />
         <Route path="/channel-partner" element={<BecomePartnerPage />} />
+        <Route path="/blogs" element={<InsightsPage />} />
+        <Route path="/blogs/:slug" element={<InsightsPage />} />
         <Route path="/insights" element={<InsightsPage />} />
         <Route path="/insights/:slug" element={<InsightsPage />} />
         <Route path="/contact" element={<ContactPage />} />

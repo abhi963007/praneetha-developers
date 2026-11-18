@@ -144,6 +144,35 @@
   color: #ffffff;
 }
 
+.gal-filters--projects {
+  margin-top: -10px;
+}
+
+.gal-filter-btn--sub {
+  padding: 7px 14px;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.gal-empty {
+  text-align: center;
+  padding: 48px 24px;
+  background: #ffffff;
+  border: 1px solid rgba(44, 58, 46, 0.12);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.gal-empty__text {
+  margin: 0;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 15.5px;
+  color: #52525b;
+}
+
 /* ── 12-Column Architectural Bento Grid ── */
 .gal-bento {
   display: grid;

@@ -3,6 +3,7 @@ import { PAGE_META } from '../../types/site';
 import './contact-cards.css';
 
 const PROPERTY_INTERESTS = [
+  'Upcoming Mokila Project — Kardanur / Mokila Belt',
   'Amity Villas — Mokila (5 BHK)',
   'The Patio Villas — Mokila (5 BHK)',
   'The Santorini Villas — Mokila (5 BHK)',
