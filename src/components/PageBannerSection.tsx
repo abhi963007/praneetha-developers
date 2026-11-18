@@ -4,30 +4,51 @@ import './page-banner-hero.css';
 interface PageBannerSectionProps {
   title: string;
   subtitle?: string;
+  eyebrow?: string;
+  image?: string;
+  singleLine?: boolean;
 }
 
 const DEFAULT_SUBTITLES: Record<string, string> = {
   'About Us': 'Crafting enduring gated communities across Mokila & Shankarpally since 2005.',
   Properties: 'Explore HMDA & TS-RERA registered luxury villas and apartments across Mokila, Kondakal & Shankarpally.',
+  'Projects by Praneeta Developers':
+    'Explore HMDA & TG-RERA registered luxury villas and apartments across Mokila, Kondakal & Shankarpally.',
   Gallery: 'Explore architectural renders, active site progress, and global expo highlights across Mokila & Shankarpally.',
   Services: 'End-to-end gated community development, guided site visits, HMDA/TS-RERA clarity, and NRI advisory.',
   Insights: 'Market perspectives, HMDA & TS-RERA checklists, and architectural notes across Mokila, Kondakal & Shankarpally.',
+  Blogs: 'Insights, Real Estate Trends & West Hyderabad Market Analysis.',
   'Contact Us': 'Visit our Mokila Experience Lounge or connect directly with our leadership team.',
+  'Become a Partner':
+    "Join Hyderabad's fastest-growing quality-delivering property developer. Access premium inventory, earn attractive payouts, and close more deals with dedicated support.",
+  Disclaimer: 'Important legal disclosures, project representation terms, and TG-RERA compliance notices.',
+  'Privacy Policy': 'How V Praneeta Developers Pvt. Ltd. collects, safeguards, and uses your inquiry information.',
 };
 
 const PAGE_HERO_MEDIA: Record<string, { image: string; videoDesktop?: string; videoMobile?: string }> = {
   'About Us': { image: '/images/hero-about.png' },
   Properties: { image: '/images/hero-properties.png' },
+  'Projects by Praneeta Developers': { image: '/images/hero-properties.png' },
   Gallery: { image: '/images/hero-gallery.png' },
   Services: { image: '/images/hero-services.png' },
+  'Become a Partner': { image: '/images/service-channel-partner.jpg' },
   Insights: { image: '/images/hero-insights.png' },
+  Blogs: { image: '/images/hero-insights.png' },
   'Contact Us': { image: '/images/hero-contact.png' },
+  Disclaimer: { image: '/images/hero-about.png' },
+  'Privacy Policy': { image: '/images/hero-contact.png' },
 };
 
 const FALLBACK_POSTER = '/images/hero-about.png';
 const MOBILE_QUERY = '(max-width: 767px)';
 
-export function PageBannerSection({ title, subtitle }: PageBannerSectionProps) {
+export function PageBannerSection({
+  title,
+  subtitle,
+  eyebrow,
+  image,
+  singleLine = false,
+}: PageBannerSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const mediaRef = useRef<HTMLVideoElement | HTMLImageElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -35,7 +56,16 @@ export function PageBannerSection({ title, subtitle }: PageBannerSectionProps) {
 
   const resolvedSubtitle = subtitle ?? DEFAULT_SUBTITLES[title] ?? '';
   const heroMedia = PAGE_HERO_MEDIA[title] ?? { image: FALLBACK_POSTER };
+  const resolvedImage = image || heroMedia.image;
   const hasVideo = Boolean(heroMedia.videoDesktop);
+  const isWideWrap = singleLine || title.length > 18;
+  const titleModifierClass = singleLine
+    ? ' page-hero__title--single'
+    : title.length > 38
+      ? ' page-hero__title--article'
+      : title.length > 18
+        ? ' page-hero__title--project'
+        : '';
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -160,7 +190,7 @@ export function PageBannerSection({ title, subtitle }: PageBannerSectionProps) {
       window.removeEventListener('touchstart', unlock);
       ctx?.revert();
     };
-  }, [title, hasVideo, heroMedia.videoDesktop, heroMedia.videoMobile]);
+  }, [title, resolvedImage, hasVideo, heroMedia.videoDesktop, heroMedia.videoMobile]);
 
   return (
     <section ref={sectionRef} className="page-hero">
@@ -169,7 +199,7 @@ export function PageBannerSection({ title, subtitle }: PageBannerSectionProps) {
           <video
             ref={mediaRef as React.RefObject<HTMLVideoElement>}
             className="page-hero__video"
-            poster={heroMedia.image}
+            poster={resolvedImage}
             muted
             playsInline
             preload="auto"
@@ -178,16 +208,43 @@ export function PageBannerSection({ title, subtitle }: PageBannerSectionProps) {
           <img
             ref={mediaRef as React.RefObject<HTMLImageElement>}
             className="page-hero__video"
-            src={heroMedia.image}
+            src={resolvedImage}
             alt={title}
             loading="eager"
           />
         )}
         <div className="page-hero__shade" />
         <div ref={contentRef} className="page-hero__content">
-          <div className="page-hero__text-wrap">
-            <h1 className="page-hero__title">{title}</h1>
-            {resolvedSubtitle && <p className="page-hero__subtitle">{resolvedSubtitle}</p>}
+          <div
+            key={title}
+            className={`page-hero__text-wrap${
+              singleLine
+                ? ' page-hero__text-wrap--single'
+                : isWideWrap
+                  ? ' page-hero__text-wrap--wide'
+                  : ''
+            }`}
+          >
+            {eyebrow && (
+              <span className={`page-hero__eyebrow${singleLine ? ' page-hero__eyebrow--single' : ''}`}>
+                {eyebrow}
+              </span>
+            )}
+            <h1
+              className={`page-hero__title${titleModifierClass}`}
+              style={
+                singleLine
+                  ? ({ '--hero-title-chars': Math.max(16, title.length) } as React.CSSProperties)
+                  : undefined
+              }
+            >
+              {title}
+            </h1>
+            {resolvedSubtitle && (
+              <p className={`page-hero__subtitle${singleLine ? ' page-hero__subtitle--single' : ''}`}>
+                {resolvedSubtitle}
+              </p>
+            )}
           </div>
         </div>
         <div ref={hintRef} className="page-hero__hint" aria-hidden="true">

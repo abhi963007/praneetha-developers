@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { CATEGORY_LINKS, FOOTER_LINKS, isRouteActive } from '../types/site';
+import { FOOTER_CATEGORY_LINKS, FOOTER_LINKS, isRouteActive } from '../types/site';
 import './footer-custom.css';
 
 interface FooterProps {
@@ -52,14 +52,21 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
               <Link
                 to="/"
                 aria-current={isHome ? 'page' : undefined}
-                className={`site-logo-link w-inline-block${isHome ? ' w--current' : ''}`}
+                className={`footer-brand-link w-inline-block${isHome ? ' w--current' : ''}`}
               >
-                <img
-                  loading="lazy"
-                  src="/images/praneeta-logo.png"
-                  alt="Praneeta Developers"
-                  className="site-logo"
-                />
+                <span className="footer-brand-badge">
+                  <img
+                    loading="lazy"
+                    src="/images/praneeta-favicon.png"
+                    alt=""
+                    aria-hidden="true"
+                    className="footer-brand-emblem"
+                  />
+                </span>
+                <span className="footer-brand-lockup">
+                  <span className="footer-brand-name">PRANEETA</span>
+                  <span className="footer-brand-sub">DEVELOPERS</span>
+                </span>
               </Link>
               <p className="footer-tagline">
                 Gated Villa &amp; Apartment Communities across West Hyderabad.
@@ -102,7 +109,7 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
                   className="form-success w-form-done"
                   style={{ display: status === 'success' ? 'block' : undefined }}
                 >
-                  <div>Thanks! You're subscribed to Praneeta Developers updates.</div>
+                  <div>Thanks! You&apos;re subscribed to Praneeta Developers updates.</div>
                 </div>
                 <div
                   className="form-error w-form-fail"
@@ -134,11 +141,19 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
               <div className="footer-col-group">
                 <p className="footer-title footer-col-label">Categories</p>
                 <div className="footer-col-items">
-                  {CATEGORY_LINKS.map((cat) => (
-                    <Link key={cat.to} to={cat.to} className="footer-link">
-                      {cat.label}
-                    </Link>
-                  ))}
+                  {FOOTER_CATEGORY_LINKS.map((cat) => {
+                    const active = pathname.replace(/\/+$/, '') === cat.to;
+                    return (
+                      <Link
+                        key={cat.to}
+                        to={cat.to}
+                        aria-current={active ? 'page' : undefined}
+                        className={`footer-link${active ? ' w--current' : ''}`}
+                      >
+                        {cat.label}
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
               <div className="footer-col-group">
@@ -153,24 +168,6 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
                     />
                     <p className="social-two-text">Facebook</p>
                   </a>
-                  <a href="#social-linkedin" className="social-box-two w-inline-block">
-                    <img
-                      loading="lazy"
-                      src="/images/69e86f71baee2ca59048df17_2.svg"
-                      alt=""
-                      className="social-two-icon"
-                    />
-                    <p className="social-two-text">Linkedin</p>
-                  </a>
-                  <a href="#social-twitter" className="social-box-two w-inline-block">
-                    <img
-                      loading="lazy"
-                      src="/images/69e86f71e49fcc065c88236d_3.svg"
-                      alt=""
-                      className="social-two-icon"
-                    />
-                    <p className="social-two-text">Twitter</p>
-                  </a>
                   <a href="#social-instagram" className="social-box-two w-inline-block">
                     <img
                       loading="lazy"
@@ -180,14 +177,39 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
                     />
                     <p className="social-two-text">Instagram</p>
                   </a>
-                  <a href="#social-tiktok" className="social-box-two w-inline-block">
+                  <a href="#social-linkedin" className="social-box-two w-inline-block">
                     <img
                       loading="lazy"
-                      src="/images/69e86f71f099b0c3b971bf0b_5.svg"
+                      src="/images/69e86f71baee2ca59048df17_2.svg"
                       alt=""
                       className="social-two-icon"
                     />
-                    <p className="social-two-text">Tiktok</p>
+                    <p className="social-two-text">LinkedIn</p>
+                  </a>
+                  <a href="#social-youtube" className="social-box-two w-inline-block">
+                    <svg
+                      className="social-two-icon social-two-icon--svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <rect x="2" y="5" width="20" height="14" rx="4" />
+                      <polygon points="10 9 16 12 10 15 10 9" fill="currentColor" stroke="none" />
+                    </svg>
+                    <p className="social-two-text">YouTube</p>
+                  </a>
+                  <a href="#social-twitter" className="social-box-two w-inline-block">
+                    <img
+                      loading="lazy"
+                      src="/images/69e86f71e49fcc065c88236d_3.svg"
+                      alt=""
+                      className="social-two-icon"
+                    />
+                    <p className="social-two-text">X (Twitter)</p>
                   </a>
                 </div>
               </div>
@@ -208,11 +230,19 @@ export function Footer({ variant = 'base', wfPageId }: FooterProps) {
               >
                 Praneeta Developers
               </Link>
-              . All rights reserved.
+              . All Rights Reserved.
             </p>
-            <p className="copyright-text">
-              TG-RERA: P02400009246 · P02400006593 · P02400009069 · P02400009800
-            </p>
+            <nav className="footer-legal-links" aria-label="Legal">
+              <Link to="/disclaimer" className="footer-legal-link">
+                Disclaimer
+              </Link>
+              <span className="footer-legal-sep" aria-hidden="true">
+                ·
+              </span>
+              <Link to="/privacy-policy" className="footer-legal-link">
+                Privacy Policy
+              </Link>
+            </nav>
           </div>
         </div>
       </div>

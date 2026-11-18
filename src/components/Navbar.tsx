@@ -219,13 +219,14 @@ export function Navbar() {
                         onMouseEnter={openProjectsDropdown}
                         onMouseLeave={scheduleCloseProjectsDropdown}
                       >
-                        <button
-                          type="button"
+                        <Link
+                          to={item.to}
+                          aria-current={active ? 'page' : undefined}
                           className={`desktop-nav-link nav-dropdown-trigger${active ? ' w--current' : ''}${isProjectsOpen ? ' is-open' : ''}`}
                           aria-expanded={isProjectsOpen}
                           aria-haspopup="true"
                           aria-controls="desktop-projects-dropdown"
-                          onClick={() => setIsProjectsOpen((prev) => !prev)}
+                          onClick={() => setIsProjectsOpen(false)}
                         >
                           <span>{item.label}</span>
                           <svg
@@ -244,7 +245,7 @@ export function Navbar() {
                               strokeLinejoin="round"
                             />
                           </svg>
-                        </button>
+                        </Link>
 
                         <div
                           id="desktop-projects-dropdown"
@@ -265,27 +266,31 @@ export function Navbar() {
                                         onClick={() => setIsProjectsOpen(false)}
                                       >
                                         <span className="nav-dropdown-sublabel">{sub.label}</span>
-                                        <span className="nav-dropdown-right">
-                                          {sub.badge && (
-                                            <span className="nav-dropdown-badge">{sub.badge}</span>
-                                          )}
-                                          <svg
-                                            className="nav-dropdown-item-arrow"
-                                            width="12"
-                                            height="12"
-                                            viewBox="0 0 12 12"
-                                            fill="none"
-                                            aria-hidden="true"
-                                          >
-                                            <path
-                                              d="M4.5 2.5L8 6L4.5 9.5"
-                                              stroke="currentColor"
-                                              strokeWidth="1.5"
-                                              strokeLinecap="round"
-                                              strokeLinejoin="round"
-                                            />
-                                          </svg>
-                                        </span>
+                                        {(sub.badge || !sub.hideArrow) && (
+                                          <span className="nav-dropdown-right">
+                                            {sub.badge && (
+                                              <span className="nav-dropdown-badge">{sub.badge}</span>
+                                            )}
+                                            {!sub.hideArrow && (
+                                              <svg
+                                                className="nav-dropdown-item-arrow"
+                                                width="12"
+                                                height="12"
+                                                viewBox="0 0 12 12"
+                                                fill="none"
+                                                aria-hidden="true"
+                                              >
+                                                <path
+                                                  d="M4.5 2.5L8 6L4.5 9.5"
+                                                  stroke="currentColor"
+                                                  strokeWidth="1.5"
+                                                  strokeLinecap="round"
+                                                  strokeLinejoin="round"
+                                                />
+                                              </svg>
+                                            )}
+                                          </span>
+                                        )}
                                       </Link>
                                     </li>
                                   ))}
@@ -411,19 +416,27 @@ export function Navbar() {
                   return (
                     <li key={item.to} className="drawer-menu-item">
                       <div className="drawer-link-mask">
-                        <button
-                          type="button"
-                          aria-expanded={isDrawerProjectsOpen}
-                          className={`drawer-nav-link drawer-nav-trigger${active ? ' is-active' : ''}`}
-                          onClick={() => setIsDrawerProjectsOpen((prev) => !prev)}
-                        >
-                          <span className="drawer-link-left">
-                            <span className="drawer-nav-index">
-                              {String(idx + 1).padStart(2, '0')}
+                        <div className={`drawer-nav-link drawer-nav-split${active ? ' is-active' : ''}`}>
+                          <Link
+                            to={item.to}
+                            aria-current={active ? 'page' : undefined}
+                            className="drawer-nav-split-link"
+                            onClick={closeMenu}
+                          >
+                            <span className="drawer-link-left">
+                              <span className="drawer-nav-index">
+                                {String(idx + 1).padStart(2, '0')}
+                              </span>
+                              <span className="drawer-nav-label">{item.label}</span>
                             </span>
-                            <span className="drawer-nav-label">{item.label}</span>
-                          </span>
-                          <span className="drawer-projects-right">
+                          </Link>
+                          <button
+                            type="button"
+                            aria-expanded={isDrawerProjectsOpen}
+                            aria-label="Toggle project categories"
+                            className="drawer-projects-toggle"
+                            onClick={() => setIsDrawerProjectsOpen((prev) => !prev)}
+                          >
                             {active && <span className="drawer-active-dot" aria-label="Current page" />}
                             <svg
                               className={`drawer-projects-chevron${isDrawerProjectsOpen ? ' is-open' : ''}`}
@@ -441,8 +454,8 @@ export function Navbar() {
                                 strokeLinejoin="round"
                               />
                             </svg>
-                          </span>
-                        </button>
+                          </button>
+                        </div>
                       </div>
 
                       {isDrawerProjectsOpen && (

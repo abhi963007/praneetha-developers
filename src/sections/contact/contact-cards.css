@@ -252,19 +252,106 @@
   background-color: #fffafa !important;
 }
 
-.contact-page-section .contact-select {
-  -webkit-appearance: none !important;
-  appearance: none !important;
+.contact-page-section .contact-select-wrap {
+  position: relative !important;
+  width: 100% !important;
+}
+
+.contact-page-section .contact-select-trigger {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  text-align: left !important;
   cursor: pointer !important;
-  padding: 0 44px 0 16px !important;
-  line-height: 46px !important;
-  white-space: nowrap !important;
+}
+
+.contact-page-section .contact-select-trigger:hover {
+  border-color: rgba(0, 123, 62, 0.4) !important;
+  background-color: #ffffff !important;
+}
+
+.contact-page-section .contact-select-trigger.is-open {
+  border-color: #007b3e !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 0 0 4px rgba(0, 123, 62, 0.1) !important;
+}
+
+.contact-page-section .contact-select-value {
   overflow: hidden !important;
   text-overflow: ellipsis !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6L8 10L12 6' stroke='%232c3a2e' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat !important;
-  background-position: right 16px center !important;
-  background-size: 16px 16px !important;
+  white-space: nowrap !important;
+  color: var(--dark-two, #1c1c1a) !important;
+}
+
+.contact-page-section .contact-select-chevron {
+  flex-shrink: 0 !important;
+  color: var(--primary-color, #2c3a2e) !important;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s ease !important;
+}
+
+.contact-page-section .contact-select-trigger.is-open .contact-select-chevron {
+  transform: rotate(180deg) !important;
+  color: #007b3e !important;
+}
+
+.contact-page-section .contact-select-menu {
+  position: absolute !important;
+  top: calc(100% + 6px) !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 40 !important;
+  margin: 0 !important;
+  padding: 6px !important;
+  list-style: none !important;
+  background-color: #ffffff !important;
+  border: 1px solid rgba(44, 58, 46, 0.16) !important;
+  border-radius: 14px !important;
+  box-shadow:
+    0 18px 40px rgba(15, 23, 42, 0.14),
+    0 4px 12px rgba(15, 23, 42, 0.06) !important;
+  max-height: 270px !important;
+  overflow-y: auto !important;
+}
+
+.contact-page-section .contact-select-item + .contact-select-item {
+  border-top: 1px solid rgba(25, 29, 25, 0.06) !important;
+}
+
+.contact-page-section .contact-select-option {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  padding: 10px 12px !important;
+  border: none !important;
+  border-radius: 9px !important;
+  background: transparent !important;
+  text-align: left !important;
+  font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif) !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+  color: #191d19 !important;
+  cursor: pointer !important;
+  transition: background-color 0.16s ease, color 0.16s ease !important;
+}
+
+.contact-page-section .contact-select-option:hover {
+  background-color: #f5efe6 !important;
+  color: #007b3e !important;
+}
+
+.contact-page-section .contact-select-option.is-selected {
+  background-color: rgba(0, 123, 62, 0.09) !important;
+  color: #007b3e !important;
+  font-weight: 600 !important;
+}
+
+.contact-page-section .contact-select-check {
+  flex-shrink: 0 !important;
+  color: #007b3e !important;
 }
 
 .contact-page-section .contact-input.textarea {

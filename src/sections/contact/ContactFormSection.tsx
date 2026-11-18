@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from 'react';
 import { PAGE_META } from '../../types/site';
 import './contact-cards.css';
 
@@ -33,6 +33,134 @@ function ArrowIcon() {
         strokeLinejoin="round"
       />
     </svg>
+  );
+}
+
+interface ContactDropdownProps {
+  id: string;
+  labelId: string;
+  value: string;
+  options: readonly string[];
+  onChange: (value: string) => void;
+}
+
+function ContactDropdown({ id, labelId, value, options, onChange }: ContactDropdownProps) {
+  const [open, setOpen] = useState(false);
+  const wrapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const handlePointerDown = (e: PointerEvent) => {
+      if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+
+    const handleKeyDown = (e: globalThis.KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setOpen(false);
+      }
+    };
+
+    window.addEventListener('pointerdown', handlePointerDown);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('pointerdown', handlePointerDown);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [open]);
+
+  const handleTriggerKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
+    const currentIndex = options.indexOf(value);
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (!open) {
+        setOpen(true);
+      } else {
+        onChange(options[(currentIndex + 1) % options.length]);
+      }
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (!open) {
+        setOpen(true);
+      } else {
+        onChange(options[(currentIndex - 1 + options.length) % options.length]);
+      }
+    }
+  };
+
+  return (
+    <div ref={wrapRef} className={`contact-select-wrap${open ? ' is-open' : ''}`}>
+      <button
+        id={id}
+        type="button"
+        className={`contact-input contact-select-trigger${open ? ' is-open' : ''}`}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-labelledby={`${labelId} ${id}`}
+        onClick={() => setOpen((prev) => !prev)}
+        onKeyDown={handleTriggerKeyDown}
+      >
+        <span className="contact-select-value">{value}</span>
+        <svg
+          className="contact-select-chevron"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M4 6L8 10L12 6"
+            stroke="currentColor"
+            strokeWidth="1.7"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+
+      {open && (
+        <ul className="contact-select-menu" role="listbox" aria-labelledby={labelId}>
+          {options.map((opt) => {
+            const selected = opt === value;
+            return (
+              <li key={opt} role="option" aria-selected={selected} className="contact-select-item">
+                <button
+                  type="button"
+                  className={`contact-select-option${selected ? ' is-selected' : ''}`}
+                  onClick={() => {
+                    onChange(opt);
+                    setOpen(false);
+                  }}
+                >
+                  <span>{opt}</span>
+                  {selected && (
+                    <svg
+                      className="contact-select-check"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M3.5 8.5L6.5 11.5L12.5 4.5"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  )}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
   );
 }
 
@@ -344,24 +472,16 @@ export function ContactFormSection() {
               </div>
 
               <div className="contact-field">
-                <label htmlFor="Slect-Property" className="contact-field-label">
+                <label id="Slect-Property-label" htmlFor="Slect-Property" className="contact-field-label">
                   Community / Project Interest
                 </label>
-                <select
+                <ContactDropdown
                   id="Slect-Property"
-                  name="Slect-Property"
-                  data-name="Slect Property"
-                  required
-                  className="contact-input contact-select w-select"
+                  labelId="Slect-Property-label"
                   value={interest}
-                  onChange={(e) => setInterest(e.target.value)}
-                >
-                  {PROPERTY_INTERESTS.map((opt) => (
-                    <option key={opt} value={opt}>
-                      {opt}
-                    </option>
-                  ))}
-                </select>
+                  options={PROPERTY_INTERESTS}
+                  onChange={setInterest}
+                />
               </div>
 
               <div className="contact-field">

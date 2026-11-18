@@ -116,7 +116,7 @@
   display: grid;
   grid-template-columns: 1.12fr 1fr;
   gap: clamp(24px, 3vw, 44px);
-  align-items: start;
+  align-items: stretch;
 }
 
 /* ── Interactive Gallery Stage + Thumbnails ── */
@@ -207,6 +207,7 @@
 .prop-detail__info {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 16px;
 }
 
@@ -700,4 +701,21 @@
   .prop-carousel__slide {
     padding: 0;
   }
+}
+
+.prop-detail--upcoming {
+  margin-bottom: 24px;
+}
+
+.prop-detail__main-stage--static {
+  cursor: default;
+  height: 100%;
+}
+
+.prop-detail__main-stage--static:hover .prop-detail__main-img {
+  transform: none;
+}
+
+.prop-detail__title--upcoming {
+  margin-top: 8px !important;
 }

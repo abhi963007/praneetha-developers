@@ -186,9 +186,13 @@ export function InsightsGridSection() {
   const { slug } = useParams<{ slug?: string }>();
 
   const selectedArticle =
-    pathname.startsWith('/insights/') && slug
+    (pathname.startsWith('/insights/') || pathname.startsWith('/blogs/')) && slug
       ? INSIGHT_ARTICLES.find((a) => a.slug === slug)
       : undefined;
+
+  const gridArticles = selectedArticle
+    ? INSIGHT_ARTICLES.filter((a) => a.slug !== selectedArticle.slug)
+    : INSIGHT_ARTICLES;
 
   useEffect(() => {
     if (selectedArticle) {
@@ -201,48 +205,56 @@ export function InsightsGridSection() {
       <div className="w-layout-blockcontainer container w-container">
         {selectedArticle && (
           <article className="ins-reader">
-            <div className="ins-reader__meta">
-              <span className="ins-reader__date">{selectedArticle.date}</span>
-              <span className="ins-reader__dot" aria-hidden="true">·</span>
-              <span className="ins-reader__read">{selectedArticle.readTime}</span>
-            </div>
-
-            <h2 className="ins-reader__title">{selectedArticle.title}</h2>
-            <p className="ins-reader__summary">{selectedArticle.summary}</p>
-
-            <div className="ins-reader__img-wrap">
-              <img
-                src={selectedArticle.image}
-                alt={selectedArticle.title}
-                className="ins-reader__img"
-              />
-            </div>
-
-            <div className="ins-reader__body">
-              {selectedArticle.body.map((para, i) => (
-                <p key={i}>{para}</p>
-              ))}
-            </div>
-
-            <div className="ins-reader__actions">
-              <Link to="/contact-us" className="ins-reader__btn-primary">
-                <span>Schedule a Site Visit</span>
-                <span className="ins-reader__btn-arrow" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                    <path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
+            <div className="ins-reader__top">
+              <Link to="/insights" className="ins-reader__back">
+                ← All Blogs
               </Link>
-              <Link to="/properties" className="ins-reader__btn-secondary">
-                <span>Explore Projects</span>
-              </Link>
+              <span className="ins-reader__pill">
+                {selectedArticle.date} · {selectedArticle.readTime}
+              </span>
+            </div>
+
+            <div className="ins-reader__grid">
+              <div className="ins-reader__img-wrap">
+                <img
+                  src={selectedArticle.image}
+                  alt={selectedArticle.title}
+                  className="ins-reader__img"
+                />
+              </div>
+
+              <div className="ins-reader__content">
+                <div className="ins-reader__body">
+                  {selectedArticle.body.map((para, i) => (
+                    <p key={i}>{para}</p>
+                  ))}
+                </div>
+
+                <div className="ins-reader__actions">
+                  <Link to="/contact-us" className="ins-reader__btn-primary">
+                    <span>Schedule a Site Visit</span>
+                    <span className="ins-reader__btn-arrow" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                        <path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                  </Link>
+                  <Link to="/properties" className="ins-reader__btn-secondary">
+                    <span>Explore Projects</span>
+                  </Link>
+                </div>
+              </div>
             </div>
           </article>
         )}
 
+        {selectedArticle && (
+          <h2 className="ins-more-heading">More Articles &amp; Market Guides</h2>
+        )}
+
         <div className="w-dyn-list">
           <div role="list" className="blog-cms w-dyn-items">
-            {INSIGHT_ARTICLES.map((article) => (
+            {gridArticles.map((article) => (
               <BlogCard key={article.slug} article={article} />
             ))}
           </div>

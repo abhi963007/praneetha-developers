@@ -1,9 +1,11 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { AboutPage } from './pages/AboutPage';
+import { BecomePartnerPage } from './pages/BecomePartnerPage';
 import { ContactPage } from './pages/ContactPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { HomePage } from './pages/HomePage';
 import { InsightsPage } from './pages/InsightsPage';
+import { DisclaimerPage, PrivacyPolicyPage } from './pages/LegalPage';
 import { PropertiesPage } from './pages/PropertiesPage';
 import { ServicesPage } from './pages/ServicesPage';
 
@@ -22,10 +24,15 @@ export function App() {
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/services/:slug" element={<ServicesPage />} />
+        <Route path="/become-a-partner" element={<BecomePartnerPage />} />
+        <Route path="/partner" element={<BecomePartnerPage />} />
+        <Route path="/channel-partner" element={<BecomePartnerPage />} />
         <Route path="/insights" element={<InsightsPage />} />
         <Route path="/insights/:slug" element={<InsightsPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/contact-us" element={<ContactPage />} />
+        <Route path="/disclaimer" element={<DisclaimerPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/licenses" element={<HomePage />} />
         <Route path="/changelog" element={<HomePage />} />
         <Route path="/style-guide" element={<HomePage />} />

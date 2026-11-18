@@ -24,21 +24,60 @@
   padding-bottom: 0 !important;
 }
 
-.main-footer .site-logo-link {
+.main-footer .footer-brand-link {
   display: inline-flex !important;
   align-items: center !important;
+  gap: 12px !important;
   margin: 0 !important;
   padding: 0 !important;
+  text-decoration: none !important;
 }
 
-.main-footer .site-logo {
-  width: 230px !important;
-  max-width: 100% !important;
-  max-height: none !important;
-  height: auto !important;
-  display: block !important;
-  /* Compensate for transparent left/top/bottom padding inside praneeta-logo.png */
-  margin: -3px 0 -10px -10px !important;
+.main-footer .footer-brand-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  background-color: #f5efe6;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.main-footer .footer-brand-emblem {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.main-footer .footer-brand-lockup {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  line-height: 1;
+}
+
+.main-footer .footer-brand-name {
+  font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.main-footer .footer-brand-sub {
+  font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: rgba(245, 239, 230, 0.86);
+  line-height: 1;
+  padding-left: 1px;
 }
 
 .main-footer .footer-tagline {
@@ -202,6 +241,11 @@
   width: 15px !important;
   height: 15px !important;
   opacity: 0.9;
+  flex-shrink: 0;
+}
+
+.main-footer .footer-col-items--social .social-two-icon--svg {
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .main-footer .footer-col-items--social .social-two-text {
@@ -210,7 +254,7 @@
   color: rgba(255, 255, 255, 0.88) !important;
 }
 
-/* Centered minimal bottom bar */
+/* Consolidated minimal bottom bar with legal links */
 .main-footer .footer-bottom {
   padding: 20px 0 !important;
   border-top: 1px solid rgba(245, 239, 230, 0.12) !important;
@@ -221,19 +265,50 @@
   flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 5px !important;
   text-align: center !important;
+  gap: 6px !important;
 }
 
 .main-footer .copyright-text {
   margin: 0 !important;
-  font-size: 0.82rem !important;
-  color: rgba(245, 239, 230, 0.68) !important;
+  font-size: 0.84rem !important;
+  color: rgba(245, 239, 230, 0.72) !important;
   text-align: center !important;
 }
 
 .main-footer .copyright-link {
-  color: #f5efe6 !important;
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+}
+
+.main-footer .copyright-link:hover {
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+}
+
+.main-footer .footer-legal-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.main-footer .footer-legal-link {
+  font-size: 0.84rem;
+  color: rgba(245, 239, 230, 0.82);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.main-footer .footer-legal-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.main-footer .footer-legal-sep {
+  color: rgba(245, 239, 230, 0.45);
+  font-size: 0.84rem;
 }
 
 @media screen and (max-width: 991px) {
@@ -261,5 +336,17 @@
   .main-footer .footer-col-group {
     padding-left: 0;
     border-left: none;
+  }
+
+  .main-footer .footer-col-items .footer-link {
+    white-space: normal;
+  }
+
+  .main-footer .copyright-box {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 8px !important;
   }
 }

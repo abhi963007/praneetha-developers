@@ -192,6 +192,47 @@ export const PROPERTIES_DATA: PropertyItem[] = [
   },
 ];
 
+const COMING_SOON_CATEGORIES: Record<
+  string,
+  {
+    status: string;
+    eyebrow: string;
+    title: string;
+    description: string;
+    image: string;
+    specs: { label: string; value: string }[];
+  }
+> = {
+  'villas-upcoming': {
+    status: 'Upcoming · Coming Soon',
+    eyebrow: 'Kardanur / Mokila Growth Corridor',
+    title: 'Upcoming Mokila Villa Enclave',
+    description:
+      'A landmark gated community of G+2 luxury villas along the Mokila–Kardanur corridor, master-planned around expansive open greens, wide internal avenues, and a grand residents clubhouse.',
+    image: '/images/how-we-work-villa.jpg',
+    specs: [
+      { label: 'Typology', value: 'G+2 Luxury Villas' },
+      { label: 'Road Network', value: '40 ft Spinal · 30 ft Avenues' },
+      { label: 'Master Plan', value: 'Grand Clubhouse & Open Greens' },
+      { label: 'Status', value: 'Pre-Launch · Coming Soon' },
+    ],
+  },
+  'plots-coming-soon': {
+    status: 'Residential Plots · Coming Soon',
+    eyebrow: 'Mokila – Shankarpally Corridor',
+    title: 'Residential Plotted Communities',
+    description:
+      'Upcoming HMDA-planned residential plotted enclaves along the Mokila–Shankarpally growth belt, crafted with clear titles, wide internal roads, and green avenues.',
+    image: '/images/portfolio-plots.jpg',
+    specs: [
+      { label: 'Development', value: 'HMDA-Planned Villa Plots' },
+      { label: 'Location', value: 'Mokila – Shankarpally Belt' },
+      { label: 'Documentation', value: 'Clear Titles & Approvals' },
+      { label: 'Status', value: 'Pre-Launch · Coming Soon' },
+    ],
+  },
+};
+
 export function PropertyCard({
   property,
   variant = 'properties',
@@ -473,8 +514,7 @@ export function PropertiesListingSection() {
               </div>
 
               <div className="prop-detail__info">
-                <p className="prop-detail__loc">{selectedProperty.location}</p>
-                <h2 className="prop-detail__title">{selectedProperty.name}</h2>
+                <p className="prop-detail__loc">Project Overview &amp; Specifications</p>
                 <p className="prop-detail__overview">{selectedProperty.overview}</p>
 
                 <div className="prop-detail__specs">
@@ -658,13 +698,80 @@ export function PropertiesListingSection() {
                 );
               })}
             </div>
-            <div className="w-dyn-list">
-              <div role="list" className="property-grid w-dyn-items">
-                {visibleProperties.map((property) => (
-                  <PropertyCard key={property.slug} property={property} variant="properties" />
-                ))}
+            {visibleProperties.length > 0 ? (
+              <div className="w-dyn-list">
+                <div role="list" className="property-grid w-dyn-items">
+                  {visibleProperties.map((property) => (
+                    <PropertyCard key={property.slug} property={property} variant="properties" />
+                  ))}
+                </div>
               </div>
-            </div>
+            ) : (
+              (() => {
+                const comingSoon = COMING_SOON_CATEGORIES[activeCategory] ?? {
+                  status: 'Upcoming · Coming Soon',
+                  eyebrow: 'Praneeta Portfolio',
+                  title: 'New Community Launching Soon',
+                  description:
+                    'Architectural master plans for this community are currently underway. Connect with our advisory team for pre-launch details or explore our active gated enclaves.',
+                  image: '/images/hero-properties.png',
+                  specs: [
+                    { label: 'Location', value: 'Mokila – Shankarpally Belt' },
+                    { label: 'Standards', value: 'HMDA & TG-RERA Compliant' },
+                    { label: 'Status', value: 'Pre-Launch · Coming Soon' },
+                    { label: 'Advisory', value: 'Early Access Open' },
+                  ],
+                };
+                return (
+                  <div className="prop-detail prop-detail--upcoming" role="status" aria-live="polite">
+                    <div className="prop-detail__top">
+                      <Link to="/properties" className="prop-detail__back">
+                        ← All Projects
+                      </Link>
+                      <span className="prop-detail__status">{comingSoon.status}</span>
+                    </div>
+
+                    <div className="prop-detail__hero-grid">
+                      <div className="prop-detail__main-stage prop-detail__main-stage--static">
+                        <img
+                          src={comingSoon.image}
+                          alt={comingSoon.title}
+                          className="prop-detail__main-img"
+                        />
+                      </div>
+
+                      <div className="prop-detail__info">
+                        <div>
+                          <p className="prop-detail__loc">{comingSoon.eyebrow}</p>
+                          <h2 className="prop-detail__title prop-detail__title--upcoming">
+                            {comingSoon.title}
+                          </h2>
+                        </div>
+                        <p className="prop-detail__overview">{comingSoon.description}</p>
+
+                        <div className="prop-detail__specs">
+                          {comingSoon.specs.map((spec) => (
+                            <div key={spec.label}>
+                              <span className="prop-detail__spec-label">{spec.label}</span>
+                              <span className="prop-detail__spec-val">{spec.value}</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        <div className="prop-detail__actions">
+                          <Link to="/contact-us" className="prop-detail__btn-primary">
+                            Enquire for Pre-Launch →
+                          </Link>
+                          <Link to="/properties" className="prop-detail__btn-secondary">
+                            Explore Active Projects
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })()
+            )}
           </>
         )}
 

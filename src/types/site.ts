@@ -1,4 +1,14 @@
-export type PageKey = 'home' | 'about' | 'properties' | 'gallery' | 'services' | 'insights' | 'contact';
+export type PageKey =
+  | 'home'
+  | 'about'
+  | 'properties'
+  | 'gallery'
+  | 'services'
+  | 'partner'
+  | 'insights'
+  | 'contact'
+  | 'disclaimer'
+  | 'privacy';
 
 export interface PageMeta {
   key: PageKey;
@@ -44,6 +54,13 @@ export const PAGE_META: Record<PageKey, PageMeta> = {
     title: 'Services - Praneeta Developers - Luxury Villas in Hyderabad',
     wfPage: '69eb130b0dc620c786c35d6f',
   },
+  partner: {
+    key: 'partner',
+    path: '/become-a-partner',
+    label: 'Become a Partner',
+    title: 'Become a Partner - Praneeta Developers - Channel Partner Portal',
+    wfPage: '69eb130b0dc620c786c35d6f',
+  },
   insights: {
     key: 'insights',
     path: '/insights',
@@ -58,6 +75,20 @@ export const PAGE_META: Record<PageKey, PageMeta> = {
     title: 'Contact Us - Praneeta Developers - Luxury Villas in Hyderabad',
     wfPage: '69e231c0aededb9fade4ee7e',
   },
+  disclaimer: {
+    key: 'disclaimer',
+    path: '/disclaimer',
+    label: 'Disclaimer',
+    title: 'Disclaimer - Praneeta Developers - Luxury Villas in Hyderabad',
+    wfPage: '69e9f117401297ec309073a9',
+  },
+  privacy: {
+    key: 'privacy',
+    path: '/privacy-policy',
+    label: 'Privacy Policy',
+    title: 'Privacy Policy - Praneeta Developers - Luxury Villas in Hyderabad',
+    wfPage: '69e9f117401297ec309073a9',
+  },
 };
 
 export interface NavLinkItem {
@@ -71,6 +102,7 @@ export interface ProjectDropdownLink {
   label: string;
   to: string;
   badge?: string;
+  hideArrow?: boolean;
 }
 
 export interface ProjectDropdownGroup {
@@ -93,7 +125,7 @@ export const PROJECTS_DROPDOWN_GROUPS: ProjectDropdownGroup[] = [
   },
   {
     category: 'Residential Plots',
-    items: [{ label: 'Coming Soon', to: '/category/plots-coming-soon', badge: 'Soon' }],
+    items: [{ label: 'Coming Soon', to: '/category/plots-coming-soon', hideArrow: true }],
   },
 ];
 
@@ -112,9 +144,17 @@ export const FOOTER_LINKS: { label: string; to: string }[] = [
   { label: 'About Us', to: '/about-us' },
   { label: 'Projects', to: '/properties' },
   { label: 'Gallery', to: '/gallery' },
-  { label: 'Services', to: '/services' },
   { label: 'Blogs', to: '/insights' },
+  { label: 'Become a Partner', to: '/become-a-partner' },
   { label: 'Contact Us', to: '/contact-us' },
+];
+
+export const FOOTER_CATEGORY_LINKS: { label: string; to: string }[] = [
+  { label: 'Villas — Ongoing', to: '/category/villas-ongoing' },
+  { label: 'Villas — Upcoming', to: '/category/villas-upcoming' },
+  { label: 'Villas — Completed', to: '/category/villas-completed' },
+  { label: 'Apartments — Ongoing', to: '/category/apartments' },
+  { label: 'Residential Plots — Coming Soon', to: '/category/plots-coming-soon' },
 ];
 
 export const CATEGORY_LINKS: { label: string; to: string }[] = [
@@ -153,7 +193,11 @@ export function isRouteActive(pathname: string, to: string): boolean {
     );
   }
   if (to === '/become-a-partner') {
-    return norm === '/become-a-partner';
+    return (
+      norm === '/become-a-partner' ||
+      norm === '/partner' ||
+      norm === '/channel-partner'
+    );
   }
   if (to === '/contact-us') {
     return norm === '/contact-us' || norm === '/contact';
