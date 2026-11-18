@@ -19,7 +19,9 @@ export function FounderSpotlightSection() {
             <div className="abt-founder__badge-box">
               <span className="abt-founder__role-chip">Hyderabad · Since 2005</span>
               <p className="abt-founder__tagline">
-                Real Estate Developer · Entrepreneur · Urban Infrastructure Enthusiast
+                Real Estate Developer · Entrepreneur
+                <br />
+                Urban Infrastructure Enthusiast
               </p>
             </div>
           </div>

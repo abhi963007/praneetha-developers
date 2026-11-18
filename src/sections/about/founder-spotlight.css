@@ -32,7 +32,7 @@
 .abt-founder__photo-col {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .abt-founder__photo-frame {
@@ -55,28 +55,33 @@
 .abt-founder__badge-box {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding-top: 2px;
 }
 
 .abt-founder__role-chip {
-  display: inline-block;
-  width: fit-content;
-  padding: 5px 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 14px;
   border-radius: 999px;
-  background: rgba(44, 58, 46, 0.09);
-  color: #2c3a2e;
+  background: #2c3a2e;
+  color: #ffffff;
   font-family: "Inter Tight", sans-serif;
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .abt-founder__tagline {
   font-family: "Inter Tight", sans-serif;
   font-size: 13px;
-  line-height: 1.45;
-  color: #52525b;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #3f4640;
   margin: 0;
 }
 
