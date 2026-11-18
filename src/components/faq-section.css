@@ -135,10 +135,13 @@
 
 .faq-sec__cta {
   margin-top: 6px;
-  display: inline-flex;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  padding: 12px 22px;
+  padding: 13px 22px;
   border-radius: 999px;
   background: #053b20;
   color: #ffffff;
