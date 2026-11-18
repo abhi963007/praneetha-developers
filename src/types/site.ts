@@ -64,15 +64,46 @@ export interface NavLinkItem {
   label: string;
   to: string;
   itemClass: string;
+  hasDropdown?: boolean;
 }
+
+export interface ProjectDropdownLink {
+  label: string;
+  to: string;
+  badge?: string;
+}
+
+export interface ProjectDropdownGroup {
+  category: string;
+  items: ProjectDropdownLink[];
+}
+
+export const PROJECTS_DROPDOWN_GROUPS: ProjectDropdownGroup[] = [
+  {
+    category: 'Villas',
+    items: [
+      { label: 'Ongoing', to: '/category/villas-ongoing' },
+      { label: 'Upcoming', to: '/category/villas-upcoming', badge: 'New' },
+      { label: 'Completed', to: '/category/villas-completed' },
+    ],
+  },
+  {
+    category: 'Apartments',
+    items: [{ label: 'Ongoing', to: '/category/apartments' }],
+  },
+  {
+    category: 'Residential Plots',
+    items: [{ label: 'Coming Soon', to: '/category/plots-coming-soon', badge: 'Soon' }],
+  },
+];
 
 export const NAV_LINKS: NavLinkItem[] = [
   { label: 'Home', to: '/', itemClass: '_1' },
   { label: 'About Us', to: '/about-us', itemClass: '_2' },
-  { label: 'Projects', to: '/properties', itemClass: '_3' },
+  { label: 'Projects', to: '/properties', itemClass: '_3', hasDropdown: true },
   { label: 'Gallery', to: '/gallery', itemClass: '_4' },
-  { label: 'Services', to: '/services', itemClass: '_5' },
-  { label: 'Blogs', to: '/insights', itemClass: '_6' },
+  { label: 'Blogs', to: '/insights', itemClass: '_5' },
+  { label: 'Become a Partner', to: '/become-a-partner', itemClass: '_6' },
   { label: 'Contact Us', to: '/contact-us', itemClass: '_7' },
 ];
 
@@ -113,8 +144,16 @@ export function isRouteActive(pathname: string, to: string): boolean {
   if (to === '/services') {
     return norm === '/services' || norm.startsWith('/services/');
   }
-  if (to === '/insights') {
-    return norm === '/insights' || norm.startsWith('/insights/');
+  if (to === '/insights' || to === '/blogs') {
+    return (
+      norm === '/insights' ||
+      norm.startsWith('/insights/') ||
+      norm === '/blogs' ||
+      norm.startsWith('/blogs/')
+    );
+  }
+  if (to === '/become-a-partner') {
+    return norm === '/become-a-partner';
   }
   if (to === '/contact-us') {
     return norm === '/contact-us' || norm === '/contact';

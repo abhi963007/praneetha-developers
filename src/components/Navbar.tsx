@@ -1,20 +1,24 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { NAV_LINKS, isRouteActive } from '../types/site';
+import { NAV_LINKS, PROJECTS_DROPDOWN_GROUPS, isRouteActive } from '../types/site';
 import './navbar-menu.css';
 
 export function Navbar() {
   const { pathname } = useLocation();
   const isHome = isRouteActive(pathname, '/');
   const [isOpen, setIsOpen] = useState(false);
+  const [isProjectsOpen, setIsProjectsOpen] = useState(false);
+  const [isDrawerProjectsOpen, setIsDrawerProjectsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(() =>
     typeof window !== 'undefined' ? window.scrollY > 80 : false,
   );
 
   const toggleBtnRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
+  const projectsWrapRef = useRef<HTMLDivElement>(null);
+  const closeDropdownTimerRef = useRef<number | null>(null);
 
-  // Scroll detection for header morph
+  // Scroll detection for subtle elevated shadow while keeping fixed navbar visible
   useEffect(() => {
     const onScroll = () => {
       setIsScrolled(window.scrollY > 80);
@@ -24,12 +28,46 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close menu on route change
+  // Close drawer and dropdowns on route change
   useEffect(() => {
     setIsOpen(false);
+    setIsProjectsOpen(false);
+    setIsDrawerProjectsOpen(false);
   }, [pathname]);
 
-  // Lock body scroll and compensate scrollbar width to prevent layout shift
+  // Close desktop Projects dropdown on outside click or Escape key
+  useEffect(() => {
+    if (!isProjectsOpen) return;
+
+    const handlePointerDown = (e: PointerEvent) => {
+      if (projectsWrapRef.current && !projectsWrapRef.current.contains(e.target as Node)) {
+        setIsProjectsOpen(false);
+      }
+    };
+
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsProjectsOpen(false);
+      }
+    };
+
+    window.addEventListener('pointerdown', handlePointerDown);
+    window.addEventListener('keydown', handleEscape);
+    return () => {
+      window.removeEventListener('pointerdown', handlePointerDown);
+      window.removeEventListener('keydown', handleEscape);
+    };
+  }, [isProjectsOpen]);
+
+  useEffect(() => {
+    return () => {
+      if (closeDropdownTimerRef.current !== null) {
+        window.clearTimeout(closeDropdownTimerRef.current);
+      }
+    };
+  }, []);
+
+  // Lock body scroll and compensate scrollbar width when mobile drawer is open
   useEffect(() => {
     if (isOpen) {
       const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -48,7 +86,7 @@ export function Navbar() {
     }
   }, [isOpen]);
 
-  // ESC key and focus trapping inside drawer
+  // ESC key and focus trapping inside mobile drawer
   useEffect(() => {
     if (!isOpen) return;
 
@@ -95,7 +133,25 @@ export function Navbar() {
     toggleBtnRef.current?.focus();
   };
 
-  // Robust capture-phase click handler to prevent Webflow from intercepting button clicks
+  const openProjectsDropdown = () => {
+    if (closeDropdownTimerRef.current !== null) {
+      window.clearTimeout(closeDropdownTimerRef.current);
+      closeDropdownTimerRef.current = null;
+    }
+    setIsProjectsOpen(true);
+  };
+
+  const scheduleCloseProjectsDropdown = () => {
+    if (closeDropdownTimerRef.current !== null) {
+      window.clearTimeout(closeDropdownTimerRef.current);
+    }
+    closeDropdownTimerRef.current = window.setTimeout(() => {
+      setIsProjectsOpen(false);
+      closeDropdownTimerRef.current = null;
+    }, 130);
+  };
+
+  // Capture-phase click handler prevents Webflow runtime from intercepting hamburger clicks
   useEffect(() => {
     const btn = toggleBtnRef.current;
     if (!btn) return;
@@ -137,19 +193,16 @@ export function Navbar() {
                 className={`site-logo-link w-inline-block${isHome ? ' w--current' : ''}`}
               >
                 <img
-                  loading="lazy"
-                  src="/images/praneeta-logo.png"
-                  alt="Praneeta Developers"
-                  className="site-logo header site-logo-full"
-                  style={{ filter: 'none', height: 'auto' }}
-                />
-                <img
-                  loading="lazy"
+                  loading="eager"
                   src="/images/praneeta-favicon.png"
-                  alt="Praneeta Developers"
-                  className="site-logo header site-logo-mark"
-                  style={{ filter: 'none', height: 'auto' }}
+                  alt=""
+                  aria-hidden="true"
+                  className="site-logo-emblem"
                 />
+                <span className="site-brand-lockup">
+                  <span className="site-brand-name">PRANEETA</span>
+                  <span className="site-brand-sub">DEVELOPERS</span>
+                </span>
               </Link>
             </div>
 
@@ -157,17 +210,111 @@ export function Navbar() {
               <nav className="desktop-nav-links" aria-label="Main navigation">
                 {NAV_LINKS.map((item) => {
                   const active = isRouteActive(pathname, item.to);
+                  if (item.hasDropdown) {
+                    return (
+                      <div
+                        key={item.to}
+                        ref={projectsWrapRef}
+                        className={`nav-dropdown-wrap${isProjectsOpen ? ' is-open' : ''}`}
+                        onMouseEnter={openProjectsDropdown}
+                        onMouseLeave={scheduleCloseProjectsDropdown}
+                      >
+                        <button
+                          type="button"
+                          className={`desktop-nav-link nav-dropdown-trigger${active ? ' w--current' : ''}${isProjectsOpen ? ' is-open' : ''}`}
+                          aria-expanded={isProjectsOpen}
+                          aria-haspopup="true"
+                          aria-controls="desktop-projects-dropdown"
+                          onClick={() => setIsProjectsOpen((prev) => !prev)}
+                        >
+                          <span>{item.label}</span>
+                          <svg
+                            className="nav-dropdown-chevron"
+                            width="11"
+                            height="11"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            aria-hidden="true"
+                          >
+                            <path
+                              d="M2.5 4.5L6 8L9.5 4.5"
+                              stroke="currentColor"
+                              strokeWidth="1.7"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+
+                        <div
+                          id="desktop-projects-dropdown"
+                          className={`nav-dropdown-panel${isProjectsOpen ? ' is-open' : ''}`}
+                          role="region"
+                          aria-label="Project categories"
+                        >
+                          <div className="nav-dropdown-sections">
+                            {PROJECTS_DROPDOWN_GROUPS.map((group) => (
+                              <div key={group.category} className="nav-dropdown-group">
+                                <span className="nav-dropdown-cat">{group.category}</span>
+                                <ul className="nav-dropdown-list">
+                                  {group.items.map((sub) => (
+                                    <li key={sub.to} className="nav-dropdown-item">
+                                      <Link
+                                        to={sub.to}
+                                        className={`nav-dropdown-sublink${pathname === sub.to ? ' is-active' : ''}`}
+                                        onClick={() => setIsProjectsOpen(false)}
+                                      >
+                                        <span className="nav-dropdown-sublabel">{sub.label}</span>
+                                        <span className="nav-dropdown-right">
+                                          {sub.badge && (
+                                            <span className="nav-dropdown-badge">{sub.badge}</span>
+                                          )}
+                                          <svg
+                                            className="nav-dropdown-item-arrow"
+                                            width="12"
+                                            height="12"
+                                            viewBox="0 0 12 12"
+                                            fill="none"
+                                            aria-hidden="true"
+                                          >
+                                            <path
+                                              d="M4.5 2.5L8 6L4.5 9.5"
+                                              stroke="currentColor"
+                                              strokeWidth="1.5"
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                            />
+                                          </svg>
+                                        </span>
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ))}
+                          </div>
+                          <div className="nav-dropdown-footer">
+                            <span className="nav-dropdown-hint">Mokila – Shankarpally Belt</span>
+                            <Link
+                              to="/properties"
+                              className="nav-dropdown-all"
+                              onClick={() => setIsProjectsOpen(false)}
+                            >
+                              <span>All Projects</span>
+                              <span aria-hidden="true">→</span>
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+
                   return (
                     <Link
                       key={item.to}
                       to={item.to}
                       aria-current={active ? 'page' : undefined}
                       className={`desktop-nav-link${active ? ' w--current' : ''}`}
-                      onClick={() => {
-                        if (item.to === '/#gallery' && pathname === '/') {
-                          document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' });
-                        }
-                      }}
                     >
                       {item.label}
                     </Link>
@@ -220,7 +367,7 @@ export function Navbar() {
         aria-hidden="true"
       />
 
-      {/* Full-height slide-in navigation drawer */}
+      {/* Slide-in navigation drawer for tablet & mobile viewports */}
       <aside
         id="main-navigation-drawer"
         ref={drawerRef}
@@ -260,6 +407,76 @@ export function Navbar() {
             <ul className="drawer-menu-list">
               {NAV_LINKS.map((item, idx) => {
                 const active = isRouteActive(pathname, item.to);
+                if (item.hasDropdown) {
+                  return (
+                    <li key={item.to} className="drawer-menu-item">
+                      <div className="drawer-link-mask">
+                        <button
+                          type="button"
+                          aria-expanded={isDrawerProjectsOpen}
+                          className={`drawer-nav-link drawer-nav-trigger${active ? ' is-active' : ''}`}
+                          onClick={() => setIsDrawerProjectsOpen((prev) => !prev)}
+                        >
+                          <span className="drawer-link-left">
+                            <span className="drawer-nav-index">
+                              {String(idx + 1).padStart(2, '0')}
+                            </span>
+                            <span className="drawer-nav-label">{item.label}</span>
+                          </span>
+                          <span className="drawer-projects-right">
+                            {active && <span className="drawer-active-dot" aria-label="Current page" />}
+                            <svg
+                              className={`drawer-projects-chevron${isDrawerProjectsOpen ? ' is-open' : ''}`}
+                              width="18"
+                              height="18"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M4 6L8 10L12 6"
+                                stroke="currentColor"
+                                strokeWidth="1.8"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </span>
+                        </button>
+                      </div>
+
+                      {isDrawerProjectsOpen && (
+                        <div className="drawer-projects-sub">
+                          {PROJECTS_DROPDOWN_GROUPS.map((group) => (
+                            <div key={group.category} className="drawer-projects-group">
+                              <span className="drawer-projects-cat">{group.category}</span>
+                              <div className="drawer-projects-pills">
+                                {group.items.map((sub) => (
+                                  <Link
+                                    key={sub.to}
+                                    to={sub.to}
+                                    className={`drawer-projects-pill${pathname === sub.to ? ' is-active' : ''}`}
+                                    onClick={closeMenu}
+                                  >
+                                    {sub.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                          <Link
+                            to="/properties"
+                            className="drawer-projects-all"
+                            onClick={closeMenu}
+                          >
+                            View All Projects →
+                          </Link>
+                        </div>
+                      )}
+                    </li>
+                  );
+                }
+
                 return (
                   <li key={item.to} className="drawer-menu-item">
                     <div className="drawer-link-mask">
@@ -284,7 +501,7 @@ export function Navbar() {
             </ul>
           </nav>
 
-          {/* Bottom Zone: Praneeta Developers Contact Card — Compact & 100% Viewport Fit */}
+          {/* Bottom Zone: Praneeta Developers Contact Card */}
           <div className="drawer-contact-block">
             <div className="drawer-contact-card">
               <div className="drawer-contact-top-row">
@@ -334,6 +551,18 @@ export function Navbar() {
                       />
                     </a>
                     <a
+                      href="#social-instagram"
+                      className="drawer-social-btn"
+                      aria-label="Instagram"
+                    >
+                      <img
+                        src="/images/69e9c2dde049fa499ad9b3f2_4.svg"
+                        loading="lazy"
+                        alt=""
+                        className="drawer-social-icon"
+                      />
+                    </a>
+                    <a
                       href="#social-linkedin"
                       className="drawer-social-btn"
                       aria-label="LinkedIn"
@@ -346,24 +575,31 @@ export function Navbar() {
                       />
                     </a>
                     <a
+                      href="#social-youtube"
+                      className="drawer-social-btn"
+                      aria-label="YouTube"
+                    >
+                      <svg
+                        className="drawer-social-icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#191d19"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <rect x="2" y="5" width="20" height="14" rx="4" />
+                        <polygon points="10 9 16 12 10 15 10 9" fill="#191d19" stroke="none" />
+                      </svg>
+                    </a>
+                    <a
                       href="#social-twitter"
                       className="drawer-social-btn"
-                      aria-label="Twitter / X"
+                      aria-label="X (Twitter)"
                     >
                       <img
                         src="/images/69e9c2dd29fa8e3712f37cf5_3.svg"
-                        loading="lazy"
-                        alt=""
-                        className="drawer-social-icon"
-                      />
-                    </a>
-                    <a
-                      href="#social-instagram"
-                      className="drawer-social-btn"
-                      aria-label="Instagram"
-                    >
-                      <img
-                        src="/images/69e9c2dde049fa499ad9b3f2_4.svg"
                         loading="lazy"
                         alt=""
                         className="drawer-social-icon"
