@@ -195,36 +195,20 @@ export function ScrollHero({ children }: { children: ReactNode }) {
           />
           <div className="scroll-hero__shade" />
           <div ref={introRef} className="scroll-hero__intro">
-            <p className="scroll-hero__intro-title">Praneeta Developers</p>
-            <div className="scroll-hero__intro-divider" aria-hidden="true">
-              <span className="scroll-hero__intro-line scroll-hero__intro-line--left" />
-              <svg
-                className="scroll-hero__intro-emblem"
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect
-                  x="3.1"
-                  y="3.1"
-                  width="9.8"
-                  height="9.8"
-                  transform="rotate(45 8 8)"
-                  stroke="#e2db98"
-                  strokeWidth="1.35"
-                />
-                <rect
-                  x="5.7"
-                  y="5.7"
-                  width="4.6"
-                  height="4.6"
-                  transform="rotate(45 8 8)"
-                  fill="#e2db98"
-                />
-              </svg>
-              <span className="scroll-hero__intro-line scroll-hero__intro-line--right" />
+            <div className="scroll-hero__intro-eyebrow">
+              <span className="scroll-hero__intro-eyeline scroll-hero__intro-eyeline--left" aria-hidden="true" />
+              <span className="scroll-hero__intro-welcome">WELCOME TO</span>
+              <span className="scroll-hero__intro-eyeline scroll-hero__intro-eyeline--right" aria-hidden="true" />
+            </div>
+            <p className="scroll-hero__intro-title">
+              P<span className="scroll-hero__intro-swash">R</span>ANEETA DEVELOPERS
+            </p>
+            <p className="scroll-hero__intro-subtitle">
+              Crafting timeless spaces for modern living.
+            </p>
+            <div className="scroll-hero__intro-flare" aria-hidden="true">
+              <span className="scroll-hero__intro-flare-line" />
+              <span className="scroll-hero__intro-flare-glow" />
             </div>
           </div>
           <div ref={contentRef} className="scroll-hero__content">
