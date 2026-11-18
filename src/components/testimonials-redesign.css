@@ -32,7 +32,7 @@
   align-items: center;
   text-align: center;
   gap: 14px;
-  max-width: 720px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -75,10 +75,11 @@
 
 .abt-testimonials__heading {
   font-family: var(--_font-family---primary-font, Rubik, sans-serif) !important;
-  font-size: clamp(1.85rem, 3vw, 2.55rem) !important;
+  font-size: clamp(1.55rem, 2.4vw, 2.3rem) !important;
   font-weight: 400 !important;
   letter-spacing: -0.025em !important;
   line-height: 1.15 !important;
+  white-space: nowrap;
   color: #1c1c1a !important;
   margin: 0 !important;
 }
@@ -88,6 +89,7 @@
   font-size: 1rem;
   line-height: 1.65;
   color: #52525b;
+  max-width: 680px;
   margin: 0;
 }
 
@@ -255,6 +257,10 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .abt-testimonials__heading {
+    white-space: normal;
+  }
+
   .abt-testimonials__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
