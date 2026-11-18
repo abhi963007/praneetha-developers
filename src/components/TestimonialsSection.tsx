@@ -1,205 +1,205 @@
-import { Fragment } from 'react';
+import { useEffect, useState } from 'react';
+import './testimonials-redesign.css';
 
-interface ReviewCardItem {
+interface TestimonialItem {
+  id: string;
+  projectTag: string;
   text: string;
-  avatar: string;
-  avatarAlt: string;
   name: string;
+  initials: string;
   designation: string;
-  sideImage: string;
-  sideImageAlt: string;
 }
 
-const RTL_GROUPS: ReviewCardItem[][] = [
-  [
-    {
-      text: 'Walking into an already-occupied Praneeta community gave our family total confidence. The structural quality, peaceful Mokila greenery, and transparent legal docket were everything promised.',
-      avatar: '/images/69e9ddc2ce892cd5dab31b63_Mask%20group.avif',
-      avatarAlt: 'Homeowner portrait',
-      name: 'Raghavendra Rao M.',
-      designation: 'Owner, Amity Villas',
-      sideImage: '/images/69ec75b8d60a85ff42ffc2a6_1.avif',
-      sideImageAlt: 'Praneeta homeowner portrait',
-    },
-    {
-      text: 'We looked at 3 BHK apartments in Kokapet costing ₹1.9 Cr, then visited The Santorini Villas. Getting an independent villa on our own 222 Sq. Yd plot in Mokila was an easy decision.',
-      avatar: '/images/69e9e6a7f57e9021ae28555e_5.avif',
-      avatarAlt: 'Homeowner portrait',
-      name: 'Deepika & Karthik V.',
-      designation: 'Buyers, The Santorini Villas',
-      sideImage: '/images/69ec7641aabd0693926183c3_2.avif',
-      sideImageAlt: 'Praneeta homeowner portrait',
-    },
-  ],
-  [
-    {
-      text: 'The courtyard design keeps the house remarkably cool even in May. Clear milestone updates and direct access to leadership made fit-outs effortless.',
-      avatar: '/images/69e9ddc2ce892cd5dab31b63_Mask%20group.avif',
-      avatarAlt: 'Homeowner portrait',
-      name: 'Suresh Babu N.',
-      designation: 'Owner, The Patio',
-      sideImage: '/images/69ec75b8d60a85ff42ffc2a6_1.avif',
-      sideImageAlt: 'Praneeta homeowner portrait',
-    },
-    {
-      text: 'Clients immediately appreciate the ₹1.5–2 Cr entry price point combined with delivered proof at Amity Villas. Praneeta’s CP support and timely payouts make them effortless to recommend.',
-      avatar: '/images/69e9e6a7f57e9021ae28555e_5.avif',
-      avatarAlt: 'Channel partner portrait',
-      name: 'Lakshmi Prasanna K.',
-      designation: 'Channel Partner',
-      sideImage: '/images/69ec7641aabd0693926183c3_2.avif',
-      sideImageAlt: 'Channel partner portrait',
-    },
-  ],
-];
-
-const LTR_GROUPS: ReviewCardItem[][] = [
-  [
-    {
-      text: 'Walking into an already-occupied Praneeta community gave our family total confidence. The structural quality, peaceful Mokila greenery, and transparent legal docket were everything promised.',
-      avatar: '/images/69e9e6a7f57e9021ae28555e_5.avif',
-      avatarAlt: 'Homeowner portrait',
-      name: 'Raghavendra Rao M.',
-      designation: 'Owner, Amity Villas',
-      sideImage: '/images/69f5e1730184d2574624b2b4_Frame%2035.avif',
-      sideImageAlt: 'Praneeta homeowner portrait',
-    },
-    {
-      text: 'We looked at 3 BHK apartments in Kokapet costing ₹1.9 Cr, then visited The Santorini Villas. Getting an independent villa on our own 222 Sq. Yd plot in Mokila was an easy decision.',
-      avatar: '/images/69e9ddc2ce892cd5dab31b63_Mask%20group.avif',
-      avatarAlt: 'Homeowner portrait',
-      name: 'Deepika & Karthik V.',
-      designation: 'Buyers, The Santorini Villas',
-      sideImage:
-        '/images/69f5e18ba43f0976903809ac_QmaRG9f7iTt3uTnk7jYEv7JKSKY2RFNLuytqSGT21tbKse%202.avif',
-      sideImageAlt: 'Praneeta homeowner portrait',
-    },
-  ],
-  [
-    {
-      text: 'The courtyard design keeps the house remarkably cool even in May. Clear milestone updates and direct access to leadership made fit-outs effortless.',
-      avatar: '/images/69e9e6a7f57e9021ae28555e_5.avif',
-      avatarAlt: 'Homeowner portrait',
-      name: 'Suresh Babu N.',
-      designation: 'Owner, The Patio',
-      sideImage: '/images/69f5e1730184d2574624b2b4_Frame%2035.avif',
-      sideImageAlt: 'Praneeta homeowner portrait',
-    },
-    {
-      text: 'Clients immediately appreciate the ₹1.5–2 Cr entry price point combined with delivered proof at Amity Villas. Praneeta’s CP support and timely payouts make them effortless to recommend.',
-      avatar: '/images/69e9ddc2ce892cd5dab31b63_Mask%20group.avif',
-      avatarAlt: 'Channel partner portrait',
-      name: 'Lakshmi Prasanna K.',
-      designation: 'Channel Partner',
-      sideImage:
-        '/images/69f5e18ba43f0976903809ac_QmaRG9f7iTt3uTnk7jYEv7JKSKY2RFNLuytqSGT21tbKse%202.avif',
-      sideImageAlt: 'Channel partner portrait',
-    },
-  ],
+const TESTIMONIALS: TestimonialItem[] = [
+  {
+    id: 'amity-owner',
+    projectTag: 'Amity Villas',
+    text: 'Walking into an active Praneeta community gave our family total confidence. The structural build quality, calm Mokila greenery, and transparent HMDA & TG-RERA documentation matched every promise.',
+    name: 'Raghavendra Rao M.',
+    initials: 'RR',
+    designation: 'Homeowner · Amity Villas, Mokila',
+  },
+  {
+    id: 'santorini-buyers',
+    projectTag: 'The Santorini',
+    text: 'We evaluated 3 BHK apartments in Kokapet costing ₹1.9 Cr before visiting The Santorini Villas. Choosing an independent gated villa on our own 222 Sq. Yd plot in Mokila was an effortless upgrade.',
+    name: 'Deepika & Karthik V.',
+    initials: 'DK',
+    designation: 'IT Executives · The Santorini Villas',
+  },
+  {
+    id: 'patio-owner',
+    projectTag: 'The Patio',
+    text: 'The open courtyard architecture keeps interiors naturally ventilated even through peak summer. Direct leadership access and consistent construction updates made planning our interiors seamless.',
+    name: 'Suresh Babu N.',
+    initials: 'SB',
+    designation: 'Homeowner · The Patio Villas, Mokila',
+  },
+  {
+    id: 'meridian-nri',
+    projectTag: 'Praneeta Meridian',
+    text: 'Investing from overseas requires trust and clear milestones. Praneeta’s association with TAG Projects, structured bank approvals, and rapid Kondakal corridor growth gave us complete peace of mind.',
+    name: 'Ananya & Siddharth R.',
+    initials: 'AS',
+    designation: 'NRI Investors · Praneeta Meridian',
+  },
+  {
+    id: 'pst1-family',
+    projectTag: 'Singapur Town',
+    text: 'Living in our completed villa at Singapur Town Phase I has been rewarding in every sense—wide internal avenues, dependable community upkeep, and fast connectivity toward ORR Exit 2 and Financial District.',
+    name: 'Venkatramana P.',
+    initials: 'VP',
+    designation: 'Resident · Singapur Town Phase I',
+  },
+  {
+    id: 'partner-review',
+    projectTag: 'Channel Partner',
+    text: 'Clients immediately appreciate Praneeta’s value proposition—low-density gated communities in Mokila and Shankarpally backed by delivered track record, clean legal dockets, and transparent partner support.',
+    name: 'Lakshmi Prasanna K.',
+    initials: 'LP',
+    designation: 'Channel Partner · West Hyderabad',
+  },
 ];
 
 const STAR_INDICES = [0, 1, 2, 3, 4];
-
-function ReviewCard({ item }: { item: ReviewCardItem }) {
-  return (
-    <div className="review-box">
-      <div className="review-content">
-        <div className="star-box">
-          {STAR_INDICES.map((i) => (
-            <img
-              key={i}
-              loading="lazy"
-              src="/images/69e9de6fb8731559e92829e5_star.svg"
-              alt=""
-              className="star"
-            />
-          ))}
-        </div>
-        <p className="review-text">{item.text}</p>
-      </div>
-      <div className="review-name-box">
-        <img loading="lazy" src={item.avatar} alt={item.avatarAlt} className="review-author-image" />
-        <div>
-          <p className="review-name">{item.name}</p>
-          <p className="review-designation">{item.designation}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export function TestimonialsSection({
   variant = 'home',
 }: {
   variant?: 'home' | 'properties';
 }) {
+  const [pageIdx, setPageIdx] = useState(0);
+  const [perPage, setPerPage] = useState(3);
+
+  useEffect(() => {
+    const syncPerPage = () => {
+      if (window.innerWidth < 640) setPerPage(1);
+      else if (window.innerWidth <= 1024) setPerPage(2);
+      else setPerPage(3);
+    };
+    syncPerPage();
+    window.addEventListener('resize', syncPerPage);
+    return () => window.removeEventListener('resize', syncPerPage);
+  }, []);
+
+  const totalPages = Math.ceil(TESTIMONIALS.length / perPage);
+  const safePageIdx = Math.min(pageIdx, Math.max(0, totalPages - 1));
+  const start = safePageIdx * perPage;
+  const visibleItems = TESTIMONIALS.slice(start, start + perPage);
+
   return (
-    <section className="section">
-      <div className="w-layout-blockcontainer container w-container">
-        <div className="section-title-box">
-          <div className="subtitle-box">
-            <div className="subtitle-icon">
-              <img
-                src="/images/6ac4a1873c3838069f5e8736_icon.svg"
-                loading="lazy"
-                alt=""
-                className="subtitle-icon-img"
-              />
+    <section className="section abt-testimonials" aria-label="Client testimonials">
+      <div className="abt-testimonials__inner">
+        <div className="abt-testimonials__header">
+          <div className="abt-testimonials__title-col">
+            <div className="abt-testimonials__pill">
+              <div className="abt-testimonials__pill-dot">
+                <img src="/images/6ac4a1873c3838069f5e8736_icon.svg" alt="" />
+              </div>
+              <p className="abt-testimonials__pill-text">Client Stories</p>
             </div>
-            <p className="section-subtitle">Client Stories</p>
+            <h2 className="abt-testimonials__heading">
+              {variant === 'properties'
+                ? 'Stories from Satisfied Buyers & Channel Partners'
+                : 'Trusted by Homeowners, NRI Investors & Partners'}
+            </h2>
+            <p className="abt-testimonials__sub">
+              Verified voices from IT professionals, families, NRI buyers, and channel partners across our Mokila, Kondakal, and Shankarpally communities.
+            </p>
           </div>
-          <h2 className="section-title">
-            {variant === 'properties' ? (
-              <>
-                Stories from Satisfied<span className="sectitle-br"> </span>Buyers &amp; Sellers
-              </>
-            ) : (
-              <>
-                Trusted by Buyers,<span className="sectitle-br"> </span>Sellers &amp; Investors
-              </>
-            )}
-          </h2>
         </div>
-      </div>
-      <div className="marquee-box">
-        <div data-animate="marquee-rtl" className="marquee-inner one">
-          {RTL_GROUPS.map((group, gIdx) => (
-            <div key={gIdx} className="marquee two">
-              {group.map((item) => (
-                <Fragment key={item.name}>
-                  <ReviewCard item={item} />
-                  <div className="revoew-image-box">
-                    <img
-                      loading="lazy"
-                      src={item.sideImage}
-                      alt={item.sideImageAlt}
-                      className="review-image"
-                    />
+
+        <div className="abt-testimonials__grid" role="list">
+          {visibleItems.map((item) => (
+            <article key={item.id} className="abt-testimonials__card" role="listitem">
+              <div>
+                <div className="abt-testimonials__card-top">
+                  <div className="abt-testimonials__stars" aria-label="5 out of 5 stars">
+                    {STAR_INDICES.map((i) => (
+                      <svg
+                        key={i}
+                        width="15"
+                        height="15"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path d="M10 1.5l2.58 5.23 5.77.84-4.17 4.07.98 5.75L10 14.68l-5.16 2.71.98-5.75-4.17-4.07 5.77-.84L10 1.5z" />
+                      </svg>
+                    ))}
                   </div>
-                </Fragment>
-              ))}
-            </div>
+                  <span className="abt-testimonials__tag">{item.projectTag}</span>
+                </div>
+              </div>
+
+              <p className="abt-testimonials__quote">&ldquo;{item.text}&rdquo;</p>
+
+              <footer className="abt-testimonials__author">
+                <span className="abt-testimonials__avatar" aria-hidden="true">
+                  {item.initials}
+                </span>
+                <div className="abt-testimonials__author-meta">
+                  <p className="abt-testimonials__name">{item.name}</p>
+                  <p className="abt-testimonials__designation">{item.designation}</p>
+                </div>
+              </footer>
+            </article>
           ))}
         </div>
-        <div data-animate="marquee-ltr" className="marquee-inner two">
-          {LTR_GROUPS.map((group, gIdx) => (
-            <div key={gIdx} className="marquee two">
-              {group.map((item) => (
-                <Fragment key={item.name}>
-                  <div className="revoew-image-box">
-                    <img
-                      loading="lazy"
-                      src={item.sideImage}
-                      alt={item.sideImageAlt}
-                      className="review-image"
-                    />
-                  </div>
-                  <ReviewCard item={item} />
-                </Fragment>
+
+        {totalPages > 1 && (
+          <div className="abt-testimonials__nav" aria-label="Testimonial pagination">
+            <button
+              type="button"
+              className="abt-testimonials__arrow"
+              aria-label="Previous testimonials"
+              disabled={safePageIdx === 0}
+              onClick={() => setPageIdx((p) => Math.max(0, p - 1))}
+            >
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                <path
+                  d="M11.25 13.5L6.75 9L11.25 4.5"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+
+            <div className="abt-testimonials__dots" role="tablist" aria-label="Testimonial slides">
+              {Array.from({ length: totalPages }, (_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  role="tab"
+                  aria-selected={i === safePageIdx}
+                  aria-label={`Show testimonial set ${i + 1}`}
+                  className={`abt-testimonials__dot${i === safePageIdx ? ' is-active' : ''}`}
+                  onClick={() => setPageIdx(i)}
+                />
               ))}
             </div>
-          ))}
-        </div>
+
+            <button
+              type="button"
+              className="abt-testimonials__arrow"
+              aria-label="Next testimonials"
+              disabled={safePageIdx >= totalPages - 1}
+              onClick={() => setPageIdx((p) => Math.min(totalPages - 1, p + 1))}
+            >
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                <path
+                  d="M6.75 4.5L11.25 9L6.75 13.5"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
