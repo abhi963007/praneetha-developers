@@ -71,8 +71,8 @@ export const INSIGHT_ARTICLES: InsightArticle[] = [
       'At The Santorini Villas and Praneeta Singapur Town Phase-2, dedicated home theatre rooms bring cinema-grade family entertainment directly inside the residence, complemented by gym, kids play area, and multipurpose banquet halls.',
       'Thoughtful East and West facing Vaastu layouts ensure abundant natural daylight and cross-ventilation year-round.',
     ],
-    image: '/images/projects/patio/exterior.webp',
-    srcSet: '/images/projects/patio/exterior.webp 1200w',
+    image: '/images/projects/patio/hero-slide-2.webp',
+    srcSet: '/images/projects/patio/hero-slide-2.webp 1400w',
   },
   {
     slug: 'specifications-materials-praneeta-home',
@@ -86,8 +86,8 @@ export const INSIGHT_ARTICLES: InsightArticle[] = [
       'Interior finishes feature 2x4 and 2x2 Varmora glazed vitrified tiles, granite staircases with SS and glass railings, kiln-dried Teak wood PU-polished door frames, and UPVC windows with mosquito mesh tracks.',
       'Wet areas and electrical systems are equipped with Hindware concealed flush tanks and CP fittings, RAK Ceramics wall and anti-skid floor tiles, Finolex/Havells concealed copper wiring, and Legrand modular switches and MCBs with inverter backup.',
     ],
-    image: '/images/projects/meridian/living-room.jpeg',
-    srcSet: '/images/projects/meridian/living-room.jpeg 1200w',
+    image: '/images/blogs/blog-specifications-build.jpg',
+    srcSet: '/images/blogs/blog-specifications-build.jpg 1200w',
   },
   {
     slug: 'naredco-nri-one-expos-global-outreach',
