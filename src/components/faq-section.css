@@ -1,0 +1,51 @@
+/* Ensure React FAQ accordion renders and toggles cleanly without Webflow IX */
+.faq-content,
+.faq-wrapper {
+  opacity: 1 !important;
+}
+
+.faq-toggle {
+  background: transparent;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-toggle:focus-visible {
+  outline: 2px solid #053b20;
+  outline-offset: -2px;
+  border-radius: 12px;
+}
+
+.faq-icon-box .faq-icon.minus {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.faq-icon-box .faq-icon.plus {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.faq-dropdown.is-open .faq-icon-box .faq-icon.minus {
+  opacity: 1;
+}
+
+.faq-dropdown.is-open .faq-icon-box .faq-icon.plus {
+  opacity: 0;
+}
+
+.faq-list {
+  display: grid !important;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-dropdown.is-open .faq-list {
+  grid-template-rows: 1fr;
+}
+
+.faq-list-inner {
+  overflow: hidden;
+  min-height: 0;
+}

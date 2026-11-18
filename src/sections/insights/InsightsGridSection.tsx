@@ -15,49 +15,49 @@ export interface InsightArticle {
 
 export const INSIGHT_ARTICLES: InsightArticle[] = [
   {
-    slug: 'mokila-shankarpally-2027-2028-communities',
+    slug: 'mokila-shankarpally-premier-villa-destination',
     readTime: '5 min read',
     date: 'October 2026',
-    title: 'Mokila & Shankarpally: Inside Praneeta’s 2027–2028 Gated Communities',
+    title: 'Why Mokila–Shankarpally is West Hyderabad’s Premier Villa Destination',
     summary:
-      'A closer look at our active villa and apartment portfolio across Mokila, Kondakal, and Shankarpally—from May 2027 to December 2028 handovers.',
+      'From clean low-density greens and 40 ft master roads to 20–30 minute drives to Neopolis and the Financial District, explore why families are moving to the Mokila–Kardanur belt.',
     body: [
-      'Praneeta Developers is actively delivering a curated portfolio of low-density gated communities across West Hyderabad’s fastest-growing residential belt. In Mokila, Amity Villas (6.5 acres, 76 G+2 5 BHK triplex villas) is progressing toward May 2027 handover, while The Patio Villas (20.2 acres, 175 courtyard villas) and The Santorini Villas (23 acres, 231 Greek-inspired villas) target December 2027 possession.',
-      'For high-rise apartment seekers in Kondakal Extension near Mokila, Praneeta Meridian brings an 11-floor residential tower with 88 spacious 3 BHK residences (1,900, 2,250, and 2,750 sq.ft), 3 high-speed passenger lifts, and 243 car parks across two basements, slated for December 2028 handover.',
-      'In Shankarpally, following the complete sell-out and 2023 handover of Phase-1 (39 villas), Praneeta Singapur Town Phase-2 offers 35 HMDA & TS-RERA approved G+2 4 BHK villas on 150 Sq.Yds plots with December 2027 handover.',
+      'Infrastructure around ORR Exit 2 (Kollur) and Kokapet Neopolis has transformed Mokila, Kardanur, and Shankarpally into West Hyderabad’s premier villa and residential corridor. Homebuyers enjoy 20–25 minute commutes to Neopolis Kokapet and 25–30 minute drives to the Financial District without sacrificing breathing room.',
+      'Across this corridor, Praneeta Developers delivers low-density G+2 gated communities including Amity Villas, The Patio Villas, Santorini Villas, and Praneeta Singapur Town Phase-2—complemented by upcoming Kardanur–Mokila layouts engineered with 40 ft spinal roads and 30 ft internal avenues.',
+      'For IT leaders, business owners, and NRI families looking for long-term land value alongside serene everyday living, the Mokila–Shankarpally belt leads West Hyderabad’s residential expansion.',
     ],
     image: '/images/projects/santorini/hero-slide-1.webp',
     srcSet: '/images/projects/santorini/hero-slide-1.webp 1200w',
   },
   {
-    slug: 'orr-exit-2-neopolis-kondakal-corridor',
-    readTime: '5 min read',
-    date: 'October 2026',
-    title: 'How ORR Exit 2, Neopolis & Kondakal IT SEZ Are Shaping West Hyderabad',
-    summary:
-      'Why families and long-term investors are choosing Mokila and Shankarpally for cleaner air, wide roads, and 10–20 minute IT corridor connectivity.',
-    body: [
-      'Infrastructure around ORR Exit 2 (Kollur) and Kokapet Neopolis has transformed Mokila, Kondakal, and Shankarpally into West Hyderabad’s premier villa and residential destination. Residents enjoy 10–15 minute access to ORR Exit 2 and Neopolis, and 20–35 minutes to Financial District and Gachibowli.',
-      'At Shankarpally, Praneeta Singapur Town Phase-2 sits just 5 minutes from Shankarpalli Railway Station, 10 minutes from Nagulapalli Railway Junction, 12 minutes from Kondakal IT SEZ, and 15 minutes from ICFAI Business School—surrounded by over 10 international schools.',
-      'Combined with pollution-free greenery and reliable groundwater zones, the Mokila–Shankarpally corridor offers space and serenity without sacrificing daily commute convenience.',
-    ],
-    image: '/images/projects/pst2/street-view.png',
-    srcSet: '/images/projects/pst2/street-view.png 1200w',
-  },
-  {
-    slug: 'hmda-rera-villa-buyer-checklist',
+    slug: 'definitive-homebuyer-checklist-tg-rera-communities',
     readTime: '6 min read',
     date: 'September 2026',
-    title: 'Before You Book a Villa or Flat: HMDA & TS-RERA Checks Every Family Should Verify',
+    title: 'The Definitive Homebuyer Checklist for TG-RERA Approved Gated Communities',
     summary:
-      'Understanding layout sanctions, TS-RERA registration numbers, and transparent construction milestones before committing to your family home.',
+      'Every statutory verification step—from TG-RERA registration numbers and HMDA layout sanctions to bank APF approvals across HDFC, ICICI, SBI, and Axis Bank.',
     body: [
-      'Verifying statutory approvals is the single most important step when evaluating an under-construction villa or apartment in Telangana. Buyers should always confirm both HMDA layout sanction details and active TS-RERA registration numbers on the official portal.',
-      'At Praneeta Developers, key communities carry transparent registrations—including Amity Villas (TS-RERA: P02400006593) and Praneeta Singapur Town Phase-2 (TS-RERA: P02400009800 and HMDA Approval 002446/HMDA/00732/SWFL/SKP2/2025).',
-      'Our Mokila site office (6-109, Mokila Village) and Gachibowli corporate office (#B-506, The Platina Building) provide complete approval dockets and stage-wise construction photo updates throughout the build.',
+      'Verifying statutory approvals is the single most important step when evaluating an under-construction villa or apartment in Telangana. Buyers should always confirm both HMDA layout sanction details and active TG-RERA registration numbers directly on the official portal.',
+      'At Praneeta Developers, flagship communities carry transparent registrations—including Amity Villas (TG-RERA: P02400006593), The Patio (P02400008328 / P02400009076), Santorini Villas (P02400009246), and Singapur Town Phase-2 (P02400009800)—with pre-approved home loans across HDFC Bank, ICICI Bank, SBI, Axis Bank, and Bajaj Housing Finance.',
+      'Our Mokila site office and Gachibowli corporate desk provide full approval dockets, road-width plans, and transparent stage-wise construction updates.',
     ],
     image: '/images/service-rera-legal.jpg',
     srcSet: '/images/service-rera-legal.jpg 1536w',
+  },
+  {
+    slug: 'apartments-vs-independent-villas-appreciation-2026',
+    readTime: '5 min read',
+    date: 'October 2026',
+    title: 'Comparing Real Estate Appreciation: Apartments vs. Independent Villas in 2026',
+    summary:
+      'How undivided land share, G+2 expandability, and low-density clubhouse living compare between luxury apartments and independent gated villas in West Hyderabad.',
+    body: [
+      'As high-rise density increases across Kokapet and Kondakal, homebuyers in the ₹1.5 Cr – ₹2+ Cr range are weighing contemporary gated apartments like Praneeta Meridian against low-density G+2 triplex and courtyard villas in Mokila.',
+      'While luxury apartments offer lock-and-leave convenience and compact community amenities, independent gated villas anchor a significantly larger undivided land share along high-growth corridors like Mokila–Shankarpally.',
+      'With possession schedules spanning December 2027 through 2029 across our ongoing villa and apartment launches, buyers can match unit typology directly to both lifestyle priorities and multi-year capital appreciation goals.',
+    ],
+    image: '/images/projects/patio/exterior.webp',
+    srcSet: '/images/projects/patio/exterior.webp 1200w',
   },
   {
     slug: 'courtyard-villas-clubhouses-deccan-living',

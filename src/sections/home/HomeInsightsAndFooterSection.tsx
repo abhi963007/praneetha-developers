@@ -2,7 +2,7 @@ import { Footer } from '../../components/Footer';
 import { PAGE_META } from '../../types/site';
 import { BlogCard, INSIGHT_ARTICLES } from '../insights/InsightsGridSection';
 
-export function HomeInsightsAndFooterSection() {
+export function HomeInsightsAndFooterSection({ showFooter = true }: { showFooter?: boolean } = {}) {
   return (
     <div className="section-wrap">
       <section className="section insight">
@@ -17,10 +17,10 @@ export function HomeInsightsAndFooterSection() {
                   className="subtitle-icon-img"
                 />
               </div>
-              <p className="section-subtitle">Praneeta Journal</p>
+              <p className="section-subtitle">News &amp; Updates</p>
             </div>
             <h2 className="section-title">
-              Hyderabad Real Estate, RERA<span className="sectitle-br"> </span>&amp; Design Guides
+              West Hyderabad Insights<span className="sectitle-br"> </span>&amp; Buyer Guides
             </h2>
           </div>
           <div className="w-dyn-list">
@@ -32,7 +32,7 @@ export function HomeInsightsAndFooterSection() {
           </div>
         </div>
       </section>
-      <Footer variant="sticky" wfPageId={PAGE_META.home.wfPage} />
+      {showFooter && <Footer variant="sticky" wfPageId={PAGE_META.home.wfPage} />}
     </div>
   );
 }

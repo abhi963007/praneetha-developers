@@ -21,14 +21,16 @@ export function HomeVideoSection() {
         </div>
         <div className="cta-content-box">
           <div className="cta-content">
-            <h2 className="cta-title">Designed for Serene Living</h2>
-            <p className="cta-text _2">Gated Mokila villas crafted for daylight, greenery, and family life.</p>
+            <h2 className="cta-title">Timeless Architecture</h2>
+            <p className="cta-text _2">
+              &ldquo;Architecture should speak of its time and place, but yearn for timelessness. We build environments where families grow, thrive, and create lasting legacies.&rdquo;
+            </p>
             <div className="cta-button">
-              <Link to="/properties" data-wf--primary-button--variant="base" className="primary-button w-inline-block">
+              <Link to="/contact-us" data-wf--primary-button--variant="base" className="primary-button w-inline-block">
                 <div className="primary-button-flex">
                   <div className="primary-button-text-wrap">
-                    <div className="primary-button-text">Explore Properties</div>
-                    <div className="primary-button-text-hover">Explore Properties</div>
+                    <div className="primary-button-text">Get in Touch</div>
+                    <div className="primary-button-text-hover">Get in Touch</div>
                   </div>
                   <div className="primary-button-arrow-wrapper">
                     <div className="primary-button-arrow-wrap">

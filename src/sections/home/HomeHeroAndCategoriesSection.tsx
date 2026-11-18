@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { ScrollHero } from '../../components/ScrollHero';
@@ -35,7 +35,11 @@ const PRIMARY_CATEGORIES = [
   },
 ];
 
-export function HomeHeroAndCategoriesSection() {
+interface HomeHeroAndCategoriesSectionProps {
+  afterHero?: ReactNode;
+}
+
+export function HomeHeroAndCategoriesSection({ afterHero }: HomeHeroAndCategoriesSectionProps = {}) {
   const [modalOpen, setModalOpen] = useState(false);
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
@@ -327,6 +331,7 @@ export function HomeHeroAndCategoriesSection() {
           </div>,
           document.body,
         )}
+      {afterHero}
       <section className="section cat">
         <div className="hero-icon-box">
           <img

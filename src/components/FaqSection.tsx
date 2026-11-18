@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './faq-section.css';
 
 interface FaqSectionProps {
   variant?: 'home' | 'about';
@@ -7,24 +9,20 @@ interface FaqSectionProps {
 
 const FAQ_ITEMS = [
   {
-    q: 'What makes Praneeta Sovereign Villas priced at ₹1.5 Cr – ₹2.0 Cr unique in Mokila?',
-    a: 'Most gated-community triplex villas along the Mokila–Kokapet belt now start upwards of ₹3 Cr. Praneeta Sovereign Villas offers independent 180–260 Sq. Yd plots with 2,250–2,850 Sq. Ft. triplex architecture, HMDA planning standards, and a 20,000+ Sq. Ft. clubhouse between ₹1.50 Cr and ₹2.00 Cr.',
+    q: 'Are all Praneeta Developers projects TG-RERA approved?',
+    a: 'Yes. Every project is fully registered with TG-RERA before public launch. Individual RERA registration numbers are displayed on each project page and documentation.',
   },
   {
-    q: 'Are Praneeta Developers projects TG-RERA registered and bank loan approved?',
-    a: 'Yes. Our ongoing and completed communities carry official TG-RERA registrations (including Santorini Villas P02400009246, Amity Villas P02400006593, and The Patio P02400009069) with HMDA-approved layouts and home loan tie-ups across SBI, HDFC, ICICI Bank, and Axis Bank.',
+    q: 'Which major banks are approved for home loans across your projects?',
+    a: 'Our projects are pre-approved by major financial institutions including HDFC Bank, ICICI Bank, State Bank of India (SBI), Axis Bank, and Bajaj Housing Finance.',
   },
   {
-    q: 'How well connected are Mokila projects to Financial District, Neopolis & ORR?',
-    a: 'Our corporate hub and flagship villa communities in Mokila sit roughly 12 minutes from ORR Exit 2 (Kollur), 18 minutes from Kokapet Neopolis SEZ, 25 minutes from Financial District / Wipro Circle, and within 8 minutes of premier international schools.',
+    q: 'What are the typical possession timelines for ongoing villa communities?',
+    a: 'Delivery schedules range from December 2027 through 2029 depending on the specific phase and project selected. Detailed timelines are codified in buyer agreements.',
   },
   {
-    q: 'Can buyers see completed Praneeta villas before booking an ongoing unit?',
-    a: 'Yes. We actively encourage prospective homeowners to walk through our completed, occupied communities—Praneeta Amity Villas and Praneeta The Patio—during your guided site visit so you can inspect construction finish, road widths, and clubhouse maintenance first-hand.',
-  },
-  {
-    q: 'How do Channel Partners and Real Estate Consultants register with Praneeta Developers?',
-    a: 'Consultants and TG-RERA registered realtors can submit their agency credentials directly via our Contact / Channel Partner desk. Our dedicated CP Desk completes empanelment within 24–48 hours with transparent brokerage slabs and milestone payouts.',
+    q: 'What road infrastructure supports the upcoming Mokila/Kardanur development?',
+    a: 'The layout features a 40 ft spinal master road and 30 ft internal access roads designed to comfortably accommodate G+2 residential approvals and underground utility infrastructure.',
   },
 ];
 
@@ -40,6 +38,7 @@ const FAQ_WIDS = {
 };
 
 export function FaqSection({ variant = 'home', ptZero = true }: FaqSectionProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
   const ids = FAQ_WIDS[variant];
   const imgSizes =
     variant === 'home'
@@ -66,7 +65,7 @@ export function FaqSection({ variant = 'home', ptZero = true }: FaqSectionProps)
           </h2>
         </div>
         <div className="w-layout-grid faq-grid">
-          <div data-w-id={ids.content} style={{ opacity: 0 }} className="faq-content">
+          <div data-w-id={ids.content} className="faq-content">
             <div className="faq-title-box">
               <p className="faq-text-two">
                 We've heard it all. Here's everything you need to know.
@@ -114,34 +113,44 @@ export function FaqSection({ variant = 'home', ptZero = true }: FaqSectionProps)
               </div>
             </div>
           </div>
-          <div data-w-id={ids.wrapper} style={{ opacity: 0 }} className="faq-wrapper">
+          <div data-w-id={ids.wrapper} className="faq-wrapper">
             <div className="faq-dropdown-box">
-              {FAQ_ITEMS.map((item) => (
-                <div key={item.q} className="faq-dropdown">
-                  <div className="faq-toggle">
-                    <p className="faq-title">{item.q}</p>
-                    <div className="faq-icon-box">
-                      <img
-                        loading="lazy"
-                        src="/images/69e7393ffd037b158b3c606b_Union.svg"
-                        alt=""
-                        className="faq-icon plus"
-                      />
-                      <img
-                        loading="lazy"
-                        src="/images/69e7393faa012b60a19851fe_Union2.svg"
-                        alt=""
-                        className="faq-icon minus"
-                      />
+              {FAQ_ITEMS.map((item, idx) => {
+                const isOpen = openIndex === idx;
+                return (
+                  <div key={item.q} className={`faq-dropdown${isOpen ? ' is-open' : ''}`}>
+                    <button
+                      type="button"
+                      className="faq-toggle"
+                      aria-expanded={isOpen}
+                      onClick={() => setOpenIndex((prev) => (prev === idx ? null : idx))}
+                    >
+                      <p className="faq-title">{item.q}</p>
+                      <div className="faq-icon-box" aria-hidden="true">
+                        <img
+                          loading="lazy"
+                          src="/images/69e7393ffd037b158b3c606b_Union.svg"
+                          alt=""
+                          className="faq-icon plus"
+                        />
+                        <img
+                          loading="lazy"
+                          src="/images/69e7393faa012b60a19851fe_Union2.svg"
+                          alt=""
+                          className="faq-icon minus"
+                        />
+                      </div>
+                    </button>
+                    <div className="faq-list">
+                      <div className="faq-list-inner">
+                        <div className="faq-dropdown-content">
+                          <p className="faq-dropdown-text">{item.a}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="faq-list">
-                    <div className="faq-dropdown-content">
-                      <p className="faq-dropdown-text">{item.a}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
