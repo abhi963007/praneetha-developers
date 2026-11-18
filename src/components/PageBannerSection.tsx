@@ -9,7 +9,7 @@ interface PageBannerSectionProps {
 }
 
 const DEFAULT_SUBTITLES: Record<string, string> = {
-  'About Us': 'Crafting enduring gated communities across Mokila & Shankarpally since 2005.',
+  'About Us': 'Building Luxury Landmarks in West Hyderabad',
   Properties: 'Explore HMDA & TS-RERA registered luxury villas and apartments across Mokila, Kondakal & Shankarpally.',
   'Projects by Praneeta Developers':
     'Explore HMDA & TG-RERA registered luxury villas and apartments across Mokila, Kondakal & Shankarpally.',

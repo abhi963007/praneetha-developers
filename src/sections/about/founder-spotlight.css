@@ -160,76 +160,6 @@
   background: rgba(44, 58, 46, 0.1);
 }
 
-/* ── Why Choose Pillars ── */
-.abt-why {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.abt-why__header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 14px;
-  max-width: 680px;
-  margin: 0 auto;
-}
-
-.abt-why__heading {
-  font-family: var(--_font-family---primary-font, Rubik, sans-serif) !important;
-  font-size: clamp(1.75rem, 2.8vw, 2.35rem) !important;
-  font-weight: 400 !important;
-  letter-spacing: -0.02em !important;
-  line-height: 1.18 !important;
-  color: #1c1c1a !important;
-  margin: 0 !important;
-}
-
-.abt-why__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.abt-why__card {
-  background: #ffffff;
-  border: 1px solid rgba(44, 58, 46, 0.1);
-  border-radius: 20px;
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  box-shadow: 0 8px 24px rgba(28, 28, 26, 0.03);
-}
-
-.abt-why__num {
-  font-family: Rubik, sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  color: #777b67;
-  letter-spacing: 0.06em;
-}
-
-.abt-why__title {
-  font-family: var(--_font-family---primary-font, Rubik, sans-serif) !important;
-  font-size: 19px !important;
-  font-weight: 400 !important;
-  letter-spacing: -0.01em !important;
-  line-height: 1.3 !important;
-  color: #1c1c1a !important;
-  margin: 0 !important;
-}
-
-.abt-why__text {
-  font-family: "Inter Tight", sans-serif;
-  font-size: 14.5px;
-  line-height: 1.62;
-  color: #52525b;
-  margin: 0;
-}
-
 @media screen and (max-width: 991px) {
   .abt-founder__card {
     grid-template-columns: 1fr;
@@ -238,18 +168,10 @@
   .abt-founder__photo-col {
     max-width: 320px;
   }
-
-  .abt-why__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media screen and (max-width: 639px) {
   .abt-founder {
     padding: 0 0 64px !important;
-  }
-
-  .abt-why__grid {
-    grid-template-columns: 1fr;
   }
 }

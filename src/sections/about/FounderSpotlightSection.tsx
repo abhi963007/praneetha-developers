@@ -1,39 +1,6 @@
 import { Link } from 'react-router-dom';
 import './founder-spotlight.css';
 
-const WHY_CHOOSE_PILLARS = [
-  {
-    num: '01',
-    title: 'Customer-Centric Approach',
-    text: 'Prioritizing homeowner needs and preferences at every stage for a personalized home-buying experience.',
-  },
-  {
-    num: '02',
-    title: 'Innovative Design & Amenities',
-    text: 'Contemporary architecture, spacious layouts, courtyard living, dedicated home theatres, and resort-grade clubhouses.',
-  },
-  {
-    num: '03',
-    title: 'Quality Construction',
-    text: 'RCC framed superstructures, red brick masonry, Hindware, Legrand, Finolex, RAK Ceramics, and teak wood finishes.',
-  },
-  {
-    num: '04',
-    title: 'Timely Delivery Schedule',
-    text: 'Dedicated project execution with clear handover targets across May 2027, December 2027, and December 2028.',
-  },
-  {
-    num: '05',
-    title: 'Transparent Communication',
-    text: 'Regular site construction progress photos, HMDA & TS-RERA documentation, and direct support from our team.',
-  },
-  {
-    num: '06',
-    title: 'Prime Growth Corridors',
-    text: 'Strategically situated in Mokila, Kondakal & Shankarpally—10–20 mins from ORR Exit 2, Neopolis, and Financial District.',
-  },
-];
-
 export function FounderSpotlightSection() {
   return (
     <section className="section abt-founder">
@@ -75,10 +42,10 @@ export function FounderSpotlightSection() {
                 Meet V. Devula Nayak — the driving force behind Praneeta Developers and a passionate real estate entrepreneur who has been shaping Hyderabad&apos;s luxury living landscape since 2005. With nearly 20 years of experience, he has built a solid reputation for creating thoughtfully designed residential communities that blend comfort, elegance, and functionality.
               </p>
               <p>
-                What started as a vision to bring premium living spaces to life has grown into one of Mokila&apos;s most ambitious development ventures. Under his leadership, Praneeta Developers has successfully delivered five upscale villa projects with major gated developments spanning over 2.5 million square feet across Mokila and Shankarpally.
+                What started as a vision to bring premium living spaces to life has grown into one of Mokila&apos;s most ambitious development ventures. Under his leadership—and in strategic association with TAG Projects (TAG Group)—Praneeta Developers has expanded across flagship gated communities including Amity Villas, The Patio Villas, Santorini Villas, and Praneeta Meridian, spanning over 2.5 million square feet across Mokila, Kondakal, and Shankarpally.
               </p>
               <p>
-                Known for sharp business acumen, attention to design detail, and a customer-first approach, his communities stand out for modern aesthetics, sustainable master planning, and lifestyle-driven amenities built for today&apos;s families.
+                Known for sharp business acumen, attention to design detail, and a customer-first approach, this alliance pairs institutional master planning, 30–40 ft internal avenues, and resort-grade clubhouses with clear HMDA &amp; TG-RERA compliance and reliable delivery for modern families.
               </p>
             </div>
 
@@ -90,29 +57,6 @@ export function FounderSpotlightSection() {
                 Connect with Our Team
               </Link>
             </div>
-          </div>
-        </div>
-
-        {/* ── Why Choose Praneeta Developers ── */}
-        <div className="abt-why">
-          <div className="abt-why__header">
-            <div className="abt-story__pill">
-              <div className="abt-story__pill-dot">
-                <img src="/images/6ac4a1873c3838069f5e8736_icon.svg" alt="" />
-              </div>
-              <p className="abt-story__pill-text">Why Choose Praneeta</p>
-            </div>
-            <h2 className="abt-why__heading">Crafted Around Clarity, Quality &amp; Livability</h2>
-          </div>
-
-          <div className="abt-why__grid">
-            {WHY_CHOOSE_PILLARS.map((item) => (
-              <div key={item.num} className="abt-why__card">
-                <span className="abt-why__num">{item.num}</span>
-                <h3 className="abt-why__title">{item.title}</h3>
-                <p className="abt-why__text">{item.text}</p>
-              </div>
-            ))}
           </div>
         </div>
       </div>

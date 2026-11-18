@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { CATEGORY_LINKS } from '../../types/site';
 import '../home/home-properties.css';
 import './property-detail-panel.css';
@@ -64,17 +64,18 @@ export const PROPERTIES_DATA: PropertyItem[] = [
   {
     slug: 'the-patio-mokila',
     categorySlug: 'villas-ongoing',
-    badge: 'Dec 2027 · Under-Construction',
+    badge: 'Dec 2027 · RERA P02400009076',
     rooms: '5 BHK · 175 Villas',
     sqft: '4,254–4,615 sqft',
     location: 'Mokila, West Hyderabad',
     name: 'Praneeta The Patio Villas',
     price: 'Dec 2027 Handover',
-    sublabel: '20.2 Acres · Clubhouse',
-    scale: '20.2 Acres · 175 Courtyard Villas',
+    sublabel: '20.2 Acres (Ph-I: 9.2 Ac) · Clubhouse',
+    scale: '20.2 Acres (Phase-I: 9.2 Acres) · 175 Courtyard Villas',
     handover: 'December 2027 (Under-Construction)',
+    rera: 'TG-RERA: P02400009076 / P02400008328',
     overview:
-      'A 20.2-acre luxury villa township focused on open spaces, landscaped courtyards, and seamless indoor-outdoor living—anchored by a 40,000 sq.ft central clubhouse, EV charging, guest rooms, and badminton courts.',
+      'A 20.2-acre luxury villa township (9.2-acre Phase-I layout) focused on open spaces, landscaped courtyards, and seamless indoor-outdoor living—anchored by a 40,000 sq.ft central clubhouse, EV charging, guest rooms, and badminton courts.',
     highlights: ['300 & 400 Sq.Yds', '4,254–4,615 Sft', '40,000 Sft Central Clubhouse', 'EV Charging & Guest Rooms', 'Badminton & Yoga Park'],
     mapUrl: 'https://www.google.com/maps?q=17.445401,78.194656',
     slides: [
@@ -190,6 +191,28 @@ export const PROPERTIES_DATA: PropertyItem[] = [
       { src: '/images/projects/pst1/villa-overview.webp', srcSet: '/images/projects/pst1/villa-overview.webp 1200w' },
     ],
   },
+  {
+    slug: 'upcoming-mokila-project',
+    categorySlug: 'villas-upcoming',
+    badge: 'Upcoming · Launching Soon',
+    rooms: 'G+2 Luxury Villas',
+    sqft: '40 ft Spinal · 30 ft Avenues',
+    location: 'Kardanur / Mokila Belt, West Hyderabad',
+    name: 'Upcoming Mokila Project',
+    price: 'Launching Soon',
+    sublabel: 'Kardanur / Mokila · Clubhouse',
+    scale: 'Master-Planned G+2 Villa Enclave',
+    handover: 'Upcoming (Pre-Launch)',
+    rera: 'TG-RERA Registration Under Process',
+    overview:
+      'Launching soon in the Kardanur / Mokila growth corridor of West Hyderabad, this flagship G+2 gated villa community features a 40 ft spinal master road, 30 ft internal residential avenues, expansive open greens, and a grand clubhouse.',
+    highlights: ['G+2 Luxury Villas', '40 ft Spinal Road', '30 ft Internal Avenues', 'Grand Clubhouse', 'Kardanur / Mokila Belt'],
+    slides: [
+      { src: '/images/how-we-work-villa.jpg', srcSet: '/images/how-we-work-villa.jpg 1200w' },
+      { src: '/images/portfolio-villas-ongoing.jpg', srcSet: '/images/portfolio-villas-ongoing.jpg 1200w' },
+      { src: '/images/hero-properties.png', srcSet: '/images/hero-properties.png 1200w' },
+    ],
+  },
 ];
 
 const COMING_SOON_CATEGORIES: Record<
@@ -240,61 +263,80 @@ export function PropertyCard({
   property: PropertyItem;
   variant?: 'home' | 'properties';
 }) {
+  const [slideIdx, setSlideIdx] = useState(0);
+  const totalSlides = property.slides.length;
+  const safeIdx = totalSlides > 0 ? slideIdx % totalSlides : 0;
   const sizes =
     variant === 'home' ? '100vw' : '(max-width: 767px) 100vw, (max-width: 991px) 727px, 939px';
   const detailPath = `/property/${property.slug}`;
+
+  const showPrevSlide = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (totalSlides <= 1) return;
+    setSlideIdx((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  const showNextSlide = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (totalSlides <= 1) return;
+    setSlideIdx((prev) => (prev + 1) % totalSlides);
+  };
 
   return (
     <div role="listitem" className="w-dyn-item">
       <div className="property-box">
         <div className="property-image-box">
           <div className="property-badge">{property.badge}</div>
-          <div
-            data-delay="4000"
-            data-animation="slide"
-            className="property-slider w-slider"
-            data-autoplay="false"
-            data-easing="ease"
-            data-hide-arrows="false"
-            data-disable-swipe="false"
-            data-autoplay-limit="0"
-            data-nav-spacing="3"
-            data-duration="500"
-            data-infinite="true"
-          >
-            <div className="property-slider-mask w-slider-mask">
+          <div className="prop-card-slider">
+            <div
+              className="prop-card-slider__track"
+              style={{ transform: `translate3d(-${safeIdx * 100}%, 0, 0)` }}
+            >
               {property.slides.map((slide, idx) => (
-                <div key={idx} className="property-slide w-slide">
-                  <div className="property-gallery-image-box">
-                    <img
-                      loading="lazy"
-                      src={slide.src}
-                      alt={property.name}
-                      sizes={sizes}
-                      srcSet={slide.srcSet}
-                      className="property-gallery-image"
-                    />
-                  </div>
+                <div key={slide.src + idx} className="prop-card-slider__slide">
+                  <img
+                    loading="lazy"
+                    src={slide.src}
+                    alt={`${property.name} — view ${idx + 1}`}
+                    sizes={sizes}
+                    srcSet={slide.srcSet}
+                    className="property-gallery-image"
+                  />
                 </div>
               ))}
             </div>
-            <div className="property-arrow left w-slider-arrow-left">
-              <div className="property-arrow-icon w-embed">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 8L2 8" stroke="currentColor" strokeWidth="2" />
-                  <path d="M9 15L2 8L9 1" stroke="currentColor" strokeWidth="2" />
-                </svg>
-              </div>
-            </div>
-            <div className="property-arrow right w-slider-arrow-right">
-              <div className="property-arrow-icon w-embed">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0 8H14" stroke="currentColor" strokeWidth="2" />
-                  <path d="M7 1L14 8L7 15" stroke="currentColor" strokeWidth="2" />
-                </svg>
-              </div>
-            </div>
-            <div className="property-nav w-slider-nav w-round" />
+            {totalSlides > 1 && (
+              <>
+                <button
+                  type="button"
+                  aria-label={`Previous image of ${property.name}`}
+                  className="property-arrow left prop-card-slider__arrow prop-card-slider__arrow--left"
+                  onClick={showPrevSlide}
+                >
+                  <span className="property-arrow-icon" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M16 8L2 8" stroke="currentColor" strokeWidth="2" />
+                      <path d="M9 15L2 8L9 1" stroke="currentColor" strokeWidth="2" />
+                    </svg>
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  aria-label={`Next image of ${property.name}`}
+                  className="property-arrow right prop-card-slider__arrow prop-card-slider__arrow--right"
+                  onClick={showNextSlide}
+                >
+                  <span className="property-arrow-icon" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 8H14" stroke="currentColor" strokeWidth="2" />
+                      <path d="M7 1L14 8L7 15" stroke="currentColor" strokeWidth="2" />
+                    </svg>
+                  </span>
+                </button>
+              </>
+            )}
           </div>
         </div>
         <div className="property-content">
@@ -375,6 +417,7 @@ export function PropertyCard({
 export function PropertiesListingSection() {
   const { pathname } = useLocation();
   const { slug } = useParams<{ slug?: string }>();
+  const navigate = useNavigate();
 
   const isDetailRoute = pathname.startsWith('/property/') && Boolean(slug);
   const selectedProperty = isDetailRoute
@@ -442,7 +485,7 @@ export function PropertiesListingSection() {
   const handleFilterClick = (categorySlug: string) => {
     setActiveCategory(categorySlug);
     const newPath = categorySlug === 'all' ? '/properties' : `/category/${categorySlug}`;
-    window.history.replaceState(null, '', newPath);
+    navigate(newPath);
   };
 
   const isAll = activeCategory === 'all';

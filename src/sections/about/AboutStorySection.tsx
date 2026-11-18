@@ -53,6 +53,10 @@ export function AboutStorySection() {
             Backed by three decades of construction visionaries—formerly delivering prestigious townships under Hareeni Developers—Praneeta Developers brings HMDA &amp; TS-RERA registered gated villa and high-rise apartment communities across West Hyderabad with transparent documentation and committed timelines.
           </p>
 
+          <p className="abt-story__body">
+            Through our strategic association with TAG Projects (TAG Group), we combine deep land-bank strength, shared architectural engineering, and multi-phase execution scale across flagship Mokila, Kondakal, and Kardanur developments—creating low-density luxury neighborhoods built for enduring family value.
+          </p>
+
           <div className="abt-story__stats">
             {STATS.map((s) => (
               <div key={s.num} className="abt-story__stat">

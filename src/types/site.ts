@@ -151,8 +151,10 @@ export const FOOTER_CATEGORY_LINKS: { label: string; to: string }[] = [
 
 export const CATEGORY_LINKS: { label: string; to: string }[] = [
   { label: 'Villas - Ongoing', to: '/category/villas-ongoing' },
+  { label: 'Villas (Upcoming)', to: '/category/villas-upcoming' },
   { label: 'Apartments', to: '/category/apartments' },
   { label: 'Villas - Completed', to: '/category/villas-completed' },
+  { label: 'Residential Plots (Coming Soon)', to: '/category/plots-coming-soon' },
 ];
 
 export function isRouteActive(pathname: string, to: string): boolean {

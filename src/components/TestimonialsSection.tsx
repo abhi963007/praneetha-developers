@@ -22,11 +22,11 @@ const RTL_GROUPS: ReviewCardItem[][] = [
       sideImageAlt: 'Praneeta homeowner portrait',
     },
     {
-      text: 'We looked at 3 BHK apartments in Kokapet costing ₹1.9 Cr, then visited Sovereign Villas. Getting an independent triplex villa on our own 215 Sq. Yd plot at ₹1.75 Cr was an easy decision.',
+      text: 'We looked at 3 BHK apartments in Kokapet costing ₹1.9 Cr, then visited The Santorini Villas. Getting an independent villa on our own 222 Sq. Yd plot in Mokila was an easy decision.',
       avatar: '/images/69e9e6a7f57e9021ae28555e_5.avif',
       avatarAlt: 'Homeowner portrait',
       name: 'Deepika & Karthik V.',
-      designation: 'Buyers, Sovereign Villas',
+      designation: 'Buyers, The Santorini Villas',
       sideImage: '/images/69ec7641aabd0693926183c3_2.avif',
       sideImageAlt: 'Praneeta homeowner portrait',
     },
@@ -65,11 +65,11 @@ const LTR_GROUPS: ReviewCardItem[][] = [
       sideImageAlt: 'Praneeta homeowner portrait',
     },
     {
-      text: 'We looked at 3 BHK apartments in Kokapet costing ₹1.9 Cr, then visited Sovereign Villas. Getting an independent triplex villa on our own 215 Sq. Yd plot at ₹1.75 Cr was an easy decision.',
+      text: 'We looked at 3 BHK apartments in Kokapet costing ₹1.9 Cr, then visited The Santorini Villas. Getting an independent villa on our own 222 Sq. Yd plot in Mokila was an easy decision.',
       avatar: '/images/69e9ddc2ce892cd5dab31b63_Mask%20group.avif',
       avatarAlt: 'Homeowner portrait',
       name: 'Deepika & Karthik V.',
-      designation: 'Buyers, Sovereign Villas',
+      designation: 'Buyers, The Santorini Villas',
       sideImage:
         '/images/69f5e18ba43f0976903809ac_QmaRG9f7iTt3uTnk7jYEv7JKSKY2RFNLuytqSGT21tbKse%202.avif',
       sideImageAlt: 'Praneeta homeowner portrait',

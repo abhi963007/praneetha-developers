@@ -1,6 +1,7 @@
 import { Footer } from '../components/Footer';
 import { Navbar } from '../components/Navbar';
 import { PageBannerSection } from '../components/PageBannerSection';
+import { TestimonialsSection } from '../components/TestimonialsSection';
 import { useWebflowPage } from '../hooks/useWebflowPage';
 import { AboutStorySection } from '../sections/about/AboutStorySection';
 import { FounderSpotlightSection } from '../sections/about/FounderSpotlightSection';
@@ -16,6 +17,7 @@ export function AboutPage() {
       <PageBannerSection title="About Us" />
       <AboutStorySection />
       <FounderSpotlightSection />
+      <TestimonialsSection />
       <Footer variant="base" wfPageId={PAGE_META.about.wfPage} />
     </div>
   );
