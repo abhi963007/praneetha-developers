@@ -123,11 +123,10 @@ export function BlogCard({
         className="blog-box w-inline-block"
       >
         <div className="blog-image-box">
-          <div data-parallax="trigger" className="parallax-wrapper">
+          <div className="parallax-wrapper">
             <img
               src={article.image}
               loading="lazy"
-              data-parallax="target"
               alt={article.title}
               sizes={sizes}
               srcSet={article.srcSet}

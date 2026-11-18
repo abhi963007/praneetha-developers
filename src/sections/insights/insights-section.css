@@ -50,14 +50,15 @@
   height: 100% !important;
   object-fit: cover !important;
   display: block !important;
+  transform: none !important;
 }
 
 .blog-box .blog-image-box img.parallax-image {
-  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .blog-box:hover .blog-image-box img.parallax-image {
-  transform: scale(1.06) !important;
+  transform: scale(1.05) !important;
 }
 
 .blog-box .blog-read-box {
@@ -81,7 +82,7 @@
   flex: 1 1 auto !important;
   display: flex !important;
   flex-direction: column !important;
-  padding: 18px 12px 16px !important;
+  padding: 16px 12px 14px !important;
 }
 
 .blog-box .blog-date {
