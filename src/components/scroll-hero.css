@@ -37,6 +37,83 @@
   background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0) 55%),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0) 25%);
 }
+
+/* Opening cloud brand lockup matching the Home luxury display typography */
+.scroll-hero__intro {
+  position: absolute;
+  top: clamp(180px, 36vh, 360px);
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  width: min(92%, 1100px);
+  z-index: 5;
+  text-align: center;
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+.scroll-hero__intro::before {
+  content: "";
+  position: absolute;
+  inset: -44px -64px;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 248, 234, 0.5) 0%,
+    rgba(255, 248, 234, 0.22) 48%,
+    rgba(255, 248, 234, 0) 76%
+  );
+}
+
+.scroll-hero__intro-title {
+  margin: 0;
+  font-family: "Cinzel", "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(32px, 4.8vw, 76px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background: linear-gradient(
+    95deg,
+    #261607 0%,
+    #4a2f12 18%,
+    #9b7129 34%,
+    #e2bd66 47%,
+    #b38735 60%,
+    #543716 82%,
+    #2a1808 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 14px rgba(255, 246, 224, 0.55));
+  animation: scroll-hero-intro-in 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes scroll-hero-intro-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .scroll-hero__intro {
+    top: clamp(160px, 34vh, 280px);
+    width: 92%;
+  }
+
+  .scroll-hero__intro-title {
+    white-space: normal;
+    font-size: clamp(28px, 8.2vw, 44px);
+    line-height: 1.14;
+  }
+}
 .scroll-hero__content {
   position: absolute;
   inset: 0;
@@ -86,6 +163,7 @@
   transform: none !important;
   pointer-events: auto !important;
 }
+.scroll-hero--static .scroll-hero__intro,
 .scroll-hero--static .scroll-hero__hint {
   display: none;
 }

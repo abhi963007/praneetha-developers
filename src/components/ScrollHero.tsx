@@ -14,6 +14,9 @@ const SCROLL_LENGTH_VH = 350;
 /** Scrub smoothing in seconds (0 = instant, 0.5-1 = smooth). */
 const SCRUB_SMOOTHING = 0.8;
 const VIDEO_START = 0.04;
+/** Opening cloud title ("Praneeta Developers") rises gently and fades as scroll flies through clouds. */
+const INTRO_RISE_END = 0.14;
+const INTRO_FADE_END = 0.26;
 /** Editorial CTA card fades in at the bottom-right at the end of the reveal. */
 const CONTENT_START = 0.80;
 const CONTENT_END = 0.95;
@@ -47,20 +50,23 @@ declare global {
 export function ScrollHero({ children }: { children: ReactNode }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const introRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const hintRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const wrap = wrapRef.current;
     const video = videoRef.current;
+    const intro = introRef.current;
     const content = contentRef.current;
     const hint = hintRef.current;
-    if (!wrap || !video || !content || !hint) return;
+    if (!wrap || !video || !intro || !content || !hint) return;
 
     // Reduced motion: static final image, CTA visible, no video work.
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       video.style.display = 'none';
       wrap.classList.add('scroll-hero--static');
+      intro.style.opacity = '0';
       content.style.opacity = '1';
       content.style.transform = 'translate3d(0, 0, 0)';
       hint.style.opacity = '0';
@@ -104,6 +110,16 @@ export function ScrollHero({ children }: { children: ReactNode }) {
           const videoProgress = clamp01((p - VIDEO_START) / (1 - VIDEO_START));
           const safeMaxTime = Math.max(0, video.duration - 0.02);
           target = Math.min(videoProgress * safeMaxTime, safeMaxTime);
+
+          if (p < INTRO_FADE_END) {
+            const riseT = clamp01(p / INTRO_RISE_END);
+            const fadeT = clamp01((p - INTRO_RISE_END) / (INTRO_FADE_END - INTRO_RISE_END));
+            const easeRise = 1 - Math.pow(1 - riseT, 2.2);
+            intro.style.opacity = String(Math.pow(1 - fadeT, 1.3));
+            intro.style.transform = `translate3d(-50%, ${-(easeRise * 36 + fadeT * 24)}px, 0)`;
+          } else {
+            intro.style.opacity = '0';
+          }
 
           const c = clamp01((p - CONTENT_START) / (CONTENT_END - CONTENT_START));
           content.style.opacity = String(c);
@@ -178,6 +194,9 @@ export function ScrollHero({ children }: { children: ReactNode }) {
             aria-hidden="true"
           />
           <div className="scroll-hero__shade" />
+          <div ref={introRef} className="scroll-hero__intro">
+            <p className="scroll-hero__intro-title">Praneeta Developers</p>
+          </div>
           <div ref={contentRef} className="scroll-hero__content">
             {children}
           </div>
