@@ -210,22 +210,22 @@
    ═══════════════════════════════════════════════════════════ */
 .hero-luxury-overlay {
   position: absolute;
-  top: clamp(142px, 23vh, 235px);
-  right: clamp(32px, 5.5vw, 96px);
-  width: min(680px, 48vw);
+  top: clamp(134px, 21vh, 220px);
+  right: clamp(20px, 4vw, 72px);
+  width: min(740px, 50vw);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   pointer-events: none;
-  padding: 26px 30px;
+  padding: 28px 32px;
   box-sizing: border-box;
 }
 
 .hero-luxury-overlay::before {
   content: "";
   position: absolute;
-  inset: -44px -68px;
+  inset: -52px -80px;
   z-index: -1;
   pointer-events: none;
   background: radial-gradient(
@@ -240,10 +240,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  margin-bottom: 8px;
+  gap: 16px;
+  margin-bottom: 10px;
   font-family: "Montserrat", var(--_font-family---secondary-font, "Inter Tight", sans-serif);
-  font-size: clamp(12px, 1.12vw, 17px);
+  font-size: clamp(13px, 1.24vw, 19px);
   font-weight: 500;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -253,7 +253,7 @@
 
 .hero-luxury-rule {
   display: block;
-  width: clamp(40px, 4vw, 66px);
+  width: clamp(46px, 4.6vw, 74px);
   height: 1px;
 }
 
@@ -268,7 +268,7 @@
 .hero-luxury-headline {
   margin: 0;
   font-family: "Cinzel", "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(44px, 4.95vw, 78px);
+  font-size: clamp(50px, 5.5vw, 88px);
   font-weight: 500;
   line-height: 1.06;
   letter-spacing: 0.04em;
@@ -294,10 +294,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  width: 80%;
-  max-width: 440px;
-  margin: 12px 0 16px;
+  gap: 14px;
+  width: 82%;
+  max-width: 500px;
+  margin: 14px 0 18px;
 }
 
 .hero-luxury-div-line {
@@ -320,7 +320,7 @@
 .hero-luxury-subtitle {
   margin: 0;
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(20px, 1.95vw, 31px);
+  font-size: clamp(22px, 2.15vw, 35px);
   font-weight: 500;
   line-height: 1.32;
   letter-spacing: 0.01em;
