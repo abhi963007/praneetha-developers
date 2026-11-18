@@ -30,7 +30,7 @@
 }
 
 .home-video-sec .cta-content {
-  max-width: 560px;
+  max-width: min(92vw, 760px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -39,7 +39,9 @@
 
 .home-video-sec .cta-title {
   margin: 0 0 14px 0 !important;
-  font-size: clamp(2rem, 3.6vw, 3.35rem) !important;
+  max-width: none !important;
+  white-space: nowrap;
+  font-size: clamp(1.75rem, 3.1vw, 2.95rem) !important;
   line-height: 1.1 !important;
   color: #ffffff !important;
   text-shadow: 0 2px 18px rgba(10, 16, 26, 0.48);
@@ -66,7 +68,8 @@
   }
 
   .home-video-sec .cta-title {
-    font-size: clamp(1.75rem, 7vw, 2.3rem) !important;
+    white-space: normal;
+    font-size: clamp(1.5rem, 6.2vw, 2.15rem) !important;
   }
 
   .home-video-sec .cta-text._2 {
