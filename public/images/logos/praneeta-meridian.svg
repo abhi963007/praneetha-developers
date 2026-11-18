@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 110" width="320" height="110" role="img" aria-label="Praneeta Meridian">
+  <g transform="translate(10, 12)">
+    <!-- Official Praneeta roof + P-shield mark -->
+    <polygon points="36,2 68,24 68,32 36,11 4,32 4,24" fill="#067638" />
+    <path d="M8,36 H38 C56,36 66,47 66,62 C66,77 56,88 38,88 H34 V78 H38 C49,78 55,71 55,62 C55,53 49,46 38,46 H17 V68 L8,58 Z" fill="#7EAE3B" />
+    <path d="M22,52 H38 C45,52 49,56 49,62 C49,68 45,72 38,72 H30 V87 L22,79 Z M30,59 V65 H37 C40,65 42,64 42,62 C42,60 40,59 37,59 Z" fill="#067638" />
+  </g>
+  <text x="90" y="34" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="3.5" fill="#053B20">PRANEETA</text>
+  <line x1="90" y1="43" x2="296" y2="43" stroke="#C59B43" stroke-width="1.2" stroke-opacity="0.7" />
+  <text x="90" y="72" font-family="Georgia, 'Times New Roman', serif" font-size="31" font-weight="700" letter-spacing="1.5" fill="#1C1C1A">MERIDIAN</text>
+  <text x="91" y="92" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="10.5" font-weight="600" letter-spacing="2.6" fill="#6B6860">KONDAKAL · HYDERABAD</text>
+</svg>

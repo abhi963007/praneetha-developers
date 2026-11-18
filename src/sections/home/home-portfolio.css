@@ -8,11 +8,12 @@
 
 .portfolio-cat-grid {
   display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   gap: 24px !important;
   align-items: stretch !important;
   width: 100% !important;
-  margin-top: 40px !important;
+  max-width: 1080px !important;
+  margin: 40px auto 0 !important;
 }
 
 .portfolio-card-item {
@@ -174,18 +175,19 @@
 /* Responsive Breakpoints */
 @media screen and (max-width: 1024px) {
   .portfolio-cat-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 20px !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 18px !important;
   }
   .portfolio-cat-img-box {
-    height: 210px !important;
-    min-height: 210px !important;
+    height: 200px !important;
+    min-height: 200px !important;
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 767px) {
   .portfolio-cat-grid {
     grid-template-columns: 1fr !important;
+    max-width: 420px !important;
     gap: 16px !important;
   }
   .portfolio-cat-img-box {

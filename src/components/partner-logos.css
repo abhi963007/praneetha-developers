@@ -69,14 +69,14 @@
 }
 
 .partner-marquee-img {
-  max-width: 160px !important;
-  max-height: 42px !important;
+  max-width: 164px !important;
+  max-height: 70px !important;
   width: auto !important;
   height: auto !important;
   object-fit: contain !important;
-  opacity: 0.78 !important;
+  opacity: 0.94 !important;
   transition: opacity 0.3s ease, transform 0.3s ease !important;
-  filter: grayscale(0.2) !important;
+  filter: none !important;
 }
 
 .partner-marquee-card:hover .partner-marquee-img {
