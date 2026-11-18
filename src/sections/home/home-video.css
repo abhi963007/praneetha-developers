@@ -1,0 +1,76 @@
+.home-video-sec .cta-wrap {
+  position: relative;
+}
+
+.home-video-sec .cta-image-box {
+  position: relative;
+  filter: brightness(86%);
+}
+
+/* Soft top-left gradient scrim keeps top-left typography crisp without dimming the right skyline */
+.home-video-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 18, 30, 0.58) 0%,
+    rgba(10, 18, 30, 0.28) 42%,
+    rgba(10, 18, 30, 0.04) 72%
+  );
+}
+
+.home-video-sec .cta-content-box {
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  padding: clamp(92px, 11vh, 130px) clamp(24px, 5vw, 76px) 40px !important;
+  box-sizing: border-box !important;
+}
+
+.home-video-sec .cta-content {
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.home-video-sec .cta-title {
+  margin: 0 0 14px 0 !important;
+  font-size: clamp(2rem, 3.6vw, 3.35rem) !important;
+  line-height: 1.1 !important;
+  color: #ffffff !important;
+  text-shadow: 0 2px 18px rgba(10, 16, 26, 0.48);
+}
+
+.home-video-sec .cta-text._2 {
+  margin: 0 0 26px 0 !important;
+  max-width: 500px !important;
+  font-size: clamp(1rem, 1.15vw, 1.15rem) !important;
+  line-height: 1.6 !important;
+  color: rgba(255, 255, 255, 0.94) !important;
+  text-align: left !important;
+  text-shadow: 0 1px 12px rgba(10, 16, 26, 0.45);
+}
+
+.home-video-sec .cta-button {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media screen and (max-width: 767px) {
+  .home-video-sec .cta-content-box {
+    padding: 84px 20px 32px !important;
+  }
+
+  .home-video-sec .cta-title {
+    font-size: clamp(1.75rem, 7vw, 2.3rem) !important;
+  }
+
+  .home-video-sec .cta-text._2 {
+    font-size: 0.96rem !important;
+    margin-bottom: 20px !important;
+  }
+}
