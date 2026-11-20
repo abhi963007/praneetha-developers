@@ -4,7 +4,7 @@ const STRATEGIC_PILLARS = [
   {
     num: '01',
     title: 'Strategic Value Generation',
-    text: 'Prime land acquisition across West Hyderabad’s highest-appreciation corridor along the Mokila–Shankarpally belt.',
+    text: 'Prime land acquisition across West Hyderabad’s highest-appreciation corridor spanning Kardanur, Kollur, and Mokila.',
   },
   {
     num: '02',
@@ -46,7 +46,7 @@ const CONSOLIDATED_VALUES = [
   },
   {
     title: 'Prime High-Growth Corridors',
-    text: '10–25 minute connectivity across Mokila, Kardanur, Kokapet Neopolis, and the Financial District.',
+    text: '10–25 minute connectivity across Kardanur, Kollur, Mokila, Kokapet Neopolis, and the Financial District.',
   },
 ];
 

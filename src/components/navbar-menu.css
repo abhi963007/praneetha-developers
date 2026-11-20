@@ -193,8 +193,8 @@
     position: absolute;
     top: calc(100% + 14px);
     left: 50%;
-    width: 520px;
-    padding: 16px 18px 12px;
+    width: 310px;
+    padding: 14px 16px 12px;
     background-color: #ffffff;
     border: 1px solid rgba(25, 29, 25, 0.12);
     border-radius: 16px;
@@ -231,9 +231,9 @@
 
   .nav-dropdown-sections {
     display: grid;
-    grid-template-columns: 1.08fr 0.96fr 1.08fr;
+    grid-template-columns: 1fr;
     align-items: stretch;
-    padding-bottom: 12px;
+    padding-bottom: 10px;
     border-bottom: 1px solid rgba(25, 29, 25, 0.11);
   }
 
@@ -244,20 +244,6 @@
     padding: 2px 0;
   }
 
-  .nav-dropdown-group:first-child {
-    padding-right: 14px;
-  }
-
-  .nav-dropdown-group:nth-child(2) {
-    padding: 2px 14px;
-    border-left: 1px solid rgba(25, 29, 25, 0.11);
-    border-right: 1px solid rgba(25, 29, 25, 0.11);
-  }
-
-  .nav-dropdown-group:last-child {
-    padding-left: 14px;
-  }
-
   .nav-dropdown-cat {
     font-family: "Inter Tight", sans-serif;
     font-size: 10.5px;
@@ -265,7 +251,7 @@
     letter-spacing: 0.13em;
     text-transform: uppercase;
     color: #007b3e;
-    padding: 2px 8px 4px;
+    padding: 2px 10px 4px;
     white-space: nowrap;
   }
 
@@ -285,11 +271,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 8px;
-    padding: 6px 8px;
+    gap: 10px;
+    padding: 8px 10px;
     border-radius: 8px;
     font-family: "Inter Tight", sans-serif;
-    font-size: 13.5px;
+    font-size: 14px;
     font-weight: 500;
     color: #191d19;
     text-decoration: none;
@@ -309,7 +295,8 @@
   .nav-dropdown-right {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
+    flex-shrink: 0;
   }
 
   .nav-dropdown-item-arrow {
@@ -326,36 +313,42 @@
   .nav-dropdown-badge {
     font-size: 10px;
     font-weight: 600;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
     text-transform: uppercase;
-    padding: 2px 6px;
+    white-space: nowrap;
+    padding: 3px 8px;
     border-radius: 999px;
     background-color: rgba(0, 123, 62, 0.1);
     color: #007b3e;
+    flex-shrink: 0;
   }
 
   .nav-dropdown-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 4px 0;
+    gap: 12px;
+    padding: 10px 6px 0;
   }
 
   .nav-dropdown-hint {
     font-family: "Inter Tight", sans-serif;
     font-size: 12px;
     color: #52525b;
+    white-space: nowrap;
   }
 
   .nav-dropdown-all {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     font-family: "Inter Tight", sans-serif;
     font-size: 12.5px;
     font-weight: 600;
     color: #007b3e;
     text-decoration: none;
+    white-space: nowrap;
     transition: transform 0.2s ease;
   }
 

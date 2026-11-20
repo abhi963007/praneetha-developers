@@ -10,15 +10,15 @@ interface PageBannerSectionProps {
 
 const DEFAULT_SUBTITLES: Record<string, string> = {
   'About Us': 'Building Luxury Landmarks in West Hyderabad',
-  Properties: 'Explore HMDA & TS-RERA registered luxury villas and apartments across Mokila, Kondakal & Shankarpally.',
+  Properties: 'Explore HMDA & TG-RERA registered luxury villas and apartments across Kardanur, Kollur & Mokila.',
   'Projects by Praneeta Developers':
-    'Explore HMDA & TG-RERA registered luxury villas and apartments across Mokila, Kondakal & Shankarpally.',
-  Gallery: 'Explore architectural renders, active site progress, and global expo highlights across Mokila & Shankarpally.',
-  Insights: 'Market perspectives, HMDA & TS-RERA checklists, and architectural notes across Mokila, Kondakal & Shankarpally.',
+    'Explore HMDA & TG-RERA registered luxury villas and apartments across Kardanur, Kollur & Mokila.',
+  Gallery: 'Explore architectural renders, active site progress, and global expo highlights across West Hyderabad.',
+  Insights: 'Market perspectives, HMDA & TS-RERA checklists, and architectural notes across Kardanur, Kollur & Mokila.',
   Blogs: 'Insights, Real Estate Trends & West Hyderabad Market Analysis.',
-  'Contact Us': 'Visit our Mokila Experience Lounge or connect directly with our leadership team.',
+  'Contact Us': 'Visit our Experience Lounge or connect directly with our leadership team.',
   'Become a Partner':
-    "Join Hyderabad's fastest-growing quality-delivering property developer. Access premium inventory, earn attractive payouts, and close more deals with dedicated support.",
+    'Direct collaboration with Pranitha Group for landowners and stalled project owners—covering approvals, construction, sales, and final delivery.',
   Disclaimer: 'Important legal disclosures, project representation terms, and TG-RERA compliance notices.',
   'Privacy Policy': 'How V Praneeta Developers Pvt. Ltd. collects, safeguards, and uses your inquiry information.',
 };

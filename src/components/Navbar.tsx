@@ -308,7 +308,7 @@ export function Navbar() {
                             ))}
                           </div>
                           <div className="nav-dropdown-footer">
-                            <span className="nav-dropdown-hint">Mokila – Shankarpally Belt</span>
+                            <span className="nav-dropdown-hint">Kardanur · Kollur · Mokila</span>
                             <Link
                               to="/properties"
                               className="nav-dropdown-all"

@@ -9,7 +9,7 @@ const STATS = [
   {
     num: '2.5',
     suffix: 'M+ Sft',
-    label: 'Active & Delivered Developments in Mokila & Shankarpally',
+    label: 'Active & Delivered Developments across Kardanur, Kollur & Mokila',
   },
 ];
 
@@ -46,15 +46,15 @@ export function AboutStorySection() {
           </div>
 
           <h2 className="abt-story__heading">
-            Building Dreams, Creating Homes across Mokila, Kondakal &amp; Shankarpally
+            Building Dreams, Creating Homes across Kardanur, Kollur &amp; Mokila
           </h2>
 
           <p className="abt-story__body">
-            Backed by three decades of construction visionaries—formerly delivering prestigious townships under Hareeni Developers—Praneeta Developers brings HMDA &amp; TS-RERA registered gated villa and high-rise apartment communities across West Hyderabad with transparent documentation and committed timelines.
+            Backed by three decades of construction visionaries—formerly delivering prestigious townships under Hareeni Developers—Praneeta Developers brings HMDA &amp; TG-RERA registered gated villa and high-rise apartment communities across West Hyderabad with transparent documentation and committed timelines.
           </p>
 
           <p className="abt-story__body">
-            Through our strategic association with TAG Projects (TAG Group), we combine deep land-bank strength, shared architectural engineering, and multi-phase execution scale across flagship Mokila, Kondakal, and Kardanur developments—creating low-density luxury neighborhoods built for enduring family value.
+            With deep land-bank strength, disciplined architectural engineering, and multi-phase execution scale across flagship Kardanur, Kollur, and Mokila developments, we create low-density luxury neighborhoods built for enduring family value.
           </p>
 
           <div className="abt-story__stats">

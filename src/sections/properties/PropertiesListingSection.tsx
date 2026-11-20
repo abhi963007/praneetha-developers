@@ -16,8 +16,9 @@ export interface PropertyFloorPlan {
 
 export interface PropertyItem {
   slug: string;
-  categorySlug: string;
+  categorySlug: 'ongoing' | 'upcoming' | 'completed';
   badge: string;
+  isNewLaunch?: boolean;
   rooms: string;
   sqft: string;
   location: string;
@@ -34,10 +35,51 @@ export interface PropertyItem {
   floorPlans?: PropertyFloorPlan[];
 }
 
+const LEGACY_CATEGORY_MAP: Record<string, string> = {
+  'villas-ongoing': 'ongoing',
+  apartments: 'ongoing',
+  'villas-upcoming': 'upcoming',
+  'plots-coming-soon': 'upcoming',
+  'villas-completed': 'completed',
+};
+
+function normalizeCategorySlug(raw: string): string {
+  return LEGACY_CATEGORY_MAP[raw] ?? raw;
+}
+
 export const PROPERTIES_DATA: PropertyItem[] = [
   {
+    slug: 'lakshmi-nivas-kardanur',
+    categorySlug: 'ongoing',
+    badge: 'New Launch',
+    isNewLaunch: true,
+    rooms: 'G+2 Luxury Villas',
+    sqft: '40 ft Spinal · 30 ft Avenues',
+    location: 'Kardanur, West Hyderabad',
+    name: "Pranitha's Lakshmi Nivas",
+    price: 'New Launch · Kardanur',
+    sublabel: 'Near Kollur & Mokila · Clubhouse',
+    scale: 'Master-Planned G+2 Gated Villa Community',
+    handover: 'Ongoing (New Launch)',
+    rera: 'HMDA & TG-RERA Compliant',
+    overview:
+      "Pranitha's Lakshmi Nivas is our flagship newly launched G+2 luxury gated villa community in Kardanur, strategically positioned along the Kardanur–Kollur–Mokila growth belt of West Hyderabad. Designed around a 40 ft spinal master road, 30 ft internal residential avenues, landscaped green corridors, underground utilities, and a grand residents clubhouse, it brings low-density villa living minutes from ORR Exit 2, Kokapet Neopolis, and the Financial District.",
+    highlights: [
+      'New Launch · Kardanur',
+      'G+2 Luxury Villas',
+      '40 ft Spinal & 30 ft Internal Roads',
+      'Grand Clubhouse & Open Greens',
+      'Quick Access to Kollur & Mokila',
+    ],
+    slides: [
+      { src: '/video/hero-final.jpg', srcSet: '/video/hero-final.jpg 1200w' },
+      { src: '/images/how-we-work-villa.jpg', srcSet: '/images/how-we-work-villa.jpg 1200w' },
+      { src: '/images/portfolio-villas-ongoing.jpg', srcSet: '/images/portfolio-villas-ongoing.jpg 1200w' },
+    ],
+  },
+  {
     slug: 'amity-villas-mokila',
-    categorySlug: 'villas-ongoing',
+    categorySlug: 'ongoing',
     badge: 'May 2027 · RERA P02400006593',
     rooms: '5 BHK · 76 Villas',
     sqft: '3,300 sqft',
@@ -63,7 +105,7 @@ export const PROPERTIES_DATA: PropertyItem[] = [
   },
   {
     slug: 'the-patio-mokila',
-    categorySlug: 'villas-ongoing',
+    categorySlug: 'ongoing',
     badge: 'Dec 2027 · RERA P02400009076',
     rooms: '5 BHK · 175 Villas',
     sqft: '4,254–4,615 sqft',
@@ -91,7 +133,7 @@ export const PROPERTIES_DATA: PropertyItem[] = [
   },
   {
     slug: 'santorini-villas-mokila',
-    categorySlug: 'villas-ongoing',
+    categorySlug: 'ongoing',
     badge: 'Dec 2027 · Under-Construction',
     rooms: '5 BHK · 231 Villas',
     sqft: '3,277–4,051 sqft',
@@ -116,7 +158,7 @@ export const PROPERTIES_DATA: PropertyItem[] = [
   },
   {
     slug: 'meridian-kondakal',
-    categorySlug: 'apartments',
+    categorySlug: 'ongoing',
     badge: 'Dec 2028 · Under-Construction',
     rooms: '3 BHK · 88 Flats',
     sqft: '1,900 / 2,250 / 2,750 sqft',
@@ -144,11 +186,11 @@ export const PROPERTIES_DATA: PropertyItem[] = [
   },
   {
     slug: 'singapur-town-phase-2',
-    categorySlug: 'villas-ongoing',
+    categorySlug: 'ongoing',
     badge: 'Dec 2027 · RERA P02400009800',
     rooms: '4 BHK · 35 Villas',
     sqft: '2,290–2,323 sqft',
-    location: 'Shankarpally, Hyderabad',
+    location: 'West Hyderabad',
     name: 'Praneeta Singapur Town — Phase II',
     price: 'Dec 2027 Handover',
     sublabel: '2.25 Acres · 150 Sq.Yds',
@@ -156,7 +198,7 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     handover: 'December 2027 (Ongoing)',
     rera: 'TS RERA: P02400009800 · HMDA Approved',
     overview:
-      'Crafted in association with Tricore Projects Pvt Ltd at Shankarpally, Phase-2 features 35 HMDA & TS-RERA approved G+2 4 BHK villas on 150 Sq.Yds plots with terrace home theatre, gym, banquet hall, yoga area, and 5-minute access to Shankarpalli Railway Station.',
+      'Crafted in association with Tricore Projects Pvt Ltd in West Hyderabad, Phase-2 features 35 HMDA & TS-RERA approved G+2 4 BHK villas on 150 Sq.Yds plots with terrace home theatre, gym, banquet hall, yoga area, and convenient connectivity to the Kondakal IT SEZ and Mokila corridor.',
     highlights: ['G+2 4 BHK (150 Sq.Yds)', 'East 2,290 / West 2,323 Sft', 'Home Theatre on Terrace', 'Gym & Banquet Hall', '12 Min to Kondakal IT SEZ'],
     slides: [
       { src: '/images/projects/pst2/street-view.png', srcSet: '/images/projects/pst2/street-view.png 1200w' },
@@ -171,46 +213,116 @@ export const PROPERTIES_DATA: PropertyItem[] = [
     ],
   },
   {
+    slug: 'upcoming-mall-multiplex-mokila',
+    categorySlug: 'upcoming',
+    badge: 'Upcoming · Mokila',
+    rooms: 'Retail · Multiplex',
+    sqft: 'Landmark Commercial Hub',
+    location: 'Mokila, West Hyderabad',
+    name: 'Upcoming Mall & Multiplex in Mokila',
+    price: 'Upcoming Development',
+    sublabel: 'Retail · Dining · Multiplex',
+    scale: 'Integrated Retail, Entertainment & Multiplex Destination',
+    handover: 'Upcoming (Planning Stage)',
+    rera: 'HMDA Planning Under Process',
+    overview:
+      'Set to become Mokila’s premier lifestyle and entertainment landmark, our upcoming Mall & Multiplex brings curated retail stores, family dining, and multi-screen cinema experiences right to the heart of West Hyderabad’s booming villa belt.',
+    highlights: ['Multi-Screen Multiplex', 'Curated Retail & Dining', 'Prime Mokila Frontage', 'Ample Multi-Level Parking', 'Serving Mokila, Kardanur & Kollur'],
+    slides: [
+      { src: '/images/hero-properties.png', srcSet: '/images/hero-properties.png 1200w' },
+      { src: '/images/projects/meridian/exterior-render.jpeg', srcSet: '/images/projects/meridian/exterior-render.jpeg 1200w' },
+    ],
+  },
+  {
+    slug: 'villa-project-kodikal-sariguda',
+    categorySlug: 'upcoming',
+    badge: 'Upcoming · Villas',
+    rooms: 'Luxury Gated Villas',
+    sqft: 'Master-Planned Enclave',
+    location: 'Kodikal / Sariguda, West Hyderabad',
+    name: 'Villa Project in Kodikal / Sariguda',
+    price: 'Upcoming Launch',
+    sublabel: 'Low-Density Gated Villas',
+    scale: 'Upcoming Luxury Gated Villa Community',
+    handover: 'Upcoming (Pre-Launch)',
+    rera: 'Approvals Under Process',
+    overview:
+      'An upcoming low-density gated villa community planned in the Kodikal / Sariguda belt of West Hyderabad—designed with wide tree-lined avenues, Vaastu-compliant independent villas, landscaped parks, and a full-scale residents clubhouse.',
+    highlights: ['Independent Gated Villas', 'Vaastu-Compliant Layouts', 'Clubhouse & Landscaped Parks', 'Wide Internal Avenues', 'High-Growth West Hyderabad Belt'],
+    slides: [
+      { src: '/images/portfolio-villas-ongoing.jpg', srcSet: '/images/portfolio-villas-ongoing.jpg 1200w' },
+      { src: '/images/how-we-work-villa.jpg', srcSet: '/images/how-we-work-villa.jpg 1200w' },
+    ],
+  },
+  {
+    slug: 'upcoming-high-rise-apartment-mokila',
+    categorySlug: 'upcoming',
+    badge: 'Upcoming · High-Rise',
+    rooms: 'Luxury Apartments',
+    sqft: 'High-Rise Residences',
+    location: 'Mokila, West Hyderabad',
+    name: 'Upcoming High-Rise Apartment in Mokila',
+    price: 'Upcoming Launch',
+    sublabel: 'Modern Clubhouse · Sky Views',
+    scale: 'Contemporary High-Rise Residential Community',
+    handover: 'Upcoming (Pre-Launch)',
+    rera: 'Approvals Under Process',
+    overview:
+      'A contemporary high-rise residential apartment community coming up in Mokila, engineered for abundant natural light, cross-ventilation, spacious balconies, podium greens, and seamless connectivity to Kollur ORR Exit 2, Neopolis, and the Financial District.',
+    highlights: ['Contemporary High-Rise Living', 'Resort-Style Clubhouse', 'Podium Landscaping', '10–15 Min to ORR Exit 2', 'Prime Mokila Location'],
+    slides: [
+      { src: '/images/portfolio-apartments.jpg', srcSet: '/images/portfolio-apartments.jpg 1200w' },
+      { src: '/images/projects/meridian/living-room.jpeg', srcSet: '/images/projects/meridian/living-room.jpeg 1200w' },
+    ],
+  },
+  {
+    slug: 'residential-plots',
+    categorySlug: 'upcoming',
+    badge: 'Upcoming · Plots',
+    rooms: 'HMDA Villa Plots',
+    sqft: 'Clear-Title Plotted Enclave',
+    location: 'Kardanur · Kollur · Mokila Belt',
+    name: 'Residential Plots',
+    price: 'Upcoming Launch',
+    sublabel: 'Wide Roads · Underground Utilities',
+    scale: 'HMDA-Planned Residential Plotted Communities',
+    handover: 'Upcoming (Pre-Launch)',
+    rera: 'HMDA Layout Planning',
+    overview:
+      'Upcoming HMDA-planned residential plotted communities positioned across the Kardanur, Kollur, and Mokila growth corridor—featuring clear titles, blacktop avenues, underground utilities, avenue plantation, and gated security for custom villa construction or long-term land investment.',
+    highlights: ['HMDA-Planned Layouts', '100% Clear Titles', 'Wide Internal Roads', 'Underground Utilities & Parks', 'Kardanur · Kollur · Mokila Belt'],
+    slides: [
+      { src: '/images/portfolio-plots.jpg', srcSet: '/images/portfolio-plots.jpg 1200w' },
+      { src: '/images/hero-properties.png', srcSet: '/images/hero-properties.png 1200w' },
+    ],
+  },
+  {
     slug: 'singapur-town-phase-1',
-    categorySlug: 'villas-completed',
-    badge: 'Sold Out · 2023 Handover',
+    categorySlug: 'completed',
+    badge: 'Completed · 2023 Handover',
     rooms: '3 BHK · 39 Villas',
     sqft: '2.5 Acres Gated Enclave',
-    location: 'Shankarpally, Hyderabad',
-    name: 'Praneeta Singapur Town — Phase I',
+    location: 'West Hyderabad',
+    name: 'Singapore Town Phase 1',
     price: 'Sold Out (2023)',
     sublabel: '2.5 Acres · Handed Over',
-    scale: '2.5 Acres · 39 Villas',
-    handover: '2023 Handover (Sold Out)',
+    scale: '2.5 Acres · 39 Completed Gated Villas',
+    handover: '2023 Handover (100% Sold Out)',
+    rera: 'HMDA Approved · Delivered Community',
     overview:
-      'Delivered in 2023 and 100% sold out, Praneeta Singapur Town Phase-1 is an occupied 2.5-acre gated community of 39 3 BHK villas in Shankarpally, setting the foundation for Phase-2.',
-    highlights: ['39 Completed Villas', '2.5 Acres Community', '2023 Handover', '100% Sold Out'],
+      'Delivered on schedule in 2023 and 100% occupied, Singapore Town Phase 1 is a thriving 2.5-acre gated community of 39 thoughtfully designed 3 BHK villas in West Hyderabad. Featuring wide internal avenues, landscaped common zones, dependable community infrastructure, and clear documentation, Phase 1 stands as a benchmark of Praneeta Developers’ build quality and timely execution.',
+    highlights: [
+      '39 Completed 3 BHK Villas',
+      '2.5 Acres Gated Enclave',
+      'Delivered in 2023',
+      '100% Sold Out & Occupied',
+      'HMDA Approved Community',
+    ],
     slides: [
       { src: '/images/projects/pst1/showcase-card.png', srcSet: '/images/projects/pst1/showcase-card.png 1200w' },
       { src: '/images/projects/pst1/hero-banner.webp', srcSet: '/images/projects/pst1/hero-banner.webp 1200w' },
       { src: '/images/projects/pst1/villa-overview.webp', srcSet: '/images/projects/pst1/villa-overview.webp 1200w' },
-    ],
-  },
-  {
-    slug: 'upcoming-mokila-project',
-    categorySlug: 'villas-upcoming',
-    badge: 'Upcoming · Launching Soon',
-    rooms: 'G+2 Luxury Villas',
-    sqft: '40 ft Spinal · 30 ft Avenues',
-    location: 'Kardanur / Mokila Belt, West Hyderabad',
-    name: 'Upcoming Mokila Project',
-    price: 'Launching Soon',
-    sublabel: 'Kardanur / Mokila · Clubhouse',
-    scale: 'Master-Planned G+2 Villa Enclave',
-    handover: 'Upcoming (Pre-Launch)',
-    rera: 'TG-RERA Registration Under Process',
-    overview:
-      'Launching soon in the Kardanur / Mokila growth corridor of West Hyderabad, this flagship G+2 gated villa community features a 40 ft spinal master road, 30 ft internal residential avenues, expansive open greens, and a grand clubhouse.',
-    highlights: ['G+2 Luxury Villas', '40 ft Spinal Road', '30 ft Internal Avenues', 'Grand Clubhouse', 'Kardanur / Mokila Belt'],
-    slides: [
-      { src: '/images/how-we-work-villa.jpg', srcSet: '/images/how-we-work-villa.jpg 1200w' },
-      { src: '/images/portfolio-villas-ongoing.jpg', srcSet: '/images/portfolio-villas-ongoing.jpg 1200w' },
-      { src: '/images/hero-properties.png', srcSet: '/images/hero-properties.png 1200w' },
+      { src: '/images/projects/pst1/gallery-1.webp', srcSet: '/images/projects/pst1/gallery-1.webp 1200w' },
     ],
   },
 ];
@@ -242,14 +354,14 @@ const COMING_SOON_CATEGORIES: Record<
   },
   'plots-coming-soon': {
     status: 'Residential Plots · Coming Soon',
-    eyebrow: 'Mokila – Shankarpally Corridor',
+    eyebrow: 'Kardanur · Kollur · Mokila Corridor',
     title: 'Residential Plotted Communities',
     description:
-      'Upcoming HMDA-planned residential plotted enclaves along the Mokila–Shankarpally growth belt, crafted with clear titles, wide internal roads, and green avenues.',
+      'Upcoming HMDA-planned residential plotted enclaves along the Kardanur, Kollur, and Mokila growth belt, crafted with clear titles, wide internal roads, and green avenues.',
     image: '/images/portfolio-plots.jpg',
     specs: [
       { label: 'Development', value: 'HMDA-Planned Villa Plots' },
-      { label: 'Location', value: 'Mokila – Shankarpally Belt' },
+      { label: 'Location', value: 'Kardanur · Kollur · Mokila Belt' },
       { label: 'Documentation', value: 'Clear Titles & Approvals' },
       { label: 'Status', value: 'Pre-Launch · Coming Soon' },
     ],
@@ -288,7 +400,9 @@ export function PropertyCard({
     <div role="listitem" className="w-dyn-item">
       <div className="property-box">
         <div className="property-image-box">
-          <div className="property-badge">{property.badge}</div>
+          <div className={`property-badge${property.isNewLaunch ? ' property-badge--new-launch' : ''}`}>
+            {property.badge}
+          </div>
           <div className="prop-card-slider">
             <div
               className="prop-card-slider__track"
@@ -426,7 +540,7 @@ export function PropertiesListingSection() {
 
   const initialCat =
     !isDetailRoute && (slug || pathname.startsWith('/category/'))
-      ? slug || pathname.replace('/category/', '')
+      ? normalizeCategorySlug(slug || pathname.replace('/category/', ''))
       : 'all';
   const [activeCategory, setActiveCategory] = useState<string>(initialCat);
   const [carouselIdx, setCarouselIdx] = useState(0);
@@ -457,7 +571,7 @@ export function PropertiesListingSection() {
       return;
     }
     if (slug) {
-      setActiveCategory(slug);
+      setActiveCategory(normalizeCategorySlug(slug));
     } else if (pathname === '/properties') {
       setActiveCategory('all');
     }
@@ -759,7 +873,7 @@ export function PropertiesListingSection() {
                     'Architectural master plans for this community are currently underway. Connect with our advisory team for pre-launch details or explore our active gated enclaves.',
                   image: '/images/hero-properties.png',
                   specs: [
-                    { label: 'Location', value: 'Mokila – Shankarpally Belt' },
+                    { label: 'Location', value: 'Kardanur · Kollur · Mokila Belt' },
                     { label: 'Standards', value: 'HMDA & TG-RERA Compliant' },
                     { label: 'Status', value: 'Pre-Launch · Coming Soon' },
                     { label: 'Advisory', value: 'Early Access Open' },

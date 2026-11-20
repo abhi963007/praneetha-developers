@@ -38,26 +38,26 @@ const TESTIMONIALS: TestimonialItem[] = [
   {
     id: 'meridian-nri',
     projectTag: 'Praneeta Meridian',
-    text: 'Investing from overseas requires trust and clear milestones. Praneeta’s association with TAG Projects, structured bank approvals, and rapid Kondakal corridor growth gave us complete peace of mind.',
+    text: 'Investing from overseas requires trust and clear milestones. Praneeta’s transparent execution, structured bank approvals, and rapid Kardanur–Kollur–Mokila corridor growth gave us complete peace of mind.',
     name: 'Ananya & Siddharth R.',
     initials: 'AS',
     designation: 'NRI Investors · Praneeta Meridian',
   },
   {
     id: 'pst1-family',
-    projectTag: 'Singapur Town',
-    text: 'Living in our completed villa at Singapur Town Phase I has been rewarding in every sense—wide internal avenues, dependable community upkeep, and fast connectivity toward ORR Exit 2 and Financial District.',
+    projectTag: 'Singapore Town',
+    text: 'Living in our completed villa at Singapore Town Phase 1 has been rewarding in every sense—wide internal avenues, dependable community upkeep, and fast connectivity toward ORR Exit 2 and Financial District.',
     name: 'Venkatramana P.',
     initials: 'VP',
-    designation: 'Resident · Singapur Town Phase I',
+    designation: 'Resident · Singapore Town Phase 1',
   },
   {
     id: 'partner-review',
-    projectTag: 'Channel Partner',
-    text: 'Clients immediately appreciate Praneeta’s value proposition—low-density gated communities in Mokila and Shankarpally backed by delivered track record, clean legal dockets, and transparent partner support.',
+    projectTag: 'Landowner Partner',
+    text: 'Collaborating with Praneeta Developers gave us complete confidence—from approvals and construction execution to sales strategy across Kardanur, Kollur, and Mokila, backed by a delivered track record and transparent governance.',
     name: 'Lakshmi Prasanna K.',
     initials: 'LP',
-    designation: 'Channel Partner · West Hyderabad',
+    designation: 'Development Partner · West Hyderabad',
   },
 ];
 
@@ -100,11 +100,11 @@ export function TestimonialsSection({
             </div>
             <h2 className="abt-testimonials__heading">
               {variant === 'properties'
-                ? 'Stories from Satisfied Buyers & Channel Partners'
+                ? 'Stories from Satisfied Buyers & Partners'
                 : 'Trusted by Homeowners, NRI Investors & Partners'}
             </h2>
             <p className="abt-testimonials__sub">
-              Verified voices from IT professionals, families, NRI buyers, and channel partners across our Mokila, Kondakal, and Shankarpally communities.
+              Verified voices from IT professionals, families, NRI buyers, and landowner partners across our Kardanur, Kollur, and Mokila communities.
             </p>
           </div>
         </div>

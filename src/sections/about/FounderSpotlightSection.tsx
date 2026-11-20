@@ -1,6 +1,15 @@
 import { Link } from 'react-router-dom';
 import './founder-spotlight.css';
 
+const LEADERSHIP_EXPERTISE = [
+  '20 Years of Experience',
+  'Land Investments',
+  'Land Trading',
+  'Land Procurement',
+  'Property Advisor',
+  'Corporate Bulk Lands',
+] as const;
+
 export function FounderSpotlightSection() {
   return (
     <section className="section abt-founder">
@@ -41,14 +50,31 @@ export function FounderSpotlightSection() {
 
             <div className="abt-founder__paragraphs">
               <p>
-                Meet V. Devula Nayak — the driving force behind Praneeta Developers and a passionate real estate entrepreneur who has been shaping Hyderabad&apos;s luxury living landscape since 2005. With nearly 20 years of experience, he has built a solid reputation for creating thoughtfully designed residential communities that blend comfort, elegance, and functionality.
+                Meet V. Devula Nayak — the driving force behind Praneeta Developers with 20 years of experience shaping Hyderabad&apos;s residential and land development landscape since 2005. Over two decades, he has built deep domain expertise across land investments, land trading, land procurement, and corporate bulk lands.
               </p>
               <p>
-                What started as a vision to bring premium living spaces to life has grown into one of Mokila&apos;s most ambitious development ventures. Under his leadership—and in strategic association with TAG Projects (TAG Group)—Praneeta Developers has expanded across flagship gated communities including Amity Villas, The Patio Villas, Santorini Villas, and Praneeta Meridian, spanning over 2.5 million square feet across Mokila, Kondakal, and Shankarpally.
+                What started as a vision to create enduring residential landmarks has grown into one of West Hyderabad&apos;s most trusted development ventures—leading flagship communities including Pranitha&apos;s Lakshmi Nivas in Kardanur alongside Amity Villas, The Patio Villas, Santorini Villas, and Praneeta Meridian across Kardanur, Kollur, and Mokila.
               </p>
               <p>
-                Known for sharp business acumen, attention to design detail, and a customer-first approach, this alliance pairs institutional master planning, 30–40 ft internal avenues, and resort-grade clubhouses with clear HMDA &amp; TG-RERA compliance and reliable delivery for modern families.
+                Widely respected as a strategic Property Advisor, he combines sharp market foresight, transparent HMDA &amp; TG-RERA compliance, and end-to-end execution discipline to deliver lasting asset value for homeowners, landowners, and investors alike.
               </p>
+            </div>
+
+            <div className="abt-founder__expertise" aria-label="Core areas of expertise">
+              <div className="abt-founder__expertise-header">
+                <span className="abt-founder__expertise-dot" aria-hidden="true" />
+                <p className="abt-founder__expertise-label">Core Expertise</p>
+              </div>
+              <ul className="abt-founder__expertise-grid">
+                {LEADERSHIP_EXPERTISE.map((item, idx) => (
+                  <li key={item} className="abt-founder__expertise-item">
+                    <span className="abt-founder__expertise-num" aria-hidden="true">
+                      {String(idx + 1).padStart(2, '0')}
+                    </span>
+                    <span className="abt-founder__expertise-text">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             <div className="abt-founder__actions">

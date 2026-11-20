@@ -9,20 +9,20 @@ interface FaqSectionProps {
 
 const FAQ_ITEMS = [
   {
-    q: 'Are all Praneeta Developers projects TG-RERA approved?',
-    a: 'Yes. Every project is fully registered with TG-RERA before public launch. Individual RERA registration numbers are displayed on each project page and documentation.',
+    q: "Where is Pranitha's Lakshmi Nivas located and how well is Kardanur connected?",
+    a: "Pranitha's Lakshmi Nivas is located in Kardanur, West Hyderabad—positioned right along the fast-growing Kardanur, Kollur, and Mokila belt with quick access to ORR Exit 2, Kokapet Neopolis, and the Financial District.",
   },
   {
-    q: 'Which major banks are approved for home loans across your projects?',
-    a: 'Our projects are pre-approved by major financial institutions including HDFC Bank, ICICI Bank, State Bank of India (SBI), Axis Bank, and Bajaj Housing Finance.',
+    q: "What are the key highlights and road infrastructure of Pranitha's Lakshmi Nivas?",
+    a: "Pranitha's Lakshmi Nivas is a master-planned G+2 luxury gated villa community featuring a 40 ft spinal master road, 30 ft internal residential avenues, underground utilities, landscaped green corridors, and a grand residents clubhouse.",
   },
   {
-    q: 'What are the typical possession timelines for ongoing villa communities?',
-    a: 'Delivery schedules range from December 2027 through 2029 depending on the specific phase and project selected. Detailed timelines are codified in buyer agreements.',
+    q: "Is Pranitha's Lakshmi Nivas HMDA and TG-RERA compliant with home loan options?",
+    a: "Yes. Pranitha's Lakshmi Nivas follows strict HMDA and TG-RERA compliance standards with clear documentation, and buyers can avail home loans through leading banks including HDFC Bank, ICICI Bank, SBI, Axis Bank, and Bajaj Housing Finance.",
   },
   {
-    q: 'What road infrastructure supports the upcoming Mokila/Kardanur development?',
-    a: 'The layout features a 40 ft spinal master road and 30 ft internal access roads designed to comfortably accommodate G+2 residential approvals and underground utility infrastructure.',
+    q: "Why is Kardanur considered a high-potential villa destination near Kollur and Mokila?",
+    a: "Kardanur offers low-density greenery and peaceful suburban living while sitting minutes away from Kollur ORR Exit 2, Mokila's social infrastructure, international schools, and West Hyderabad's major IT corridors—making Pranitha's Lakshmi Nivas ideal for both end-use and long-term appreciation.",
   },
 ];
 
@@ -54,7 +54,7 @@ export function FaqSection({ variant = 'home', ptZero = false }: FaqSectionProps
             Questions Before You Make Your Move?
           </h2>
           <p className="faq-sec__lead">
-            Clear answers on TG-RERA approvals, home loans, handover timelines, and infrastructure across our communities.
+            Clear answers on Kardanur connectivity, road infrastructure, approvals, and home loans for Pranitha&apos;s Lakshmi Nivas.
           </p>
         </div>
 
@@ -73,7 +73,7 @@ export function FaqSection({ variant = 'home', ptZero = false }: FaqSectionProps
             <div className="faq-sec__aside-body">
               <h3 className="faq-sec__aside-title">Speak with Our Advisory Team</h3>
               <p className="faq-sec__aside-text">
-                We&apos;ve heard it all. Connect with our Mokila desk for floor plans, RERA dockets, or a guided site tour.
+                We&apos;ve heard it all. Connect with our Kardanur &amp; Mokila advisory desk for Lakshmi Nivas floor plans, approvals, or a guided site tour.
               </p>
               <Link to="/contact-us" className="faq-sec__cta">
                 <span>Ask your Question</span>

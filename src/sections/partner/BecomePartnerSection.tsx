@@ -1,43 +1,39 @@
 import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from 'react';
 import './become-partner.css';
 
-const PARTNER_PILLARS = [
+const COLLABORATION_PILLARS = [
   {
     num: '01',
-    title: 'Premium Inventory',
-    desc: 'Direct access to HMDA & TG-RERA registered gated 4 & 5 BHK villas and 3 BHK luxury apartments across Mokila, Kardanur, Kondakal & Shankarpally.',
+    title: 'Land Procurement & Joint Development',
+    desc: 'Direct joint-development partnerships with landowners across Kardanur, Kollur, Mokila, and high-growth West Hyderabad corridors—unlocking full residential or commercial potential.',
   },
   {
     num: '02',
-    title: 'Competitive Payouts',
-    desc: 'Attractive brokerage slabs with milestone-linked releases, transparent registration logs, and reliable settlement cycles.',
+    title: 'Stalled Project Revival',
+    desc: 'Structured takeover and turnaround for ongoing developments where construction or sales have halted midway—restoring buyer confidence and project momentum.',
   },
   {
     num: '03',
-    title: 'Sales Kits',
-    desc: 'Ready-to-share architectural renders, cropped floor plans, master site layouts, RERA dockets, and priority guided site visit support.',
+    title: 'Approvals, Construction & Sales',
+    desc: 'Pranitha Group takes complete ownership of regulatory HMDA & TG-RERA approvals, end-to-end engineering execution, marketing, sales strategy, and final handover.',
   },
   {
     num: '04',
-    title: 'Trust',
-    desc: 'Two decades of West Hyderabad delivery credibility with completed communities and strategic collaboration with TAG Projects.',
+    title: 'Rightful Share & Maximum Value',
+    desc: 'Transparent terms built to protect the landowner’s rightful share while maximizing long-term asset value appreciation through disciplined execution and timely delivery.',
   },
 ] as const;
 
-const PARTNER_TYPES = ['Individual', 'Firm'] as const;
-
-const PREFERRED_PROJECTS = [
-  'All Praneeta Communities',
-  'Upcoming Mokila Project (Kardanur / Mokila Belt)',
-  'Praneeta Amity Villas — Mokila (5 BHK)',
-  'Praneeta The Patio Villas — Mokila (5 BHK)',
-  'Praneeta Santorini Villas — Mokila (4 & 5 BHK)',
-  'Praneeta Meridian — Kondakal (3 BHK)',
-  'Praneeta Singapore Town — Shankarpally',
+const COLLABORATION_OPPORTUNITIES = [
+  'Joint Development (Landowner Collaboration)',
+  'Stalled Project Revival / Takeover',
+  'Land Sale / Land Procurement',
+  'Corporate Bulk Land Collaboration',
+  'Other Strategic Collaboration',
 ] as const;
 
 type PartnerFieldErrors = Partial<
-  Record<'fullName' | 'phone' | 'email' | 'consent', string>
+  Record<'fullName' | 'phone' | 'email' | 'projectDetails' | 'consent', string>
 >;
 
 interface PartnerDropdownProps {
@@ -174,9 +170,8 @@ export function BecomePartnerSection() {
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
-  const [partnerType, setPartnerType] = useState<string>(PARTNER_TYPES[0]);
-  const [preferredProject, setPreferredProject] = useState<string>(PREFERRED_PROJECTS[0]);
-  const [notes, setNotes] = useState('');
+  const [opportunity, setOpportunity] = useState<string>(COLLABORATION_OPPORTUNITIES[0]);
+  const [projectDetails, setProjectDetails] = useState('');
   const [consent, setConsent] = useState(false);
   const [errors, setErrors] = useState<PartnerFieldErrors>({});
   const [submitting, setSubmitting] = useState(false);
@@ -193,15 +188,18 @@ export function BecomePartnerSection() {
 
   const validate = (): PartnerFieldErrors => {
     const next: PartnerFieldErrors = {};
-    if (!fullName.trim()) next.fullName = 'Please enter your full name or agency name.';
+    if (!fullName.trim()) next.fullName = 'Please enter your full name or organization name.';
     if (!phone.trim() || phone.replace(/\D/g, '').length < 7) {
       next.phone = 'Please enter a valid phone number.';
     }
     if (!email.trim() || !/^\S+@\S+\.\S+$/.test(email.trim())) {
       next.email = 'Please enter a valid email address.';
     }
+    if (!projectDetails.trim()) {
+      next.projectDetails = 'Please share brief details about your land parcel or project.';
+    }
     if (!consent) {
-      next.consent = 'Please confirm authorization before registering.';
+      next.consent = 'Please confirm authorization before submitting your collaboration inquiry.';
     }
     return next;
   };
@@ -229,9 +227,8 @@ export function BecomePartnerSection() {
           fullName: fullName.trim(),
           phone: phone.trim(),
           email: email.trim(),
-          partnerType,
-          preferredProject,
-          notes: notes.trim(),
+          opportunity,
+          projectDetails: projectDetails.trim(),
           consent: true,
         }),
       });
@@ -243,9 +240,8 @@ export function BecomePartnerSection() {
         setFullName('');
         setPhone('');
         setEmail('');
-        setPartnerType(PARTNER_TYPES[0]);
-        setPreferredProject(PREFERRED_PROJECTS[0]);
-        setNotes('');
+        setOpportunity(COLLABORATION_OPPORTUNITIES[0]);
+        setProjectDetails('');
         setConsent(false);
       }
     } catch {
@@ -258,24 +254,24 @@ export function BecomePartnerSection() {
   return (
     <section className="partner-section">
       <div className="partner-container">
-        {/* ── 1. 4 Partner Value Pillars ── */}
+        {/* ── 1. Direct Collaboration Positioning & Value Pillars ── */}
         <div>
           <div className="partner-pillars-header">
             <div className="partner-pill">
               <span className="partner-pill-dot" aria-hidden="true" />
-              <span className="partner-pill-text">Channel Partner Portal</span>
+              <span className="partner-pill-text">Joint Development &amp; Landowner Collaboration</span>
             </div>
             <h1 className="partner-pillars-title">
-              Become a Praneeta Developers Channel Partner
+              Direct Collaboration with Pranitha Group
             </h1>
             <p className="partner-pillars-sub">
-              Join Hyderabad&apos;s fastest-growing quality-delivering property developer. Access premium inventory, earn attractive payouts, and close more deals with dedicated support.
+              Whether you own prime land ready for development or hold a project where construction or sales have stalled midway, Pranitha Group takes complete ownership of regulatory approvals, construction execution, sales strategy, and final delivery—securing your rightful share and maximum asset appreciation.
             </p>
           </div>
         </div>
 
         <div className="partner-pillars-grid">
-          {PARTNER_PILLARS.map((pillar) => (
+          {COLLABORATION_PILLARS.map((pillar) => (
             <article key={pillar.num} className="partner-pillar-card">
               <span className="partner-pillar-num" aria-hidden="true">
                 {pillar.num}
@@ -286,25 +282,25 @@ export function BecomePartnerSection() {
           ))}
         </div>
 
-        {/* ── 2. Split Registration Shell ── */}
+        {/* ── 2. Split Collaboration Proposal Shell ── */}
         <div className="partner-shell">
           <div className="partner-aside">
             <div>
               <div className="partner-aside-pill">
                 <span className="partner-aside-dot" aria-hidden="true" />
-                <span className="partner-aside-pill-text">Partner Onboarding</span>
+                <span className="partner-aside-pill-text">Direct Developer Desk</span>
               </div>
               <h2 className="partner-aside-title">
-                Partner With West Hyderabad&apos;s Leading Villa Developer
+                Turn Your Land or Stalled Project Into a Landmark Community
               </h2>
               <p className="partner-aside-desc">
-                Submit your individual or brokerage firm details to receive our digital sales kit, updated unit availability sheets, and dedicated site-visit coordination across Mokila &amp; Shankarpally.
+                Backed by 20 years of leadership in land procurement, corporate bulk lands, and residential execution across Kardanur, Kollur, and Mokila, Pranitha Group handles every stage from approvals to handover with complete transparency.
               </p>
             </div>
 
             <div className="partner-aside-highlights">
               <div>
-                <span className="partner-aside-kicker">Dedicated CP Desk</span>
+                <span className="partner-aside-kicker">Direct Leadership Desk</span>
                 <div className="partner-aside-links">
                   <a href="tel:+919133637111" className="partner-aside-link">
                     +91 91336 37111
@@ -319,38 +315,38 @@ export function BecomePartnerSection() {
               </div>
 
               <div>
-                <span className="partner-aside-kicker">Empanelment Turnaround</span>
+                <span className="partner-aside-kicker">End-to-End Scope</span>
                 <p className="partner-aside-note">
-                  24–48 hours with verified brochure kits, master layouts &amp; RERA documentation.
+                  HMDA &amp; TG-RERA approvals, architectural planning, construction execution, sales velocity, and final project delivery.
                 </p>
               </div>
 
               <div>
-                <span className="partner-aside-kicker">Active Growth Corridors</span>
+                <span className="partner-aside-kicker">Primary Focus Corridors</span>
                 <p className="partner-aside-note">
-                  Mokila · Kardanur · Kondakal · Shankarpally (10–25 mins from Neopolis &amp; Financial District)
+                  Kardanur · Kollur · Mokila &amp; West Hyderabad growth corridors.
                 </p>
               </div>
             </div>
           </div>
 
           <div className="partner-form-panel">
-            <h3 className="partner-form-heading">Channel Partner Registration</h3>
+            <h3 className="partner-form-heading">Start a Direct Collaboration</h3>
             <p className="partner-form-sub">
-              Complete the form below to enroll as an authorized Praneeta Developers channel partner.
+              Share your land parcel or project details directly with Pranitha Group for a confidential feasibility evaluation.
             </p>
 
             <form className="partner-form" onSubmit={handleSubmit} noValidate>
               <div className="partner-form-grid">
                 <div className="partner-field">
                   <label htmlFor="Partner-Full-Name" className="partner-field-label">
-                    Full Name
+                    Full Name / Organization
                   </label>
                   <input
                     id="Partner-Full-Name"
                     type="text"
                     autoComplete="name"
-                    placeholder="e.g. Suresh Reddy / Horizon Realty"
+                    placeholder="Enter your full name"
                     className={`partner-input${errors.fullName ? ' is-error' : ''}`}
                     aria-invalid={Boolean(errors.fullName)}
                     aria-describedby={errors.fullName ? 'Partner-Full-Name-error' : undefined}
@@ -393,73 +389,71 @@ export function BecomePartnerSection() {
                     </p>
                   )}
                 </div>
-
-                <div className="partner-field">
-                  <label htmlFor="Partner-Email" className="partner-field-label">
-                    Email Address
-                  </label>
-                  <input
-                    id="Partner-Email"
-                    type="email"
-                    autoComplete="email"
-                    placeholder="partner@example.com"
-                    className={`partner-input${errors.email ? ' is-error' : ''}`}
-                    aria-invalid={Boolean(errors.email)}
-                    aria-describedby={errors.email ? 'Partner-Email-error' : undefined}
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                      clearError('email');
-                    }}
-                    required
-                  />
-                  {errors.email && (
-                    <p id="Partner-Email-error" className="partner-field-error">
-                      {errors.email}
-                    </p>
-                  )}
-                </div>
-
-                <div className="partner-field">
-                  <label id="Partner-Type-label" htmlFor="Partner-Type" className="partner-field-label">
-                    Partner Type
-                  </label>
-                  <PartnerDropdown
-                    id="Partner-Type"
-                    labelId="Partner-Type-label"
-                    value={partnerType}
-                    options={PARTNER_TYPES}
-                    onChange={setPartnerType}
-                  />
-                </div>
               </div>
 
               <div className="partner-field">
-                <label id="Partner-Project-label" htmlFor="Partner-Project" className="partner-field-label">
-                  Preferred Project
+                <label htmlFor="Partner-Email" className="partner-field-label">
+                  Email Address
+                </label>
+                <input
+                  id="Partner-Email"
+                  type="email"
+                  autoComplete="email"
+                  placeholder="you@example.com"
+                  className={`partner-input${errors.email ? ' is-error' : ''}`}
+                  aria-invalid={Boolean(errors.email)}
+                  aria-describedby={errors.email ? 'Partner-Email-error' : undefined}
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    clearError('email');
+                  }}
+                  required
+                />
+                {errors.email && (
+                  <p id="Partner-Email-error" className="partner-field-error">
+                    {errors.email}
+                  </p>
+                )}
+              </div>
+
+              <div className="partner-field">
+                <label id="Partner-Opportunity-label" htmlFor="Partner-Opportunity" className="partner-field-label">
+                  What is the opportunity you are looking for collaboration?
                 </label>
                 <PartnerDropdown
-                  id="Partner-Project"
-                  labelId="Partner-Project-label"
-                  value={preferredProject}
-                  options={PREFERRED_PROJECTS}
-                  onChange={setPreferredProject}
+                  id="Partner-Opportunity"
+                  labelId="Partner-Opportunity-label"
+                  value={opportunity}
+                  options={COLLABORATION_OPPORTUNITIES}
+                  onChange={setOpportunity}
                 />
               </div>
 
               <div className="partner-field">
-                <label htmlFor="Partner-Notes" className="partner-field-label">
-                  Additional Notes / TG-RERA Agency ID (Optional)
+                <label htmlFor="Partner-Project-Details" className="partner-field-label">
+                  Do you have a land or a project that you want the developer to look into?
                 </label>
                 <textarea
-                  id="Partner-Notes"
+                  id="Partner-Project-Details"
                   rows={4}
                   maxLength={3000}
-                  placeholder="Share your TG-RERA agent ID, operating corridor, or client requirements..."
-                  className="partner-input partner-textarea"
-                  value={notes}
-                  onChange={(e) => setNotes(e.target.value)}
+                  placeholder="Share location, land extent (acres/sq.yds), current approval or construction status, and how you would like Pranitha Group to collaborate..."
+                  className={`partner-input partner-textarea${errors.projectDetails ? ' is-error' : ''}`}
+                  aria-invalid={Boolean(errors.projectDetails)}
+                  aria-describedby={errors.projectDetails ? 'Partner-Project-Details-error' : undefined}
+                  value={projectDetails}
+                  onChange={(e) => {
+                    setProjectDetails(e.target.value);
+                    clearError('projectDetails');
+                  }}
+                  required
                 />
+                {errors.projectDetails && (
+                  <p id="Partner-Project-Details-error" className="partner-field-error">
+                    {errors.projectDetails}
+                  </p>
+                )}
               </div>
 
               <div className="partner-form-footer">
@@ -477,7 +471,7 @@ export function BecomePartnerSection() {
                       }}
                     />
                     <span className="partner-consent-text">
-                      I agree to let Praneeta Developers contact me regarding channel partner onboarding and inventory updates.
+                      I authorize Pranitha Group to contact me directly regarding this land or project collaboration opportunity.
                     </span>
                   </label>
                   {errors.consent && (
@@ -488,7 +482,7 @@ export function BecomePartnerSection() {
                 </div>
 
                 <button type="submit" className="partner-submit-btn" disabled={submitting}>
-                  <span>{submitting ? 'Registering...' : 'Register Now'}</span>
+                  <span>{submitting ? 'Submitting...' : 'Submit Collaboration Inquiry'}</span>
                   {!submitting && <span aria-hidden="true">→</span>}
                 </button>
               </div>
@@ -496,13 +490,13 @@ export function BecomePartnerSection() {
 
             {status === 'success' && (
               <div className="partner-status-box partner-status-box--success" role="status">
-                Thank you for registering! Our Channel Partner Desk will review your details and connect within 24–48 hours.
+                Thank you! Our Land &amp; Joint Development team has received your collaboration details and will connect with you directly.
               </div>
             )}
 
             {status === 'error' && (
               <div className="partner-status-box partner-status-box--error" role="alert">
-                Something went wrong while submitting your registration. Please call +91 91336 37111.
+                Something went wrong while submitting your inquiry. Please call +91 91336 37111.
               </div>
             )}
           </div>

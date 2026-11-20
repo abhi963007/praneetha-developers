@@ -82,12 +82,11 @@ try {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      fullName: 'Ramesh Realtors',
+      fullName: 'Ramesh Reddy',
       phone: '+91 98490 12345',
       email: 'partner@example.com',
-      partnerType: 'Firm',
-      preferredProject: 'Upcoming Mokila Project (Kardanur / Mokila Belt)',
-      notes: 'West Hyderabad NRI channel desk',
+      opportunity: 'Joint Development (Landowner Collaboration)',
+      projectDetails: '5-acre clear-title land parcel near Kardanur ready for gated villa development.',
       consent: true,
     }),
   });

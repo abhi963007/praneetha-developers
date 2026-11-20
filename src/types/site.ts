@@ -22,7 +22,7 @@ export const PAGE_META: Record<PageKey, PageMeta> = {
     key: 'home',
     path: '/',
     label: 'Home',
-    title: 'Praneeta Developers — Luxury Gated Villas in Mokila, Shankarpally & Kardanur',
+    title: 'Praneeta Developers — Luxury Gated Villas in Kardanur, Kollur & Mokila',
     wfPage: '69e231c0aededb9fade4ee77',
   },
   about: {
@@ -36,21 +36,21 @@ export const PAGE_META: Record<PageKey, PageMeta> = {
     key: 'properties',
     path: '/properties',
     label: 'Properties',
-    title: 'Projects in Mokila, Shankarpally & Kardanur - Praneeta Developers',
+    title: 'Projects in Kardanur, Kollur & Mokila - Praneeta Developers',
     wfPage: '69e9f808e78c220e0b094809',
   },
   gallery: {
     key: 'gallery',
     path: '/gallery',
     label: 'Gallery',
-    title: 'Gallery - Villas in Mokila & Shankarpally - Praneeta Developers',
+    title: 'Gallery - Villas in Kardanur, Kollur & Mokila - Praneeta Developers',
     wfPage: '69e9f808e78c220e0b094809',
   },
   partner: {
     key: 'partner',
     path: '/become-a-partner',
     label: 'Become a Partner',
-    title: 'Become a Partner - Praneeta Developers - Channel Partner Portal',
+    title: 'Become a Partner - Direct Collaboration with Pranitha Group',
     wfPage: '69eb130b0dc620c786c35d6f',
   },
   insights: {
@@ -104,20 +104,12 @@ export interface ProjectDropdownGroup {
 
 export const PROJECTS_DROPDOWN_GROUPS: ProjectDropdownGroup[] = [
   {
-    category: 'Villas',
+    category: 'Our Portfolio',
     items: [
-      { label: 'Ongoing', to: '/category/villas-ongoing' },
-      { label: 'Upcoming', to: '/category/villas-upcoming', badge: 'New' },
-      { label: 'Completed', to: '/category/villas-completed' },
+      { label: 'Ongoing', to: '/category/ongoing', badge: 'New Launch' },
+      { label: 'Upcoming', to: '/category/upcoming' },
+      { label: 'Completed', to: '/category/completed' },
     ],
-  },
-  {
-    category: 'Apartments',
-    items: [{ label: 'Ongoing', to: '/category/apartments' }],
-  },
-  {
-    category: 'Residential Plots',
-    items: [{ label: 'Coming Soon', to: '/category/plots-coming-soon', hideArrow: true }],
   },
 ];
 
@@ -142,19 +134,15 @@ export const FOOTER_LINKS: { label: string; to: string }[] = [
 ];
 
 export const FOOTER_CATEGORY_LINKS: { label: string; to: string }[] = [
-  { label: 'Villas — Ongoing', to: '/category/villas-ongoing' },
-  { label: 'Villas — Upcoming', to: '/category/villas-upcoming' },
-  { label: 'Villas — Completed', to: '/category/villas-completed' },
-  { label: 'Apartments — Ongoing', to: '/category/apartments' },
-  { label: 'Residential Plots — Coming Soon', to: '/category/plots-coming-soon' },
+  { label: 'Ongoing Projects', to: '/category/ongoing' },
+  { label: 'Upcoming Projects', to: '/category/upcoming' },
+  { label: 'Completed Projects', to: '/category/completed' },
 ];
 
 export const CATEGORY_LINKS: { label: string; to: string }[] = [
-  { label: 'Villas - Ongoing', to: '/category/villas-ongoing' },
-  { label: 'Villas (Upcoming)', to: '/category/villas-upcoming' },
-  { label: 'Apartments', to: '/category/apartments' },
-  { label: 'Villas - Completed', to: '/category/villas-completed' },
-  { label: 'Residential Plots (Coming Soon)', to: '/category/plots-coming-soon' },
+  { label: 'Ongoing', to: '/category/ongoing' },
+  { label: 'Upcoming', to: '/category/upcoming' },
+  { label: 'Completed', to: '/category/completed' },
 ];
 
 export function isRouteActive(pathname: string, to: string): boolean {

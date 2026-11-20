@@ -3,13 +3,13 @@ import { PAGE_META } from '../../types/site';
 import './contact-cards.css';
 
 const PROPERTY_INTERESTS = [
-  'Upcoming Mokila Project — Kardanur / Mokila Belt',
+  "Pranitha's Lakshmi Nivas — Kardanur (New Launch)",
   'Amity Villas — Mokila (5 BHK)',
   'The Patio Villas — Mokila (5 BHK)',
   'The Santorini Villas — Mokila (5 BHK)',
   'Meridian Apartments — Kondakal (3 BHK)',
-  'Singapur Town Phase-2 — Shankarpally (4 BHK)',
-  'Channel Partner Registration',
+  'Singapur Town Phase-2 (4 BHK)',
+  'Direct Collaboration / Joint Development',
 ] as const;
 
 type FieldErrors = Partial<

@@ -27,7 +27,7 @@ const DISCLAIMER_CONFIG: LegalPageConfig = {
   eyebrow: 'Legal & Regulatory Disclosure',
   heading: 'Website Content, Architectural Visuals & RERA Notice',
   intro:
-    'This website is operated by V Praneeta Developers Pvt. Ltd. (Praneeta Developers) to present general project information regarding our gated villa, apartment, and residential community developments across Mokila, Kondakal, Kardanur, and Shankarpally in West Hyderabad.',
+    'This website is operated by V Praneeta Developers Pvt. Ltd. (Praneeta Developers) to present general project information regarding our gated villa, apartment, and residential community developments across Kardanur, Kollur, and Mokila in West Hyderabad.',
   clauses: [
     {
       num: '01',
@@ -63,17 +63,17 @@ const PRIVACY_CONFIG: LegalPageConfig = {
   eyebrow: 'Data Protection & User Trust',
   heading: 'How Praneeta Developers Collects & Protects Your Information',
   intro:
-    'V Praneeta Developers Pvt. Ltd. (Praneeta Developers) respects your privacy and is committed to protecting the personal contact details you share when enquiring about our residential communities, subscribing to property alerts, or applying as a channel partner.',
+    'V Praneeta Developers Pvt. Ltd. (Praneeta Developers) respects your privacy and is committed to protecting the personal contact details you share when enquiring about our residential communities, subscribing to property alerts, or submitting a direct collaboration proposal.',
   clauses: [
     {
       num: '01',
       title: 'Information We Collect',
-      body: 'When you submit an enquiry form, schedule a guided site visit, register on the Channel Partner portal, or subscribe to Property Alerts, we collect the contact details you voluntarily provide—such as your name, email address, phone number, preferred project, partner type, and enquiry notes.',
+      body: 'When you submit an enquiry form, schedule a guided site visit, submit a direct collaboration inquiry, or subscribe to Property Alerts, we collect the contact details you voluntarily provide—such as your name, email address, phone number, preferred project, collaboration opportunity, and project details.',
     },
     {
       num: '02',
       title: 'How We Use Your Information',
-      body: 'Your details are used strictly to respond to project enquiries, share verified floor plans, brochures, and RERA dockets, coordinate guided visits to our Mokila or Shankarpally sites, onboard empaneled channel partners, and deliver requested project updates.',
+      body: 'Your details are used strictly to respond to project enquiries, share verified floor plans, brochures, and RERA dockets, coordinate guided visits to our Kardanur, Kollur, and Mokila sites, evaluate joint development or stalled project collaboration proposals, and deliver requested project updates.',
     },
     {
       num: '03',

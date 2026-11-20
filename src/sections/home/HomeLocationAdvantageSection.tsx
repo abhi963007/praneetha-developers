@@ -14,7 +14,7 @@ const IT_CORRIDOR_COMMUTES: CommuteItem[] = [
     destination: 'Financial District',
     distance: '18 – 20 km',
     commute: '25 – 30 Mins',
-    route: 'via Shankarpally',
+    route: 'via Kardanur – Kollur ORR',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 21h18" />
@@ -67,7 +67,7 @@ const IT_CORRIDOR_COMMUTES: CommuteItem[] = [
     destination: 'Kondapur',
     distance: '22 – 25 km',
     commute: '35 Mins',
-    route: 'Shankarpally – Gopanpally',
+    route: 'via Kollur – Gopanpally',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10z" />
@@ -106,10 +106,10 @@ export function HomeLocationAdvantageSection() {
             <p className="section-subtitle">Location Advantage</p>
           </div>
           <h2 id="home-location-heading" className="section-title">
-            Mokila &amp; Shankarpally Growth Belt
+            Kardanur, Kollur &amp; Mokila Growth Belt
           </h2>
           <p className="home-loc-lead">
-            Effortless daily commutes for IT professionals and families connecting low-density villa living with West Hyderabad’s prime financial and technology hubs.
+            Anchored in Kardanur with effortless access to Kollur and Mokila—connecting low-density villa living with West Hyderabad’s prime financial and technology hubs.
           </p>
         </div>
 

@@ -294,3 +294,54 @@
     height: 38px;
   }
 }
+
+/* Prominent New Launch badge for Pranitha's Lakshmi Nivas */
+.property-badge--new-launch {
+  background: linear-gradient(135deg, #b8862d 0%, #d4a446 100%) !important;
+  color: #16140f !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  border: 1px solid rgba(255, 244, 214, 0.7) !important;
+  box-shadow: 0 6px 18px rgba(184, 134, 45, 0.35) !important;
+}
+
+/* Center orphan cards on the last row of the Projects grid */
+.home-properties-section .property-grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+  gap: 28px !important;
+}
+
+.home-properties-section .property-grid .w-dyn-item {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 0 1 calc((100% - 56px) / 3) !important;
+  max-width: calc((100% - 56px) / 3) !important;
+  min-width: 0 !important;
+  height: auto !important;
+}
+
+@media screen and (max-width: 991px) {
+  .home-properties-section .property-grid {
+    gap: 24px !important;
+  }
+
+  .home-properties-section .property-grid .w-dyn-item {
+    flex: 0 1 calc((100% - 24px) / 2) !important;
+    max-width: calc((100% - 24px) / 2) !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .home-properties-section .property-grid {
+    gap: 20px !important;
+  }
+
+  .home-properties-section .property-grid .w-dyn-item {
+    flex: 0 1 100% !important;
+    max-width: 100% !important;
+  }
+}

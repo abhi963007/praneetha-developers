@@ -10,28 +10,43 @@ import {
 import { PAGE_META } from '../types/site';
 
 const CATEGORY_BANNER_META: Record<string, { title: string; subtitle: string }> = {
+  ongoing: {
+    title: 'Ongoing Projects',
+    subtitle:
+      "Active gated villa and luxury apartment communities led by Pranitha's Lakshmi Nivas across Kardanur, Kollur & Mokila.",
+  },
+  upcoming: {
+    title: 'Upcoming Projects',
+    subtitle:
+      'Next-generation commercial, gated villa, high-rise apartment, and plotted developments across Mokila & West Hyderabad.',
+  },
+  completed: {
+    title: 'Completed Projects',
+    subtitle: 'Delivered and occupied gated communities crafted by Praneeta Developers.',
+  },
   'villas-ongoing': {
-    title: 'Villas Ongoing',
+    title: 'Ongoing Projects',
     subtitle:
-      'Under-construction 4 & 5 BHK gated luxury villa communities across Mokila & Shankarpally.',
-  },
-  'villas-upcoming': {
-    title: 'Villas Upcoming',
-    subtitle:
-      'Launching soon in the Mokila–Kardanur growth corridor with 40 ft spinal roads and grand clubhouse.',
-  },
-  'villas-completed': {
-    title: 'Villas Completed',
-    subtitle: 'Delivered and occupied gated villa enclaves crafted by Praneeta Developers.',
+      "Active gated villa and luxury apartment communities led by Pranitha's Lakshmi Nivas across Kardanur, Kollur & Mokila.",
   },
   apartments: {
-    title: 'Apartments Ongoing',
-    subtitle: 'Spacious 3 BHK high-rise residences in Kondakal Extension near Mokila.',
+    title: 'Ongoing Projects',
+    subtitle:
+      "Active gated villa and luxury apartment communities led by Pranitha's Lakshmi Nivas across Kardanur, Kollur & Mokila.",
+  },
+  'villas-upcoming': {
+    title: 'Upcoming Projects',
+    subtitle:
+      'Next-generation commercial, gated villa, high-rise apartment, and plotted developments across Mokila & West Hyderabad.',
   },
   'plots-coming-soon': {
-    title: 'Residential Plots Coming Soon',
+    title: 'Upcoming Projects',
     subtitle:
-      'Upcoming HMDA-planned residential plotted communities along the Mokila–Shankarpally corridor.',
+      'Next-generation commercial, gated villa, high-rise apartment, and plotted developments across Mokila & West Hyderabad.',
+  },
+  'villas-completed': {
+    title: 'Completed Projects',
+    subtitle: 'Delivered and occupied gated communities crafted by Praneeta Developers.',
   },
 };
 

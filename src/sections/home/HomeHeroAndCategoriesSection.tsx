@@ -6,32 +6,31 @@ import './home-portfolio.css';
 
 const PRIMARY_CATEGORIES = [
   {
-    to: '/category/villas-ongoing',
-    title: 'Villas',
-    subtitle: 'Amity · The Patio · Santorini · Singapur Town',
-    tag: 'Ongoing · Completed · Upcoming',
+    to: '/category/ongoing',
+    title: 'Ongoing',
+    subtitle: "Lakshmi Nivas · Amity · The Patio · Santorini · Meridian",
+    tag: 'New Launch · Villas & Apartments',
     image: '/images/portfolio-villas-ongoing.jpg',
     links: [
-      { label: 'Ongoing', to: '/category/villas-ongoing' },
-      { label: 'Completed', to: '/category/villas-completed' },
-      { label: 'Upcoming', to: '/category/villas-upcoming' },
+      { label: 'Lakshmi Nivas', to: '/property/lakshmi-nivas-kardanur' },
+      { label: 'View All Ongoing', to: '/category/ongoing' },
     ],
   },
   {
-    to: '/category/apartments',
-    title: 'Apartments',
-    subtitle: 'Praneeta Meridian',
-    tag: 'Ongoing',
+    to: '/category/upcoming',
+    title: 'Upcoming',
+    subtitle: 'Mall & Multiplex · Kodikal Villas · High-Rise · Plots',
+    tag: 'Upcoming Portfolio',
     image: '/images/portfolio-apartments.jpg',
-    links: [{ label: 'Ongoing', to: '/category/apartments' }],
+    links: [{ label: 'Explore Upcoming', to: '/category/upcoming' }],
   },
   {
-    to: '/category/plots-coming-soon',
-    title: 'Residential Plots',
-    subtitle: 'Plotted communities',
-    tag: 'Coming Soon',
-    image: '/images/portfolio-plots.jpg',
-    links: [{ label: 'Coming Soon', to: '/category/plots-coming-soon' }],
+    to: '/category/completed',
+    title: 'Completed',
+    subtitle: 'Singapore Town Phase I',
+    tag: 'Delivered',
+    image: '/images/projects/pst1/showcase-card.png',
+    links: [{ label: 'Singapore Town Phase I', to: '/property/singapur-town-phase-1' }],
   },
 ];
 
@@ -101,9 +100,9 @@ export function HomeHeroAndCategoriesSection({ afterHero }: HomeHeroAndCategorie
           lastName,
           email: trimmedEmail,
           phone: trimmedPhone,
-          interest: 'Upcoming Mokila Villa Project',
+          interest: "Pranitha's Lakshmi Nivas — Kardanur",
           message:
-            message.trim() || 'Interested in the upcoming gated villa community in Mokila.',
+            message.trim() || "Interested in Pranitha's Lakshmi Nivas gated villa community in Kardanur.",
           consent: true,
         }),
       });
@@ -130,13 +129,17 @@ export function HomeHeroAndCategoriesSection({ afterHero }: HomeHeroAndCategorie
     <div className="section-wrap">
       <ScrollHero>
         <div className="hero-end-wrap">
-          <div className="hero-luxury-overlay" aria-label="Luxury Living Coming Soon">
+          <Link
+            to="/property/lakshmi-nivas-kardanur"
+            className="hero-luxury-overlay hero-luxury-overlay--link"
+            aria-label="Explore Pranitha's Lakshmi Nivas in Kardanur"
+          >
             <div className="hero-luxury-eyebrow">
               <span className="hero-luxury-rule hero-luxury-rule--left" aria-hidden="true" />
-              <span>LUXURY LIVING</span>
+              <span>NEW LAUNCH · KARDANUR</span>
               <span className="hero-luxury-rule hero-luxury-rule--right" aria-hidden="true" />
             </div>
-            <p className="hero-luxury-headline">COMING SOON</p>
+            <p className="hero-luxury-headline">Pranitha&apos;s Lakshmi Nivas</p>
             <div className="hero-luxury-divider" aria-hidden="true">
               <span className="hero-luxury-div-line hero-luxury-div-line--left" />
               <svg className="hero-luxury-diamond" width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -161,25 +164,29 @@ export function HomeHeroAndCategoriesSection({ afterHero }: HomeHeroAndCategorie
               <span className="hero-luxury-div-line hero-luxury-div-line--right" />
             </div>
             <p className="hero-luxury-subtitle">
-              A premium lifestyle, crafted for
+              A premium gated villa lifestyle in Kardanur,
               <br />
-              the extraordinary.
+              crafted for the extraordinary.
             </p>
-          </div>
+          </Link>
           <div className="hero-end-card">
             <div className="hero-end-info">
               <div className="hero-end-eyebrow">
                 <span className="hero-end-dot" aria-hidden="true" />
-                <span>Launching Soon</span>
+                <span>New Launch · Kardanur</span>
               </div>
-              <h1 className="hero-end-title">Mokila</h1>
+              <h1 className="hero-end-title">
+                <Link to="/property/lakshmi-nivas-kardanur" className="hero-end-title-link">
+                  Pranitha&apos;s Lakshmi Nivas
+                </Link>
+              </h1>
               <p className="hero-end-desc">
-                A spectacular gated villa community launching soon in Mokila.
+                Luxury G+2 gated villa community in Kardanur near Kollur &amp; Mokila.
               </p>
             </div>
             <div className="hero-end-actions">
-              <button type="button" className="hero-end-btn" onClick={openModal}>
-                <span>Get in Touch</span>
+              <Link to="/property/lakshmi-nivas-kardanur" className="hero-end-btn">
+                <span>View Project</span>
                 <span className="hero-end-btn-circle" aria-hidden="true">
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path
@@ -191,6 +198,9 @@ export function HomeHeroAndCategoriesSection({ afterHero }: HomeHeroAndCategorie
                     />
                   </svg>
                 </span>
+              </Link>
+              <button type="button" className="hero-end-enquire-link" onClick={openModal}>
+                Enquire Now
               </button>
             </div>
           </div>
@@ -226,13 +236,13 @@ export function HomeHeroAndCategoriesSection({ afterHero }: HomeHeroAndCategorie
               <div className="hero-lead-header">
                 <div className="hero-end-eyebrow">
                   <span className="hero-end-dot" aria-hidden="true" />
-                  <span>Launching Soon · Mokila</span>
+                  <span>New Launch · Kardanur</span>
                 </div>
                 <h2 id="hero-lead-modal-title" className="hero-lead-title">
-                  Get in Touch
+                  Pranitha&apos;s Lakshmi Nivas
                 </h2>
                 <p className="hero-lead-subtitle">
-                  Register your interest for our upcoming gated villa community in Mokila.
+                  Register your interest for Pranitha&apos;s Lakshmi Nivas gated villa community in Kardanur.
                 </p>
               </div>
 
@@ -240,7 +250,7 @@ export function HomeHeroAndCategoriesSection({ afterHero }: HomeHeroAndCategorie
                 <div className="hero-lead-success">
                   <p className="hero-lead-success-title">Thank you for your interest!</p>
                   <p className="hero-lead-success-desc">
-                    Our Mokila advisory team has received your details and will reach out shortly.
+                    Our Kardanur &amp; Mokila advisory team has received your details and will reach out shortly.
                   </p>
                   <button
                     type="button"

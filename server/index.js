@@ -139,8 +139,8 @@ export function createServer(options = {}) {
     const fullName = String(body.fullName || '').trim();
     const phone = String(body.phone || '').trim();
     const email = String(body.email || '').trim();
-    const partnerType = String(body.partnerType || '').trim();
-    const preferredProject = String(body.preferredProject || '').trim();
+    const opportunity = String(body.opportunity || body.partnerType || '').trim();
+    const projectDetails = String(body.projectDetails || body.preferredProject || body.notes || '').trim();
     const notes = String(body.notes || '').trim();
     const consent = body.consent === true;
 
@@ -149,13 +149,13 @@ export function createServer(options = {}) {
       !phone ||
       phone.replace(/\D/g, '').length < 7 ||
       !EMAIL_RE.test(email) ||
-      !partnerType ||
-      !preferredProject ||
+      !opportunity ||
+      !projectDetails ||
       !consent
     ) {
       return res.status(400).json({
         ok: false,
-        error: 'Full name, valid phone, valid email, partner type, preferred project, and consent are required.',
+        error: 'Full name, valid phone, valid email, collaboration opportunity, land/project details, and consent are required.',
       });
     }
 
@@ -164,8 +164,8 @@ export function createServer(options = {}) {
       fullName,
       phone,
       email,
-      partnerType,
-      preferredProject,
+      opportunity,
+      projectDetails,
       notes,
       consent: true,
       createdAt: new Date().toISOString(),
