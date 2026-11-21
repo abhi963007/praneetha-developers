@@ -594,6 +594,10 @@
     gap: 10px;
   }
 
+  .gal-card {
+    border-radius: 14px;
+  }
+
   .gal-card--span7,
   .gal-card--span8 {
     grid-column: span 2;
@@ -604,15 +608,92 @@
   .gal-card--span5,
   .gal-card--span6 {
     grid-column: span 1;
-    height: 155px;
+    height: 160px;
+  }
+
+  .gal-card__top {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    gap: 6px;
   }
 
   .gal-card__tag {
-    font-size: 9.5px;
-    padding: 4px 8px;
-    max-width: calc(100% - 36px);
+    padding: 3px 8px;
+    font-size: 9px;
+    line-height: 1.25;
+    max-width: calc(100% - 30px);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    background: rgba(20, 26, 22, 0.58);
+  }
+
+  .gal-card__zoom {
+    width: 24px;
+    height: 24px;
+    opacity: 0.9;
+    margin-left: auto;
+  }
+
+  .gal-card__zoom svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  .gal-card__bottom {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    gap: 2px;
+  }
+
+  .gal-card__title {
+    font-size: 14.5px !important;
+    line-height: 1.25 !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .gal-card__sub {
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Keep small 2-col thumbnails clean: photo + concise title + zoom icon */
+  .gal-card--span4 .gal-card__tag,
+  .gal-card--span5 .gal-card__tag,
+  .gal-card--span6 .gal-card__tag,
+  .gal-card--span4 .gal-card__sub,
+  .gal-card--span5 .gal-card__sub,
+  .gal-card--span6 .gal-card__sub {
+    display: none;
+  }
+
+  .gal-card--span4 .gal-card__title,
+  .gal-card--span5 .gal-card__title,
+  .gal-card--span6 .gal-card__title {
+    font-size: 12.5px !important;
+    -webkit-line-clamp: 2;
+  }
+
+  .gal-cta {
+    margin-top: 28px;
+    padding: 22px 18px;
+    border-radius: 18px;
+    gap: 14px;
+  }
+
+  .gal-cta__title {
+    font-size: 1.35rem !important;
+  }
+
+  .gal-cta__btn {
+    width: 100%;
+    justify-content: center;
   }
 }
