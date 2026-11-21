@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Footer } from '../components/Footer';
 import { Navbar } from '../components/Navbar';
 import { PageBannerSection } from '../components/PageBannerSection';
@@ -95,7 +96,26 @@ const PRIVACY_CONFIG: LegalPageConfig = {
 
 function LegalPageLayout({ config }: { config: LegalPageConfig }) {
   useWebflowPage(config.meta.wfPage, config.meta.title);
+  const navigate = useNavigate();
   const isDisclaimer = config.meta.key === 'disclaimer';
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const handleOutside = (e: MouseEvent) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target as Node)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleOutside);
+    return () => document.removeEventListener('mousedown', handleOutside);
+  }, [isMobileMenuOpen]);
+
+  const handleSelectDoc = (path: string) => {
+    setIsMobileMenuOpen(false);
+    navigate(path);
+  };
 
   return (
     <>
@@ -120,6 +140,59 @@ function LegalPageLayout({ config }: { config: LegalPageConfig }) {
                 Privacy Policy
               </Link>
             </nav>
+
+            <div className="legal-mobile-switcher" ref={mobileMenuRef}>
+              <button
+                type="button"
+                className={`legal-mobile-select-btn${isMobileMenuOpen ? ' is-open' : ''}`}
+                aria-expanded={isMobileMenuOpen}
+                aria-haspopup="listbox"
+                onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+              >
+                <span className="legal-mobile-select-text">
+                  Document: <strong>{isDisclaimer ? 'Disclaimer' : 'Privacy Policy'}</strong>
+                </span>
+                <svg
+                  className={`legal-mobile-select-chevron${isMobileMenuOpen ? ' is-open' : ''}`}
+                  width="14"
+                  height="14"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 4.5L6 7.5L9 4.5"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              {isMobileMenuOpen && (
+                <ul className="legal-mobile-dropdown" role="listbox" aria-label="Legal documents">
+                  <li role="option" aria-selected={isDisclaimer}>
+                    <button
+                      type="button"
+                      className={`legal-mobile-option${isDisclaimer ? ' is-active' : ''}`}
+                      onClick={() => handleSelectDoc('/disclaimer')}
+                    >
+                      <span>Disclaimer</span>
+                    </button>
+                  </li>
+                  <li role="option" aria-selected={!isDisclaimer}>
+                    <button
+                      type="button"
+                      className={`legal-mobile-option${!isDisclaimer ? ' is-active' : ''}`}
+                      onClick={() => handleSelectDoc('/privacy-policy')}
+                    >
+                      <span>Privacy Policy</span>
+                    </button>
+                  </li>
+                </ul>
+              )}
+            </div>
+
             <p className="legal-updated">Effective: November 2026 · Hyderabad, India</p>
           </div>
 
