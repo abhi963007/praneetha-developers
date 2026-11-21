@@ -526,10 +526,63 @@
   }
 }
 
-@media screen and (max-width: 640px) {
-  .partner-pillars-grid,
+@media screen and (max-width: 767px) {
+  .partner-section {
+    padding: 92px 16px 48px;
+  }
+
+  .partner-container {
+    gap: 24px;
+  }
+
+  .partner-pillars-title {
+    font-size: 1.55rem !important;
+  }
+
+  .partner-pillars-sub {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .partner-pillars-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .partner-pillar-card {
+    padding: 16px 14px;
+    border-radius: 16px;
+    gap: 6px;
+  }
+
+  .partner-pillar-title {
+    font-size: 15.5px !important;
+  }
+
+  .partner-pillar-desc {
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+
+  .partner-shell {
+    padding: 12px;
+    border-radius: 18px;
+    gap: 14px;
+  }
+
+  .partner-aside {
+    padding: 20px 18px;
+    border-radius: 14px;
+    gap: 18px;
+  }
+
+  .partner-aside-title {
+    font-size: 1.45rem !important;
+  }
+
   .partner-form-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .partner-submit-btn {

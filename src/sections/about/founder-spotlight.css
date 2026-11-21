@@ -271,6 +271,53 @@
   }
 }
 
+@media screen and (max-width: 767px) {
+  .abt-founder {
+    padding: 0 0 44px !important;
+  }
+
+  .abt-founder__inner {
+    padding: 0 16px;
+    gap: 36px;
+  }
+
+  .abt-founder__card {
+    padding: 18px;
+    gap: 20px;
+    border-radius: 18px;
+  }
+
+  .abt-founder__photo-col {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+
+  .abt-founder__name {
+    font-size: 1.6rem !important;
+  }
+
+  .abt-founder__subtitle {
+    font-size: 14px;
+  }
+
+  .abt-founder__paragraphs p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .abt-founder__actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .abt-founder__btn-primary,
+  .abt-founder__btn-secondary {
+    width: 100%;
+    height: 42px;
+    font-size: 14px;
+  }
+}
+
 @media screen and (max-width: 540px) {
   .abt-founder__expertise-grid {
     grid-template-columns: 1fr;

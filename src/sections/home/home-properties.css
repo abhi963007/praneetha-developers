@@ -486,13 +486,13 @@
   }
 
   .home-properties-section .property-price {
-    color: #e6d79b !important;
+    color: #ffffff !important;
     font-size: 13.5px !important;
     font-weight: 600 !important;
   }
 
   .home-properties-section .property-price-info {
-    color: rgba(245, 239, 230, 0.82) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
     font-size: 12px !important;
   }
 

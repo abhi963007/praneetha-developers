@@ -166,33 +166,40 @@
 
 @media (max-width: 767px) {
   .page-hero__box {
-    min-height: 300px;
-    border-radius: 18px 18px 28px 28px;
+    min-height: 240px;
+    border-radius: 18px 18px 24px 24px;
   }
 
   .page-hero__content {
-    padding: 118px 20px 40px;
+    padding: 98px 18px 30px;
+  }
+
+  .page-hero__eyebrow {
+    font-size: 10.5px;
+    padding: 5px 11px;
+    margin-bottom: 10px;
   }
 
   .page-hero__title {
-    font-size: clamp(38px, 10.5vw, 56px);
+    font-size: clamp(30px, 8.5vw, 44px);
+    margin-bottom: 10px;
   }
 
   .page-hero__title--project {
-    font-size: clamp(28px, 7.5vw, 40px);
+    font-size: clamp(24px, 6.8vw, 34px);
   }
 
   .page-hero__title--article {
-    font-size: clamp(24px, 6.5vw, 34px);
+    font-size: clamp(22px, 6vw, 30px);
   }
 
   .page-hero__title--single {
-    font-size: clamp(28px, 8vw, 44px);
+    font-size: clamp(26px, 7.6vw, 38px);
     white-space: normal;
   }
 
   .page-hero__subtitle {
-    font-size: clamp(14.5px, 3.8vw, 17px);
+    font-size: clamp(13.5px, 3.6vw, 15.5px);
   }
 
   .page-hero__eyebrow--single,

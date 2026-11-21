@@ -684,14 +684,20 @@
   }
 }
 
-@media screen and (max-width: 639px) {
+@media screen and (max-width: 767px) {
   .prop-detail {
-    padding: 20px 16px;
-    border-radius: 20px;
+    padding: 18px 16px;
+    border-radius: 18px;
+  }
+
+  .prop-detail__title {
+    font-size: 22px !important;
+    line-height: 1.2 !important;
   }
 
   .prop-detail__specs {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
 
   .prop-detail__thumb {

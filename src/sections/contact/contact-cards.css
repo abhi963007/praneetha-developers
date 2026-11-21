@@ -680,20 +680,35 @@
   }
 }
 
-@media screen and (max-width: 639px) {
+@media screen and (max-width: 767px) {
   .contact-page-section {
-    padding: 48px 16px 64px !important;
+    padding: 36px 16px 48px !important;
   }
 
   .contact-page-section .contact-shell {
-    padding: 14px !important;
-    border-radius: 20px !important;
+    padding: 12px !important;
+    border-radius: 18px !important;
+    gap: 14px !important;
   }
 
   .contact-page-section .contact-aside,
   .contact-page-section .contact-form-panel,
   .contact-page-section .contact-directory-card {
-    padding: 24px 20px !important;
+    padding: 20px 16px !important;
+    border-radius: 14px !important;
+  }
+
+  .contact-page-section .contact-aside {
+    gap: 20px !important;
+  }
+
+  .contact-page-section .contact-aside-title {
+    font-size: 23px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .contact-page-section .contact-aside-desc {
+    font-size: 14px !important;
   }
 
   .contact-page-section .contact-form-grid {
@@ -705,11 +720,11 @@
   }
 
   .contact-page-section .contact-map-header {
-    padding: 20px !important;
+    padding: 16px !important;
   }
 
   .contact-page-section .contact-map-iframe-wrap {
-    height: 300px !important;
+    height: 240px !important;
   }
 }
 

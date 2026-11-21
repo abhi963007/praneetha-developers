@@ -290,6 +290,46 @@ export function GalleryShowcaseSection() {
               );
             })}
           </div>
+
+          <div className="gal-mobile-filters">
+            <label className="gal-mobile-select-wrap">
+              <span className="gal-mobile-select-label">Category</span>
+              <select
+                aria-label="Filter gallery by category"
+                className="gal-mobile-select"
+                value={activeCategory}
+                onChange={(e) => {
+                  setActiveCategory(e.target.value as (typeof CATEGORIES)[number]);
+                  setLightboxIndex(null);
+                }}
+              >
+                {CATEGORIES.map((category) => (
+                  <option key={category} value={category}>
+                    {category} ({getCount(category)})
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label className="gal-mobile-select-wrap">
+              <span className="gal-mobile-select-label">Project</span>
+              <select
+                aria-label="Filter gallery by project"
+                className="gal-mobile-select"
+                value={activeProject}
+                onChange={(e) => {
+                  setActiveProject(e.target.value as (typeof PROJECTS)[number]);
+                  setLightboxIndex(null);
+                }}
+              >
+                {PROJECTS.map((project) => (
+                  <option key={project} value={project}>
+                    {project} ({getProjectCount(project)})
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
         </div>
 
         {/* ── 12-Column Architectural Bento Grid ── */}

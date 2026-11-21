@@ -379,17 +379,31 @@
 
 @media screen and (max-width: 767px) {
   .abt-process {
-    padding: 36px 0 48px !important;
+    padding: 32px 0 44px !important;
   }
   .abt-process__inner {
     padding: 0 16px !important;
     width: 100% !important;
   }
-  .abt-process__card {
-    padding: 24px 20px !important;
-    border-radius: 18px !important;
+  .abt-process__header {
+    margin-bottom: 24px !important;
+    gap: 10px !important;
   }
   .abt-process__heading {
-    font-size: 1.85rem !important;
+    font-size: 1.65rem !important;
+  }
+  .abt-process__sub {
+    font-size: 0.9rem !important;
+  }
+  .abt-process__card {
+    padding: 20px 18px !important;
+    border-radius: 16px !important;
+  }
+  .abt-process__card-top {
+    margin-bottom: 14px !important;
+  }
+  .abt-process__card-footer {
+    margin-top: 16px !important;
+    padding-top: 12px !important;
   }
 }

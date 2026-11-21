@@ -175,7 +175,7 @@
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 767px) {
   .team-carousel-container {
     position: relative !important;
   }
@@ -184,8 +184,8 @@
     max-width: 100% !important;
   }
   .team-nav-arrow {
-    width: 42px !important;
-    height: 42px !important;
+    width: 36px !important;
+    height: 36px !important;
   }
 }
 
