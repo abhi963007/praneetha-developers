@@ -327,6 +327,9 @@
   }
 
   .legal-updated {
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
     font-size: 0.78rem;
   }
 
