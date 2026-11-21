@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { CATEGORY_LINKS } from '../../types/site';
 import '../home/home-properties.css';
@@ -596,8 +596,23 @@ export function PropertiesListingSection() {
     return () => window.removeEventListener('keydown', onKey);
   }, [lightbox]);
 
+  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
+  const mobileFilterRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isMobileFilterOpen) return;
+    const handleOutside = (e: MouseEvent) => {
+      if (mobileFilterRef.current && !mobileFilterRef.current.contains(e.target as Node)) {
+        setIsMobileFilterOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleOutside);
+    return () => document.removeEventListener('mousedown', handleOutside);
+  }, [isMobileFilterOpen]);
+
   const handleFilterClick = (categorySlug: string) => {
     setActiveCategory(categorySlug);
+    setIsMobileFilterOpen(false);
     const newPath = categorySlug === 'all' ? '/properties' : `/category/${categorySlug}`;
     navigate(newPath);
   };
@@ -854,6 +869,87 @@ export function PropertiesListingSection() {
                   </Link>
                 );
               })}
+            </div>
+            <div className="prop-mobile-filter" ref={mobileFilterRef}>
+              {(() => {
+                const activeLabel = isAll
+                  ? 'All Projects'
+                  : CATEGORY_LINKS.find((c) => c.to.replace('/category/', '') === activeCategory)
+                      ?.label ?? 'All Projects';
+                const activeCount = isAll
+                  ? PROPERTIES_DATA.length
+                  : PROPERTIES_DATA.filter((p) => p.categorySlug === activeCategory).length;
+                return (
+                  <>
+                    <button
+                      type="button"
+                      className={`prop-mobile-select-btn${isMobileFilterOpen ? ' is-open' : ''}`}
+                      aria-expanded={isMobileFilterOpen}
+                      aria-haspopup="listbox"
+                      onClick={() => setIsMobileFilterOpen((prev) => !prev)}
+                    >
+                      <span className="prop-mobile-select-text">
+                        Projects: <strong>{activeLabel}</strong> ({activeCount})
+                      </span>
+                      <svg
+                        className={`prop-mobile-select-chevron${isMobileFilterOpen ? ' is-open' : ''}`}
+                        width="14"
+                        height="14"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M3 4.5L6 7.5L9 4.5"
+                          stroke="currentColor"
+                          strokeWidth="1.6"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                    {isMobileFilterOpen && (
+                      <ul
+                        className="prop-mobile-dropdown"
+                        role="listbox"
+                        aria-label="Project categories"
+                      >
+                        <li role="option" aria-selected={isAll}>
+                          <button
+                            type="button"
+                            className={`prop-mobile-option${isAll ? ' is-active' : ''}`}
+                            onClick={() => handleFilterClick('all')}
+                          >
+                            <span>All Projects</span>
+                            <span className="prop-mobile-option-count">
+                              {PROPERTIES_DATA.length}
+                            </span>
+                          </button>
+                        </li>
+                        {CATEGORY_LINKS.map((cat) => {
+                          const catSlug = cat.to.replace('/category/', '');
+                          const active = activeCategory === catSlug;
+                          const count = PROPERTIES_DATA.filter(
+                            (p) => p.categorySlug === catSlug
+                          ).length;
+                          return (
+                            <li key={cat.to} role="option" aria-selected={active}>
+                              <button
+                                type="button"
+                                className={`prop-mobile-option${active ? ' is-active' : ''}`}
+                                onClick={() => handleFilterClick(catSlug)}
+                              >
+                                <span>{cat.label}</span>
+                                <span className="prop-mobile-option-count">{count}</span>
+                              </button>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    )}
+                  </>
+                );
+              })()}
             </div>
             {visibleProperties.length > 0 ? (
               <div className="w-dyn-list">

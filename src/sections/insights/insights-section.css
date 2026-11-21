@@ -741,6 +741,14 @@
     margin-bottom: 32px;
   }
 
+  .ins-reader__back {
+    display: none !important;
+  }
+
+  .ins-reader__top {
+    margin-bottom: 14px;
+  }
+
   .ins-pagination {
     gap: 6px;
     margin-top: 24px;
