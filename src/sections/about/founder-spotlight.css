@@ -271,6 +271,76 @@
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .abt-founder {
+    padding: 0 0 56px !important;
+  }
+
+  .abt-founder__inner {
+    padding: 0 24px;
+    gap: 44px;
+  }
+
+  .abt-founder__card {
+    display: block !important;
+    padding: 28px;
+  }
+
+  .abt-founder__card::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .abt-founder__photo-col {
+    float: left;
+    width: 245px;
+    max-width: 245px;
+    margin: 0 28px 16px 0;
+    align-items: center;
+  }
+
+  .abt-founder__bio-col {
+    display: block !important;
+    text-align: left;
+  }
+
+  .abt-founder__name {
+    margin-top: 10px !important;
+  }
+
+  .abt-founder__subtitle {
+    margin-bottom: 14px;
+  }
+
+  .abt-founder__paragraphs {
+    display: block !important;
+    text-align: left;
+  }
+
+  .abt-founder__paragraphs p + p {
+    margin-top: 12px;
+  }
+
+  .abt-founder__expertise {
+    clear: both;
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 18px;
+    text-align: left;
+  }
+
+  .abt-founder__expertise-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px;
+  }
+
+  .abt-founder__actions {
+    justify-content: flex-start;
+    margin-top: 18px;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .abt-founder {
     padding: 0 0 44px !important;

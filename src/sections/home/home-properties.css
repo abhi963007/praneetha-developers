@@ -324,14 +324,161 @@
   height: auto !important;
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .home-properties-section {
+    padding: 56px 0 !important;
+  }
+
+  .home-properties-section .section-title-box.center {
+    margin-bottom: 30px !important;
+  }
+
   .home-properties-section .property-grid {
-    gap: 24px !important;
+    gap: 20px !important;
   }
 
   .home-properties-section .property-grid .w-dyn-item {
-    flex: 0 1 calc((100% - 24px) / 2) !important;
-    max-width: calc((100% - 24px) / 2) !important;
+    flex: 0 1 calc((100% - 20px) / 2) !important;
+    max-width: calc((100% - 20px) / 2) !important;
+  }
+
+  .home-properties-section .property-box {
+    position: relative !important;
+    height: 360px !important;
+    min-height: 360px !important;
+    padding: 0 !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    border: none !important;
+    box-shadow: 0 12px 30px rgba(16, 22, 18, 0.14) !important;
+  }
+
+  .home-properties-section .property-image-box {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
+    min-height: 100% !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    z-index: 1 !important;
+  }
+
+  .home-properties-section .prop-card-slider,
+  .home-properties-section .prop-card-slider__track,
+  .home-properties-section .prop-card-slider__slide,
+  .home-properties-section .property-gallery-image {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .home-properties-section .property-image-box::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(16, 22, 18, 0.08) 0%,
+      rgba(16, 22, 18, 0.22) 38%,
+      rgba(16, 22, 18, 0.85) 72%,
+      rgba(16, 22, 18, 0.96) 100%
+    );
+  }
+
+  .home-properties-section .property-badge {
+    z-index: 4 !important;
+    top: 14px !important;
+    left: 14px !important;
+  }
+
+  .home-properties-section .prop-card-slider__arrow {
+    z-index: 4 !important;
+    top: 34% !important;
+  }
+
+  .home-properties-section .property-content {
+    position: relative !important;
+    z-index: 3 !important;
+    flex: 0 0 auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 18px 12px !important;
+    margin: 0 !important;
+    background: transparent !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    gap: 5px !important;
+  }
+
+  .home-properties-section .property-room-wrap {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  .home-properties-section .property-specs-row {
+    display: none !important;
+  }
+
+  .home-properties-section .property-icon--loc {
+    filter: brightness(0) invert(1) !important;
+    opacity: 0.9;
+  }
+
+  .home-properties-section .property-loc {
+    color: rgba(245, 239, 230, 0.9) !important;
+    font-size: 12.5px !important;
+  }
+
+  .home-properties-section .property-name-box {
+    margin: 0 !important;
+    gap: 3px !important;
+    flex: 0 0 auto !important;
+  }
+
+  .home-properties-section .property-name {
+    color: #ffffff !important;
+    font-size: 20px !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+  }
+
+  .home-properties-section .property-price {
+    color: #ffffff !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+  }
+
+  .home-properties-section .property-price-info {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 12.5px !important;
+  }
+
+  .home-properties-section .primary-button.card {
+    position: relative !important;
+    z-index: 3 !important;
+    flex: 0 0 auto !important;
+    margin: 0 18px 16px !important;
+    width: calc(100% - 36px) !important;
+    padding: 11px 18px !important;
+    border-radius: 999px !important;
+    background-color: #007b3e !important;
+    color: #ffffff !important;
+    border: none !important;
+  }
+
+  .home-properties-section .primary-button.card .primary-button-text,
+  .home-properties-section .primary-button.card .primary-button-text-hover {
+    color: #ffffff !important;
   }
 }
 

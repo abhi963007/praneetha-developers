@@ -138,6 +138,28 @@
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .home-location-section {
+    padding: 56px 0 !important;
+  }
+
+  .home-loc-matrix {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .home-loc-card {
+    padding: 18px 18px 16px;
+    gap: 14px;
+    border-radius: 16px;
+  }
+
+  .home-loc-dest {
+    font-size: 16.5px !important;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .home-location-section {
     padding: 44px 0 !important;

@@ -680,6 +680,31 @@
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .contact-page-section {
+    padding: 48px 24px 64px !important;
+  }
+
+  .contact-page-section .contact-shell {
+    grid-template-columns: minmax(0, 1fr) !important;
+    padding: 16px !important;
+    gap: 18px !important;
+  }
+
+  .contact-page-section .contact-map-iframe-wrap {
+    height: 320px !important;
+  }
+
+  .contact-page-section .contact-directory {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  .contact-page-section .contact-directory-card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .contact-page-section {
     padding: 28px 16px 40px !important;

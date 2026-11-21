@@ -180,6 +180,55 @@
   }
 }
 
+/* iPad-only horizontal infinite marquee for project logos */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .partner-logos-section {
+    padding: 24px 0 !important;
+    mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  }
+
+  .partner-logos-track {
+    display: flex !important;
+    width: max-content !important;
+    animation: partnerStripMobileMarquee 28s linear infinite;
+    will-change: transform;
+  }
+
+  .partner-logos-section:hover .partner-logos-track {
+    animation-play-state: paused;
+  }
+
+  .partner-logos-strip {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    gap: 16px !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 4px 16px 4px 0 !important;
+  }
+
+  .partner-logos-strip--clone {
+    display: flex !important;
+  }
+
+  .partner-logos-strip .partner-marquee-card {
+    flex: 0 0 auto !important;
+    width: 185px !important;
+    min-width: 185px !important;
+    max-width: 185px !important;
+    height: 86px !important;
+    padding: 0 20px !important;
+    border-radius: 16px !important;
+  }
+
+  .partner-logos-strip .partner-marquee-img {
+    max-width: 136px !important;
+    max-height: 52px !important;
+  }
+}
+
 /* Mobile-only horizontal infinite marquee for project logos */
 @media screen and (max-width: 767px) {
   .partner-logos-section {

@@ -164,6 +164,20 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+  .page-hero__box {
+    min-height: 290px;
+  }
+
+  .page-hero__content {
+    padding: 112px 32px 40px;
+  }
+
+  .page-hero__title {
+    font-size: clamp(38px, 5.4vw, 54px);
+  }
+}
+
 @media (max-width: 767px) {
   .page-hero__box {
     min-height: 240px;

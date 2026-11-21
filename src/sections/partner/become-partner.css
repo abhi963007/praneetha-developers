@@ -526,6 +526,32 @@
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .partner-section {
+    padding: 108px 24px 64px;
+  }
+
+  .partner-pillars-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .partner-pillar-card {
+    padding: 22px;
+  }
+
+  .partner-shell {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 16px;
+    gap: 18px;
+  }
+
+  .partner-aside {
+    padding: 26px;
+    gap: 20px;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .partner-section {
     padding: 92px 16px 44px;
