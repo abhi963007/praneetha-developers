@@ -550,6 +550,22 @@
     padding: 26px;
     gap: 20px;
   }
+
+  .partner-form-panel {
+    padding: 18px 16px 14px;
+  }
+
+  .partner-consent {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .partner-submit-btn {
+    width: 100%;
+    justify-content: center;
+    height: 50px;
+    font-size: 15px;
+  }
 }
 
 @media screen and (max-width: 767px) {

@@ -703,6 +703,11 @@
   .contact-page-section .contact-directory-card:last-child {
     grid-column: 1 / -1;
   }
+
+  .contact-page-section .contact-submit-btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
 }
 
 @media screen and (max-width: 767px) {
