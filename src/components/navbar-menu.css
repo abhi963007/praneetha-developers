@@ -51,6 +51,15 @@
   flex-shrink: 0;
 }
 
+.site-logo-img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: none !important;
+  flex-shrink: 0;
+}
+
 .site-brand-lockup {
   display: flex;
   flex-direction: column;
@@ -391,6 +400,10 @@
   .site-logo-emblem {
     width: 28px;
     height: 28px;
+  }
+
+  .site-logo-img {
+    height: 30px;
   }
 
   .site-brand-name {

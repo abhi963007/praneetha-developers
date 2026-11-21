@@ -203,15 +203,10 @@ export function Navbar() {
               >
                 <img
                   loading="eager"
-                  src="/images/praneeta-favicon.png"
-                  alt=""
-                  aria-hidden="true"
-                  className="site-logo-emblem"
+                  src="/images/praneeta-logo.png"
+                  alt="Praneeta Developers"
+                  className="site-logo-img"
                 />
-                <span className="site-brand-lockup">
-                  <span className="site-brand-name">PRANEETA</span>
-                  <span className="site-brand-sub">DEVELOPERS</span>
-                </span>
               </Link>
             </div>
 
