@@ -1051,22 +1051,193 @@
   }
 
   .drawer-inner {
-    padding: 16px 18px !important;
-    gap: 12px !important;
+    padding: 18px 20px 24px !important;
+    gap: 16px !important;
+    justify-content: flex-start !important;
+  }
+
+  .drawer-top-bar {
+    padding-bottom: 4px;
+  }
+
+  .drawer-nav {
+    justify-content: flex-start !important;
+    flex: 0 0 auto !important;
+    margin-top: 4px !important;
+  }
+
+  .drawer-nav-index {
+    display: none !important;
+  }
+
+  .drawer-link-left {
+    gap: 0 !important;
   }
 
   .drawer-nav-link {
-    font-size: clamp(20px, 5.2vw, 25px) !important;
-    padding: 6px 0 !important;
+    font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif) !important;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    letter-spacing: -0.01em;
+    padding: 11px 0 !important;
+  }
+
+  .drawer-nav-split {
+    padding: 0 !important;
+  }
+
+  .drawer-nav-split-link {
+    font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif) !important;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    letter-spacing: -0.01em;
+    padding: 11px 0 !important;
   }
 
   .drawer-projects-sub {
-    padding-left: 32px;
+    padding: 4px 0 12px 14px;
+    margin-bottom: 4px;
+    border-left: 2px solid rgba(0, 123, 62, 0.25);
+  }
+
+  .drawer-contact-block {
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid rgba(25, 29, 25, 0.1);
   }
 
   .drawer-contact-card {
-    padding: 12px 14px !important;
-    gap: 10px !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    gap: 14px !important;
+  }
+
+  .drawer-contact-top-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .drawer-contact-brand {
+    gap: 4px;
+  }
+
+  .drawer-contact-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    white-space: nowrap;
+  }
+
+  .drawer-contact-phone {
+    font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif);
+    font-size: 17px;
+    font-weight: 500;
+    margin-top: 2px;
+  }
+
+  .drawer-contact-email {
+    font-size: 13.5px;
+    color: #3f3f46;
+  }
+
+  .drawer-contact-meta {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .drawer-social-row {
+    gap: 8px;
+  }
+
+  .drawer-social-btn {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.65);
+    border-color: rgba(25, 29, 25, 0.12);
+  }
+
+  .drawer-cta-btn {
+    padding: 13px 20px;
+    font-size: 14.5px;
+    font-weight: 500;
+  }
+
+  /* Light, consistent nav labels matching site font */
+  .drawer-nav-label {
+    font-family: var(--_font-family---secondary-font, "Inter Tight", sans-serif) !important;
+    font-weight: 400 !important;
+  }
+
+  /* Clear dropdown toggle for Projects */
+  .drawer-projects-toggle {
+    height: 36px;
+    padding: 0;
+    justify-content: center;
+    gap: 8px;
+    width: auto;
+    min-width: 36px;
+  }
+
+  .drawer-projects-chevron {
+    width: 28px;
+    height: 28px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    background: rgba(0, 123, 62, 0.1);
+    color: #007b3e;
+  }
+
+  .drawer-projects-chevron.is-open {
+    background: #007b3e;
+    color: #ffffff;
+  }
+
+  .drawer-projects-cat {
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .drawer-projects-pill {
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  .drawer-projects-all {
+    font-weight: 500;
+  }
+
+  /* Centered contact block */
+  .drawer-contact-block {
+    text-align: center;
+  }
+
+  .drawer-contact-card,
+  .drawer-contact-top-row,
+  .drawer-contact-brand,
+  .drawer-contact-meta {
+    align-items: center !important;
+    text-align: center;
+  }
+
+  .drawer-contact-meta {
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .drawer-social-row {
+    justify-content: center;
   }
 }
 
