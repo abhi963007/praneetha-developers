@@ -589,16 +589,145 @@
   cursor: not-allowed;
 }
 
+.ins-mobile-filter {
+  display: none;
+}
+
 @media (max-width: 767px) {
   .ins-toolbar {
     flex-direction: column;
     align-items: stretch;
-    gap: 12px;
+    gap: 10px;
     margin-bottom: 20px;
   }
 
+  .ins-categories {
+    display: none !important;
+  }
+
+  .ins-mobile-filter {
+    display: block;
+    position: relative;
+    width: 100%;
+    z-index: 12;
+  }
+
+  .ins-mobile-select-btn {
+    width: 100%;
+    height: 42px;
+    padding: 0 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(44, 58, 46, 0.2);
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-family: "Inter Tight", sans-serif;
+    font-size: 13.5px;
+    font-weight: 400;
+    color: #1c1c1a;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: border-color 0.2s ease;
+  }
+
+  .ins-mobile-select-btn.is-open {
+    border-color: #007b3e;
+  }
+
+  .ins-mobile-select-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .ins-mobile-select-text strong {
+    font-weight: 600;
+    color: #2c3a2e;
+  }
+
+  .ins-mobile-select-chevron {
+    color: #2c3a2e;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  .ins-mobile-select-chevron.is-open {
+    transform: rotate(180deg);
+    color: #007b3e;
+  }
+
+  .ins-mobile-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background: #ffffff;
+    border: 1px solid rgba(44, 58, 46, 0.14);
+    border-radius: 14px;
+    box-shadow: 0 14px 34px rgba(28, 28, 26, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .ins-mobile-option {
+    width: 100%;
+    padding: 9px 12px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-family: "Inter Tight", sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #1c1c1a;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .ins-mobile-option.is-active {
+    background: #f5efe6;
+    color: #007b3e;
+    font-weight: 600;
+  }
+
+  .ins-mobile-option-count {
+    min-width: 22px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background: rgba(44, 58, 46, 0.08);
+    color: #2c3a2e;
+    font-size: 11.5px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ins-mobile-option.is-active .ins-mobile-option-count {
+    background: #007b3e;
+    color: #ffffff;
+  }
+
   .ins-search-wrap {
-    max-width: none;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    height: 42px !important;
+    max-width: none !important;
+  }
+
+  .ins-search-input {
+    height: 42px !important;
+    border-radius: 12px !important;
   }
 
   .ins-filter-pill {

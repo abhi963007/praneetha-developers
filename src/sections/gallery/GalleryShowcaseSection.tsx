@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './gallery-page.css';
 
@@ -191,6 +191,19 @@ export function GalleryShowcaseSection() {
   const [activeCategory, setActiveCategory] = useState<GalleryCategory>('All');
   const [activeProject, setActiveProject] = useState<GalleryProject>('All Projects');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [openMobileFilter, setOpenMobileFilter] = useState<'category' | 'project' | null>(null);
+  const mobileFiltersRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!openMobileFilter) return;
+    const handleOutside = (e: MouseEvent) => {
+      if (mobileFiltersRef.current && !mobileFiltersRef.current.contains(e.target as Node)) {
+        setOpenMobileFilter(null);
+      }
+    };
+    document.addEventListener('mousedown', handleOutside);
+    return () => document.removeEventListener('mousedown', handleOutside);
+  }, [openMobileFilter]);
 
   const filtered = GALLERY_ENTRIES.filter((item) => {
     const catMatch = activeCategory === 'All' || item.category === activeCategory;
@@ -291,44 +304,120 @@ export function GalleryShowcaseSection() {
             })}
           </div>
 
-          <div className="gal-mobile-filters">
-            <label className="gal-mobile-select-wrap">
+          <div className="gal-mobile-filters" ref={mobileFiltersRef}>
+            <div className="gal-mobile-select-wrap">
               <span className="gal-mobile-select-label">Category</span>
-              <select
-                aria-label="Filter gallery by category"
-                className="gal-mobile-select"
-                value={activeCategory}
-                onChange={(e) => {
-                  setActiveCategory(e.target.value as (typeof CATEGORIES)[number]);
-                  setLightboxIndex(null);
-                }}
+              <button
+                type="button"
+                className={`gal-mobile-select-btn${openMobileFilter === 'category' ? ' is-open' : ''}`}
+                aria-expanded={openMobileFilter === 'category'}
+                aria-haspopup="listbox"
+                onClick={() =>
+                  setOpenMobileFilter((prev) => (prev === 'category' ? null : 'category'))
+                }
               >
-                {CATEGORIES.map((category) => (
-                  <option key={category} value={category}>
-                    {category} ({getCount(category)})
-                  </option>
-                ))}
-              </select>
-            </label>
+                <span className="gal-mobile-select-text">
+                  {activeCategory} ({getCount(activeCategory)})
+                </span>
+                <svg
+                  className={`gal-mobile-select-chevron${openMobileFilter === 'category' ? ' is-open' : ''}`}
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 4.5L6 7.5L9 4.5"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              {openMobileFilter === 'category' && (
+                <ul className="gal-mobile-dropdown" role="listbox" aria-label="Gallery categories">
+                  {CATEGORIES.map((category) => {
+                    const active = activeCategory === category;
+                    return (
+                      <li key={category} role="option" aria-selected={active}>
+                        <button
+                          type="button"
+                          className={`gal-mobile-option${active ? ' is-active' : ''}`}
+                          onClick={() => {
+                            setActiveCategory(category);
+                            setLightboxIndex(null);
+                            setOpenMobileFilter(null);
+                          }}
+                        >
+                          <span>{category}</span>
+                          <span className="gal-mobile-option-count">{getCount(category)}</span>
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+            </div>
 
-            <label className="gal-mobile-select-wrap">
+            <div className="gal-mobile-select-wrap">
               <span className="gal-mobile-select-label">Project</span>
-              <select
-                aria-label="Filter gallery by project"
-                className="gal-mobile-select"
-                value={activeProject}
-                onChange={(e) => {
-                  setActiveProject(e.target.value as (typeof PROJECTS)[number]);
-                  setLightboxIndex(null);
-                }}
+              <button
+                type="button"
+                className={`gal-mobile-select-btn${openMobileFilter === 'project' ? ' is-open' : ''}`}
+                aria-expanded={openMobileFilter === 'project'}
+                aria-haspopup="listbox"
+                onClick={() =>
+                  setOpenMobileFilter((prev) => (prev === 'project' ? null : 'project'))
+                }
               >
-                {PROJECTS.map((project) => (
-                  <option key={project} value={project}>
-                    {project} ({getProjectCount(project)})
-                  </option>
-                ))}
-              </select>
-            </label>
+                <span className="gal-mobile-select-text">
+                  {activeProject} ({getProjectCount(activeProject)})
+                </span>
+                <svg
+                  className={`gal-mobile-select-chevron${openMobileFilter === 'project' ? ' is-open' : ''}`}
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 4.5L6 7.5L9 4.5"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              {openMobileFilter === 'project' && (
+                <ul className="gal-mobile-dropdown" role="listbox" aria-label="Gallery projects">
+                  {PROJECTS.map((project) => {
+                    const active = activeProject === project;
+                    return (
+                      <li key={project} role="option" aria-selected={active}>
+                        <button
+                          type="button"
+                          className={`gal-mobile-option${active ? ' is-active' : ''}`}
+                          onClick={() => {
+                            setActiveProject(project);
+                            setLightboxIndex(null);
+                            setOpenMobileFilter(null);
+                          }}
+                        >
+                          <span>{project}</span>
+                          <span className="gal-mobile-option-count">
+                            {getProjectCount(project)}
+                          </span>
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+            </div>
           </div>
         </div>
 

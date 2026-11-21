@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import './insights-section.css';
 
@@ -207,6 +207,19 @@ export function InsightsGridSection() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<BlogCategory>('All');
   const [currentPage, setCurrentPage] = useState(1);
+  const [isCatMenuOpen, setIsCatMenuOpen] = useState(false);
+  const catMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isCatMenuOpen) return;
+    const handleOutside = (e: MouseEvent) => {
+      if (catMenuRef.current && !catMenuRef.current.contains(e.target as Node)) {
+        setIsCatMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleOutside);
+    return () => document.removeEventListener('mousedown', handleOutside);
+  }, [isCatMenuOpen]);
 
   const selectedArticle =
     (pathname.startsWith('/insights/') || pathname.startsWith('/blogs/')) && slug
@@ -320,6 +333,66 @@ export function InsightsGridSection() {
                   </button>
                 );
               })}
+            </div>
+
+            <div className="ins-mobile-filter" ref={catMenuRef}>
+              <button
+                type="button"
+                className={`ins-mobile-select-btn${isCatMenuOpen ? ' is-open' : ''}`}
+                aria-expanded={isCatMenuOpen}
+                aria-haspopup="listbox"
+                onClick={() => setIsCatMenuOpen((prev) => !prev)}
+              >
+                <span className="ins-mobile-select-text">
+                  Category: <strong>{activeCategory}</strong> (
+                  {activeCategory === 'All'
+                    ? INSIGHT_ARTICLES.length
+                    : INSIGHT_ARTICLES.filter((a) => a.category === activeCategory).length}
+                  )
+                </span>
+                <svg
+                  className={`ins-mobile-select-chevron${isCatMenuOpen ? ' is-open' : ''}`}
+                  width="14"
+                  height="14"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 4.5L6 7.5L9 4.5"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              {isCatMenuOpen && (
+                <ul className="ins-mobile-dropdown" role="listbox" aria-label="Blog categories">
+                  {BLOG_CATEGORIES.map((category) => {
+                    const active = activeCategory === category;
+                    const count =
+                      category === 'All'
+                        ? INSIGHT_ARTICLES.length
+                        : INSIGHT_ARTICLES.filter((a) => a.category === category).length;
+                    return (
+                      <li key={category} role="option" aria-selected={active}>
+                        <button
+                          type="button"
+                          className={`ins-mobile-option${active ? ' is-active' : ''}`}
+                          onClick={() => {
+                            setActiveCategory(category);
+                            setIsCatMenuOpen(false);
+                          }}
+                        >
+                          <span>{category}</span>
+                          <span className="ins-mobile-option-count">{count}</span>
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
             </div>
 
             <div className="ins-search-wrap">
