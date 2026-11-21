@@ -311,15 +311,89 @@
   font-size: 0.84rem;
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .main-footer .footer-widgets {
+    padding: 36px 0 28px !important;
+  }
+
   .main-footer .footer-grid {
     grid-template-columns: 1fr !important;
-    gap: 36px !important;
+    gap: 28px !important;
+  }
+
+  /* 2-column top brand + newsletter row tailored for iPad width */
+  .main-footer .footer-box {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 340px) !important;
+    column-gap: 32px !important;
+    row-gap: 8px !important;
+    align-items: start !important;
+    padding-bottom: 24px !important;
+    border-bottom: 1px solid rgba(245, 239, 230, 0.11) !important;
+  }
+
+  .main-footer .footer-brand-link {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .main-footer .footer-tagline {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 4px 0 0;
+    font-size: 0.85rem;
+    max-width: 340px;
+  }
+
+  .main-footer .footer-title-two {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    margin: 0 !important;
+    font-size: 0.74rem !important;
+  }
+
+  .main-footer .newsletter-form-block {
+    grid-column: 2;
+    grid-row: 2;
+    max-width: 100% !important;
+  }
+
+  .main-footer .footer-links-wrap.footer-links-cols {
+    gap: 24px !important;
+  }
+
+  .main-footer .footer-col-group {
+    padding: 2px 0 2px 24px;
   }
 
   .main-footer .footer-col-group:first-child {
     padding-left: 0;
     border-left: none;
+  }
+
+  .main-footer .footer-col-label {
+    margin: 0 0 12px !important;
+    font-size: 0.74rem !important;
+  }
+
+  .main-footer .footer-col-items {
+    gap: 8px !important;
+  }
+
+  .main-footer .footer-col-items .footer-link,
+  .main-footer .footer-col-items--social .social-two-text {
+    font-size: 0.88rem !important;
+  }
+
+  .main-footer .footer-bottom {
+    padding: 16px 0 !important;
+  }
+
+  .main-footer .copyright-text,
+  .main-footer .footer-legal-link,
+  .main-footer .footer-legal-sep {
+    font-size: 0.8rem !important;
   }
 }
 
@@ -329,6 +403,7 @@
   }
 
   .main-footer .footer-grid {
+    grid-template-columns: 1fr !important;
     gap: 22px !important;
   }
 
