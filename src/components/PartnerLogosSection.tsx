@@ -14,20 +14,32 @@ const PROJECT_LOGOS = [
 ];
 
 export function PartnerLogosSection({ pZero = true }: PartnerLogosSectionProps) {
+  const renderCards = (isClone = false) =>
+    PROJECT_LOGOS.map((item) => (
+      <Link
+        key={isClone ? `${item.id}-clone` : item.id}
+        to={item.to}
+        aria-label={isClone ? undefined : item.name}
+        tabIndex={isClone ? -1 : undefined}
+        className="partner-marquee-card"
+      >
+        <img
+          src={item.logo}
+          alt={isClone ? '' : item.name}
+          title={isClone ? undefined : item.name}
+          loading="lazy"
+          className="partner-marquee-img"
+        />
+      </Link>
+    ));
+
   return (
     <section className={pZero ? 'section p-zero partner-logos-section' : 'section partner-logos-section'}>
-      <div className="partner-logos-strip" aria-label="Our Projects">
-        {PROJECT_LOGOS.map((item) => (
-          <Link key={item.id} to={item.to} aria-label={item.name} className="partner-marquee-card">
-            <img
-              src={item.logo}
-              alt={item.name}
-              title={item.name}
-              loading="lazy"
-              className="partner-marquee-img"
-            />
-          </Link>
-        ))}
+      <div className="partner-logos-track" aria-label="Our Projects">
+        <div className="partner-logos-strip">{renderCards(false)}</div>
+        <div className="partner-logos-strip partner-logos-strip--clone" aria-hidden="true">
+          {renderCards(true)}
+        </div>
       </div>
     </section>
   );
